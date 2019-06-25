@@ -28,6 +28,6 @@ Machine learning and data visualization research into phoneme patterns of author
 | `get_characters.py` | Set or Dictionary or sets by play | Text or JSON | folgersdigitaltexts.org |
 | `get_texts.py` | Dictionary or Dictionary of dictionaries by play | Text or JSON | `get_characters.py` |
 | `get_phonemes.py` | Dictionary or Dictionary of dictionaries by play | Text or JSON | `get_texts.py`, `get_characters.py` |
-| `count_phonemes.py` | Nested dictionary (`{char:{phoneme:count, ...}, ...}`) or Dictionary of nested dictionaries by play (`{play:{char{phoneme:count, ...}, ...}, ...}`) | `get_phonemes.py`, `get_texts.py`, `get_characters.py` |
+| `count_phonemes.py` | Nested dictionary (`{char:{phoneme:count, ...}, ...}`) or Dictionary of nested dictionaries by play (`{play:{char{phoneme:count, ...}, ...}, ...}`) | JSON or csv | `get_phonemes.py`, `get_texts.py`, `get_characters.py` |
 
 ### `get_characters.py`
