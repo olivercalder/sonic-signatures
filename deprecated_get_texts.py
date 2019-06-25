@@ -29,17 +29,19 @@ Command line options for get_texts.py:
     -h  help with possible arguments
     -c [char_code]  gets text only for specified character
     -p [play_code]  gets texts for characters only in specified play
+    -ec [char_code]  excludes specified character
+    -ep [play_code]  excludes specified play
+    
+    Future options (not yet implemented)
     -r  preserve raw text with punctuation and extra spacing
-    -v  prints output to console
-    -w [path/to/filename]   write output to file
-    -s  string
-    -d  dictionary of the form {'char_code':'char text', ...}
-    -j  json format
+    -v  prints output to console as string
+    -ws [path/to/filename]   write output to file as string
+    -wj [path/to/filename]   write output to file as json
 
 Example:
-    python3 get_texts.py -v -c Mac_Macbeth -j -w my_text.json
+    python3 get_texts.py -v -c Mac_Macbeth -p Ham -wj my_text.json
 
-- gets the text for the character Macbeth
+- gets the text for the character Macbeth and for every character in Hamlet
 - parses that text into letters only (by default, through omission of -r)
 - formats the each character and the respective text into a dictionary object in JSON
 - writes the JSON to a file specified after the -w argument, in this case my_text.json
@@ -50,10 +52,10 @@ import sys
 import requests
 import bs4
 
-play_codes = set(['AWW', 'Ant', 'AYL', 'Err', 'Cor', 'Cym', 'Ham', '1H4', '2H4', 'H5',
+play_codes = {'AWW', 'Ant', 'AYL', 'Err', 'Cor', 'Cym', 'Ham', '1H4', '2H4', 'H5',
         '1H6', '2H6', '3H6', 'H8', 'JC', 'Jn', 'Lr', 'LLL', 'Mac', 'MM', 'MV', 'Wiv',
         'MND', 'Ado', 'Oth', 'Per', 'R2', 'R3', 'Rom', 'Shr', 'Tmp', 'Tim', 'Tit',
-        'Tro', 'TN', 'TGV', 'TNK', 'WT'])
+        'Tro', 'TN', 'TGV', 'TNK', 'WT'}
 
 def get_chars_for_play(play_code, min_words=0):
     # TODO: Implement minimim word count cutoff for characters
