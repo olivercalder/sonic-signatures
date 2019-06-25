@@ -6,8 +6,8 @@ Machine learning and data visualization research into phoneme patterns of author
 - Oliver Calder
 
 ## Contents:
-- `get\_characters.py`: Returns a set of character codes from folgersdigitaltexts.org
-  - [Description](https://github.com/olivercalder/sonic-signatures#get_characters.py)
+- `get_characters.py`: Returns a set of character codes from folgersdigitaltexts.org
+  - [Description](https://github.com/olivercalder/sonic-signatures#get_characterspy)
   - [Usage](https://github.com/olivercalder/sonic-signatures#Usage)
 
 ### Dependencies:
