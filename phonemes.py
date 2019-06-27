@@ -68,12 +68,13 @@ def nest_dict_by_play(phoneme_dict):
 def unnest_dict(phoneme_dict_nested):
     phoneme_dict = {}
     for play in phoneme_dict_nested:
-        for char in play:
+        for char in phoneme_dict_nested[play]:
             phoneme_dict[char] = phoneme_dict_nested[play][char]
     return phoneme_dict
 
 
 def print_phonemes(phoneme_dict):
+    print('print_phonemes was called')
     for key in phoneme_dict: # Way to check type of some unspecified value in dictionary
         if type(phoneme_dict[key]) == type({}):
             pd = unnest_dictionary(phoneme_dict)
@@ -93,9 +94,10 @@ def print_phonemes(phoneme_dict):
 
 
 def write_text(phoneme_dict, filename='phonemes.txt'):
+    print('write_text was called from phonemes')
     for key in phoneme_dict: # Way to check type of some unspecified value in dictionary
         if type(phoneme_dict[key]) == type({}):
-            pd = unnest_dictionary(phoneme_dict)
+            pd = unnest_dict(phoneme_dict)
         else:
             pd = phoneme_dict
         break
@@ -209,7 +211,7 @@ if __name__ == '__main__':
     i += 1
     unrecognized = []
     while i < len(sys.argv):
-        if sys.argv[i] == 'h':
+        if sys.argv[i] == '-h':
             print(help_string)
             quit()
         elif sys.argv[i] == '-p':

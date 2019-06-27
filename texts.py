@@ -63,12 +63,13 @@ def nest_dict_by_play(text_dict):
 def unnest_dict(text_dict_nested):
     text_dict = {}
     for play in text_dict_nested:
-        for char in play:
+        for char in text_dict_nested[play]:
             text_dict[char] = text_dict_nested[play][char]
     return text_dict
 
 
 def print_texts(text_dict):
+    print('print_texts was called')
     for key in text_dict: # Way to check type of some unspecified value in dictionary
         if type(text_dict[key]) == type({}):
             td = unnest_dict(text_dict)

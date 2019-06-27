@@ -62,7 +62,7 @@ def convert_set_to_dict(char_set):
 def convert_dict_to_set(char_dict):
     char_set = set([])
     for play in char_dict:
-        for char in play:
+        for char in char_dict[play]:
             char_set.add(char)
     return char_set
 
@@ -82,6 +82,7 @@ def convert_json_to_dict(char_json):
 
 
 def print_chars(char_set):
+    print('print_chars was called')
     if type(char_set) == type({}):
         char_set = convert_dict_to_set(char_set)
     char_set = set(char_set)
@@ -154,7 +155,7 @@ def build_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([
             wt = 'characters.txt'
         write_text(char_dict, wt)
     if wj != False:
-        if type(wt) == type(True):
+        if type(wj) == type(True):
             wj = 'characters.json'
         write_json(char_dict, wj)
     return char_dict
