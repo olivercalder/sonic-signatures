@@ -1,5 +1,5 @@
 '''
-File: get_characters.py
+File: characters.py
 Created: Oliver Calder, 25 June 2019
 Sonic Signatures Research
 Supervised by Eric Alexander
@@ -10,7 +10,7 @@ Texts sourced from https://folgerdigitaltexts.org/api
 This script returns a set containing all the character codes for the play or plays specified.
 If no play is specified, it returns character codes for each character from every play.
 
-The script can sort characters by play by using the -d argument. This causes a dictionary to be
+The script can nest characters by play by using the -n argument. This causes a dictionary to be
 returned with a key for each play mapped to a set containing all the character codes for that
 play. This takes the form:
 {'Mac':{'Mac_Macbeth', 'Mac_Macduff', ...}, 'Ham':{'Ham_Hamlet', ...}}
@@ -20,26 +20,28 @@ in the set of returned character codes.
 '''
 
 help_string = '''
-Help for get_characters.py:
+Help for characters.py:
 Returns a set containing all the character codes for the play or plays specified.
 If no play is specified, it returns character codes for each character from every play.
 
 Command Line Arguments:
 -h               Prints help text
 -p [play_code]   Specifies one or more plays (separated by spaces) for which to return codes
--ep [play_code]  Specifies one or more plays which whose characters will be omitted
--ec [char_code]  Specifies one or more characters to be omitted from the set
--d               Returns a dictionary of characters sorted by play, rather than a set of all
+-c [char_code]   Specifies one or more characters to be included, in addition to given plays
+-ep [play_code]  Specifies one or more plays whose characters will be excluded
+-ec [char_code]  Specifies one or more characters to be excluded from the set
+-n               Returns a dictionary of characters nested by play, rather than a set of all
 -s               Silent: Does not print to console
--wt [path/to/filename]  Writes the output to the specified file as plain text
--wj [path/to/filename]  Writes the output to the specified file as json
+-wt [path/to/filename.txt]   Writes the output to the specified file as plain text
+-wj [path/to/filename.json]  Writes the output to the specified file as json
+-m [min_words]   Specifies the minimum words necessary for a character to be included
 '''
 
-import os
 import sys
 import requests
 import bs4
 import json
+
 
 plays = {'AWW', 'Ant', 'AYL', 'Err', 'Cor', 'Cym', 'Ham', '1H4', '2H4', 'H5',
         '1H6', '2H6', '3H6', 'H8', 'JC', 'Jn', 'Lr', 'LLL', 'Mac', 'MM', 'MV', 'Wiv',
@@ -79,7 +81,34 @@ def convert_json_to_dict(char_json):
     return char_dict
 
 
-def get_char_set(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), min_words=0):
+def print_chars(char_set):
+    if type(char_set) == type({}):
+        char_set = convert_dict_to_set(char_set)
+    char_set = set(char_set)
+    for char in char_set:
+        print(char)
+
+
+def write_text(char_set, filename='characters.txt'):
+    if type(char_set) == type({}):
+        char_set = convert_dict_to_set(char_set)
+    char_set = set(char_set)
+    out_text = open(filename, 'w')
+    for char in char_set:
+        print(char, file=out_text)
+    out_text.close()
+
+
+def write_json(char_dict, filename='characters.json'):
+    if type(char_dict) != type({}):
+        char_dict = convert_set_to_dict(set(char_dict))
+    out_json = open(filename, 'w')
+    char_json = convert_dict_to_json(char_dict)
+    json.dump(char_json, out_json)
+    out_json.close()
+
+
+def get_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, min_words=0):
     # TODO: implement minimum word count cutoff for characters
 
     if type(char_codes) == type(''):
@@ -110,46 +139,30 @@ def get_char_set(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]),
     for character in ec:
         char_set.discard(character)
 
-    return char_set
+    if nested:
+        return convert_set_to_dict(char_set)
+    else:
+        return char_set
 
 
-def get_char_dict(play_codes=set([]), char_codes=set([]), ec=set([]), ep=set([]), min_words=0):
-    char_set = get_char_set(play_codes, char_codes, ep, ec, min_words=0)
-    char_dict = convert_set_to_dict(char_set)
+def build_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, min_words=0):
+    char_dict = get_char_dict(play_codes, char_codes, ep, ec, nested, min_words)
+    if not silent:
+        print_chars(char_dict)
+    if wt != False:
+        if type(wt) == type(True):
+            wt = 'characters.txt'
+        write_text(char_dict, wt)
+    if wj != False:
+        if type(wt) == type(True):
+            wj = 'characters.json'
+        write_json(char_dict, wj)
     return char_dict
 
 
-def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), dictionary=False, silent=False, wt=False, wj=False):
-    char_set = get_char_set(play_codes, char_codes, ep, ec)
-    char_dict = convert_set_to_dict(char_set)
-
-    if wt != False:
-        os.system('touch {}'.format(wt))
-        out_text = open(wt, 'w')
-    if wj != False:
-        os.system('touch {}'.format(wj))
-        out_json = open(wj, 'w')
-
-    if not s or wt != False: #Ugly code, but slightly more efficient to not iterate if unneeded
-        for char in char_set:
-            if not s:
-                print(char)
-            if wt != False:
-                print(char, file=out_text) 
-
-    if wj != False:
-        char_json = convert_dict_to_json(char_dict)
-        json.dump(char_json, out_json)
-
-    if wt != False:
-        out_text.close()
-    if wj != False:
-        out_json.close()
-
-    if not d:
-        return char_set
-    elif d:
-        return char_dict
+def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, min_words=0):
+    char_dict = build_char_dict(play_codes, char_codes, ep, ec, nested, silent, wt, wj, min_words)
+    return char_dict
 
 
 if __name__ == '__main__':
@@ -157,19 +170,23 @@ if __name__ == '__main__':
     char_codes = set([])
     ep = set([])
     ec = set([])
-    d = False
-    s = False
+    nested = False
+    silent = False
     wt = False
     wj = False
+    min_words = 0
 
     i = 0
     while i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
         i += 1
         play_codes.add(sys.argv[i])
 
-    for i in range(1, len(sys.argv)):
+    i += 1
+    unrecognized = []
+    while i < len(sys.argv):
         if sys.argv[i] == '-h':
             print(help_string)
+            quit()
         elif sys.argv[i] == '-p':
             while i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
@@ -186,20 +203,35 @@ if __name__ == '__main__':
             while i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
                 ec.add(sys.argv[i])
-        elif sys.argv[i] == '-d':
-            d = True
+        elif sys.argv[i] == '-n':
+            nested = True
         elif sys.argv[i] == '-s':
-            s = True
+            silent = True
         elif sys.argv[i] == '-wt':
-            if i == len(sys.argv)-1 or sys.argv[i+1][0] == '-':
+            if i+1 == len(sys.argv) or sys.argv[i+1][0] == '-':
                 wt = 'characters.txt'
             elif i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
                 wt = sys.argv[i]
         elif sys.argv[i] == '-wj':
-            if i == len(sys.argv)-1 or sys.argv[i+1][0] == '-':
+            if i+1 == len(sys.argv) or sys.argv[i+1][0] == '-':
                 wj = 'characters.json'
             elif i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
                 wj = sys.argv[i]
-    main(play_codes, char_codes, ep, ec, d, s, wt, wj)
+        elif sys.argv[i] == '-m':
+            if i+1 == len(sys.argv) or sys.argv[i+1][0] == '-':
+                unrecognized.append('-m: Missing Specifier')
+            elif i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                min_words = sys.argv[i]
+        else:
+            unrecognized.append(sys.argv[i])
+        i += 1
+    
+    if len(unrecognized) > 0:
+        print('ERROR: Unrecognized Arguments:')
+        for arg in unrecognized:
+            print(arg)
+    else:
+        main(play_codes, char_codes, ep, ec, nested, silent, wt, wj, min_words)
