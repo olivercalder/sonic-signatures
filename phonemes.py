@@ -12,7 +12,7 @@ text in the form of a list of phonemes. If one or more characters or plays is sp
 dictionary will be built using only the codes and phonemes for those characters. Otherwise,
 the script will build a dictionary containing every character by default.
 
-The script can sort characters by play using the -d argument. This causes a dictionary to be
+The script can sort characters by play using the -n argument. This causes a dictionary to be
 returned with a key for each play mapped to a dictionary where each character code is mapped to
 the phoneme list for that character. This takes the form:
 {'Mac':{'Mac_Macbeth':phonemes, 'Mac_Macduff':phonemes, ...}, 'Ham':{'Ham_Hamlet':phonemes, ...}}
