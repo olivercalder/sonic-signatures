@@ -16,7 +16,7 @@ The script can sort characters by play using the -n argument. This causes a dict
 the text for that character. This takes the form:
 {'Mac':{'Mac_Macbeth':text, 'Mac_Macduff':text, ...}, 'Ham':{'Ham_Hamlet':text, ...}}
 
-Any character or play which is excluded using -ec or -ep, respectively, will not be included in
+Any play or character which is excluded using -ep or -ec, respectively, will not be included in
 the dictionary.
 '''
 

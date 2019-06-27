@@ -17,7 +17,7 @@ returned with a key for each play mapped to a dictionary where each character co
 the phoneme list for that character. This takes the form:
 {'Mac':{'Mac_Macbeth':phonemes, 'Mac_Macduff':phonemes, ...}, 'Ham':{'Ham_Hamlet':phonemes, ...}}
 
-Any character or play which is excluded using -ec or -ep, respectively, will not be included in
+Any play or character which is excluded using -ep or -ec, respectively, will not be included in
 the dictionary.
 '''
 
