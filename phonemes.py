@@ -7,7 +7,7 @@ Carleton College
 
 Texts sourced from https://folgerdigitaltexts.org/api
 
-This script returns a dictionary containing each character code paired to that that character's
+This script returns a dictionary containing each character code paired to that character's
 text in the form of a list of phonemes. If one or more characters or plays is specified, the
 dictionary will be built using only the codes and phonemes for those characters. Otherwise,
 the script will build a dictionary containing every character by default.
