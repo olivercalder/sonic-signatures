@@ -5,7 +5,7 @@ Sonic Signatures Research
 Supervised by Eric Alexander
 Carleton College
 
-Texts sourced from https://folgersdigitaltexts.org/api
+Texts sourced from https://folgerdigitaltexts.org/api
 
 This script returns a dictionary containing each character code paired to that that character's
 text in the form of a list of phonemes. If one or more characters or plays is specified, the
