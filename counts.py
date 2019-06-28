@@ -229,7 +229,7 @@ def get_unknowns_counts(unknowns_dict, nested=False):
     return counts_dict
 
 
-def build_phoneme_counts(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only, preserve_emphasis=False, raw=False, min_words=0):
+def build_phoneme_counts(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
 
     if return_unknowns:
         phoneme_dict, unknowns_dict = phonemes.build_phoneme_dict(play_codes, char_codes, ep, ec, nested, silent, wt and cascade, wj and cascade, title, directory, cascade, True, vowels_only, preserve_emphasis, raw, min_words)
