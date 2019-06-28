@@ -120,7 +120,7 @@ def write_json(text_dict, title='', directory=''):
         create_directory(directory)
     if title != '':
         title = title + '_'
-    filename = dictionary + title + 'texts.json'
+    filename = directory + title + 'texts.json'
     out_json = open(filename, 'w')
     json.dump(text_dict, out_json)
     out_json.close()
