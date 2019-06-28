@@ -102,7 +102,7 @@ def print_texts(text_dict):
 def write_text(text_dict, title='', directory=''):
     if is_nested(text_dict):
         text_dict = unnest_dict(text_dict)
-    if directory != ''
+    if directory != '':
         directory = directory.rstrip('/') + '/'
         create_directory(directory)
     if title != '':
