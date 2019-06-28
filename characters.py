@@ -32,8 +32,9 @@ Command Line Arguments:
 -ec [char_code]  Specifies one or more characters to be excluded from the set
 -n               Returns a dictionary of characters nested by play, rather than a set of all
 -s               Silent: Does not print to console
--wt [path/to/filename.txt]   Writes the output to the specified file as plain text
--wj [path/to/filename.json]  Writes the output to the specified file as json
+-wt              Writes the output to file as plain text
+-wj              Writes the output to file as json
+-t [title]       Title: Indicates name of specific run, used in filenames
 -m [min_words]   Specifies the minimum words necessary for a character to be included
 '''
 
@@ -82,7 +83,6 @@ def convert_json_to_dict(char_json):
 
 
 def print_chars(char_set):
-    print('print_chars was called')
     if type(char_set) == type({}):
         char_set = convert_dict_to_set(char_set)
     char_set = set(char_set)
@@ -90,19 +90,25 @@ def print_chars(char_set):
         print(char)
 
 
-def write_text(char_set, filename='characters.txt'):
+def write_text(char_set, title=''):
     if type(char_set) == type({}):
         char_set = convert_dict_to_set(char_set)
     char_set = set(char_set)
+    if title != '':
+        title = title + '_'
+    filename = title + 'characters.txt'
     out_text = open(filename, 'w')
     for char in char_set:
         print(char, file=out_text)
     out_text.close()
 
 
-def write_json(char_dict, filename='characters.json'):
+def write_json(char_dict, title=''):
     if type(char_dict) != type({}):
         char_dict = convert_set_to_dict(set(char_dict))
+    if title != '':
+        title = title + '_'
+    filename = title + 'characters.json'
     out_json = open(filename, 'w')
     char_json = convert_dict_to_json(char_dict)
     json.dump(char_json, out_json)
@@ -111,7 +117,6 @@ def write_json(char_dict, filename='characters.json'):
 
 def get_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, min_words=0):
     # TODO: implement minimum word count cutoff for characters
-
     if type(char_codes) == type(''):
         char_codes = set([char_codes])
     char_set = set(char_codes)
@@ -146,23 +151,19 @@ def get_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([])
         return char_set
 
 
-def build_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, min_words=0):
+def build_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', min_words=0):
     char_dict = get_char_dict(play_codes, char_codes, ep, ec, nested, min_words)
     if not silent:
         print_chars(char_dict)
-    if wt != False:
-        if type(wt) == type(True):
-            wt = 'characters.txt'
-        write_text(char_dict, wt)
-    if wj != False:
-        if type(wj) == type(True):
-            wj = 'characters.json'
-        write_json(char_dict, wj)
+    if wt == True:
+        write_text(char_dict, title)
+    if wj == True:
+        write_json(char_dict, title)
     return char_dict
 
 
-def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, min_words=0):
-    char_dict = build_char_dict(play_codes, char_codes, ep, ec, nested, silent, wt, wj, min_words)
+def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', min_words=0):
+    char_dict = build_char_dict(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, min_words)
     return char_dict
 
 
@@ -175,6 +176,7 @@ if __name__ == '__main__':
     silent = False
     wt = False
     wj = False
+    title = ''
     min_words = 0
 
     i = 0
@@ -209,23 +211,21 @@ if __name__ == '__main__':
         elif sys.argv[i] == '-s':
             silent = True
         elif sys.argv[i] == '-wt':
-            if i+1 == len(sys.argv) or sys.argv[i+1][0] == '-':
-                wt = 'characters.txt'
-            elif i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
-                i += 1
-                wt = sys.argv[i]
+            wt = True
         elif sys.argv[i] == '-wj':
-            if i+1 == len(sys.argv) or sys.argv[i+1][0] == '-':
-                wj = 'characters.json'
-            elif i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+            wj = True
+        elif sys.argv[i] == '-t':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
-                wj = sys.argv[i]
+                title = sys.argv[i]
+            else:
+                unrecognized.append('-t: Missing Specifier')
         elif sys.argv[i] == '-m':
             if i+1 == len(sys.argv) or sys.argv[i+1][0] == '-':
                 unrecognized.append('-m: Missing Specifier')
             elif i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
-                min_words = sys.argv[i]
+                min_words = int(sys.argv[i])
         else:
             unrecognized.append(sys.argv[i])
         i += 1
@@ -235,4 +235,4 @@ if __name__ == '__main__':
         for arg in unrecognized:
             print(arg)
     else:
-        main(play_codes, char_codes, ep, ec, nested, silent, wt, wj, min_words)
+        main(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, min_words)

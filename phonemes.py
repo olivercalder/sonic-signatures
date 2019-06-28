@@ -24,8 +24,8 @@ the dictionary.
 help_string = '''
 Help for phonemes.py:
 Returns a dictionary containing the specified character codes mapped to their respective
-phonemes. If no character or play codes are specified, it returns a dictionary containing each
-character from every play.
+phonemes in a list. If no character or play codes are specified, it returns a dictionary
+containing each character from every play.
 
 Command Line Arguments:
 -h               Prints help text
@@ -35,17 +35,17 @@ Command Line Arguments:
 -ec [char_code]  Specifies one or more characters to be excluded from the dictionary
 -n               Returns a dictionary of characters nested by play, rather than intermixed
 -s               Silent: Does not print to console
--wt [path/to/filename.txt]   Writes the output to the specified file as plain text
--wj [path/to/filename.json]  Writes the output to the specified file as json
--R               Recursive cascade: Preserve print and write preferences for all scripts
+-wt              Writes the output to file as plain text
+-wj              Writes the output to file as json
+-t [title]       Title: Indicates name of specific run, used in filenames
+-R               Recursive cascade: Preserve write preferences for all scripts
 -u               Return list of unknown words as well as phoneme list: tuple(phonemes,unknowns)
 -e               Preserve emphasis marking in phonemes
--r               Preserve raw text (ie. capitalization, puncitonation)
+-r               Preserve raw text (ie. capitalization, punctuation)
 -m [min_words]   Specifies the minimum words necessary for a character to be included
 '''
 
 
-import characters
 import texts
 import sys
 import json
@@ -74,10 +74,9 @@ def unnest_dict(phoneme_dict_nested):
 
 
 def print_phonemes(phoneme_dict):
-    print('print_phonemes was called')
-    for key in phoneme_dict: # Way to check type of some unspecified value in dictionary
+    for key in phoneme_dict: # Way to check if nested
         if type(phoneme_dict[key]) == type({}):
-            pd = unnest_dictionary(phoneme_dict)
+            pd = unnest_dict(phoneme_dict)
         else:
             pd = phoneme_dict
         break
@@ -89,13 +88,8 @@ def print_phonemes(phoneme_dict):
         print(phoneme_dict[char])
 
 
-#TODO
-#def print_unknowns(
-
-
-def write_text(phoneme_dict, filename='phonemes.txt'):
-    print('write_text was called from phonemes')
-    for key in phoneme_dict: # Way to check type of some unspecified value in dictionary
+def write_text(phoneme_dict, title='', unknowns=False):
+    for key in phoneme_dict: # Way to check if nested
         if type(phoneme_dict[key]) == type({}):
             pd = unnest_dict(phoneme_dict)
         else:
@@ -103,16 +97,26 @@ def write_text(phoneme_dict, filename='phonemes.txt'):
         break
     phoneme_dict = pd
 
+    if title != '':
+        title = title + '_'
+    if unknowns:
+        title = title + 'unknowns_'
+    else:
+        title = title + 'phonemes_'
     for char in phoneme_dict:
-        parts = list(filename.rpartition('.'))
-        parts.insert(1, '_'+char)
-        new_filename = ''.join(parts)
-        out_text = open(new_filename, 'w')
+        filename = title + char + '.txt'
+        out_text = open(filename, 'w')
         print(phoneme_dict[char], file=out_text)
         out_text.close()
 
 
-def write_json(phoneme_dict, filename='phonemes.json'):
+def write_json(phoneme_dict, title='', unknowns=False):
+    if title != '':
+        title = title + '_'
+    if unknowns:
+        filename = title + 'unknowns.json'
+    else:
+        filename = title + 'phonemes.json'
     out_json = open(filename, 'w')
     json.dump(phoneme_dict, out_json)
     out_json.close()
@@ -140,7 +144,7 @@ def convert_text_to_phonemes(text, return_unknowns=False, preserve_emphasis=Fals
 
 
 def get_phoneme_dict(text_dict, nested=False, return_unknowns=False, preserve_emphasis=False):
-    for key in text_dict: # Way to check type of some unspecified value in dictionary
+    for key in text_dict: # Way to check if nested
         if type(text_dict[key]) == type({}):
             td = texts.unnest_dict(text_dict)
         else:
@@ -149,43 +153,41 @@ def get_phoneme_dict(text_dict, nested=False, return_unknowns=False, preserve_em
     text_dict = td
 
     phoneme_dict = {}
-    unknowns = []
+    unknowns_dict = {}
     for char in text_dict:
-        phoneme_dict[char], new_unknowns = convert_text_to_phonemes(text_dict[char], True, preserve_emphasis)
-        for word in new_unknowns:
-            unknowns.append(word)
+        phoneme_dict[char], unknowns_dict[char] = convert_text_to_phonemes(text_dict[char], True, preserve_emphasis)
     if nested:
         phoneme_dict = nest_dict_by_play(phoneme_dict)
+        unknowns_dict = nest_dict_by_play(unknowns_dict)
     if return_unknowns:
-        return phoneme_dict, unknowns
+        return phoneme_dict, unknowns_dict
     else:
         return phoneme_dict
 
 
-def build_phoneme_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, cascade=False, return_unknowns=False, preserve_emphasis=False, raw=False, min_words=0):
-    text_dict = texts.build_text_dict(play_codes, char_codes, ep, ec, nested, silent, wt and cascade, wj and cascade, cascade, raw, min_words)
-    phoneme_dict, unknowns = get_phoneme_dict(text_dict, nested, True, preserve_emphasis)
+def build_phoneme_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', cascade=False, return_unknowns=False, preserve_emphasis=False, raw=False, min_words=0):
+    text_dict = texts.build_text_dict(play_codes, char_codes, ep, ec, nested, silent, wt and cascade, wj and cascade, title, cascade, raw, min_words)
+    phoneme_dict, unknowns_dict = get_phoneme_dict(text_dict, nested, True, preserve_emphasis)
     if not silent:
         print_phonemes(phoneme_dict)
-    if wt != False:
-        if type(wt) == type(True):
-            wt = 'phonemes.txt'
-        write_text(phoneme_dict, wt)
-        #if return_unknowns:
-        #    write_unknowns
-    if wj != False:
-        if type(wj) == type(True):
-            wj = 'phonemes.json'
-        write_json(phoneme_dict, wj)
+        if return_unknowns:
+            print_phonemes(unknowns_dict)
+    if wt == True:
+        write_text(phoneme_dict, title)
+        if return_unknowns:
+            write_text(unknowns_dict, title, unknowns=True)
+    if wj == True:
+        write_json(phoneme_dict, title)
+        if return_unknowns:
+            write_json(unknowns_dict, title, unknowns=True)
     if return_unknowns:
-        return phoneme_dict, unknowns
+        return phoneme_dict, unknowns_dict
     else:
         return phoneme_dict
 
 
-def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, cascade=False, return_unknowns=False, preserve_emphasis=False, raw=False, min_words=0):
-    phoneme_dict = build_phoneme_dict(play_codes, char_codes, ep, ec, nested, silent, wt, wj, cascade, return_unknowns, preserve_emphasis, raw, min_words)
-    return phoneme_dict
+def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', cascade=False, return_unknowns=False, preserve_emphasis=False, raw=False, min_words=0):
+    return build_phoneme_dict(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, cascade, return_unknowns, preserve_emphasis, raw, min_words)
 
 
 if __name__ == '__main__':
@@ -197,6 +199,7 @@ if __name__ == '__main__':
     silent = False
     wt = False
     wj = False
+    title = ''
     cascade = False
     return_unknowns = False
     preserve_emphasis = False
@@ -235,17 +238,15 @@ if __name__ == '__main__':
         elif sys.argv[i] == '-s':
             silent = True
         elif sys.argv[i] == '-wt':
-            if i+1 == len(sys.argv) or sys.argv[i+1][0] == '-':
-                wt = 'phonemes.txt'
-            elif i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
-                i += 1
-                wt = sys.argv[i]
+            wt = True
         elif sys.argv[i] == '-wj':
-            if i+1 == len(sys.argv) or sys.argv[i+1][0] == '-':
-                wj = 'phonemes.json'
-            elif i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+            wj = True
+        elif sys.argv[i] == '-t':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
-                wj = sys.argv[i]
+                title = sys.argv[i]
+            else:
+                unrecognized.append('-t: Missing Specifier')
         elif sys.argv[i] == '-R':
             cascade = True
         elif sys.argv[i] == '-u':
@@ -259,7 +260,7 @@ if __name__ == '__main__':
                 unrecognized.append('-m: Missing Specifier')
             elif i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
-                min_words = sys.argv[i]
+                min_words = int(sys.argv[i])
         else:
             unrecognized.append(sys.argv[i])
         i += 1
@@ -269,4 +270,4 @@ if __name__ == '__main__':
         for arg in unrecognized:
             print(arg)
     else:
-        main(play_codes, char_codes, ep, ec, nested, silent, wt, wj, cascade, return_unknowns, preserve_emphasis, raw, min_words)
+        main(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, cascade, return_unknowns, preserve_emphasis, raw, min_words)
