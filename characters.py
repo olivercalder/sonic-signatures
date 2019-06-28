@@ -125,7 +125,7 @@ def write_json(char_dict, title='', directory=''):
         create_directory(directory)
     if title != '':
         title = title + '_'
-    filename = directory + title + 'characters.txt'
+    filename = directory + title + 'characters.json'
     out_json = open(filename, 'w')
     char_json = convert_dict_to_json(char_dict)
     json.dump(char_json, out_json)
