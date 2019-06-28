@@ -58,6 +58,9 @@ import nltk
 # $ python3 -m nltk.downloader [-d /usr/share/nltk_data] cmudict
 
 
+vowels = {'A', 'E', 'I', 'O', 'U'}
+
+
 def nest_dict_by_play(phoneme_dict):
     phoneme_dict_nested = {}
     for char in phoneme_dict:
