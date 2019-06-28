@@ -35,10 +35,12 @@ Command Line Arguments:
 -wt              Writes the output to file as plain text
 -wj              Writes the output to file as json
 -t [title]       Title: Indicates name of specific run, used in filenames
+-d [path/to/dir] Specifies directory in which to write output files
 -m [min_words]   Specifies the minimum words necessary for a character to be included
 '''
 
 import sys
+import os
 import requests
 import bs4
 import json
@@ -82,6 +84,15 @@ def convert_json_to_dict(char_json):
     return char_dict
 
 
+def create_directory(directory):
+    if not os.path.isdir(directory):
+        path = directory.rstrip('/').split('/')
+        for i in range(len(path)):
+            path_chunk = '/'.join(path[:i+1])
+            if not os.path.isdir(path_chunk):
+                os.mkdir(path_chunk)
+
+
 def print_chars(char_set):
     if type(char_set) == type({}):
         char_set = convert_dict_to_set(char_set)
@@ -90,25 +101,31 @@ def print_chars(char_set):
         print(char)
 
 
-def write_text(char_set, title=''):
+def write_text(char_set, title='', directory=''):
     if type(char_set) == type({}):
         char_set = convert_dict_to_set(char_set)
     char_set = set(char_set)
+    if directory != '':
+        directory = directory.rstrip('/') + '/'
+        create_directory(directory)
     if title != '':
         title = title + '_'
-    filename = title + 'characters.txt'
+    filename = directory + title + 'characters.txt'
     out_text = open(filename, 'w')
     for char in char_set:
         print(char, file=out_text)
     out_text.close()
 
 
-def write_json(char_dict, title=''):
+def write_json(char_dict, title='', directory=''):
     if type(char_dict) != type({}):
         char_dict = convert_set_to_dict(set(char_dict))
+    if directory != '':
+        directory = directory.rstrip('/') + '/'
+        create_directory(directory)
     if title != '':
         title = title + '_'
-    filename = title + 'characters.json'
+    filename = directory + title + 'characters.txt'
     out_json = open(filename, 'w')
     char_json = convert_dict_to_json(char_dict)
     json.dump(char_json, out_json)
@@ -151,19 +168,19 @@ def get_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([])
         return char_set
 
 
-def build_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', min_words=0):
+def build_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', directory='', min_words=0):
     char_dict = get_char_dict(play_codes, char_codes, ep, ec, nested, min_words)
     if not silent:
         print_chars(char_dict)
     if wt == True:
-        write_text(char_dict, title)
+        write_text(char_dict, title, directory)
     if wj == True:
-        write_json(char_dict, title)
+        write_json(char_dict, title, directory)
     return char_dict
 
 
-def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', min_words=0):
-    char_dict = build_char_dict(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, min_words)
+def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', directory='', min_words=0):
+    char_dict = build_char_dict(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, directory, min_words)
     return char_dict
 
 
@@ -177,6 +194,7 @@ if __name__ == '__main__':
     wt = False
     wj = False
     title = ''
+    directory = ''
     min_words = 0
 
     i = 0
@@ -220,6 +238,12 @@ if __name__ == '__main__':
                 title = sys.argv[i]
             else:
                 unrecognized.append('-t: Missing Specifier')
+        elif sys.argv[i] == '-d':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                directory = sys.argv[i]
+            else:
+                unrecognized.append('-d: Missing Specifier')
         elif sys.argv[i] == '-m':
             if i+1 == len(sys.argv) or sys.argv[i+1][0] == '-':
                 unrecognized.append('-m: Missing Specifier')
@@ -235,4 +259,4 @@ if __name__ == '__main__':
         for arg in unrecognized:
             print(arg)
     else:
-        main(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, min_words)
+        main(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, directory, min_words)

@@ -38,6 +38,7 @@ Command Line Arguments:
 -wt              Writes the output to file as plain text
 -wj              Writes the output to file as json
 -t [title]       Title: Indicates name of specific run, used in filenames
+-d [path/to/dir] Specifies the directory in which to write output files
 -R               Recursive cascade: Preserve write preferences for all scripts
 -r               Preserve raw text (ie. capitalization, punctuation)
 -m [min_words]   Specifies the minimum words necessary for a character to be included
@@ -46,6 +47,7 @@ Command Line Arguments:
 
 import characters
 import sys
+import os
 import requests
 import bs4
 import json
@@ -69,43 +71,56 @@ def unnest_dict(text_dict_nested):
     return text_dict
 
 
-def print_texts(text_dict):
-    for key in text_dict: # Way to check if nested
-        if type(text_dict[key]) == type({}):
-            td = unnest_dict(text_dict)
-        else:
-            td = text_dict
+def is_nested(text_dict):
+    nested = False
+    for key in text_dict: # Way to check arbitrary value in dictionary
+        value = text_dict[key]
+        if type(value) == type({}):
+            nested = True
         break
-    text_dict = td
-    
+    return nested
+
+
+def create_directory(directory):
+    if not os.path.isdir(directory):
+        path = directory.rstrip('/').split('/')
+        for i in range(len(path)):
+            path_chunk = '/'.join(path[:i+1])
+            if not os.path.isdir(path_chunk):
+                os.mkdir(path_chunk)
+
+
+def print_texts(text_dict):
+    if is_nested(text_dict):
+        text_dict = unnest_dict(text_dict)
     for char in text_dict:
         print()
         print(char)
         print(text_dict[char])
 
 
-def write_text(text_dict, title=''):
-    for key in text_dict: # Way to check if nested
-        if type(text_dict[key]) == type({}):
-            td = unnest_dict(text_dict)
-        else:
-            td = text_dict
-        break
-    text_dict = td
-    
+def write_text(text_dict, title='', directory=''):
+    if is_nested(text_dict):
+        text_dict = unnest_dict(text_dict)
+    if directory != ''
+        directory = directory.rstrip('/') + '/'
+        create_directory(directory)
     if title != '':
         title = title + '_'
     for char in text_dict:
-        filename = title + 'text_' + char + '.txt'
+        filename = directory + title + 'text_' + char + '.txt'
         out_text = open(filename, 'w')
         print(text_dict[char], file=out_text)
         out_text.close()
 
 
-def write_json(text_dict, title=''):
+def write_json(text_dict, title='', directory=''):
+    if directory != '':
+        directory = directory.rstrip('/') + '/'
+        create_directory(directory)
     if title != '':
         title = title + '_'
-    filename = title + 'texts.json'
+    filename = dictionary + title + 'texts.json'
     out_json = open(filename, 'w')
     json.dump(text_dict, out_json)
     out_json.close()
@@ -158,20 +173,20 @@ def get_text_dict(char_codes, nested=False, raw=False):
     return text_dict
 
 
-def build_text_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', cascade=False, raw=False, min_words=0):
-    char_codes = characters.build_char_dict(play_codes, char_codes, ep, ec, nested, silent, wt and cascade, wj and cascade, title, min_words)
+def build_text_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, raw=False, min_words=0):
+    char_codes = characters.build_char_dict(play_codes, char_codes, ep, ec, nested, silent, wt and cascade, wj and cascade, title, directory, min_words)
     text_dict = get_text_dict(char_codes, nested, raw)
     if not silent:
         print_texts(text_dict)
     if wt == True:
-        write_text(text_dict, title)
+        write_text(text_dict, title, directory)
     if wj == True:
-        write_json(text_dict, title)
+        write_json(text_dict, title, directory)
     return text_dict
 
 
-def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', cascade=False, raw=False, min_words=0):
-    text_dict = build_text_dict(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, cascade, raw, min_words)
+def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, raw=False, min_words=0):
+    text_dict = build_text_dict(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, directory, cascade, raw, min_words)
     return text_dict
 
 
@@ -185,6 +200,7 @@ if __name__ == '__main__':
     wt = False
     wj = False
     title = ''
+    directory = ''
     cascade = False
     raw = False
     min_words = 0
@@ -230,6 +246,12 @@ if __name__ == '__main__':
                 title = sys.argv[i]
             else:
                 unrecognized.append('-t: Missing Specifier')
+        elif sys.argv[i] == '-d':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                directory = sys.argv[i]
+            else:
+                unrecognized.append('-d: Missing Specifier')
         elif sys.argv[i] == '-R':
             cascade = True
         elif sys.argv[i] == '-r':
@@ -249,4 +271,4 @@ if __name__ == '__main__':
         for arg in unrecognized:
             print(arg)
     else:
-        main(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, cascade, raw, min_words)
+        main(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, directory, cascade, raw, min_words)

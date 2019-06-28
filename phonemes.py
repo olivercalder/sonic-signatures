@@ -38,8 +38,10 @@ Command Line Arguments:
 -wt              Writes the output to file as plain text
 -wj              Writes the output to file as json
 -t [title]       Title: Indicates name of specific run, used in filenames
+-d [path/to/dir] Specifies the directory in which to write output files
 -R               Recursive cascade: Preserve write preferences for all scripts
 -u               Return list of unknown words as well as phoneme list: tuple(phonemes,unknowns)
+-v               Vowels: Return vowels only
 -e               Preserve emphasis marking in phonemes
 -r               Preserve raw text (ie. capitalization, punctuation)
 -m [min_words]   Specifies the minimum words necessary for a character to be included
@@ -48,6 +50,7 @@ Command Line Arguments:
 
 import texts
 import sys
+import os
 import json
 import nltk
 # nltk.download('cmudict')
@@ -73,30 +76,40 @@ def unnest_dict(phoneme_dict_nested):
     return phoneme_dict
 
 
-def print_phonemes(phoneme_dict):
-    for key in phoneme_dict: # Way to check if nested
-        if type(phoneme_dict[key]) == type({}):
-            pd = unnest_dict(phoneme_dict)
-        else:
-            pd = phoneme_dict
+def is_nested(phoneme_dict):
+    nested = False
+    for key in phoneme_dict: # Way to check arbitrary value in dictionary
+        value = phoneme_dict[key]
+        if type(value) == type({}):
+            nested = True
         break
-    phoneme_dict = pd
+    return nested
 
+
+def create_directory(directory):
+    if not os.path.isdir(directory):
+        path = directory.rstrip('/').split('/')
+        for i in range(len(path)):
+            path_chunk = '/'.join(path[:i+1])
+            if not os.path.isdir(path_chunk):
+                os.mkdir(path_chunk)
+
+
+def print_phonemes(phoneme_dict):
+    if is_nested(phoneme_dict):
+        phoneme_dict = unnest_dict(phoneme_dict)
     for char in phoneme_dict:
         print()
         print(char)
         print(phoneme_dict[char])
 
 
-def write_text(phoneme_dict, title='', unknowns=False):
-    for key in phoneme_dict: # Way to check if nested
-        if type(phoneme_dict[key]) == type({}):
-            pd = unnest_dict(phoneme_dict)
-        else:
-            pd = phoneme_dict
-        break
-    phoneme_dict = pd
-
+def write_text(phoneme_dict, title='', directory='', unknowns=False):
+    if is_nested(phoneme_dict):
+        phoneme_dict = unnest_dict(phoneme_dict)
+    if directory != '':
+        directory = directory.rstrip('/') + '/'
+        create_directory(directory)
     if title != '':
         title = title + '_'
     if unknowns:
@@ -104,25 +117,28 @@ def write_text(phoneme_dict, title='', unknowns=False):
     else:
         title = title + 'phonemes_'
     for char in phoneme_dict:
-        filename = title + char + '.txt'
+        filename = directory + title + char + '.txt'
         out_text = open(filename, 'w')
         print(phoneme_dict[char], file=out_text)
         out_text.close()
 
 
-def write_json(phoneme_dict, title='', unknowns=False):
+def write_json(phoneme_dict, title='', directory='', unknowns=False):
+    if directory != '':
+        directory = directory.rstrip('/') + '/'
+        create_directory(directory)
     if title != '':
         title = title + '_'
     if unknowns:
-        filename = title + 'unknowns.json'
+        filename = directory + title + 'unknowns.json'
     else:
-        filename = title + 'phonemes.json'
+        filename = directory + title + 'phonemes.json'
     out_json = open(filename, 'w')
     json.dump(phoneme_dict, out_json)
     out_json.close()
 
 
-def convert_text_to_phonemes(text, return_unknowns=False, preserve_emphasis=False):
+def convert_text_to_phonemes(text, return_unknowns=False, vowels_only=False, preserve_emphasis=False):
     d = nltk.corpus.cmudict.dict()
     phonemes = []
     unknowns = []
@@ -131,10 +147,11 @@ def convert_text_to_phonemes(text, return_unknowns=False, preserve_emphasis=Fals
         if word in d:
             word_phonemes = d[word][0]
             for phon in word_phonemes:
-                if phon[-1].isdigit() and not preserve_emphasis:
-                    phonemes.append(phon[:-1])
-                else:
-                    phonemes.append(phon)
+                if phon[0] in vowels or not vowels_only:
+                    if phon[-1].isdigit() and not preserve_emphasis:
+                        phonemes.append(phon[:-1])
+                    else:
+                        phonemes.append(phon)
         else:
             unknowns.append(word)
     if return_unknowns:
@@ -143,19 +160,13 @@ def convert_text_to_phonemes(text, return_unknowns=False, preserve_emphasis=Fals
         return phonemes
 
 
-def get_phoneme_dict(text_dict, nested=False, return_unknowns=False, preserve_emphasis=False):
-    for key in text_dict: # Way to check if nested
-        if type(text_dict[key]) == type({}):
-            td = texts.unnest_dict(text_dict)
-        else:
-            td = text_dict
-        break
-    text_dict = td
-
+def get_phoneme_dict(text_dict, nested=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False):
+    if texts.is_nested(text_dict):
+        text_dict = texts.unnest_dict(text_dict)
     phoneme_dict = {}
     unknowns_dict = {}
     for char in text_dict:
-        phoneme_dict[char], unknowns_dict[char] = convert_text_to_phonemes(text_dict[char], True, preserve_emphasis)
+        phoneme_dict[char], unknowns_dict[char] = convert_text_to_phonemes(text_dict[char], True, vowels_only, preserve_emphasis)
     if nested:
         phoneme_dict = nest_dict_by_play(phoneme_dict)
         unknowns_dict = nest_dict_by_play(unknowns_dict)
@@ -165,29 +176,29 @@ def get_phoneme_dict(text_dict, nested=False, return_unknowns=False, preserve_em
         return phoneme_dict
 
 
-def build_phoneme_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', cascade=False, return_unknowns=False, preserve_emphasis=False, raw=False, min_words=0):
-    text_dict = texts.build_text_dict(play_codes, char_codes, ep, ec, nested, silent, wt and cascade, wj and cascade, title, cascade, raw, min_words)
-    phoneme_dict, unknowns_dict = get_phoneme_dict(text_dict, nested, True, preserve_emphasis)
+def build_phoneme_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
+    text_dict = texts.build_text_dict(play_codes, char_codes, ep, ec, nested, silent, wt and cascade, wj and cascade, title, directory, cascade, raw, min_words)
+    phoneme_dict, unknowns_dict = get_phoneme_dict(text_dict, nested, True, vowels_only, preserve_emphasis)
     if not silent:
         print_phonemes(phoneme_dict)
         if return_unknowns:
             print_phonemes(unknowns_dict)
     if wt == True:
-        write_text(phoneme_dict, title)
+        write_text(phoneme_dict, title, directory)
         if return_unknowns:
-            write_text(unknowns_dict, title, unknowns=True)
+            write_text(unknowns_dict, title, directory, unknowns=True)
     if wj == True:
-        write_json(phoneme_dict, title)
+        write_json(phoneme_dict, title, directory)
         if return_unknowns:
-            write_json(unknowns_dict, title, unknowns=True)
+            write_json(unknowns_dict, title, directory, unknowns=True)
     if return_unknowns:
         return phoneme_dict, unknowns_dict
     else:
         return phoneme_dict
 
 
-def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', cascade=False, return_unknowns=False, preserve_emphasis=False, raw=False, min_words=0):
-    return build_phoneme_dict(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, cascade, return_unknowns, preserve_emphasis, raw, min_words)
+def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
+    return build_phoneme_dict(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, directory, cascade, return_unknowns, vowels_only, preserve_emphasis, raw, min_words)
 
 
 if __name__ == '__main__':
@@ -200,8 +211,10 @@ if __name__ == '__main__':
     wt = False
     wj = False
     title = ''
+    directory = ''
     cascade = False
     return_unknowns = False
+    vowels_only = False
     preserve_emphasis = False
     raw = False
     min_words = 0
@@ -247,10 +260,18 @@ if __name__ == '__main__':
                 title = sys.argv[i]
             else:
                 unrecognized.append('-t: Missing Specifier')
+        elif sys.argv[i] == '-d':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                directory = sys.argv[i]
+            else:
+                unrecognized.append('-d: Missing Specifier')
         elif sys.argv[i] == '-R':
             cascade = True
         elif sys.argv[i] == '-u':
             return_unknowns = True
+        elif sys.argv[i] == '-v':
+            vowels_only = True
         elif sys.argv[i] == '-e':
             preserve_emphasis = True
         elif sys.argv[i] == '-r':
@@ -270,4 +291,4 @@ if __name__ == '__main__':
         for arg in unrecognized:
             print(arg)
     else:
-        main(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, cascade, return_unknowns, preserve_emphasis, raw, min_words)
+        main(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, directory, cascade, return_unknowns, vowels_only, preserve_emphasis, raw, min_words)
