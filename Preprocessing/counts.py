@@ -52,7 +52,6 @@ Command Line Arguments:
 import phonemes
 import sys
 import os
-import time
 import csv
 import json
 
