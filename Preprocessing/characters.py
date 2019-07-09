@@ -30,6 +30,7 @@ Command Line Arguments:
 -c [char_code]   Specifies one or more characters to be included, in addition to given plays
 -ep [play_code]  Specifies one or more plays whose characters will be excluded
 -ec [char_code]  Specifies one or more characters to be excluded from the set
+-eo              Exclude characters with role of "other"
 -n               Returns a dictionary of characters nested by play, rather than a set of all
 -s               Silent: Does not print to console
 -wt              Writes the output to file as plain text
@@ -43,6 +44,7 @@ import sys
 import os
 import requests
 import bs4
+import csv
 import json
 
 
@@ -132,8 +134,7 @@ def write_json(char_dict, title='', directory=''):
     out_json.close()
 
 
-def get_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, min_words=0):
-    # TODO: implement minimum word count cutoff for characters
+def get_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, min_words=0):
     if type(char_codes) == type(''):
         char_codes = set([char_codes])
     char_set = set(char_codes)
@@ -146,10 +147,17 @@ def get_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([])
         r = requests.get('https://www.folgerdigitaltexts.org/{0}/charText/'.format(play))
         raw_html = r.text
         soup = bs4.BeautifulSoup(raw_html, 'html.parser')
-        for link in soup.find_all('a'):
+
+        divs = soup.find_all('div')
+        i = 2   # First word count appears at index 2, first character name at index 3
+        while i + 1 < len(divs):
+            word_count = int(divs[i].get_text())
+            link = divs[i+1].a
             suffix = link.get('href')
             char_code = suffix.split('.html')[0]
-            char_set.add(char_code)
+            if word_count >= min_words:
+                char_set.add(char_code)
+            i += 2
 
     if type(ep) == type(''):
         ep = set([ep])
@@ -161,6 +169,12 @@ def get_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([])
         ec = set([ec])
     for character in ec:
         char_set.discard(character)
+    if eo:
+        with open('../Information/characteristics.csv', newline='') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if row['role'] == 'other':
+                    char_set.discard(row['character'])
 
     if nested:
         return convert_set_to_dict(char_set)
@@ -168,8 +182,8 @@ def get_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([])
         return char_set
 
 
-def build_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', directory='', min_words=0):
-    char_dict = get_char_dict(play_codes, char_codes, ep, ec, nested, min_words)
+def build_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, silent=False, wt=False, wj=False, title='', directory='', min_words=0):
+    char_dict = get_char_dict(play_codes, char_codes, ep, ec, eo, nested, min_words)
     if not silent:
         print_chars(char_dict)
     if wt == True:
@@ -179,8 +193,8 @@ def build_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([
     return char_dict
 
 
-def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', directory='', min_words=0):
-    char_dict = build_char_dict(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, directory, min_words)
+def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, silent=False, wt=False, wj=False, title='', directory='', min_words=0):
+    char_dict = build_char_dict(play_codes, char_codes, ep, ec, eo, nested, silent, wt, wj, title, directory, min_words)
     return char_dict
 
 
@@ -189,6 +203,7 @@ if __name__ == '__main__':
     char_codes = set([])
     ep = set([])
     ec = set([])
+    eo = False
     nested = False
     silent = False
     wt = False
@@ -224,6 +239,8 @@ if __name__ == '__main__':
             while i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
                 ec.add(sys.argv[i])
+        elif sys.argv[i] == '-eo':
+            eo = True
         elif sys.argv[i] == '-n':
             nested = True
         elif sys.argv[i] == '-s':
@@ -259,4 +276,4 @@ if __name__ == '__main__':
         for arg in unrecognized:
             print(arg)
     else:
-        main(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, directory, min_words)
+        main(play_codes, char_codes, ep, ec, eo, nested, silent, wt, wj, title, directory, min_words)

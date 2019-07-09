@@ -33,6 +33,7 @@ Command Line Arguments:
 -c [char_code]   Specifies one or more characters to be included in the dictionary
 -ep [play_code]  Specifies one or more plays whose characters will be excluded
 -ec [char_code]  Specifies one or more characters to be excluded from the dictionary
+-eo              Exclude characters with role of "other"
 -n               Returns a dictionary of characters nested by play, rather than intermixed
 -s               Silent: Does not print to console
 -wt              Writes the output to file as plain text
@@ -179,8 +180,8 @@ def get_phoneme_dict(text_dict, nested=False, return_unknowns=False, vowels_only
         return phoneme_dict
 
 
-def build_phoneme_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
-    text_dict = texts.build_text_dict(play_codes, char_codes, ep, ec, nested, silent, wt and cascade, wj and cascade, title, directory, cascade, raw, min_words)
+def build_phoneme_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
+    text_dict = texts.build_text_dict(play_codes, char_codes, ep, ec, eo, nested, silent, wt and cascade, wj and cascade, title, directory, cascade, raw, min_words)
     phoneme_dict, unknowns_dict = get_phoneme_dict(text_dict, nested, True, vowels_only, preserve_emphasis)
     if not silent:
         print_phonemes(phoneme_dict)
@@ -200,8 +201,8 @@ def build_phoneme_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=se
         return phoneme_dict
 
 
-def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
-    return build_phoneme_dict(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, directory, cascade, return_unknowns, vowels_only, preserve_emphasis, raw, min_words)
+def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
+    return build_phoneme_dict(play_codes, char_codes, ep, ec, eo, nested, silent, wt, wj, title, directory, cascade, return_unknowns, vowels_only, preserve_emphasis, raw, min_words)
 
 
 if __name__ == '__main__':
@@ -209,6 +210,7 @@ if __name__ == '__main__':
     char_codes = set([])
     ep = set([])
     ec = set([])
+    eo = False
     nested = False
     silent = False
     wt = False
@@ -220,6 +222,7 @@ if __name__ == '__main__':
     vowels_only = False
     preserve_emphasis = False
     raw = False
+    others = False
     min_words = 0
 
     i = 0
@@ -249,6 +252,8 @@ if __name__ == '__main__':
             while i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
                 ec.add(sys.argv[i])
+        elif sys.argv[i] == '-eo':
+            eo = True
         elif sys.argv[i] == '-n':
             nested = True
         elif sys.argv[i] == '-s':
@@ -294,4 +299,4 @@ if __name__ == '__main__':
         for arg in unrecognized:
             print(arg)
     else:
-        main(play_codes, char_codes, ep, ec, nested, silent, wt, wj, title, directory, cascade, return_unknowns, vowels_only, preserve_emphasis, raw, min_words)
+        main(play_codes, char_codes, ep, ec, eo, nested, silent, wt, wj, title, directory, cascade, return_unknowns, vowels_only, preserve_emphasis, raw, min_words)
