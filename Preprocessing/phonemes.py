@@ -29,7 +29,8 @@ containing each character from every play.
 
 Command Line Arguments:
 -h               Prints help text
--p [play_code]   Specifies one or more plays (separated by spaces) for which to include characters
+-l [filename]    Specifies one or more json files from which to load existing text data
+-p [play_code]   Specifies one or more plays for which to include characters
 -c [char_code]   Specifies one or more characters to be included in the dictionary
 -ep [play_code]  Specifies one or more plays whose characters will be excluded
 -ec [char_code]  Specifies one or more characters to be excluded from the dictionary
@@ -88,6 +89,16 @@ def is_nested(phoneme_dict):
             nested = True
         break
     return nested
+
+
+def load_json(filename):
+    if os.path.exists(filename):
+        with open(filename, 'r') as json_in:
+            return json.load(json_in)
+    else:
+        print("ERROR: File '{}' does not exist".format(filename))
+        print('Exiting...')
+        quit()
 
 
 def create_directory(directory):
@@ -180,8 +191,21 @@ def get_phoneme_dict(text_dict, nested=False, return_unknowns=False, vowels_only
         return phoneme_dict
 
 
-def build_phoneme_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
-    text_dict = texts.build_text_dict(play_codes, char_codes, ep, ec, eo, nested, silent, wt and cascade, wj and cascade, title, directory, cascade, raw, min_words)
+def build_phoneme_dict(load_json_filenames=set([]), play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
+    text_dict = {}
+    for filename in load_json_filenames:
+        new_dict = load_json(filename)
+        if texts.is_nested(new_dict):
+            new_dict = texts.unnest_dict(new_dict)
+        text_dict.update(new_dict)
+    for char in text_dict:
+        ec.add(char)
+    if play_codes or char_codes or not load_json_filenames:
+        new_text_dict = texts.build_text_dict(play_codes, char_codes, ep, ec, eo, False, silent, wt and cascade, wj and cascade, title, directory, cascade, raw, min_words)
+        text_dict.update(new_text_dict)
+    if nested:
+        text_dict = nest_dict_by_play(text_dict)
+
     phoneme_dict, unknowns_dict = get_phoneme_dict(text_dict, nested, True, vowels_only, preserve_emphasis)
     if not silent:
         print_phonemes(phoneme_dict)
@@ -201,11 +225,12 @@ def build_phoneme_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=se
         return phoneme_dict
 
 
-def main(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
-    return build_phoneme_dict(play_codes, char_codes, ep, ec, eo, nested, silent, wt, wj, title, directory, cascade, return_unknowns, vowels_only, preserve_emphasis, raw, min_words)
+def main(load_json_filenames=set([]), play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
+    return build_phoneme_dict(load_json_filenames, play_codes, char_codes, ep, ec, eo, nested, silent, wt, wj, title, directory, cascade, return_unknowns, vowels_only, preserve_emphasis, raw, min_words)
 
 
 if __name__ == '__main__':
+    load_json_filenames = set([])
     play_codes = set([])
     char_codes = set([])
     ep = set([])
@@ -236,22 +261,41 @@ if __name__ == '__main__':
         if sys.argv[i] == '-h':
             print(help_string)
             quit()
+        elif sys.argv[i] == '-l':
+            tmp = i
+            while i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                load_json_filenames.add(sys.argv[i])
+            if i == tmp:
+                unrecognized.append('-l: Missing Specifier')
         elif sys.argv[i] == '-p':
+            tmp = i
             while i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
                 play_codes.add(sys.argv[i])
+            if i == tmp:
+                unrecognized.append('-p: Missing Specifier')
         elif sys.argv[i] == '-c':
+            tmp = i
             while i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
                 char_codes.add(sys.argv[i])
+            if i == tmp:
+                unrecognized.append('-c: Missing Specifier')
         elif sys.argv[i] == '-ep':
+            tmp = i
             while i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
                 ep.add(sys.argv[i])
+            if i == tmp:
+                unrecognized.append('-ep: Missing Specifier')
         elif sys.argv[i] == '-ec':
+            tmp = i
             while i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
                 ec.add(sys.argv[i])
+            if i == tmp:
+                unrecognized.append('-ec: Missing Specifier')
         elif sys.argv[i] == '-eo':
             eo = True
         elif sys.argv[i] == '-n':
@@ -299,4 +343,4 @@ if __name__ == '__main__':
         for arg in unrecognized:
             print(arg)
     else:
-        main(play_codes, char_codes, ep, ec, eo, nested, silent, wt, wj, title, directory, cascade, return_unknowns, vowels_only, preserve_emphasis, raw, min_words)
+        main(load_json_filenames, play_codes, char_codes, ep, ec, eo, nested, silent, wt, wj, title, directory, cascade, return_unknowns, vowels_only, preserve_emphasis, raw, min_words)
