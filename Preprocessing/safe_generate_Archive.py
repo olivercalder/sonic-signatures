@@ -34,18 +34,32 @@ def build_directory(thread_name, work_queue, queue_lock, exit_flag):
 
 def main(thread_count):
     combinations = [
+        ('Emphasis-All', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-All/', 'cascade':True, 'preserve_emphasis':True}),
+        ('Emphasis-Vowels-Only-All', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-Vowels-Only-All/', 'cascade':True, 'vowels_only':True, 'preserve_emphasis':True}),
         ('All', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/All/', 'cascade':True}),
         ('Vowels-Only-All', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Vowels-Only-All/', 'cascade':True, 'vowels_only':True}),
+        ('Emphasis-Min-100', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-Min-100/', 'cascade':True, 'min_words':100, 'preserve_emphasis':True}),
+        ('Emphasis-Vowels-Only-Min-100', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-Vowels-Only-Min-100/', 'cascade':True, 'min_words':100, 'vowels_only':True, 'preserve_emphasis':True}),
         ('Min-100', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Min-100/', 'cascade':True, 'min_words':100}),
         ('Vowels-Only-Min-100', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Vowels-Only-Min-100/', 'cascade':True, 'min_words':100, 'vowels_only':True}),
+        ('Emphasis-Min-250', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-Min-250/', 'cascade':True, 'min_words':250, 'preserve_emphasis':True}),
+        ('Emphasis-Vowels-Only-Min-250', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-Vowels-Only-Min-250/', 'cascade':True, 'min_words':250, 'vowels_only':True, 'preserve_emphasis':True}),
         ('Min-250', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Min-250/', 'cascade':True, 'min_words':250}),
         ('Vowels-Only-Min-250', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Vowels-Only-Min-250/', 'cascade':True, 'min_words':250, 'vowels_only':True}),
+        ('Emphasis-Min-500', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-Min-500/', 'cascade':True, 'min_words':500, 'preserve_emphasis':True}),
+        ('Emphasis-Vowels-Only-Min-500', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-Vowels-Only-Min-500/', 'cascade':True, 'min_words':500, 'vowels_only':True, 'preserve_emphasis':True}),
         ('Min-500', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Min-500/', 'cascade':True, 'min_words':500}),
         ('Vowels-Only-Min-500', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Vowels-Only-Min-500/', 'cascade':True, 'min_words':500, 'vowels_only':True}),
+        ('Emphasis-Min-1000', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-Min-1000/', 'cascade':True, 'min_words':1000, 'preserve_emphasis':True}),
+        ('Emphasis-Vowels-Only-Min-1000', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-Vowels-Only-Min-1000/', 'cascade':True, 'min_words':1000, 'vowels_only':True, 'preserve_emphasis':True}),
         ('Min-1000', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Min-1000/', 'cascade':True, 'min_words':1000}),
         ('Vowels-Only-Min-1000', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Vowels-Only-Min-1000/', 'cascade':True, 'min_words':1000, 'vowels_only':True}),
+        ('Emphasis-Min-2500', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-Min-2500/', 'cascade':True, 'min_words':2500, 'preserve_emphasis':True}),
+        ('Emphasis-Vowels-Only-Min-2500', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-Vowels-Only-Min-2500/', 'cascade':True, 'min_words':2500, 'vowels_only':True, 'preserve_emphasis':True}),
         ('Min-2500', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Min-2500/', 'cascade':True, 'min_words':2500}),
         ('Vowels-Only-Min-2500', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Vowels-Only-Min-2500/', 'cascade':True, 'min_words':2500, 'vowels_only':True}),
+        ('Emphasis-No-Others', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-No-Others/', 'cascade':True, 'eo':True, 'preserve_emphasis':True}),
+        ('Emphasis-Vowels-Only-No-Others', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-Vowels-Only-No-Others/', 'cascade':True, 'eo':True, 'vowels_only':True, 'preserve_emphasis':True}),
         ('No-Others', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/No-Others/', 'cascade':True, 'eo':True}),
         ('Vowels-Only-No-Others', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Vowels-Only-No-Others/', 'cascade':True, 'eo':True, 'vowels_only':True})
         ]

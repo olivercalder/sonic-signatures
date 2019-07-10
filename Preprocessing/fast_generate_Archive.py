@@ -34,18 +34,32 @@ def build_directory(thread_name, work_queue, queue_lock, exit_flag):
 
 def main(thread_count):
     combinations = [
+        ('Emphasis-All', '-s -wt -wj -d ../Archive/Emphasis-All/ -R -e'),
+        ('Emphasis-Vowels-Only-All', '-s -wt -wj -d ../Archive/Emphasis-Vowels-Only-All/ -R -v -e'),
         ('All', '-s -wt -wj -d ../Archive/All/ -R'),
         ('Vowels-Only-All', '-s -wt -wj -d ../Archive/Vowels-Only-All/ -R -v'),
+        ('Emphasis-Min-100', '-s -wt -wj -d ../Archive/Emphasis-Min-100/ -R -m 100 -e'),
+        ('Emphasis-Vowels-Only-Min-100', '-s -wt -wj -d ../Archive/Emphasis-Vowels-Only-Min-100/ -R -m 100 -v -e'),
         ('Min-100', '-s -wt -wj -d ../Archive/Min-100/ -R -m 100'),
         ('Vowels-Only-Min-100', '-s -wt -wj -d ../Archive/Vowels-Only-Min-100/ -R -m 100 -v'),
+        ('Emphasis-Min-250', '-s -wt -wj -d ../Archive/Emphasis-Min-250/ -R -m 250 -e'),
+        ('Emphasis-Vowels-Only-Min-250', '-s -wt -wj -d ../Archive/Emphasis-Vowels-Only-Min-250/ -R -m 250 -v -e'),
         ('Min-250', '-s -wt -wj -d ../Archive/Min-250/ -R -m 250'),
         ('Vowels-Only-Min-250', '-s -wt -wj -d ../Archive/Vowels-Only-Min-250/ -R -m 250 -v'),
+        ('Emphasis-Min-500', '-s -wt -wj -d ../Archive/Emphasis-Min-500/ -R -m 500 -e'),
+        ('Emphasis-Vowels-Only-Min-500', '-s -wt -wj -d ../Archive/Emphasis-Vowels-Only-Min-500/ -R -m 500 -v -e'),
         ('Min-500', '-s -wt -wj -d ../Archive/Min-500/ -R -m 500'),
         ('Vowels-Only-Min-500', '-s -wt -wj -d ../Archive/Vowels-Only-Min-500/ -R -m 500 -v'),
+        ('Emphasis-Min-1000', '-s -wt -wj -d ../Archive/Emphasis-Min-1000/ -R -m 1000 -e'),
+        ('Emphasis-Vowels-Only-Min-1000', '-s -wt -wj -d ../Archive/Emphasis-Vowels-Only-Min-1000/ -R -m 1000 -v -e'),
         ('Min-1000', '-s -wt -wj -d ../Archive/Min-1000/ -R -m 1000'),
         ('Vowels-Only-Min-1000', '-s -wt -wj -d ../Archive/Vowels-Only-Min-1000/ -R -m 1000 -v'),
+        ('Emphasis-Min-2500', '-s -wt -wj -d ../Archive/Emphasis-Min-2500/ -R -m 2500 -e'),
+        ('Emphasis-Vowels-Only-Min-2500', '-s -wt -wj -d ../Archive/Emphasis-Vowels-Only-Min-2500/ -R -m 2500 -v -e'),
         ('Min-2500', '-s -wt -wj -d ../Archive/Min-2500/ -R -m 2500'),
         ('Vowels-Only-Min-2500', '-s -wt -wj -d ../Archive/Vowels-Only-Min-2500/ -R -m 2500 -v'),
+        ('Emphasis-No-Others', '-s -wt -wj -d ../Archive/Emphasis-No-Others/ -R -eo -e'),
+        ('Emphasis-Vowels-Only-No-Others', '-s -wt -wj -d ../Archive/Emphasis-Vowels-Only-No-Others/ -R -eo -v -e'),
         ('No-Others', '-s -wt -wj -d ../Archive/No-Others/ -R -eo'),
         ('Vowels-Only-No-Others', '-s -wt -wj -d ../Archive/Vowels-Only-No-Others/ -R -eo -v')
         ]
