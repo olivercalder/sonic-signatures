@@ -35,7 +35,7 @@ def build_directory(thread_name, work_queue, queue_lock, exit_flag):
 def main(thread_count):
     combinations = [
         ('All', '-s -wt -wj -d ../Archive/All/ -R'),
-        ('Vowels-Only-All', '-s -wt -wj -d ../Archive/All/ -R -v'),
+        ('Vowels-Only-All', '-s -wt -wj -d ../Archive/Vowels-Only-All/ -R -v'),
         ('Min-100', '-s -wt -wj -d ../Archive/Min-100/ -R -m 100'),
         ('Vowels-Only-Min-100', '-s -wt -wj -d ../Archive/Vowels-Only-Min-100/ -R -m 100 -v'),
         ('Min-250', '-s -wt -wj -d ../Archive/Min-250/ -R -m 250'),
