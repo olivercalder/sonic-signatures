@@ -271,7 +271,7 @@ def build_phoneme_counts(load_json_filenames=set([]), play_codes=set([]), char_c
     if wt == True:
         write_text(counts, title, directory, unknowns=return_unknowns)
     if wj == True:
-        write_json(counts, title, directory, unknowns=return_unknowns))
+        write_json(counts, title, directory, unknowns=return_unknowns)
     return counts
 
 
