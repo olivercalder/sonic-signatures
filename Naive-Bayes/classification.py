@@ -75,18 +75,56 @@ def write_json(dict_list, title='', directory=''):
         json.dump(char_dict, out_json)
 
 
-def classify(vector_list, class_list, new_vector):
-    vector_array = np.array(new_vector_list, dtype=np.float64)
-    class_array = np.array(new_class_list)
+def classify(vector_list, class_list, test_vectors):
+    vector_array = np.array(vector_list, dtype=np.float64)
+    class_array = np.array(class_list)
     classifier = MultinomialNB()
     classifier.fit(vector_array, class_array)
 
-    char_vector = np.array(new_vector, dtype=np.float64, order='F')  # 'F' indicates row vector rather than column vector
-    prediction = classifier.predict(char_vector)
-    return prediction[0]
+    predictions = []
+    for vector in test_vectors:
+        char_vector = np.array(new_vector, dtype=np.float64, order='F')  # 'F' indicates row vector rather than column vector
+        prediction = classifier.predict(char_vector)
+        prediction.append(prediction[0])
+    return predictions
 
 
-def hold_one_out(char_list, vector_list, class_list, char_code):
+def twofold_classify(vector_list, class_list, test_vectors):
+    initial_vector_list = vector_list
+    initial_class_list = []
+    final_vector_list = []
+    final_class_list = []
+    for i in range(len(class_list)):
+        if class_list[i] == 'other':
+            initial_class_list.append('other')
+        else:
+            initial_class_list.append('non-other')
+            final_vector_list.append(vector_list[i])
+            final_class_list.append(class_list[i])
+
+    initial_vector_array = np.array(initial_vector_list, dtype=np.float64)
+    initial_class_array = np.array(initial_class_list)
+    initial_classifier = MultinomialNB()
+    initial_classifier.fit(initial_vector_array, initial_class_array)
+
+    final_vector_array = np.array(final_vector_list, dtype=np.float64)
+    final_class_array = np.array(final_class_list)
+    final_classifier = MultinomialNB
+    final_classifier.fit(final_vector_array, final_class_array)
+
+    predictions = []
+    for char_vector in test_vectors:
+        vector = np.array(char_vector, dtype=np.float, order='F')  # 'F' indicates row vector rather than column vector
+        initial_prediction = initial_classifier.predict(vector)
+        if initial_prediction[0] == 'other':
+            predictions.append('other')
+        else:
+            final_prediction = final_classifier.predict(vector)
+            predictions.append(final_prediction[0])
+    return predictions
+
+
+def hold_one_out(char_list, vector_list, class_list, char_code, twofold=False):
     index = char_list.index(char_code)
     new_char_list = [char for char in char_list]  # Duplicates char_list for editing
     char_code = new_char_list.pop(index)
@@ -94,22 +132,25 @@ def hold_one_out(char_list, vector_list, class_list, char_code):
     char_vector = new_vector_list.pop(index)
     new_class_list = [role for role in class_list]  # Duplicates class_list for editing
     actual = new_class_list.pop(index)
-    prediction = classify(new_vector_list, new_class_list, char_vector)
+    if twofold:
+        prediction = twofold_classify(new_vector_list, new_class_list, char_vector)[0]
+    else:
+        prediction = classify(new_vector_list, new_class_list, char_vector)[0]
     return char_code, actual, prediction
 
 
-def generate_dict_list(char_list, vector_list, class_list):
+def generate_dict_list(char_list, vector_list, class_list, twofold=False):
     dict_list = []
     for char in char_list:
-        char_code, actual, prediction = hold_one_out(char_list, vector_list, class_list, char)
+        char_code, actual, prediction = hold_one_out(char_list, vector_list, class_list, char, twofold)
         dict_list.append({'character':char_code, 'actual':class_list[i], 'predicted':prediction[0]})
     return dict_list
 
 
-def build_confusion_dictionary(infile, wt=False, wj=False, title='', directory=''):
+def build_confusion_dictionary(infile, wt=False, wj=False, title='', directory='', twofold=False):
     char_list, vector_list = load_counts(infile)
     class_list = load_class_list(char_list)
-    dict_list = generate_dict_list(char_list, vector_list, class_list)
+    dict_list = generate_dict_list(char_list, vector_list, class_list, twofold)
     if wt:
         write_csv(dict_list, title, directory)
     if wj:
@@ -118,8 +159,8 @@ def build_confusion_dictionary(infile, wt=False, wj=False, title='', directory='
     return char_dict
 
 
-def main(infile, wt=False, wj=False, title='', directory=''):
-    build_confusion_dictionary(infile, wt, wj, title, directory)
+def main(infile, wt=False, wj=False, title='', directory='', twofold=False):
+    build_confusion_dictionary(infile, wt, wj, title, directory, twofold)
     return char_dict
 
 
@@ -129,20 +170,17 @@ if __name__ == '__main__':
     wj = False
     title = ''
     directory = ''
+    twofold = False
 
     i = 0
-    if i + 1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+    if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
         i += 1
         infile = sys.argv[i]
-    else:
-        print('Usage: python3 {} in_filename.csv [out_filename.csv]'.format(sys.argv[0]))
-        print('filename might be ../Archive/No-Others/counts.csv')
-        quit()
 
     unrecognized = []
     while i < len(sys.argv):
-        if sys.argv[i] = '-h':
-            print('Usage: python3 {} in_filename.csv [out_filename.csv]'.format(sys.argv[0]))
+        if sys.argv[i] == '-h':
+            print('Usage: python3 {} input_filename.csv [-wt] [-wj] [-t title] [-d directory] [-2]'.format(sys.argv[0]))
             print('filename might be ../Archive/No-Others/counts.csv')
             quit()
         elif sys.argv[i] == '-wt':
@@ -161,9 +199,18 @@ if __name__ == '__main__':
                 directory = sys.argv[i]
             else:
                 unrecognized.append('-d: Missing Specifier')
-    if len(unrecognized) > 0:
+        elif sys.argv[i] == '-2':
+            twofold = True
+        i += 1
+
+    if infile == '':
+        print('ERROR: Missing input file')
+        print('Usage: python3 {} input_filename.csv [-wt] [-wj] [-t title] [-d directory]'.format(sys.argv[0]))
+        print('filename might be ../Archive/No-Others/counts.csv')
+
+    elif len(unrecognized) > 0:
         print('ERROR: Unrecognized Arguments:')
         for arg in unrecognized:
             print(arg)
     else:
-        main(infile, wt, wj, title, directory)
+        main(infile, wt, wj, title, directory, twofold)
