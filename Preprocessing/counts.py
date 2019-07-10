@@ -43,7 +43,7 @@ Command Line Arguments:
 -t [title]       Title: Indicates name of specific run, used in filenames
 -d [path/to/dir] Specifies the directory in which to write output files
 -R               Recursive cascade: Preserve write preferences for all scripts
--u               Returns dictionary of unknown words as well as phoneme dictionary as tuple
+-u               Returns dictionary of unknown counts instead of phoneme counts
 -v               Vowels: Return vowels only
 -e               Preserve emphasis marking in phonemes
 -r               Preserve raw text (ie. capitalization, punctuation)
@@ -247,40 +247,32 @@ def build_phoneme_counts(load_json_filenames=set([]), play_codes=set([]), char_c
 
     phoneme_dict = {}
     for filename in load_json_filenames:
-        new_dict = load_json(filename)
-        if phonemes.is_nested(new_dict):
-            new_dict = unnest_dict(new_dict)
-        phoneme_dict.update(new_dict)
+        loaded_dict = load_json(filename)
+        if phonemes.is_nested(loaded_dict):
+            loaded_dict = phonemes.unnest_dict(loaded_dict)
+        phoneme_dict.update(loaded_dict)
     for char in phoneme_dict:
         ec.add(char)
     if play_codes or char_codes or not load_json_filenames:
-        if return_unknowns:
-            new_dict, unknowns_dict = phonemes.build_phoneme_dict(set([]), play_codes, char_codes, ep, ec, eo, False, silent, wt and cascade, wj and cascade, title, directory, cascade, True, vowels_only, preserve_emphasis, raw, min_words)
-            unknowns_counts = get_unknowns_counts(unknowns_dict, nested)
-        else:
-            new_dict = phonemes.build_phoneme_dict(set([]), play_codes, char_codes, ep, ec, eo, False, silent, wt and cascade, wj and cascade, title, directory, cascade, False, vowels_only, preserve_emphasis, raw, min_words)
+        new_dict = phonemes.build_phoneme_dict(set([]), play_codes, char_codes, ep, ec, eo, False, silent, wt and cascade, wj and cascade, title, directory, cascade, return_unknowns, vowels_only, preserve_emphasis, raw, min_words)
 
     phoneme_dict.update(new_dict)
+
+    if return_unknowns:
+        counts = get_unknowns_counts(phoneme_dict, nested)
+    else:
+        counts = get_phoneme_counts(phoneme_dict, nested, vowels_only, preserve_emphasis)
+
     if nested:
-        phoneme_dict = nest_dict_by_play(phoneme_dict)
-    phoneme_counts = get_phoneme_counts(phoneme_dict, nested, vowels_only, preserve_emphasis)
+        counts = nest_dict_by_play(counts)
 
     if not silent:
-        print_counts(phoneme_counts)
-        if return_unknowns:
-            print_counts(unknowns_counts)
+        print_counts(counts)
     if wt == True:
-        write_text(phoneme_counts, title, directory)
-        if return_unknowns:
-            write_text(unknowns_counts, title, directory, unknowns=True)
+        write_text(counts, title, directory, unknowns=return_unknowns)
     if wj == True:
-        write_json(phoneme_counts, title, directory)
-        if return_unknowns:
-            write_json(unknowns_counts, title, directory, unknowns=True)
-    if return_unknowns:
-        return phoneme_counts, unknowns_counts
-    else:
-        return phoneme_counts
+        write_json(counts, title, directory, unknowns=return_unknowns))
+    return counts
 
 
 def main(load_json_filenames=set([]), play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):

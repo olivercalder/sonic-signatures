@@ -42,7 +42,7 @@ Command Line Arguments:
 -t [title]       Title: Indicates name of specific run, used in filenames
 -d [path/to/dir] Specifies the directory in which to write output files
 -R               Recursive cascade: Preserve write preferences for all scripts
--u               Return list of unknown words as well as phoneme list: tuple(phonemes,unknowns)
+-u               Return list of unknown words instead of phoneme list
 -v               Vowels: Return vowels only
 -e               Preserve emphasis marking in phonemes
 -r               Preserve raw text (ie. capitalization, punctuation)
@@ -156,10 +156,9 @@ def write_json(phoneme_dict, title='', directory='', unknowns=False):
 def convert_text_to_phonemes(text, return_unknowns=False, vowels_only=False, preserve_emphasis=False):
     d = nltk.corpus.cmudict.dict()
     phonemes = []
-    unknowns = []
     for w in text.split():
         word = w.lower()
-        if word in d:
+        if word in d and not return_unknowns:
             word_phonemes = d[word][0]
             for phon in word_phonemes:
                 if phon[0] in vowels or not vowels_only:
@@ -167,28 +166,20 @@ def convert_text_to_phonemes(text, return_unknowns=False, vowels_only=False, pre
                         phonemes.append(phon[:-1])
                     else:
                         phonemes.append(phon)
-        else:
-            unknowns.append(word)
-    if return_unknowns:
-        return phonemes, unknowns
-    else:
-        return phonemes
+        elif word not in d:
+            phonemes.append(word)
+    return phonemes
 
 
 def get_phoneme_dict(text_dict, nested=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False):
     if texts.is_nested(text_dict):
         text_dict = texts.unnest_dict(text_dict)
     phoneme_dict = {}
-    unknowns_dict = {}
     for char in text_dict:
-        phoneme_dict[char], unknowns_dict[char] = convert_text_to_phonemes(text_dict[char], True, vowels_only, preserve_emphasis)
+        phoneme_dict[char] = convert_text_to_phonemes(text_dict[char], return_unknowns, vowels_only, preserve_emphasis)
     if nested:
         phoneme_dict = nest_dict_by_play(phoneme_dict)
-        unknowns_dict = nest_dict_by_play(unknowns_dict)
-    if return_unknowns:
-        return phoneme_dict, unknowns_dict
-    else:
-        return phoneme_dict
+    return phoneme_dict
 
 
 def build_phoneme_dict(load_json_filenames=set([]), play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
@@ -206,23 +197,14 @@ def build_phoneme_dict(load_json_filenames=set([]), play_codes=set([]), char_cod
     if nested:
         text_dict = nest_dict_by_play(text_dict)
 
-    phoneme_dict, unknowns_dict = get_phoneme_dict(text_dict, nested, True, vowels_only, preserve_emphasis)
+    phoneme_dict = get_phoneme_dict(text_dict, nested, return_unknowns, vowels_only, preserve_emphasis)
     if not silent:
         print_phonemes(phoneme_dict)
-        if return_unknowns:
-            print_phonemes(unknowns_dict)
     if wt == True:
-        write_text(phoneme_dict, title, directory)
-        if return_unknowns:
-            write_text(unknowns_dict, title, directory, unknowns=True)
+        write_text(phoneme_dict, title, directory, unknowns=return_unknowns)
     if wj == True:
-        write_json(phoneme_dict, title, directory)
-        if return_unknowns:
-            write_json(unknowns_dict, title, directory, unknowns=True)
-    if return_unknowns:
-        return phoneme_dict, unknowns_dict
-    else:
-        return phoneme_dict
+        write_json(phoneme_dict, title, directory, unknowns=return_unknowns)
+    return phoneme_dict
 
 
 def main(load_json_filenames=set([]), play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
