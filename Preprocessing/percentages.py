@@ -175,6 +175,8 @@ def count_total(count_vector):
 
 def convert_counts_to_percentages(count_vector):
     total = count_total(count_vector)
+    if total == 0:
+        total = 1
     percentage_vector = {}
     for key in count_vector:
         count = count_vector[key]
