@@ -96,10 +96,10 @@ def is_nested(counts_dict):
     return nested
 
 
-def get_char_list(phoneme_counts):
-    if is_nested(phoneme_counts):
-        phoneme_counts = unnest_dict(phoneme_counts)
-    char_list = sorted(phoneme_counts)
+def get_char_list(counts_dict):
+    if is_nested(counts_dict):
+        counts_dict = unnest_dict(counts_dict)
+    char_list = sorted(counts_dict)
     return char_list
 
 
@@ -154,11 +154,11 @@ def print_counts(counts):
     print(json.dumps(counts))
 
 
-def write_csv(phoneme_counts, title='', directory='', unknowns=False):
-    if is_nested(phoneme_counts):
-        phoneme_counts = unnest_dict(phoneme_counts)
-    char_list = get_char_list(phoneme_counts)
-    phoneme_list = get_list_from_counts(phoneme_counts)
+def write_csv(counts_dict, title='', directory='', unknowns=False):
+    if is_nested(counts_dict):
+        counts_dict = unnest_dict(counts_dict)
+    char_list = get_char_list(counts_dict)
+    phoneme_list = get_list_from_counts(counts_dict)
 
     if directory != '':
         directory = directory.rstrip('/') + '/'
@@ -169,7 +169,7 @@ def write_csv(phoneme_counts, title='', directory='', unknowns=False):
         title = title + 'unknowns_'
     filename = directory + title + 'counts.csv'
     csvfile = open(filename, 'w', newline='')
-    copied_counts = copy.deepcopy(phoneme_counts)
+    copied_counts = copy.deepcopy(counts_dict)
     fieldnames = ['name'] + phoneme_list
     writer = csv.DictWriter(csvfile, fieldnames)
     writer.writeheader()
@@ -179,7 +179,7 @@ def write_csv(phoneme_counts, title='', directory='', unknowns=False):
     csvfile.close()
 
 
-def write_json(phoneme_counts, title='', directory='', unknowns=False):
+def write_json(counts_dict, title='', directory='', unknowns=False):
     if directory != '':
         directory = directory.rstrip('/') + '/'
         create_directory(directory)
@@ -189,12 +189,12 @@ def write_json(phoneme_counts, title='', directory='', unknowns=False):
         title = title + 'unknowns_'
     filename = directory + title + 'counts.json'
     out_json = open(filename, 'w')
-    json.dump(phoneme_counts, out_json)
+    json.dump(counts_dict, out_json)
     out_json.close()
 
 
 def count_phoneme_list(phoneme_list, vowels_only=False, preserve_emphasis=False):
-    phoneme_counts = {}
+    counts_dict = {}
     for phoneme in phoneme_codes:
         if phoneme[0] in vowels or not vowels_only:
             if preserve_emphasis:
@@ -202,14 +202,14 @@ def count_phoneme_list(phoneme_list, vowels_only=False, preserve_emphasis=False)
                     for i in range(3):
                         phon = phoneme + str(i)
                         count = phoneme_list.count(phon)
-                        phoneme_counts[phon] = count
+                        counts_dict[phon] = count
                 else:
                     count = phoneme_list.count(phoneme)
-                    phoneme_counts[phoneme] = count
+                    counts_dict[phoneme] = count
             else:
                 count = phoneme_list.count(phoneme)
-                phoneme_counts[phoneme] = count
-    return phoneme_counts
+                counts_dict[phoneme] = count
+    return counts_dict
 
 
 def count_unknowns_list(unknowns_list, unknowns=[]):
@@ -222,7 +222,7 @@ def count_unknowns_list(unknowns_list, unknowns=[]):
     return unknowns_counts
 
 
-def get_phoneme_counts(phoneme_dict, nested=False, vowels_only=False, preserve_emphasis=False):
+def get_counts_dict(phoneme_dict, nested=False, vowels_only=False, preserve_emphasis=False):
     if phonemes.is_nested(phoneme_dict):
         phoneme_dict = phonemes.unnest_dict(phoneme_dict)
     counts_dict = {}
@@ -245,7 +245,7 @@ def get_unknowns_counts(unknowns_dict, nested=False):
     return counts_dict
 
 
-def build_phoneme_counts(load_json_filenames=set([]), play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
+def build_counts_dict(load_json_filenames=set([]), play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
 
     phoneme_dict = {}
     for filename in load_json_filenames:
@@ -265,7 +265,7 @@ def build_phoneme_counts(load_json_filenames=set([]), play_codes=set([]), char_c
     if return_unknowns:
         counts = get_unknowns_counts(phoneme_dict, nested)
     else:
-        counts = get_phoneme_counts(phoneme_dict, nested, vowels_only, preserve_emphasis)
+        counts = get_counts_dict(phoneme_dict, nested, vowels_only, preserve_emphasis)
 
     if not silent:
         print_counts(counts)
@@ -277,7 +277,7 @@ def build_phoneme_counts(load_json_filenames=set([]), play_codes=set([]), char_c
 
 
 def main(load_json_filenames=set([]), play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):
-    return build_phoneme_counts(load_json_filenames, play_codes, char_codes, ep, ec, eo, nested, silent, wt, wj, title, directory, cascade, return_unknowns, vowels_only, preserve_emphasis, raw, min_words)
+    return build_counts_dict(load_json_filenames, play_codes, char_codes, ep, ec, eo, nested, silent, wt, wj, title, directory, cascade, return_unknowns, vowels_only, preserve_emphasis, raw, min_words)
 
 
 if __name__ == '__main__':
