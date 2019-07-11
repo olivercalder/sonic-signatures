@@ -26,7 +26,7 @@ def build_directory(thread_name, work_queue, queue_lock, exit_flag):
             name, args = work_queue.get()
             queue_lock.release()
             print(thread_name, 'beginning', name)
-            os.system('python3 counts.py {}'.format(args))
+            os.system('python3 percentages.py {}'.format(args))
             print(thread_name, 'finished', name)
         else:
             queue_lock.release()

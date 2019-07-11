@@ -54,6 +54,7 @@ Command Line Arguments:
 import phonemes
 import sys
 import os
+import copy
 import csv
 import json
 
@@ -153,7 +154,7 @@ def print_counts(counts):
     print(json.dumps(counts))
 
 
-def write_text(phoneme_counts, title='', directory='', unknowns=False):
+def write_csv(phoneme_counts, title='', directory='', unknowns=False):
     if is_nested(phoneme_counts):
         phoneme_counts = unnest_dict(phoneme_counts)
     char_list = get_char_list(phoneme_counts)
@@ -168,12 +169,13 @@ def write_text(phoneme_counts, title='', directory='', unknowns=False):
         title = title + 'unknowns_'
     filename = directory + title + 'counts.csv'
     csvfile = open(filename, 'w', newline='')
+    copied_counts = copy.deepcopy(phoneme_counts)
     fieldnames = ['name'] + phoneme_list
     writer = csv.DictWriter(csvfile, fieldnames)
     writer.writeheader()
     for char in char_list:
-        phoneme_counts[char]['name'] = char
-        writer.writerow(phoneme_counts[char])
+        copied_counts[char]['name'] = char
+        writer.writerow(copied_counts[char])
     csvfile.close()
 
 
@@ -253,23 +255,22 @@ def build_phoneme_counts(load_json_filenames=set([]), play_codes=set([]), char_c
         phoneme_dict.update(loaded_dict)
     for char in phoneme_dict:
         ec.add(char)
+        
     if play_codes or char_codes or not load_json_filenames:
-        new_dict = phonemes.build_phoneme_dict(set([]), play_codes, char_codes, ep, ec, eo, False, silent, wt and cascade, wj and cascade, title, directory, cascade, return_unknowns, vowels_only, preserve_emphasis, raw, min_words)
-
-    phoneme_dict.update(new_dict)
+        new_dict = phonemes.build_phoneme_dict(set([]), play_codes, char_codes, ep, ec, eo, nested, silent, wt and cascade, wj and cascade, title, directory, cascade, return_unknowns, vowels_only, preserve_emphasis, raw, min_words)
+        if nested:
+            unnest_dict(new_dict)
+        phoneme_dict.update(new_dict)
 
     if return_unknowns:
         counts = get_unknowns_counts(phoneme_dict, nested)
     else:
         counts = get_phoneme_counts(phoneme_dict, nested, vowels_only, preserve_emphasis)
 
-    if nested:
-        counts = nest_dict_by_play(counts)
-
     if not silent:
         print_counts(counts)
     if wt == True:
-        write_text(counts, title, directory, unknowns=return_unknowns)
+        write_csv(counts, title, directory, unknowns=return_unknowns)
     if wj == True:
         write_json(counts, title, directory, unknowns=return_unknowns)
     return counts

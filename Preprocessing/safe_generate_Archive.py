@@ -1,7 +1,7 @@
 import sys
 import queue
 import threading
-import counts
+import percentages
 import time
 
 
@@ -26,7 +26,7 @@ def build_directory(thread_name, work_queue, queue_lock, exit_flag):
             name, args_dict = work_queue.get()
             queue_lock.release()
             print(thread_name, 'beginning', name)
-            counts.build_phoneme_counts(**args_dict)  # Way to unpack args_dict and assign to appropriate optional parameters
+            percentages.build_percentages(**args_dict)  # Way to unpack args_dict and assign to appropriate optional parameters
             print(thread_name, 'finished', name)
         else:
             queue_lock.release()
