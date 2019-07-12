@@ -7,7 +7,7 @@ Used to generate Archive directory and run baseline accuracy comparisons
 from itertools import combinations
 
 
-defaults = [[{'silent':True},'-s'], [{'wt':True},'-wt'] [{'wj':True},'-wj'], [{'cascade':True},'-R']]
+defaults = [[{'silent':True},'-s'], [{'wt':True},'-wt'], [{'wj':True},'-wj'], [{'cascade':True},'-R']]
 
 directory = [{'directory':'../Archive/'},'-d ../Archive/']
 
@@ -33,10 +33,33 @@ def get_option_combos():
     return combos
 
 
+def get_names():
+    names = []
+    for char_combo in char_combos:
+        char_name = char_combo[2]
+        for option_combo in get_option_combos():
+            name_list = []
+            for option in option_combo:
+                name_list.append(option[2])
+            name_list.append(char_name)
+            name = '-'.join(name_list)
+            names.append(name)
+    return names
+
+
+def get_directories():
+    directories = []
+    names = get_names()
+    for name in names:
+        directories.append('../Archive/{}'.format(name))
+    return directories
+
+
 def get_param_dicts():
     param_dicts = []
     for char_combo in char_combos:
         char_param = char_combo[0]
+        char_name = char_combo[2]
         for option_combo in get_option_combos():
             param_dict = {}
             for item in defaults:
@@ -47,7 +70,7 @@ def get_param_dicts():
             for option in option_combo:
                 param_dict.update(option[0])
                 dir_list.append(option[2])
-            dir_list.append(char_combo[2])
+            dir_list.append(char_name)
             dir_param = directory[0]['directory'] + '-'.join(dir_list)
             param_dict['directory'] = dir_param
 
@@ -70,17 +93,27 @@ def get_arg_strings():
                 dir_list.append(option[2])
             dir_list.append(char_combo[2])
             dir_arg = directory[1] + '-'.join(dir_list)
-            arg_list.append(dir_string)
+            arg_list.append(dir_arg)
 
-            arg_string = arg_list.join(' ')
+            arg_string = ' '.join(arg_list)
             arg_strings.append(arg_string)
     return arg_strings
 
 
 def test():
     combos = get_option_combos()
-    print('get_option_combos():')
+    print('get_option_combos()')
     for item in combos:
+        print(item)
+    print()
+    names = get_names()
+    print('get_names()')
+    for item in names:
+        print(item)
+    print()
+    directories = get_directories()
+    print('get_directories()')
+    for item in directories:
         print(item)
     print()
     params = get_param_dicts()
