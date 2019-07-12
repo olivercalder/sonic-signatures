@@ -21,7 +21,7 @@ char_combos = [
         [{'eo':True},        '-eo',     'No-Others']]
 
 
-options = [[{'preserve_emphasis':True},'-e','Emphasis'], [{'vowels_only':True},'v','Vowels-Only']]
+options = [[{'preserve_emphasis':True},'-e','Emphasis'], [{'vowels_only':True},'-v','Vowels-Only']]
 def get_option_combos():
     combos = []
     for i in range(len(options) + 1):

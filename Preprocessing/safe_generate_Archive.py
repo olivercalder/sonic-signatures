@@ -1,4 +1,6 @@
 import sys
+sys.path.append('../Information')
+from archive_combinations import get_names, get_param_dict
 import queue
 import threading
 import percentages
@@ -25,15 +27,17 @@ def build_directory(thread_name, work_queue, queue_lock, exit_flag):
         if not work_queue.empty():
             name, args_dict = work_queue.get()
             queue_lock.release()
-            print(thread_name, 'beginning', name)
+            print('-->', thread_name, 'beginning', name)
             percentages.build_percentages(**args_dict)  # Way to unpack args_dict and assign to appropriate optional parameters
-            print(thread_name, 'finished', name)
+            print('<--', thread_name, 'finished', name)
         else:
             queue_lock.release()
             time.sleep(1)
 
 def main(thread_count):
-    combinations = [
+    names = get_names()
+    param_dicts = get_param_dicts()
+    '''combinations = [
         ('Emphasis-All', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-All/', 'cascade':True, 'preserve_emphasis':True}),
         ('Emphasis-Vowels-Only-All', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-Vowels-Only-All/', 'cascade':True, 'vowels_only':True, 'preserve_emphasis':True}),
         ('All', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/All/', 'cascade':True}),
@@ -62,10 +66,10 @@ def main(thread_count):
         ('Emphasis-Vowels-Only-No-Others', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Emphasis-Vowels-Only-No-Others/', 'cascade':True, 'eo':True, 'vowels_only':True, 'preserve_emphasis':True}),
         ('No-Others', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/No-Others/', 'cascade':True, 'eo':True}),
         ('Vowels-Only-No-Others', {'silent':True, 'wt':True, 'wj':True, 'directory':'../Archive/Vowels-Only-No-Others/', 'cascade':True, 'eo':True, 'vowels_only':True})
-        ]
+        ]'''
     
     exit_flag = [0]
-    work_queue = queue.Queue(len(combinations))
+    work_queue = queue.Queue(len(param_dicts))
     queue_lock = threading.Lock()
     
     # Create threads
@@ -78,8 +82,8 @@ def main(thread_count):
 
     # Fill the queue
     queue_lock.acquire()
-    for item in combinations:
-        work_queue.put(item)
+    for i in range(len(names)):
+        work_queue.put((names[i], param_dicts[i]))
     queue_lock.release()
 
     # Wait for queue to empty

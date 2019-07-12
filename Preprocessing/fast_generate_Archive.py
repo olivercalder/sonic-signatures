@@ -1,4 +1,6 @@
 import sys
+sys.path.append('../Information')
+from archive_combinations import get_names, get_arg_strings
 import os
 import queue
 import threading
@@ -25,15 +27,17 @@ def build_directory(thread_name, work_queue, queue_lock, exit_flag):
         if not work_queue.empty():
             name, args = work_queue.get()
             queue_lock.release()
-            print(thread_name, 'beginning', name)
+            print('-->', thread_name, 'beginning', name)
             os.system('python3 percentages.py {}'.format(args))
-            print(thread_name, 'finished', name)
+            print('<--', thread_name, 'finished', name)
         else:
             queue_lock.release()
             time.sleep(1)
 
 def main(thread_count):
-    combinations = [
+    names = get_names()
+    arg_strings = get_arg_strings()
+    '''combinations = [
         ('Emphasis-All', '-s -wt -wj -d ../Archive/Emphasis-All/ -R -e'),
         ('Emphasis-Vowels-Only-All', '-s -wt -wj -d ../Archive/Emphasis-Vowels-Only-All/ -R -v -e'),
         ('All', '-s -wt -wj -d ../Archive/All/ -R'),
@@ -62,10 +66,10 @@ def main(thread_count):
         ('Emphasis-Vowels-Only-No-Others', '-s -wt -wj -d ../Archive/Emphasis-Vowels-Only-No-Others/ -R -eo -v -e'),
         ('No-Others', '-s -wt -wj -d ../Archive/No-Others/ -R -eo'),
         ('Vowels-Only-No-Others', '-s -wt -wj -d ../Archive/Vowels-Only-No-Others/ -R -eo -v')
-        ]
+        ]'''
     
     exit_flag = [0]
-    work_queue = queue.Queue(len(combinations))
+    work_queue = queue.Queue(len(names))
     queue_lock = threading.Lock()
     
     # Create threads
@@ -78,8 +82,8 @@ def main(thread_count):
 
     # Fill the queue
     queue_lock.acquire()
-    for item in combinations:
-        work_queue.put(item)
+    for i in range(len(names)):
+        work_queue.put((names[i], arg_strings[i]))
     queue_lock.release()
 
     # Wait for queue to empty
