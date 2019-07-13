@@ -205,7 +205,7 @@ def twofold_classify(vector_list, class_list, test_vectors):
             initial_class_list.append('other')
         else:
             initial_class_list.append('non-other')
-            final_vector_list.append(vector_list[i])
+            final_vector_list.append(new_vector_list[i])
             final_class_list.append(class_list[i])
 
     initial_vector_array = np.array(initial_vector_list, dtype=np.float64)
