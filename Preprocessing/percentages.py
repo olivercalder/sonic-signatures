@@ -145,12 +145,12 @@ def write_csv(percentages, title='', directory='', unknowns=False):
         title = title + 'unknowns_'
     filename = directory + title + 'percentages.csv'
     csvfile = open(filename, 'w', newline='')
-    fieldnames = ['name'] + phoneme_list
+    fieldnames = ['character'] + phoneme_list
     percentages_copy = copy.deepcopy(percentages)
     writer = csv.DictWriter(csvfile, fieldnames)
     writer.writeheader()
     for char in char_list:
-        percentages_copy[char]['name'] = char
+        percentages_copy[char]['character'] = char
         writer.writerow(percentages_copy[char])
     csvfile.close()
 

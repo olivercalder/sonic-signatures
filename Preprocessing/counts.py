@@ -170,11 +170,11 @@ def write_csv(counts_dict, title='', directory='', unknowns=False):
     filename = directory + title + 'counts.csv'
     csvfile = open(filename, 'w', newline='')
     copied_counts = copy.deepcopy(counts_dict)
-    fieldnames = ['name'] + phoneme_list
+    fieldnames = ['character'] + phoneme_list
     writer = csv.DictWriter(csvfile, fieldnames)
     writer.writeheader()
     for char in char_list:
-        copied_counts[char]['name'] = char
+        copied_counts[char]['character'] = char
         writer.writerow(copied_counts[char])
     csvfile.close()
 
