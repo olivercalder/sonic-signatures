@@ -7,12 +7,40 @@ import numpy as np
 from sklearn.naive_bayes import MultinomialNB
 
 
+def print_help_string():
+    print('''
+Usage: python3 classification.py Arguments
+
+Arguments:
+    -lt filename.csv    Loads phoneme vectors from given csv file
+    -lj filename.json   Loads phoneme vectors from given json file
+    -s                  Silent: Do not print output
+    -wt                 Writes output to csv file
+    -wj                 Writes output to json file
+    -t title            Title of run, used in output filenames
+    -d directory        Directory in which to write output files
+    -2                  Performs twofold classification
+                            First: Predict "other" or non-"other"
+                            Second: Of the non-"other"s, predict "protag", "antag", or "fool"
+
+Sample Filenames:
+    ../Archive/Emphasis-Min-500/counts.csv
+    ../Archive/No-Others/percentages.json
+''')
+
+
 def convert_list_to_dict(dict_list):
     char_dict = {}
     for item in dict_list:
         char_code = item['character']
+        del item['character']
         char_dict[char_code] = item
     return char_dict
+
+
+def convert_dict_to_list(char_dict):
+    dict_list = list(char_dict.values())
+    return dict_list
 
 
 def load_class_list(char_list):
@@ -27,7 +55,7 @@ def load_class_list(char_list):
     return class_list
 
 
-def load_counts(filename):
+def load_csv(filename):
     char_list = []
     vector_list = []
     with open(filename, newline='') as csv_in:
@@ -37,6 +65,21 @@ def load_counts(filename):
             vector_list.append(line[1:])  # Strips name from vector
     char_list = char_list[1:]  # Strips "name" from list of character codes
     vector_list = vector_list[1:]  # Strips header from vector list
+    return char_list, vector_list
+
+
+def load_json(filename):
+    with open(filename) as json_in:
+        char_dict = json.load(json_in)
+    char_list = sorted(char_dict)
+    phoneme_list = sorted(char_dict[char_list[0]])
+    vector_list = []
+    for char in char_list:
+        dict_vector = char_dict[char]
+        vector = []
+        for phoneme in phoneme_list:
+            vector.append(dict_vector[phoneme])
+        vector_list.append(vector)
     return char_list, vector_list
 
 
@@ -88,7 +131,7 @@ def classify(vector_list, class_list, test_vectors):
     classifier = MultinomialNB()
     classifier.fit(vector_array, class_array)
 
-    test_array = np.array(test_vectors, dtype=np.float64, order='F')  # 'F' indicates row vector rather than column vector
+    test_array = np.array(test_vectors, dtype=np.float64)#, order='F')  # 'F' indicates row vector rather than column vector
     predictions = classifier.predict(test_array)
     return predictions
 
@@ -113,12 +156,12 @@ def twofold_classify(vector_list, class_list, test_vectors):
 
     final_vector_array = np.array(final_vector_list, dtype=np.float64)
     final_class_array = np.array(final_class_list)
-    final_classifier = MultinomialNB
+    final_classifier = MultinomialNB()
     final_classifier.fit(final_vector_array, final_class_array)
 
     predictions = []
     for vector in test_vectors:
-        test_vector = np.array(vector, dtype=np.float, order='F')  # 'F' indicates row vector rather than column vector
+        test_vector = np.array([vector], dtype=np.float)#, order='F')  # 'F' indicates row vector rather than column vector
         initial_prediction = initial_classifier.predict(test_vector)
         if initial_prediction[0] == 'other':
             predictions.append('other')
@@ -136,10 +179,12 @@ def hold_one_out(char_list, vector_list, class_list, char_code, twofold=False):
     char_vector = new_vector_list.pop(index)
     new_class_list = copy.deepcopy(class_list)
     actual = new_class_list.pop(index)
+    test_vectors = []
+    test_vectors.append(char_vector)
     if twofold:
-        prediction = twofold_classify(new_vector_list, new_class_list, [char_vector])[0]
+        prediction = twofold_classify(new_vector_list, new_class_list, test_vectors)[0]
     else:
-        prediction = classify(new_vector_list, new_class_list, [char_vector])[0]
+        prediction = classify(new_vector_list, new_class_list, test_vectors)[0]
     return char_code, actual, prediction
 
 
@@ -151,8 +196,15 @@ def generate_dict_list(char_list, vector_list, class_list, twofold=False):
     return dict_list
 
 
-def build_confusion_dictionary(infile, silent=False, wt=False, wj=False, title='', directory='', twofold=False):
-    char_list, vector_list = load_counts(infile)
+def build_confusion_dictionary(in_csv='', in_json='', silent=False, wt=False, wj=False, title='', directory='', twofold=False):
+    if in_csv and in_json:
+        print('ERROR: Conflicting input files')
+        print_help_string()
+        quit()
+    if in_csv:
+        char_list, vector_list = load_csv(in_csv)
+    elif in_json:
+        char_list, vector_list = load_json(in_json)
     class_list = load_class_list(char_list)
     dict_list = generate_dict_list(char_list, vector_list, class_list, twofold)
     if not silent:
@@ -165,13 +217,14 @@ def build_confusion_dictionary(infile, silent=False, wt=False, wj=False, title='
     return char_dict
 
 
-def main(infile, silent=False, wt=False, wj=False, title='', directory='', twofold=False):
-    char_dict = build_confusion_dictionary(infile, silent, wt, wj, title, directory, twofold)
+def main(in_csv='', in_json='', silent=False, wt=False, wj=False, title='', directory='', twofold=False):
+    char_dict = build_confusion_dictionary(in_csv, in_json, silent, wt, wj, title, directory, twofold)
     return char_dict
 
 
 if __name__ == '__main__':
-    infile = ''
+    lt = ''
+    lj = ''
     silent = False
     wt = False
     wj = False
@@ -179,17 +232,24 @@ if __name__ == '__main__':
     directory = ''
     twofold = False
 
-    i = 0
-    if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
-        i += 1
-        infile = sys.argv[i]
-
+    i = 1
     unrecognized = []
     while i < len(sys.argv):
         if sys.argv[i] == '-h':
-            print('Usage: python3 {} input_filename.csv [-wt] [-wj] [-t title] [-d directory] [-2]'.format(sys.argv[0]))
-            print('filename might be ../Archive/No-Others/percentages.csv')
+            print_help_string()
             quit()
+        elif sys.argv[i] == '-lt':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                lt = sys.argv[i]
+            else:
+                unrecognized.append('-lt: Missing Specifier')
+        elif sys.argv[i] == '-lj':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                lj = sys.argv[i]
+            else:
+                unrecognized.append('-lj: Missing Specifier')
         elif sys.argv[i] == '-s':
             silent = True
         elif sys.argv[i] == '-wt':
@@ -210,16 +270,21 @@ if __name__ == '__main__':
                 unrecognized.append('-d: Missing Specifier')
         elif sys.argv[i] == '-2':
             twofold = True
+        else:
+            unrecognized.append(sys.argv[i])
         i += 1
 
-    if infile == '':
-        print('ERROR: Missing input file')
-        print('Usage: python3 {} input_filename.csv [-wt] [-wj] [-t title] [-d directory] [-2]'.format(sys.argv[0]))
-        print('filename might be ../Archive/No-Others/percentages.csv')
+    if lt == '' and lj == '':
+        unrecognized.append('Missing input file: Please specify with -lt or -lj')
 
-    elif len(unrecognized) > 0:
-        print('ERROR: Unrecognized Arguments:')
+    elif lt !='' and lj != '':
+        unrecognized.append('Conflicting input files: Please include only one of -lt or -lj')
+
+    if len(unrecognized) > 0:
+        print('\nERROR: Unrecognized Arguments:')
         for arg in unrecognized:
             print(arg)
+        print_help_string()
+
     else:
-        main(infile, silent, wt, wj, title, directory, twofold)
+        main(lt, lj, silent, wt, wj, title, directory, twofold)
