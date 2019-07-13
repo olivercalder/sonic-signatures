@@ -131,7 +131,7 @@ def classify(vector_list, class_list, test_vectors):
     classifier = MultinomialNB()
     classifier.fit(vector_array, class_array)
 
-    test_array = np.array(test_vectors, dtype=np.float64)#, order='F')  # 'F' indicates row vector rather than column vector
+    test_array = np.array(test_vectors, dtype=np.float64)
     predictions = classifier.predict(test_array)
     return predictions
 
@@ -161,7 +161,7 @@ def twofold_classify(vector_list, class_list, test_vectors):
 
     predictions = []
     for vector in test_vectors:
-        test_vector = np.array([vector], dtype=np.float)#, order='F')  # 'F' indicates row vector rather than column vector
+        test_vector = np.array([vector], dtype=np.float)
         initial_prediction = initial_classifier.predict(test_vector)
         if initial_prediction[0] == 'other':
             predictions.append('other')
