@@ -113,10 +113,10 @@ def write_text(char_set, title='', directory=''):
     if title != '':
         title = title + '_'
     filename = directory + title + 'characters.txt'
-    out_text = open(filename, 'w')
-    for char in char_set:
-        print(char, file=out_text)
-    out_text.close()
+    with open(filename, 'w') as out_text:
+        char_list = sorted(char_set)
+        for char in char_list:
+            print(char, file=out_text)
 
 
 def write_json(char_dict, title='', directory=''):
@@ -128,10 +128,9 @@ def write_json(char_dict, title='', directory=''):
     if title != '':
         title = title + '_'
     filename = directory + title + 'characters.json'
-    out_json = open(filename, 'w')
-    char_json = convert_dict_to_json(char_dict)
-    json.dump(char_json, out_json)
-    out_json.close()
+    with open(filename, 'w') as out_json:
+        char_json = convert_dict_to_json(char_dict)
+        json.dump(char_json, out_json)
 
 
 def get_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, min_words=0):
