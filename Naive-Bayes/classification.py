@@ -32,9 +32,10 @@ Sample Filenames:
 def convert_list_to_dict(dict_list):
     char_dict = {}
     for item in dict_list:
-        char_code = item['character']
-        del item['character']
-        char_dict[char_code] = item
+        new_item = copy.deepcopy(item)
+        char_code = new_item['character']
+        del new_item['character']
+        char_dict[char_code] = new_item
     return char_dict
 
 
@@ -126,18 +127,76 @@ def write_json(dict_list, title='', directory=''):
 
 
 def classify(vector_list, class_list, test_vectors):
-    vector_array = np.array(vector_list, dtype=np.float64)
+    any_percent = False
+    for vector in vector_list:
+        for count in vector:
+            count = float(count)
+            if count != int(count) and count <= 1.0 and count >= 0.0:
+                any_percent = True
+
+    new_vector_list = []
+    for vector in vector_list:
+        new_vector = []
+        for count in vector:
+            count = float(count)
+            if any_percent:
+                new_vector.append(int(count * 100000))
+            else:
+                new_vector.append(int(count))
+        new_vector_list.append(new_vector)
+
+    new_test_vectors = []
+    for vector in test_vectors:
+        new_vector = []
+        for count in vector:
+            count = float(count)
+            if any_percent:
+                new_vector.append(int(count * 100000))
+            else:
+                new_vector.append(int(count))
+        new_test_vectors.append(new_vector)        
+
+    vector_array = np.array(new_vector_list, dtype=np.float64)
     class_array = np.array(class_list)
     classifier = MultinomialNB()
     classifier.fit(vector_array, class_array)
 
-    test_array = np.array(test_vectors, dtype=np.float64)
+    test_array = np.array(new_test_vectors, dtype=np.float64)
     predictions = classifier.predict(test_array)
     return predictions
 
 
 def twofold_classify(vector_list, class_list, test_vectors):
-    initial_vector_list = vector_list
+    any_percent = False
+    for vector in vector_list:
+        for count in vector:
+            count = float(count)
+            if count != int(count) and count <= 1.0 and count >= 0.0:
+                any_percent = True
+
+    new_vector_list = []
+    for vector in vector_list:
+        new_vector = []
+        for count in vector:
+            count = float(count)
+            if any_percent:
+                new_vector.append(int(count * 100000))
+            else:
+                new_vector.append(int(count))
+        new_vector_list.append(new_vector)
+
+    new_test_vectors = []
+    for vector in test_vectors:
+        new_vector = []
+        for count in vector:
+            count = float(count)
+            if any_percent:
+                new_vector.append(int(count * 100000))
+            else:
+                new_vector.append(int(count))
+        new_test_vectors.append(new_vector)        
+
+    initial_vector_list = new_vector_list
     initial_class_list = []
     final_vector_list = []
     final_class_list = []
@@ -160,7 +219,7 @@ def twofold_classify(vector_list, class_list, test_vectors):
     final_classifier.fit(final_vector_array, final_class_array)
 
     predictions = []
-    for vector in test_vectors:
+    for vector in new_test_vectors:
         test_vector = np.array([vector], dtype=np.float)
         initial_prediction = initial_classifier.predict(test_vector)
         if initial_prediction[0] == 'other':
