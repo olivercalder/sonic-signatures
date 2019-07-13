@@ -174,16 +174,16 @@ class ConfusionMatrix:
         return self.pretty_matrix(self.matrix)
 
     def __lt__(self, other):
-        return self.get_raw_accuracy() < other.get_raw_accuracy()
+        return self.get_overall_accuracy() < other.get_overall_accuracy()
 
     def __le__(self, other):
-        return self.get_avg_accuracy() <= other.get_avg_accuracy()
+        return self.get_average_accuracy() <= other.get_average_accuracy()
 
     def __gt__(self, other):
-        return self.get_raw_accuracy() > other.get_raw_accuracy()
+        return self.get_overall_accuracy() > other.get_overall_accuracy()
 
     def __ge__(self, other):
-        return self.get_avg_accuracy() >= other.get_avg_accuracy()
+        return self.get_average_accuracy() >= other.get_average_accuracy()
 
     def __eq__(self, other):
         return self.get_characters() == other.get_characters()
@@ -292,7 +292,7 @@ class ConfusionMatrix:
         class_total = self.get_class_total(c, actual_or_predicted)
         return class_total / total
 
-    def get_raw_accuracy(self):
+    def get_overall_accuracy(self):
         total = self.get_total()
         if total == 0:
             total = 1
@@ -301,7 +301,7 @@ class ConfusionMatrix:
             correct += self.matrix[c][c]
         return correct / total
 
-    def get_avg_accuracy(self):
+    def get_average_accuracy(self):
         classes = self.get_classes()
         weighted_percent_matrix = self.get_percent_matrix_given_actual()
         accuracy_sum = 0.0
@@ -323,11 +323,11 @@ class ConfusionMatrix:
         lines.append('{:^80}\n\n'.format(title))
         line = '{:>38} = {:<39}'
         percent_line = '{:>38} = {:<39.2%}'
-        raw_accuracy = percent_line.format('Overall accuracy', self.get_raw_accuracy())
-        lines.append('{:^80}'.format(raw_accuracy))
-        avg_accuracy = percent_line.format('Average accuracy', self.get_avg_accuracy())
-        lines.append('{:^80}\n\n'.format(avg_accuracy))
-        lines.append(self.pretty_matrix())
+        overall_accuracy = percent_line.format('Overall accuracy', self.get_overall_accuracy())
+        lines.append('{:^80}'.format(overall_accuracy))
+        average_accuracy = percent_line.format('Average accuracy', self.get_average_accuracy())
+        lines.append('{:^80}\n\n'.format(average_accuracy))
+        lines.append(self.pretty_matrix(name='Confusion Matrix'))
 
         if verbose:
             lines.append('{}\n'.format(line.format('Total samples', self.get_total())))
@@ -371,7 +371,7 @@ class ConfusionMatrix:
     def print_summary(self, verbose=False):
         print(self.get_summary(verbose))
 
-    def write_summary(self, title='', directory='', verbose=False):
+    def write_text(self, title='', directory='', verbose=False):
         if directory != '':
             directory = directory.rstrip('/') + '/'
             self.create_directory(directory)
@@ -383,8 +383,40 @@ class ConfusionMatrix:
         with open(filename, 'w') as outfile:
             print(self.get_summary(verbose), file=outfile)
 
+    def write_json(self, title='', directory=''):
+        out_dict = {}
+        out_dict['title'] = title
+        out_dict['data'] = self.data
+        out_dict['overall_accuracy'] = self.get_overall_accuracy()
+        out_dict['average_accuracy'] = self.get_average_accuracy()
+        out_dict['matrix'] = self.matrix
+        out_dict['percent_matrix'] = self.get_percent_matrix()
+        out_dict['percent_matrix_given_actual'] = self.get_percent_matrix_given_actual()
+        out_dict['percent_matrix_given_predicted'] = self.get_percent_matrix_given_predicted()
+        out_dict['total'] = self.get_total(),
+        out_dict['classes'] = {}
+        classes = self.get_classes()
+        for c in classes:
+            out_dict['classes'][c] = {}
+            out_dict['classes'][c]['total_actual'] = self.get_class_total(c, 'actual')
+            out_dict['classes'][c]['total_predicted'] = self.get_class_total(c, 'predicted')
+            out_dict['classes'][c]['percent_actual'] = self.get_class_percent(c, 'actual')
+            out_dict['classes'][c]['percent_predicted'] = self.get_class_percent(c, 'predicted')
+            out_dict['classes'][c]['accuracy_actual'] = self.get_class_accuracy(c, 'actual')
+            out_dict['classes'][c]['accuracy_predicted'] = self.get_class_accuracy(c, 'predicted')
+        if directory != '':
+            directory = directory.rstrip('/') + '/'
+            self.create_directory(directory)
+        if not title:
+            title = self.name
+        if title:
+            title += '_'
+        filename = directory + title + 'confusion_matrix.json'
+        with open(filename, 'w') as outfile:
+            json.dump(out_dict, outfile)
 
-def main(in_csv='', in_json='', silent=False, wt=False, verbose=False, title='', directory=''):
+
+def main(in_csv='', in_json='', silent=False, wt=False, wj=False, verbose=False, title='', directory=''):
     matrix = ConfusionMatrix()
     if in_csv and in_json:
         print('ERROR: Conflicting input files')
@@ -397,10 +429,12 @@ def main(in_csv='', in_json='', silent=False, wt=False, verbose=False, title='',
     if not silent:
         matrix.print_summary(verbose)
     if wt:
-        matrix.write_summary(title, directory, verbose)
-    raw_accuracy = matrix.get_raw_accuracy()
-    avg_accuracy = matrix.get_avg_accuracy()
-    return raw_accuracy, avg_accuracy
+        matrix.write_text(title, directory, verbose)
+    if wj:
+        matrix.write_json(title, directory)
+    overall_accuracy = matrix.get_overall_accuracy()
+    average_accuracy = matrix.get_average_accuracy()
+    return overall_accuracy, average_accuracy
 
 
 if __name__ == '__main__':
@@ -408,6 +442,7 @@ if __name__ == '__main__':
     lj = ''
     silent = False
     wt = False
+    wj = False
     verbose = False
     title = ''
     directory = ''
@@ -434,6 +469,8 @@ if __name__ == '__main__':
             silent = True
         elif sys.argv[i] == '-wt':
             wt = True
+        elif sys.argv[i] == '-wj':
+            wj = True
         elif sys.argv[i] == '-v':
             verbose = True
         elif sys.argv[i] == '-t':
@@ -465,4 +502,4 @@ if __name__ == '__main__':
         print_help_string()
 
     else:
-        main(lt, lj, silent, wt, verbose, title, directory)
+        main(lt, lj, silent, wt, wj, verbose, title, directory)
