@@ -379,7 +379,7 @@ class ConfusionMatrix:
             title = self.name
         if title:
             title += '_' 
-        filename = directory + title + 'confusion_matrix.txt'
+        filename = directory + title + 'confusion-matrix.txt'
         with open(filename, 'w') as outfile:
             print(self.get_summary(verbose), file=outfile)
 
@@ -411,7 +411,7 @@ class ConfusionMatrix:
             title = self.name
         if title:
             title += '_'
-        filename = directory + title + 'confusion_matrix.json'
+        filename = directory + title + 'confusion-matrix.json'
         with open(filename, 'w') as outfile:
             json.dump(out_dict, outfile)
 
