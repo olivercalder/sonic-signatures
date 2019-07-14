@@ -45,7 +45,30 @@ def classify_and_eval(thread_name, work_queue, queue_lock, exit_flag, results_li
             queue_lock.release()
             time.sleep(1)
 
-def main(thread_count):
+
+def create_directory(directory):
+    if not os.path.isdir(directory):
+        path = directory.rstrip('/') + '/'
+        for i in range(len(path)):
+            path_chunk = '/'.join(path[:i+1])
+            if not os.path.isdir(path_chunk):
+                os.mkdir(path_chunk)
+
+def write_csv(sorted_results, title='', directory=''):
+    if directory != '':
+        directory = directory.rstrip('/') + '/'
+        create_directory(directory)
+    if title != '':
+        title = title + '_'
+    filename = directory + 'results_' + title + 'sorted.csv'
+    with open(filename, 'w', newline = '') as csv_out:
+        writer = csv.writer(csv_out)
+        writer.writerow(['name', 'overall', 'average'])
+        for line in sorted_results:
+            writer.writerow(line)
+
+
+def main(thread_count, silent, wt, title, directory):
     names = get_class_eval_names()
     class_args = get_class_args()
     eval_args = get_eval_args()
@@ -84,19 +107,87 @@ def main(thread_count):
     overall_sorted = sorted(results_list, key=lambda result: result[1], reverse=True)
     average_sorted = sorted(results_list, key=lambda result: result[2], reverse=True)
 
-    print('Overall Accuracy:')
-    for item in overall_sorted:
-        print('{:>40} {:^10.2%} {:^10.2%}'.format(*item))
+    if title:
+        title += '_'
 
-    print('Average Accuracy:')
-    for item in average_sorted:
-        print('{:>40} {:^10.2%} {:^10.2%}'.format(*item))
+    if not directory:
+        directory = '../Results/'
+
+    if write:
+        write_csv(overall_sorted, title + 'overall', directory)
+        write_csv(average_sorted, title + 'average', directory)
+    
+    if not silent:
+        print('Overall Accuracy:')
+        for item in overall_sorted:
+            print('{:>40} {:^10.2%} {:^10.2%}'.format(*item))
+        print('')
+        print('Average Accuracy:')
+        for item in average_sorted:
+            print('{:>40} {:^10.2%} {:^10.2%}'.format(*item))
+
+    return overall_worted, average_sorted
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print('Usage: python3 {} #_of_threads'.format(sys.argv[0]))
-        quit()
+    thread_counts = 4
+    silent = False
+    wt = False
+    title = ''
+    directory = ''
+
+    i = 1
+    unrecognized = []
+    while i < len(sys.argv):
+        if sys.argv[i] == '-h':
+            print('''
+Arguments:
+    -h              Help
+    -c #_of_threads
+    -s              Silent
+    -wt             Write csv
+    -t title
+    -d directory    Output directory
+            ''')
+        elif sys.argv[i] == '-c':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                thread_count = int(sys.argv[i])
+            else:
+                unrecognized.append('-t: Missing Specifier')
+        elif sys.argv[i] == '-s':
+            silent = True
+        elif sys.argv[i] == '-wt':
+            wt = True
+        elif sys.argv[i] == '-t':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                title = sys.argv[i]
+            else:
+                unrecognized.append('-t: Missing Specifier')
+        elif sys.argv[i] == '-d':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                directory = sys.argv[i]
+            else:
+                unrecognized.append(sys.argv[i])
+        else:
+            unrecognized.append(sys.argv[i])
+        i += 1
+
+    if len(unrecognized) > 0:
+        print('\nERROR: Unrecognized Arguments:')
+        for arg in unrecognized:
+            print(arg)
+        print()
+        print('''
+Arguments:
+    -h              Help
+    -c #_of_threads
+    -s              Silent
+    -wt             Write csv
+    -t title
+    -d directory    Output directory
+        ''')
     else:
-        thread_count = sys.argv[1]
-        main(thread_count)
+        main(thread_count, silent, wt, title, directory)
