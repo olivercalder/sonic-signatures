@@ -149,6 +149,7 @@ Arguments:
     -t title
     -d directory    Output directory
             ''')
+            quit()
         elif sys.argv[i] == '-c':
             if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
