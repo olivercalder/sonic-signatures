@@ -162,6 +162,7 @@ def get_class_args():
                     arg_list = []
                     arg_list += [arg[1] for arg in class_defaults]
 
+
                     name_list = []
                     for option in option_combo:
                         name_list.append(option[2])
@@ -172,6 +173,7 @@ def get_class_args():
 
                     name_list.append(filetype_option[2])
                     if class_option[2]:
+                        arg_list.append(class_option[1])
                         name_list.append(class_option[2])
                     name = '-'.join(name_list)
 
