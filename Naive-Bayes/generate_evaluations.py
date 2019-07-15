@@ -130,7 +130,7 @@ def main(thread_count, silent, wt, title, directory):
 
 
 if __name__ == '__main__':
-    thread_counts = 4
+    thread_count = 4
     silent = False
     wt = False
     title = ''
