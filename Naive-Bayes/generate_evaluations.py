@@ -120,11 +120,11 @@ def main(thread_count, silent, wt, title, directory):
     if not silent:
         print('Overall Accuracy:')
         for item in overall_sorted:
-            print('{:>40} {:^10.2%} {:^10.2%}'.format(*item))
+            print('{:>60} {:^10.2%} {:^10.2%}'.format(*item))
         print('')
         print('Average Accuracy:')
         for item in average_sorted:
-            print('{:>40} {:^10.2%} {:^10.2%}'.format(*item))
+            print('{:>60} {:^10.2%} {:^10.2%}'.format(*item))
 
     return overall_sorted, average_sorted
 

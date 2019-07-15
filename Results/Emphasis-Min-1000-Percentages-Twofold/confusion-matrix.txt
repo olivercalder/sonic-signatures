@@ -1,8 +1,8 @@
                  Summary: Emphasis-Min-1000-Percentages-Twofold                 
 
 
-                      Overall accuracy = 44.27%                                 
-                      Average accuracy = 46.89%                                 
+                      Overall accuracy = 53.44%                                 
+                      Average accuracy = 44.36%                                 
 
 
                                 Confusion Matrix                                
@@ -11,29 +11,29 @@
 
                       |  antag   |   fool   |  other   |  protag  |             
             ----------|----------|----------|----------|----------|             
-              antag   |    6     |    1     |    7     |    9     |             
+              antag   |    3     |    1     |    11    |    8     |             
             ----------|----------|----------|----------|----------|             
-               fool   |    0     |    13    |    2     |    3     |             
+               fool   |    1     |    13    |    2     |    2     |             
             ----------|----------|----------|----------|----------|             
-              other   |    42    |    16    |    81    |    47    |             
+              other   |    29    |    15    |   113    |    29    |             
             ----------|----------|----------|----------|----------|             
-              protag  |    7     |    2     |    10    |    16    |             
+              protag  |    5     |    2     |    17    |    11    |             
             ----------|----------|----------|----------|----------|             
 
 
                          Total samples = 262                                    
 
                   Total actual "antag" = 23                                     
-               Total predicted "antag" = 55                                     
+               Total predicted "antag" = 38                                     
 
                    Total actual "fool" = 18                                     
-                Total predicted "fool" = 32                                     
+                Total predicted "fool" = 31                                     
 
                   Total actual "other" = 186                                    
-               Total predicted "other" = 100                                    
+               Total predicted "other" = 143                                    
 
                  Total actual "protag" = 35                                     
-              Total predicted "protag" = 75                                     
+              Total predicted "protag" = 50                                     
 
 
                                  Percent Matrix                                 
@@ -42,27 +42,27 @@
 
                       |  antag   |   fool   |  other   |  protag  |             
             ----------|----------|----------|----------|----------|             
-              antag   |  2.29%   |  0.38%   |  2.67%   |  3.44%   |             
+              antag   |  1.15%   |  0.38%   |  4.20%   |  3.05%   |             
             ----------|----------|----------|----------|----------|             
-               fool   |  0.00%   |  4.96%   |  0.76%   |  1.15%   |             
+               fool   |  0.38%   |  4.96%   |  0.76%   |  0.76%   |             
             ----------|----------|----------|----------|----------|             
-              other   |  16.03%  |  6.11%   |  30.92%  |  17.94%  |             
+              other   |  11.07%  |  5.73%   |  43.13%  |  11.07%  |             
             ----------|----------|----------|----------|----------|             
-              protag  |  2.67%   |  0.76%   |  3.82%   |  6.11%   |             
+              protag  |  1.91%   |  0.76%   |  6.49%   |  4.20%   |             
             ----------|----------|----------|----------|----------|             
 
 
                 Percent actual "antag" = 8.78%                                  
-             Percent predicted "antag" = 20.99%                                 
+             Percent predicted "antag" = 14.50%                                 
 
                  Percent actual "fool" = 6.87%                                  
-              Percent predicted "fool" = 12.21%                                 
+              Percent predicted "fool" = 11.83%                                 
 
                 Percent actual "other" = 70.99%                                 
-             Percent predicted "other" = 38.17%                                 
+             Percent predicted "other" = 54.58%                                 
 
                Percent actual "protag" = 13.36%                                 
-            Percent predicted "protag" = 28.63%                                 
+            Percent predicted "protag" = 19.08%                                 
 
 
              Percent Matrix with Total of Each Actual Class = 100%              
@@ -71,20 +71,20 @@
 
                       |  antag   |   fool   |  other   |  protag  |             
             ----------|----------|----------|----------|----------|             
-              antag   |  26.09%  |  4.35%   |  30.43%  |  39.13%  |             
+              antag   |  13.04%  |  4.35%   |  47.83%  |  34.78%  |             
             ----------|----------|----------|----------|----------|             
-               fool   |  0.00%   |  72.22%  |  11.11%  |  16.67%  |             
+               fool   |  5.56%   |  72.22%  |  11.11%  |  11.11%  |             
             ----------|----------|----------|----------|----------|             
-              other   |  22.58%  |  8.60%   |  43.55%  |  25.27%  |             
+              other   |  15.59%  |  8.06%   |  60.75%  |  15.59%  |             
             ----------|----------|----------|----------|----------|             
-              protag  |  20.00%  |  5.71%   |  28.57%  |  45.71%  |             
+              protag  |  14.29%  |  5.71%   |  48.57%  |  31.43%  |             
             ----------|----------|----------|----------|----------|             
 
 
-     Percent correct of actual "antag" = 26.09%                                 
+     Percent correct of actual "antag" = 13.04%                                 
       Percent correct of actual "fool" = 72.22%                                 
-     Percent correct of actual "other" = 43.55%                                 
-    Percent correct of actual "protag" = 45.71%                                 
+     Percent correct of actual "other" = 60.75%                                 
+    Percent correct of actual "protag" = 31.43%                                 
 
 
             Percent Matrix with Total of Each Predicted Class = 100%            
@@ -93,18 +93,18 @@
 
                       |  antag   |   fool   |  other   |  protag  |             
             ----------|----------|----------|----------|----------|             
-              antag   |  10.91%  |  3.12%   |  7.00%   |  12.00%  |             
+              antag   |  7.89%   |  3.23%   |  7.69%   |  16.00%  |             
             ----------|----------|----------|----------|----------|             
-               fool   |  0.00%   |  40.62%  |  2.00%   |  4.00%   |             
+               fool   |  2.63%   |  41.94%  |  1.40%   |  4.00%   |             
             ----------|----------|----------|----------|----------|             
-              other   |  76.36%  |  50.00%  |  81.00%  |  62.67%  |             
+              other   |  76.32%  |  48.39%  |  79.02%  |  58.00%  |             
             ----------|----------|----------|----------|----------|             
-              protag  |  12.73%  |  6.25%   |  10.00%  |  21.33%  |             
+              protag  |  13.16%  |  6.45%   |  11.89%  |  22.00%  |             
             ----------|----------|----------|----------|----------|             
 
 
-  Percent correct of predicted "antag" = 10.91%                                 
-   Percent correct of predicted "fool" = 40.62%                                 
-  Percent correct of predicted "other" = 81.00%                                 
- Percent correct of predicted "protag" = 21.33%                                 
+  Percent correct of predicted "antag" = 7.89%                                  
+   Percent correct of predicted "fool" = 41.94%                                 
+  Percent correct of predicted "other" = 79.02%                                 
+ Percent correct of predicted "protag" = 22.00%                                 
 
