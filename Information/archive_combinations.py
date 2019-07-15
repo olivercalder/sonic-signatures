@@ -178,9 +178,6 @@ def get_class_args():
                     dir_arg = write_class_eval[1] + name
                     arg_list.append(dir_arg)
 
-                    title_arg = '-t ' + name
-                    arg_list.append(title_arg)
-
                     arg_string = ' '.join(arg_list)
                     arg_strings.append(arg_string)
     return arg_strings
@@ -209,8 +206,8 @@ def get_eval_args():
                     dir_arg = write_class_eval[1] + name
                     arg_list.append(dir_arg)
 
-                    title_arg = '-t ' + name
-                    arg_list.append(title_arg)
+                    name_arg = '-n ' + name
+                    arg_list.append(name_arg)
 
                     arg_string = ' '.join(arg_list)
                     arg_strings.append(arg_string)

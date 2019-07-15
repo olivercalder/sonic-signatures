@@ -416,16 +416,18 @@ class ConfusionMatrix:
             json.dump(out_dict, outfile)
 
 
-def main(in_csv='', in_json='', silent=False, wt=False, wj=False, verbose=False, title='', directory=''):
+def main(in_csv='', in_json='', silent=False, wt=False, wj=False, verbose=False, name='', title='', directory=''):
+    if title and not name:
+        name = title
     matrix = ConfusionMatrix()
     if in_csv and in_json:
         print('ERROR: Conflicting input files')
         print_help_string()
         quit()
     if in_csv:
-        matrix.load_csv(in_csv, title)
+        matrix.load_csv(in_csv, name)
     elif in_json:
-        matrix.load_json(in_json, title)
+        matrix.load_json(in_json, name)
     if not silent:
         matrix.print_summary(verbose)
     if wt:
@@ -444,6 +446,7 @@ if __name__ == '__main__':
     wt = False
     wj = False
     verbose = False
+    name = ''
     title = ''
     directory = ''
 
@@ -473,6 +476,12 @@ if __name__ == '__main__':
             wj = True
         elif sys.argv[i] == '-v':
             verbose = True
+        elif sys.argv[i] == '-n':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                name = sys.argv[i]
+            else:
+                unrecognized.append('-n: Missing Specifier')
         elif sys.argv[i] == '-t':
             if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
@@ -502,4 +511,4 @@ if __name__ == '__main__':
         print_help_string()
 
     else:
-        main(lt, lj, silent, wt, wj, verbose, title, directory)
+        main(lt, lj, silent, wt, wj, verbose, name, title, directory)
