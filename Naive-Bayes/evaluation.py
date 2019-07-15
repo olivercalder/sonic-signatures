@@ -383,7 +383,7 @@ class ConfusionMatrix:
 
     def write_json(self, title='', directory=''):
         out_dict = {}
-        out_dict['title'] = title
+        out_dict['name'] = self.name
         out_dict['data'] = self.data
         out_dict['overall_accuracy'] = self.get_overall_accuracy()
         out_dict['average_accuracy'] = self.get_average_accuracy()
@@ -405,8 +405,6 @@ class ConfusionMatrix:
         if directory != '':
             directory = directory.rstrip('/') + '/'
             self.create_directory(directory)
-        if not title:
-            title = self.name
         if title:
             title += '_'
         filename = directory + title + 'confusion-matrix.json'
