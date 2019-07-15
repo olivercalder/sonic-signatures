@@ -162,7 +162,6 @@ def get_class_args():
                     arg_list = []
                     arg_list += [arg[1] for arg in class_defaults]
 
-
                     name_list = []
                     for option in option_combo:
                         name_list.append(option[2])
