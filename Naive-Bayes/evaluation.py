@@ -375,8 +375,6 @@ class ConfusionMatrix:
         if directory != '':
             directory = directory.rstrip('/') + '/'
             self.create_directory(directory)
-        if not title:
-            title = self.name
         if title:
             title += '_' 
         filename = directory + title + 'confusion-matrix.txt'
