@@ -113,7 +113,7 @@ def main(thread_count, silent, wt, title, directory):
     if not directory:
         directory = '../Results/'
 
-    if write:
+    if wt:
         write_csv(overall_sorted, title + 'overall', directory)
         write_csv(average_sorted, title + 'average', directory)
     
@@ -126,7 +126,7 @@ def main(thread_count, silent, wt, title, directory):
         for item in average_sorted:
             print('{:>40} {:^10.2%} {:^10.2%}'.format(*item))
 
-    return overall_worted, average_sorted
+    return overall_sorted, average_sorted
 
 
 if __name__ == '__main__':
