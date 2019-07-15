@@ -162,17 +162,24 @@ def get_class_args():
                     arg_list = []
                     arg_list += [arg[1] for arg in class_defaults]
 
-                    dir_list = []
+                    name_list = []
                     for option in option_combo:
-                        dir_list.append(option[2])
-                    dir_list.append(char_combo[2])
-                    load_arg = load_csv[1] + '-'.join(dir_list) + '/' + filetype_option[1]
+                        name_list.append(option[2])
+                    name_list.append(char_combo[2])
+
+                    load_arg = load_csv[1] + '-'.join(name_list) + '/' + filetype_option[1]
                     arg_list.append(load_arg)
-                    dir_list.append(filetype_option[2])
+
+                    name_list.append(filetype_option[2])
                     if class_option[2]:
-                        dir_list.append(class_option[2])
-                    dir_arg = write_class_eval[1] + '-'.join(dir_list)
+                        name_list.append(class_option[2])
+                    name = '-'.join(name_list)
+
+                    dir_arg = write_class_eval[1] + name
                     arg_list.append(dir_arg)
+
+                    title_arg = '-t ' + name
+                    arg_list.append(title_arg)
 
                     arg_string = ' '.join(arg_list)
                     arg_strings.append(arg_string)
@@ -187,17 +194,23 @@ def get_eval_args():
                     arg_list = []
                     arg_list += [arg[1] for arg in eval_defaults]
 
-                    dir_list = []
+                    name_list = []
                     for option in option_combo:
-                        dir_list.append(option[2])
-                    dir_list.append(char_combo[2])
-                    dir_list.append(filetype_option[2])
+                        name_list.append(option[2])
+                    name_list.append(char_combo[2])
+                    name_list.append(filetype_option[2])
                     if class_option[2]:
-                        dir_list.append(class_option[2])
-                    load_arg = load_results_csv[1] + '-'.join(dir_list) + '/' + 'results-dictionary.csv'
+                        name_list.append(class_option[2])
+                    name = '-'.join(name_list)
+
+                    load_arg = load_results_csv[1] + name + '/' + 'results-dictionary.csv'
                     arg_list.append(load_arg)
-                    dir_arg = write_class_eval[1] + '-'.join(dir_list)
+
+                    dir_arg = write_class_eval[1] + name
                     arg_list.append(dir_arg)
+
+                    title_arg = '-t ' + name
+                    arg_list.append(title_arg)
 
                     arg_string = ' '.join(arg_list)
                     arg_strings.append(arg_string)
