@@ -1,5 +1,5 @@
 # sonic-signatures
-Machine learning and data visualization research into phoneme patterns of authors.
+Research into the classification of characters based on the patterns of phoneme occurrence in their speech. 
 
 ### Researchers:
 - Eric Alexander _Supervisor_
