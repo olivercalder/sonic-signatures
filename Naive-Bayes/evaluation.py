@@ -199,7 +199,7 @@ class ConfusionMatrix:
         elif type(key) == type(tuple()):
             return self.matrix[key[0]][key[1]]
         else:
-            print("\nERROR: Unrecognized key '{}'".format(key))
+            print("\nERROR: Unrecognized key '{}' in ConfusionMatrix.__getitem__()".format(key))
             print('Valid keys include:')
             print('    character strings')
             print('    class strings')
