@@ -74,6 +74,19 @@ def get_option_combos():
     return combos
 
 
+def get_boolean_options():
+    boolean_options = []
+    boolean_options += [option[2] for option in options]
+    boolean_options.append(filetype_options[0][2])
+    boolean_options.append(class_options[1][2])
+    return boolean_options
+
+def get_iterable_options():
+    iterable_options = {}
+    iterable_options['characters'] =[char[2] for char in char_combos]
+    return iterable_options
+
+
 def get_names():
     names = []
     for char_combo in char_combos:
