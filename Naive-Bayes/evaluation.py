@@ -77,11 +77,11 @@ def get_confusion_matrix(char_dict, name=None):
     return matrix
 
 
-def pretty_matrix(matrix, name='Confusion Matrix'):
+def pretty_matrix(matrix, name='Confusion Matrix', percents=False):
     CM = ConfusionMatrix()
-    return CM.pretty_matrix(matrix, name)
+    return CM.pretty_matrix(matrix, name, percents)
 
-def print_matrix(matrix, name='Confusion Matrix'):
+def print_matrix(matrix, name='Confusion Matrix', percents=False):
     print(pretty_matrix(matrix, name))
 
 
@@ -164,8 +164,8 @@ class ConfusionMatrix:
         lines.append('\n')
         return '\n'.join(lines)
 
-    def print_matrix(self, matrix=None, name=''):
-        print(self.pretty_matrix(matrix, name))
+    def print_matrix(self, matrix=None, name='', percents=False):
+        print(self.pretty_matrix(matrix, name, percents))
 
     def __repr__(self):
         return 'ConfusionMatrix({})'.format(self.data)
