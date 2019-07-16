@@ -258,6 +258,8 @@ def generate_dict_list(char_list, vector_list, class_list, twofold=False):
 def build_confusion_dictionary(in_csv='', in_json='', silent=False, wt=False, wj=False, title='', directory='', twofold=False):
     if in_csv and in_json:
         print('ERROR: Conflicting input files')
+        print('    csv:', in_csv)
+        print('    JSON:', in_json)
         print_help_string()
         quit()
     if in_csv:
