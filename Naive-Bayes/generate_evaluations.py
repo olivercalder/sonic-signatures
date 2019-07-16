@@ -1,6 +1,6 @@
 import sys
 sys.path.append('../Information')
-from archive_combinations import *
+from archive_combinations import get_class_eval_names, get_class_args, get_eval_args
 import os
 import queue
 import threading
