@@ -48,23 +48,24 @@ Machine learning and data visualization research into phoneme patterns of author
 | `percentages.py` | Nested dictionary (`{char:{phoneme:percentage, ...}, ...}`) or Dictionary of nested dictionaries by play (`{play:{char{phoneme:percentage, ...}, ...}, ...}`) | JSON or csv | `counts.py` |
 
 __Command-Line Argument Guidelines__:
-| Argument | Description |
-|----------|-------------|
-| `-h`       | Help: Prints help string |
-| `-p [play_code]` | Includes specified play |
-| `-c [char_code]` | Includes specified character |
-| `-ep [play_code]` | Excludes specified play (overrides conflicting `-p`) |
-| `-ec [char_code]` | Excludes specified character (overrides conflicting `-c`) |
-| `-eo` | Exclude characters with the role of "other" |
-| `-n` | Nests the output by play |
-| `-s` | Silent (does not print to console) |
-| `-wt` | Writes output to file as text (or csv) |
-| `-wj` | Writes output to file as json |
-| `-t [title]` | Specifies title of specified run, to be used in output file names |
-| `-d [path/to/dir]` | Specifies directory in which to write output files |
-| `-R` | Recursively write each subordinate script's output in the same manner as the primary script being run |
-| `-u` | Return unknown words instead of phonemes |
-| `-v` | Vowels only: ignore consonants when creating phoneme vectors |
-| `-e` | Preserve emphasis marking in phonemes |
-| `-r` | Preserve raw text (not recommended beyond `texts.py` |
-| `-m [min_words]` | Only include characters who have a total word count greater than or equal to the specified word count |
+
+| Argument           | Description                                                                                           |
+|--------------------|-------------------------------------------------------------------------------------------------------|
+| `-h`               | Help: Prints help string                                                                              |
+| `-p [play_code]`   | Includes specified play                                                                               |
+| `-c [char_code]`   | Includes specified character                                                                          |
+| `-ep [play_code]`  | Excludes specified play (overrides conflicting `-p`)                                                  |
+| `-ec [char_code]`  | Excludes specified character (overrides conflicting `-c`)                                             |
+| `-eo`              | Exclude characters with the role of "other"                                                           |
+| `-n`               | Nests the output by play                                                                              |
+| `-s`               | Silent (does not print to console)                                                                    |
+| `-wt`              | Writes output to file as text (or csv)                                                                |
+| `-wj`              | Writes output to file as json                                                                         |
+| `-t [title]`       | Specifies title of specified run, to be used in output file names                                     |
+| `-d [path/to/dir]` | Specifies directory in which to write output files                                                    |
+| `-R`               | Recursively write each subordinate script's output in the same manner as the primary script being run |
+| `-u`               | Return unknown words instead of phonemes                                                              |
+| `-v`               | Vowels only: ignore consonants when creating phoneme vectors                                          |
+| `-e`               | Preserve emphasis marking in phonemes                                                                 |
+| `-r`               | Preserve raw text (not recommended beyond `texts.py`                                                  |
+| `-m [min_words]`   | Only include characters who have a total word count greater than or equal to the specified word count |
