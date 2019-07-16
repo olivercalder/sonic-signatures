@@ -42,10 +42,10 @@ Machine learning and data visualization research into phoneme patterns of author
 | Program: | Returns: | Writes: | Depends: |
 |----------|----------|---------|----------|
 | `characters.py` | Set or Dictionary or sets by play | Text or JSON | folgersdigitaltexts.org |
-| `texts.py` | Dictionary or Dictionary of dictionaries by play | Text or JSON | `characters.py` |
-| `phonemes.py` | Dictionary or Dictionary of dictionaries by play | Text or JSON | `texts.py` |
-| `counts.py` | Nested dictionary (`{char:{phoneme:count, ...}, ...}`) or Dictionary of nested dictionaries by play (`{play:{char{phoneme:count, ...}, ...}, ...}`) | JSON or csv | `phonemes.py` |
-| `percentages.py` | Nested dictionary (`{char:{phoneme:percentage, ...}, ...}`) or Dictionary of nested dictionaries by play (`{play:{char{phoneme:percentage, ...}, ...}, ...}`) | JSON or csv | `counts.py` |
+| `texts.py` | Dictionary or Dictionary of dictionaries nested by play | Text or JSON | `characters.py` |
+| `phonemes.py` | Dictionary or Dictionary of dictionaries nested by play | Text or JSON | `texts.py` |
+| `counts.py` | Nested dictionary (`{char:{phoneme:count, ...}, ...}`) or Dictionary of dictionaries nested by play (`{play:{char{phoneme:count, ...}, ...}, ...}`) | JSON or csv | `phonemes.py` |
+| `percentages.py` | Nested dictionary (`{char:{phoneme:percentage, ...}, ...}`) or Dictionary of dictionaries nested by play (`{play:{char{phoneme:percentage, ...}, ...}, ...}`) | JSON or csv | `counts.py` |
 
 __Command-Line Argument Guidelines__:
 
