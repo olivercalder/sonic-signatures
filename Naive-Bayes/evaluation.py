@@ -149,7 +149,7 @@ class ConfusionMatrix:
         header_args = [''] + classes
         newline = line.format(*header_args)
         lines.append('{:^80}'.format(line.format(*header_args)))
-        break_args = ['-'*10] * (len(classes) + 1)
+        break_args = ['—'*10] * (len(classes) + 1)
         lines.append('{:^80}'.format(line.format(*break_args)))
         if percents:
             counts_line = '{:^10}|' + ('{:^10.2%}|' * len(classes))  # Separated so that inner borders can be removed
@@ -159,7 +159,7 @@ class ConfusionMatrix:
             values = [matrix[actual][predicted] for predicted in classes]
             row_args = [actual] + values
             lines.append('{:^80}'.format(counts_line.format(*row_args)))
-            break_args = ['-'*10] * (len(classes) + 1)
+            break_args = ['—'*10] * (len(classes) + 1)
             lines.append('{:^80}'.format(line.format(*break_args)))
         lines.append('\n')
         return '\n'.join(lines)
