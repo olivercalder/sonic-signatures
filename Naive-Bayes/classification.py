@@ -46,7 +46,7 @@ def convert_dict_to_list(char_dict):
 
 def load_class_list(char_list):
     class_dict = {}
-    with open('../Information/characteristics.csv', newline='') as csvfile:
+    with open('../Reference/characteristics.csv', newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             class_dict[row['character']] = row

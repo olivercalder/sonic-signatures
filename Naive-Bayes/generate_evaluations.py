@@ -1,5 +1,5 @@
 import sys
-sys.path.append('../Information')
+sys.path.append('../Reference')
 from archive_combinations import get_class_eval_names, get_class_args, get_eval_args
 import os
 import queue
