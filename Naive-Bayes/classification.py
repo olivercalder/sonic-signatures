@@ -98,6 +98,14 @@ def print_results(dict_list):
         print(entry)
 
 
+def print_play_results(play_dict):
+    for play in play_dict:
+        print(play)
+        for entry in play_dict[play]:
+            print(entry)
+        print()
+
+
 def write_csv(dict_list, title='', directory=''):
     if directory != '':
         directory = directory.rstrip('/') + '/'
@@ -124,6 +132,20 @@ def write_json(dict_list, title='', directory=''):
     char_dict = convert_list_to_dict(dict_list)
     with open(filename, 'w') as out_json:
         json.dump(char_dict, out_json)
+
+
+def write_play_json(play_dict, title='', directory=''):
+    if directory != '':
+        directory = directory.rstrip('/') + '/'
+        create_directory(directory)
+    if title != '':
+        title = title + '_'
+    filename = directory + title + 'play-results-dictionary.json'
+    new_play_dict = {}
+    for play in play_dict:
+        new_play_dict[play] = convert_list_to_dict(play_dict[play])
+    with open(filename, 'w') as out_json:
+        json.dump(new_play_dict, out_json)
 
 
 def classify(vector_list, class_list, test_vectors):
@@ -232,12 +254,15 @@ def twofold_classify(vector_list, class_list, test_vectors):
 
 def hold_one_out(char_list, vector_list, class_list, char_code, twofold=False):
     index = char_list.index(char_code)
+
     new_char_list = copy.deepcopy(char_list)
-    char_code = new_char_list.pop(index)
     new_vector_list = copy.deepcopy(vector_list)
-    char_vector = new_vector_list.pop(index)
     new_class_list = copy.deepcopy(class_list)
+
+    char_code = new_char_list.pop(index)
+    char_vector = new_vector_list.pop(index)
     actual = new_class_list.pop(index)
+
     test_vectors = []
     test_vectors.append(char_vector)
     if twofold:
@@ -247,12 +272,49 @@ def hold_one_out(char_list, vector_list, class_list, char_code, twofold=False):
     return char_code, actual, prediction
 
 
+def hold_one_play_out(char_list, vector_list, class_list, play_code, twofold=False):
+    new_char_list = copy.deepcopy(char_list)
+    new_vector_list = copy.deepcopy(vector_list)
+    new_class_list = copy.deepcopy(class_list)
+
+    char_codes = []
+    test_vectors = []
+    actuals = []
+    predictions = []
+
+    i = 0
+    while i < len(new_char_list):
+        if new_char_list[i].split('_')[0] == play_code:
+            char_codes.append(new_char_list.pop(i))
+            actuals.append(new_class_list.pop(i))
+            test_vectors.append(new_vector_list.pop(i))
+        else:
+            i += 1
+
+    if twofold:
+        predictions = twofold_classify(new_vector_list, new_class_list, test_vectors)
+    else:
+        predictions = classify(new_vector_list, new_class_list, test_vectors)
+    return char_codes, actuals, predictions
+
+
 def generate_dict_list(char_list, vector_list, class_list, twofold=False):
     dict_list = []
     for char in char_list:
         char_code, actual, prediction = hold_one_out(char_list, vector_list, class_list, char, twofold)
         dict_list.append({'character':char_code, 'actual':actual, 'predicted':prediction})
     return dict_list
+
+
+def generate_play_dict(char_list, vector_list, class_list, twofold=False):
+    play_dict = {}
+    play_codes = set()
+    for char in char_list:
+        play_codes.add(char.split('_')[0])
+    for play in play_codes:
+        char_codes, actuals, predictions = hold_one_play_out(char_list, vector_list, class_list, play, twofold)
+        play_dict[play] = [{'character':char_codes[i], 'actual':actuals[i], 'predicted':predictions[i]} for i in range(len(char_codes))]
+    return play_dict
 
 
 def build_confusion_dictionary(in_csv='', in_json='', silent=False, wt=False, wj=False, title='', directory='', twofold=False):
@@ -267,7 +329,9 @@ def build_confusion_dictionary(in_csv='', in_json='', silent=False, wt=False, wj
     elif in_json:
         char_list, vector_list = load_json(in_json)
     class_list = load_class_list(char_list)
+
     dict_list = generate_dict_list(char_list, vector_list, class_list, twofold)
+
     if not silent:
         print_results(dict_list)
     if wt:
@@ -278,14 +342,43 @@ def build_confusion_dictionary(in_csv='', in_json='', silent=False, wt=False, wj
     return char_dict
 
 
-def main(in_csv='', in_json='', silent=False, wt=False, wj=False, title='', directory='', twofold=False):
-    char_dict = build_confusion_dictionary(in_csv, in_json, silent, wt, wj, title, directory, twofold)
-    return char_dict
+def build_play_confusion_dictionary(in_csv='', in_json='', silent=False, wj=False, title=False, directory=False, twofold=False):
+    if in_csv and in_json:
+        print('ERROR: Conflicting input files')
+        print('    csv:', in_csv)
+        print('    JSON:', in_json)
+        print_help_string()
+        quit()
+    if in_csv:
+        char_list, vector_list = load_csv(in_csv)
+    elif in_json:
+        char_list, vector_list = load_json(in_json)
+    class_list = load_class_list(char_list)
+    
+    play_dict = generate_play_dict(char_list, vector_list, class_list, twofold)
+
+    if not silent:
+        print_play_results(play_dict)
+    if wj:
+        write_play_json(play_dict, title, directory)
+    new_play_dict = {}
+    for play in play_dict:
+        new_play_dict[play] = convert_list_to_dict(play_dict[play])
+    return new_play_dict
+
+
+def main(in_csv='', in_json='', plays=False, silent=False, wt=False, wj=False, title='', directory='', twofold=False):
+    if plays:
+        dictionary = build_play_confusion_dictionary(in_csv, in_json, silent, wj, title, directory, twofold)
+    else:
+        dictionary = build_confusion_dictionary(in_csv, in_json, silent, wt, wj, title, directory, twofold)
+    return dictionary
 
 
 if __name__ == '__main__':
     lt = ''
     lj = ''
+    plays = False
     silent = False
     wt = False
     wj = False
@@ -311,6 +404,8 @@ if __name__ == '__main__':
                 lj = sys.argv[i]
             else:
                 unrecognized.append('-lj: Missing Specifier')
+        elif sys.argv[i] == '-p':
+            plays = True
         elif sys.argv[i] == '-s':
             silent = True
         elif sys.argv[i] == '-wt':
@@ -348,4 +443,4 @@ if __name__ == '__main__':
         print_help_string()
 
     else:
-        main(lt, lj, silent, wt, wj, title, directory, twofold)
+        main(lt, lj, plays, silent, wt, wj, title, directory, twofold)

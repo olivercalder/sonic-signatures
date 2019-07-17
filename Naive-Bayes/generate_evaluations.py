@@ -62,7 +62,7 @@ def classify_and_eval(thread_name, work_queue, queue_lock, exit_flag, results_li
 
 def create_directory(directory):
     if not os.path.isdir(directory):
-        path = directory.rstrip('/') + '/'
+        path = directory.rstrip('/').split('/')
         for i in range(len(path)):
             path_chunk = '/'.join(path[:i+1])
             if not os.path.isdir(path_chunk):
@@ -121,15 +121,12 @@ def main(thread_count, silent, wt, title, directory):
     overall_sorted = sorted(results_list, key=lambda result: result[1], reverse=True)
     average_sorted = sorted(results_list, key=lambda result: result[2], reverse=True)
 
-    if title:
-        title += '_'
-
     if not directory:
         directory = '../Results/'
 
     if wt:
-        write_csv(overall_sorted, title + 'overall', directory)
-        write_csv(average_sorted, title + 'average', directory)
+        write_csv(overall_sorted, title + '_overall', directory)
+        write_csv(average_sorted, title + '_average', directory)
     
     if not silent:
         print('Overall Accuracy:')

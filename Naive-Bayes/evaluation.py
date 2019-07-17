@@ -9,7 +9,7 @@ import classification
 
 def print_help_string():
     print('''
-Usage: python3 evaluation.py Arguments
+Usage: python3 {} Arguments
 
 Arguments:
     -lt filename.csv    Loads classifications from given csv file
@@ -17,9 +17,11 @@ Arguments:
     -s                  Silent: Do not print output
     -wt                 Writes output to csv file
     -wj                 Writes output to json file
+    -v                  Verbose: Include more detail in printed and written reports
+    -n name             Name of matrix, used in printing but not in filenames
     -t title            Title of run, used in output filenames
     -d directory        Directory in which to write output files
-''')
+'''.format(sys.argv[0]))
 
 
 def count_total(char_dict):
@@ -66,15 +68,20 @@ def count_pair(char_dict, actual, predicted):
     return count
 
 
-def get_counts_matrix(char_dict, name=None):
-    matrix = ConfusionMatrix()
-    matrix.build(char_dict, name)
-    return matrix.matrix
-
 def get_confusion_matrix(char_dict, name=None):
     matrix = ConfusionMatrix()
     matrix.build(char_dict, name)
     return matrix
+
+def get_counts_matrix(char_dict, name=None):
+    matrix = ConfusionMatrix()
+    matrix.build(char_dict, name)
+    return matrix.get_matrix()
+
+def get_percents_matrix(char_dict, name=None):
+    matrix = ConfusionMatrix()
+    matrix.build(char_dict, name)
+    return matrix.get_percent_matrix()
 
 
 def pretty_matrix(matrix, name='Confusion Matrix', percents=False):
