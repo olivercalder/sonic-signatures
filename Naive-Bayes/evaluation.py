@@ -330,32 +330,33 @@ class ConfusionMatrix:
         lines.append(self.pretty_matrix(name='Confusion Matrix'))
 
         if verbose:
-            lines.append('{}\n'.format(line.format('Total samples', self.get_total())))
-            for c in self.get_classes():
-                lines.append('{}'.format(line.format('Total actual "{}"'.format(c), self.get_class_total(c, 'actual'))))
-                lines.append('{}\n'.format(line.format('Total predicted "{}"'.format(c), self.get_class_total(c, 'predicted'))))
+            lines.append(line.format('Total samples', self.get_total()))
             lines.append('')
+            for c in self.get_classes():
+                lines.append(line.format('Total actual "{}"'.format(c), self.get_class_total(c, 'actual')))
+                lines.append(line.format('Total predicted "{}"'.format(c), self.get_class_total(c, 'predicted')))
+            lines.append('\n')
 
         percent_matrix = self.get_percent_matrix()
         lines.append(self.pretty_matrix(percent_matrix, 'Percent Matrix', True))
         if verbose:
             for c in self.get_classes():
-                lines.append('{}'.format(percent_line.format('Percent actual "{}"'.format(c), self.get_class_percent(c, 'actual'))))
-                lines.append('{}\n'.format(percent_line.format('Percent predicted "{}"'.format(c), self.get_class_percent(c, 'predicted'))))
-            lines.append('')
+                lines.append(percent_line.format('Percent actual "{}"'.format(c), self.get_class_percent(c, 'actual')))
+                lines.append(percent_line.format('Percent predicted "{}"'.format(c), self.get_class_percent(c, 'predicted')))
+            lines.append('\n')
 
         percent_matrix_actual = self.get_percent_matrix_given_actual()
         lines.append(self.pretty_matrix(percent_matrix_actual, 'Percent Matrix with Total of Each Actual Class = 100%', True))
         if verbose:
             for c in self.get_classes():
-                lines.append('{}'.format(percent_line.format('Percent correct of actual "{}"'.format(c), self.get_class_accuracy(c, 'actual'))))
+                lines.append(percent_line.format('Percent correct of actual "{}"'.format(c), self.get_class_accuracy(c, 'actual')))
             lines.append('\n')
 
         percent_matrix_predicted = self.get_percent_matrix_given_predicted()
         lines.append(self.pretty_matrix(percent_matrix_predicted, 'Percent Matrix with Total of Each Predicted Class = 100%', True))
         if verbose:
             for c in self.get_classes():
-                lines.append('{}'.format(percent_line.format('Percent correct of predicted "{}"'.format(c), self.get_class_accuracy(c, 'predicted'))))
+                lines.append(percent_line.format('Percent correct of predicted "{}"'.format(c), self.get_class_accuracy(c, 'predicted')))
         lines.append('')
 
         return '\n'.join(lines)

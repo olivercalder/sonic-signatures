@@ -9,6 +9,20 @@ import csv
 import json
 
 
+def print_help_string():
+    print('''
+Usage: python3 {} [arguments]
+
+Arguments:
+    -h              Help
+    -c #_of_threads
+    -s              Silent
+    -wt             Write csv
+    -t title        Title, used in output filename
+    -d directory    Output directory
+'''.format(sys.argv[0]))
+
+
 class MyThread(threading.Thread):
     def __init__(self, thread_name, work_queue, queue_lock, exit_flag, results_list):
         threading.Thread.__init__(self)
@@ -136,19 +150,15 @@ if __name__ == '__main__':
     title = ''
     directory = ''
 
+    if len(sys.argv) == 0:
+        print_help_string()
+        quit()
+
     i = 1
     unrecognized = []
     while i < len(sys.argv):
         if sys.argv[i] == '-h':
-            print('''
-Arguments:
-    -h              Help
-    -c #_of_threads
-    -s              Silent
-    -wt             Write csv
-    -t title
-    -d directory    Output directory
-            ''')
+            print_help_string()
             quit()
         elif sys.argv[i] == '-c':
             if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
@@ -181,14 +191,6 @@ Arguments:
         for arg in unrecognized:
             print(arg)
         print()
-        print('''
-Arguments:
-    -h              Help
-    -c #_of_threads
-    -s              Silent
-    -wt             Write csv
-    -t title
-    -d directory    Output directory
-        ''')
+        print_help_string()
     else:
         main(thread_count, silent, wt, title, directory)
