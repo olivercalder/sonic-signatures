@@ -169,7 +169,7 @@ def get_char_dict(play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([])
     for character in ec:
         char_set.discard(character)
     if eo:
-        with open('../Information/characteristics.csv', newline='') as csvfile:
+        with open('../Reference/characteristics.csv', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 if row['role'] == 'other':

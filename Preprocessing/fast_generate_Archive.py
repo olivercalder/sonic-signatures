@@ -1,5 +1,5 @@
 import sys
-sys.path.append('../Information')
+sys.path.append('../Reference')
 from archive_combinations import get_names, get_arg_strings
 import os
 import queue
