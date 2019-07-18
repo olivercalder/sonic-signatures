@@ -2,8 +2,11 @@ import sys
 import os
 import csv
 import json
+sys.path.append('../Naive-Bayes')
 import classification
 import evaluation
+sys.path.append('../Reference')
+from archive_combinations import get_names
 
 
 def print_help_string():
@@ -11,8 +14,9 @@ def print_help_string():
 Usage: python3 {} Arguments
 
 Arguments:
-    -lt filename.csv    Loads classifications from given csv file
-    -lj filename.json   Loads classifications from given json file
+    -lt filename.csv    Loads vectors from given csv file
+    -lj filename.json   Loads vectors from given json file
+    -a                  Loads vecrors all combinations of options in Archive and averages results
     -s                  Silent: Do not print output
     -wt                 Writes output to csv file
     -wj                 Writes output to json file
@@ -46,8 +50,27 @@ def write_csv(sorted_results, title='', directory=''):
             writer.writerow(line)
 
 
-def main(in_csv='', in_json='', silent=False, wt=False, wj=False, cascade=False, title='', directory='', twofold=''):
-    play_dict = classification.build_play_confusion_dictionary(in_csv, in_json, silent, wj and cascade, title, directory, twofold)
+def main(in_csv='', in_json='', all_combos=False, silent=False, wt=False, wj=False, cascade=False, title='', directory='', twofold=False):
+    if all_combos:
+        title = (title + '_All-Combos').lstrip('_')
+        play_dict = {}
+        dir_names = get_names()
+        for name in dir_names:
+            for infile in [('counts.csv', 'Counts'), ('percentages.csv', 'Percentages')]:
+                for twofold in [False, True]:
+                    filename = '../Archive/' + name + '/' + infile[0]
+                    class_name = name + '-' + infile[1]
+                    if twofold:
+                        class_name += '-Twofold'
+                    tmp_dict = classification.build_play_confusion_dictionary(filename, '', silent, wj and cascade, title + '_' + class_name, directory, twofold)
+                    for play in tmp_dict:
+                        if play not in play_dict:
+                            play_dict[play] = {}
+                        for char in tmp_dict[play]:
+                            new_char = char + '-' + class_name
+                            play_dict[play][new_char] = tmp_dict[play][char]
+    else:
+        play_dict = classification.build_play_confusion_dictionary(in_csv, in_json, silent, wj and cascade, title, directory, twofold)
     results_list = []
     for play in play_dict:
         play_title = (title + '_' + play).lstrip('_')
@@ -93,6 +116,7 @@ def main(in_csv='', in_json='', silent=False, wt=False, wj=False, cascade=False,
 if __name__ == '__main__':
     lt = ''
     lj = ''
+    all_combos = True
     silent = False
     wt = False
     wj = False
@@ -119,6 +143,8 @@ if __name__ == '__main__':
                 lj = sys.argv[i]
             else:
                 unrecognized.append('-lj: Missing Specifier')
+        elif sys.argv[i] == '-a':
+            all_combos = True
         elif sys.argv[i] == '-s':
             silent = True
         elif sys.argv[i] == '-wt':
@@ -145,11 +171,11 @@ if __name__ == '__main__':
             unrecognized.append(sys.argv[i])
         i += 1
 
-    if lt == '' and lj == '':
-        unrecognized.append('Missing input file: Please specify with -lt or -lj')
+    if lt == '' and lj == '' and not all_combos:
+        unrecognized.append('Missing input file: Please specify with -lt,-lj, or -a')
 
-    elif lt !='' and lj != '':
-        unrecognized.append('Conflicting input files: Please include only one of -lt or -lj')
+    elif (lt != '' and lj != '') or ((lt != '' or lj != '') and all_combos):
+        unrecognized.append('Conflicting input files: Please include only one of -lt, -lj, or -a')
 
     if len(unrecognized) > 0:
         print('\nERROR: Unrecognized Arguments:')
@@ -158,4 +184,4 @@ if __name__ == '__main__':
         print_help_string()
 
     else:
-        main(lt, lj, silent, wt, wj, cascade, title, directory, twofold)
+        main(lt, lj, all_combos, silent, wt, wj, cascade, title, directory, twofold)
