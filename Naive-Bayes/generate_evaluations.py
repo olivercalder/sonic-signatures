@@ -65,13 +65,13 @@ def get_string(results_list):
     average_sorted = sorted(results_list, key=lambda result: result[2], reverse=True)
     lines = []
     lines.append('{:^80}\n'.format('Overall Accuracy:'))
+    lines.append('{:>60} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average'))
     for item in overall_sorted:
-        lines.append('{:>60} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average'))
         lines.append('{:>60} {:^10.2%} {:^10.2%}'.format(*item))
     lines.append('')
-    lines.append('Average Accuracy:')
+    lines.append('{:^80}\n'.format('Average Accuracy:'))
+    lines.append('{:>60} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average'))
     for item in average_sorted:
-        lines.append('{:>60} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average'))
         lines.append('{:>60} {:^10.2%} {:^10.2%}'.format(*item))
     string = '\n'.join(lines)
     return string
