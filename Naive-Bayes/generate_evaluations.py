@@ -92,7 +92,7 @@ def write_text(results_list, title='', directory=''):
         directory = directory.rstrip('/') + '/'
         create_directory(directory)
     if title != '':
-        title = title + '_'
+        title = (title + '_').lstrip('_')
     results_string = get_string(results_list)
     filename = directory + 'results_' + title + 'sorted.txt'
     with open(filename, 'w') as text_out:
@@ -103,7 +103,7 @@ def write_csv(sorted_results, title='', directory=''):
         directory = directory.rstrip('/') + '/'
         create_directory(directory)
     if title != '':
-        title = title + '_'
+        title = (title + '_').lstrip('_')
     filename = directory + 'results_' + title + 'sorted.csv'
     with open(filename, 'w', newline = '') as csv_out:
         writer = csv.writer(csv_out)
