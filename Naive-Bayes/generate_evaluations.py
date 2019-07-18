@@ -73,8 +73,8 @@ def get_string(results_list):
     for item in average_sorted:
         lines.append('{:>60} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average'))
         lines.append('{:>60} {:^10.2%} {:^10.2%}'.format(*item))
-    '\n'.join(lines)
-    return lines
+    string = '\n'.join(lines)
+    return string
 
 def print_summary(results_list):
     print(get_string(results_list))
