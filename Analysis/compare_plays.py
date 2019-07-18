@@ -16,7 +16,8 @@ Usage: python3 {} Arguments
 Arguments:
     -lt filename.csv    Loads vectors from given csv file
     -lj filename.json   Loads vectors from given json file
-    -a                  Loads vecrors all combinations of options in Archive and averages results
+    -a                  Loads vectors from all combinations of options in
+                            Archive and averages results
     -s                  Silent: Do not print output
     -wt                 Writes output to csv file
     -wj                 Writes output to json file
@@ -116,7 +117,7 @@ def main(in_csv='', in_json='', all_combos=False, silent=False, wt=False, wj=Fal
 if __name__ == '__main__':
     lt = ''
     lj = ''
-    all_combos = True
+    all_combos = False
     silent = False
     wt = False
     wj = False
