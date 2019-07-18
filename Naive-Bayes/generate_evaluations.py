@@ -17,7 +17,8 @@ Arguments:
     -h              Help
     -c #_of_threads
     -s              Silent
-    -wt             Write csv
+    -wt             Write text
+    -wc             Write csv
     -t title        Title, used in output filename
     -d directory    Output directory
 '''.format(sys.argv[0]))
@@ -59,6 +60,24 @@ def classify_and_eval(thread_name, work_queue, queue_lock, exit_flag, results_li
             queue_lock.release()
             time.sleep(1)
 
+def get_string(results_list):
+    overall_sorted = sorted(results_list, key=lambda result: result[1], reverse=True)
+    average_sorted = sorted(results_list, key=lambda result: result[2], reverse=True)
+    lines = []
+    lines.append('{:^80}\n'.format('Overall Accuracy:'))
+    for item in overall_sorted:
+        lines.append('{:>60} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average'))
+        lines.append('{:>60} {:^10.2%} {:^10.2%}'.format(*item))
+    lines.append('')
+    lines.append('Average Accuracy:')
+    for item in average_sorted:
+        lines.append('{:>60} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average'))
+        lines.append('{:>60} {:^10.2%} {:^10.2%}'.format(*item))
+    '\n'.join(lines)
+    return lines
+
+def print_summary(results_list):
+    print(get_string(results_list))
 
 def create_directory(directory):
     if not os.path.isdir(directory):
@@ -67,6 +86,17 @@ def create_directory(directory):
             path_chunk = '/'.join(path[:i+1])
             if not os.path.isdir(path_chunk):
                 os.mkdir(path_chunk)
+
+def write_text(results_list, title='', directory=''):
+    if directory != '':
+        directory = directory.rstrip('/') + '/'
+        create_directory(directory)
+    if title != '':
+        title = title + '_'
+    results_string = get_string(results_list)
+    filename = directory + 'results_' + title + 'sorted.txt'
+    with open(filename, 'w') as text_out:
+        print(results_string, file=text_out)
 
 def write_csv(sorted_results, title='', directory=''):
     if directory != '':
@@ -82,10 +112,21 @@ def write_csv(sorted_results, title='', directory=''):
             writer.writerow(line)
 
 
-def main(thread_count, silent, wt, title, directory):
+def main(thread_count, silent, wt, wc, title, directory):
     names = get_class_eval_names()
     class_args = get_class_args()
     eval_args = get_eval_args()
+
+    if directory:
+        directory = directory.rstrip('/')
+        new_class_args = []
+        new_eval_args = []
+        for arg in class_args:
+            new_class_args.append(arg.replace('../Results', directory))
+        for arg in eval_args:
+            new_eval_args.append(arg.replace('../Results', directory))
+        class_args = new_class_args
+        eval_args = new_eval_args
 
     exit_flag = [0]
     work_queue = queue.Queue(len(names))
@@ -125,17 +166,14 @@ def main(thread_count, silent, wt, title, directory):
         directory = '../Results/'
 
     if wt:
+        write_text(results_list, title, directory)
+
+    if wc:
         write_csv(overall_sorted, title + '_overall', directory)
         write_csv(average_sorted, title + '_average', directory)
     
     if not silent:
-        print('Overall Accuracy:')
-        for item in overall_sorted:
-            print('{:>60} {:^10.2%} {:^10.2%}'.format(*item))
-        print('')
-        print('Average Accuracy:')
-        for item in average_sorted:
-            print('{:>60} {:^10.2%} {:^10.2%}'.format(*item))
+        print_summary(results_list)
 
     return overall_sorted, average_sorted
 
@@ -144,10 +182,11 @@ if __name__ == '__main__':
     thread_count = 4
     silent = False
     wt = False
+    wc = False
     title = ''
     directory = ''
 
-    if len(sys.argv) == 0:
+    if len(sys.argv) == 1:
         print_help_string()
         quit()
 
@@ -167,6 +206,8 @@ if __name__ == '__main__':
             silent = True
         elif sys.argv[i] == '-wt':
             wt = True
+        elif sys.argv[i] == '-wc':
+            wc = True
         elif sys.argv[i] == '-t':
             if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
@@ -190,4 +231,4 @@ if __name__ == '__main__':
         print()
         print_help_string()
     else:
-        main(thread_count, silent, wt, title, directory)
+        main(thread_count, silent, wt, wc, title, directory)

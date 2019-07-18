@@ -96,23 +96,30 @@ class ConfusionMatrix:
     def __init__(self, char_dict=None, name=None):
         self.data = OrderedDict()
         self.matrix = OrderedDict()
+        self.char_matrix = OrderedDict()
         self.name = ''
         if char_dict:
             self.build(char_dict, name)
+        if name:
+            self.name = name
 
     def build(self, char_dict, name=None):
         if name:
             self.name = name
         self.data = OrderedDict(char_dict)
         self.matrix = OrderedDict()
+        self.char_matrix = OrderedDict()
         for actual in self.get_classes():
             self.matrix[actual] = OrderedDict()
+            self.char_matrix[actual] = OrderedDict()
             for predicted in self.get_classes():
                 count = 0
+                self.char_matrix[actual][predicted] = []
                 for char in self.get_characters():
                     if char_dict[char]['actual'] == actual:
                         if char_dict[char]['predicted'] == predicted:
                             count += 1
+                            self.char_matrix[actual][predicted].append(char)
                 self.matrix[actual][predicted] = count
         return self
 
@@ -239,6 +246,9 @@ class ConfusionMatrix:
     def get_matrix(self):
         return self.matrix
 
+    def get_character_matrix(self):
+        return self.char_matrix
+
     def get_percent_matrix(self):
         total = self.get_total()
         if total == 0:
@@ -324,6 +334,15 @@ class ConfusionMatrix:
         correct = self.matrix[c][c]
         return correct / class_total
 
+    def get_class_characters(self, c1, actual_or_predicted='actual'):
+        characters = []
+        for c2 in self.get_classes():
+            if actual_or_predicted == 'actual':
+                characters += self.char_matrix[c1][c2]
+            elif actual_or_predicted == 'predicted':
+                characters += self.char_matrix[c2][c1]
+        return characters
+
     def get_summary(self, verbose=False):
         lines = []
         title = 'Summary: {}'.format(self.name)
@@ -336,35 +355,55 @@ class ConfusionMatrix:
         lines.append('{:^80}\n\n'.format(average_accuracy))
         lines.append(self.pretty_matrix(name='Confusion Matrix'))
 
+        classes = self.get_classes()
+
         if verbose:
             lines.append(line.format('Total samples', self.get_total()))
             lines.append('')
-            for c in self.get_classes():
+            for c in classes:
                 lines.append(line.format('Total actual "{}"'.format(c), self.get_class_total(c, 'actual')))
                 lines.append(line.format('Total predicted "{}"'.format(c), self.get_class_total(c, 'predicted')))
             lines.append('\n')
 
         percent_matrix = self.get_percent_matrix()
         lines.append(self.pretty_matrix(percent_matrix, 'Percent Matrix', True))
+
         if verbose:
-            for c in self.get_classes():
+            for c in classes:
                 lines.append(percent_line.format('Percent actual "{}"'.format(c), self.get_class_percent(c, 'actual')))
                 lines.append(percent_line.format('Percent predicted "{}"'.format(c), self.get_class_percent(c, 'predicted')))
             lines.append('\n')
 
         percent_matrix_actual = self.get_percent_matrix_given_actual()
         lines.append(self.pretty_matrix(percent_matrix_actual, 'Percent Matrix with Total of Each Actual Class = 100%', True))
+
         if verbose:
-            for c in self.get_classes():
+            for c in classes:
                 lines.append(percent_line.format('Percent correct of actual "{}"'.format(c), self.get_class_accuracy(c, 'actual')))
             lines.append('\n')
 
         percent_matrix_predicted = self.get_percent_matrix_given_predicted()
         lines.append(self.pretty_matrix(percent_matrix_predicted, 'Percent Matrix with Total of Each Predicted Class = 100%', True))
+
         if verbose:
-            for c in self.get_classes():
+            for c in classes:
                 lines.append(percent_line.format('Percent correct of predicted "{}"'.format(c), self.get_class_accuracy(c, 'predicted')))
-        lines.append('')
+            lines.append('\n')
+
+            lines.append('\n{:^80}\n\n'.format('Characters:'))
+            for c1 in classes:
+                for c2 in classes:
+                    lines.append('{:^80}\n'.format('Actual "{}" Predicted as "{}":'.format(c1, c2)))
+                    chars = self.char_matrix[c1][c2]
+                    i = 0
+                    line = ''
+                    for i in range(len(chars)):
+                        if len(line + '\t' + chars[i]) > 80:
+                            lines.append(line.lstrip('\t'))
+                            line = ''
+                        line += '\t' + chars[i]
+                    lines.append(line)
+                    lines.append('\n')
 
         return '\n'.join(lines)
 
@@ -396,6 +435,7 @@ class ConfusionMatrix:
         out_dict['overall_accuracy'] = self.get_overall_accuracy()
         out_dict['average_accuracy'] = self.get_average_accuracy()
         out_dict['matrix'] = self.matrix
+        out_dict['character_matrix'] = self.char_matrix
         out_dict['percent_matrix'] = self.get_percent_matrix()
         out_dict['percent_matrix_given_actual'] = self.get_percent_matrix_given_actual()
         out_dict['percent_matrix_given_predicted'] = self.get_percent_matrix_given_predicted()
@@ -410,6 +450,8 @@ class ConfusionMatrix:
             out_dict['classes'][c]['percent_predicted'] = self.get_class_percent(c, 'predicted')
             out_dict['classes'][c]['accuracy_actual'] = self.get_class_accuracy(c, 'actual')
             out_dict['classes'][c]['accuracy_predicted'] = self.get_class_accuracy(c, 'predicted')
+            out_dict['classes'][c]['actual_characters'] = self.get_class_characters(c, 'actual')
+            out_dict['classes'][c]['predicted_characters'] = self.get_class_characters(c, 'predicted')
         if directory != '':
             directory = directory.rstrip('/') + '/'
             self.create_directory(directory)
