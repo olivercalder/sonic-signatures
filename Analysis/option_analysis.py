@@ -116,13 +116,16 @@ def get_boolean_analysis(results):
                 false_average_sum += entry[2]
                 false_count += 1
 
-        true_overall_mean = true_overall_sum / float(true_count)
-        true_average_mean = true_average_sum / float(true_count)
-        false_overall_mean = false_overall_sum / float(false_count)
-        false_average_mean = false_average_sum / float(false_count)
+        if true_count != 0 and false_count != 0:
+            true_overall_mean = true_overall_sum / float(true_count)
+            true_average_mean = true_average_sum / float(true_count)
+            false_overall_mean = false_overall_sum / float(false_count)
+            false_average_mean = false_average_sum / float(false_count)
 
-        boolean_analysis[option].append([option, true_overall_mean, true_average_mean])
-        boolean_analysis[option].append(['Not ' + option, false_overall_mean, false_average_mean])
+            boolean_analysis[option].append([option, true_overall_mean, true_average_mean])
+            boolean_analysis[option].append(['Not ' + option, false_overall_mean, false_average_mean])
+        else:
+            del boolean_analysis[option]
     return boolean_analysis
 
 
@@ -142,11 +145,13 @@ def get_iterable_analysis(results):
                     overall_sum += entry[1]
                     average_sum += entry[2]
                     count += 1
-            
-            overall_mean = overall_sum / float(count)
-            average_mean = average_sum / float(count)
+                    
+            if count != 0:
+                overall_mean = overall_sum / float(count)
+                average_mean = average_sum / float(count)
 
-            iterable_analysis[option_set].append([option, overall_mean, average_mean])
+                iterable_analysis[option_set].append([option, overall_mean, average_mean])
+
     return iterable_analysis
 
 

@@ -21,9 +21,9 @@ Arguments:
     -wj                 Writes output to json file
     -t title            Title of run, used in output filenames
     -d directory        Directory in which to write output files
-    -2                  Performs twofold classification
-                            First: Predict "other" or non-"other"
-                            Second: Of the non-"other"s, predict "protag", "antag", or "fool"
+    -2 class            Performs twofold classification, with specified class as cutoff
+                            First: Predict "[class]" or non-"[class]"
+                            Second: Of the non-"[class]"s, predict from remaining classes
 
 Sample Filenames:
     ../Archive/Emphasis-Min-500/counts.csv
@@ -190,7 +190,7 @@ def classify(vector_list, class_list, test_vectors):
     return predictions
 
 
-def twofold_classify(vector_list, class_list, test_vectors):
+def twofold_classify(vector_list, class_list, test_vectors, twofold_class):
     any_percent = False
     for vector in vector_list:
         for count in vector:
@@ -225,10 +225,10 @@ def twofold_classify(vector_list, class_list, test_vectors):
     final_vector_list = []
     final_class_list = []
     for i in range(len(class_list)):
-        if class_list[i] == 'other':
-            initial_class_list.append('other')
+        if class_list[i] == twofold_class:
+            initial_class_list.append(twofold_class)
         else:
-            initial_class_list.append('non-other')
+            initial_class_list.append('non-' + twofold_class)
             final_vector_list.append(new_vector_list[i])
             final_class_list.append(class_list[i])
 
@@ -246,15 +246,15 @@ def twofold_classify(vector_list, class_list, test_vectors):
     for vector in new_test_vectors:
         test_vector = np.array([vector], dtype=np.float)
         initial_prediction = initial_classifier.predict(test_vector)
-        if initial_prediction[0] == 'other':
-            predictions.append('other')
+        if initial_prediction[0] == twofold_class:
+            predictions.append(twofold_class)
         else:
             final_prediction = final_classifier.predict(test_vector)
             predictions.append(final_prediction[0])
     return predictions
 
 
-def hold_one_out(char_list, vector_list, class_list, char_code, twofold=False):
+def hold_one_out(char_list, vector_list, class_list, char_code, twofold=''):
     index = char_list.index(char_code)
 
     new_char_list = copy.deepcopy(char_list)
@@ -268,13 +268,13 @@ def hold_one_out(char_list, vector_list, class_list, char_code, twofold=False):
     test_vectors = []
     test_vectors.append(char_vector)
     if twofold:
-        prediction = twofold_classify(new_vector_list, new_class_list, test_vectors)[0]
+        prediction = twofold_classify(new_vector_list, new_class_list, test_vectors, twofold)[0]
     else:
         prediction = classify(new_vector_list, new_class_list, test_vectors)[0]
     return char_code, actual, prediction
 
 
-def hold_one_play_out(char_list, vector_list, class_list, play_code, twofold=False):
+def hold_one_play_out(char_list, vector_list, class_list, play_code, twofold=''):
     new_char_list = copy.deepcopy(char_list)
     new_vector_list = copy.deepcopy(vector_list)
     new_class_list = copy.deepcopy(class_list)
@@ -294,13 +294,13 @@ def hold_one_play_out(char_list, vector_list, class_list, play_code, twofold=Fal
             i += 1
 
     if twofold:
-        predictions = twofold_classify(new_vector_list, new_class_list, test_vectors)
+        predictions = twofold_classify(new_vector_list, new_class_list, test_vectors, twofold)
     else:
         predictions = classify(new_vector_list, new_class_list, test_vectors)
     return char_codes, actuals, predictions
 
 
-def generate_dict_list(char_list, vector_list, class_list, twofold=False):
+def generate_dict_list(char_list, vector_list, class_list, twofold=''):
     dict_list = []
     for char in char_list:
         char_code, actual, prediction = hold_one_out(char_list, vector_list, class_list, char, twofold)
@@ -308,7 +308,7 @@ def generate_dict_list(char_list, vector_list, class_list, twofold=False):
     return dict_list
 
 
-def generate_play_dict(char_list, vector_list, class_list, twofold=False):
+def generate_play_dict(char_list, vector_list, class_list, twofold=''):
     play_dict = {}
     play_codes = set()
     for char in char_list:
@@ -319,7 +319,7 @@ def generate_play_dict(char_list, vector_list, class_list, twofold=False):
     return play_dict
 
 
-def build_confusion_dictionary(in_csv='', in_json='', class_id='', silent=False, wt=False, wj=False, title='', directory='', twofold=False):
+def build_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', silent=False, wt=False, wj=False, title='', directory=''):
     if in_csv and in_json:
         print('ERROR: Conflicting input files')
         print('    csv:', in_csv)
@@ -344,7 +344,7 @@ def build_confusion_dictionary(in_csv='', in_json='', class_id='', silent=False,
     return char_dict
 
 
-def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', silent=False, wj=False, title=False, directory=False, twofold=False):
+def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', silent=False, wj=False, title='', directory=''):
     if not class_id:
         print('ERROR: Missing class id')
         print_help_string()
@@ -373,11 +373,11 @@ def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', silent=F
     return new_play_dict
 
 
-def main(in_csv='', in_json='', class_id='', plays=False, silent=False, wt=False, wj=False, title='', directory='', twofold=False):
+def main(in_csv='', in_json='', class_id='', twofold='', plays=False, silent=False, wt=False, wj=False, title='', directory='', twofold=False):
     if plays:
-        dictionary = build_play_confusion_dictionary(in_csv, in_json, class_id, silent, wj, title, directory, twofold)
+        dictionary = build_play_confusion_dictionary(in_csv, in_json, class_id, twofold, silent, wj, title, directory)
     else:
-        dictionary = build_confusion_dictionary(in_csv, in_json, class_id, silent, wt, wj, title, directory, twofold)
+        dictionary = build_confusion_dictionary(in_csv, in_json, class_id, twofold, silent, wt, wj, title, directory)
     return dictionary
 
 
@@ -385,13 +385,13 @@ if __name__ == '__main__':
     lt = ''
     lj = ''
     class_id = ''
+    twofold = ''
     plays = False
     silent = False
     wt = False
     wj = False
     title = ''
     directory = ''
-    twofold = False
 
     if len(sys.argv) == 1:
         print_help_string()
@@ -421,6 +421,12 @@ if __name__ == '__main__':
                 class_id = sys.argv[i]
             else:
                 unrecognized.append('-c: Missing Specifier')
+        elif sys.argv[i] == '-2':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                twofold = sys.argv[i]
+            else:
+                unrecognized.append('-2: Missing Specifier')
         elif sys.argv[i] == '-p':
             plays = True
         elif sys.argv[i] == '-s':
@@ -441,8 +447,6 @@ if __name__ == '__main__':
                 directory = sys.argv[i]
             else:
                 unrecognized.append('-d: Missing Specifier')
-        elif sys.argv[i] == '-2':
-            twofold = True
         else:
             unrecognized.append(sys.argv[i])
         i += 1
@@ -463,4 +467,4 @@ if __name__ == '__main__':
         print_help_string()
 
     else:
-        main(lt, lj, class_id, plays, silent, wt, wj, title, directory, twofold)
+        main(lt, lj, class_id, twofold, plays, silent, wt, wj, title, directory)

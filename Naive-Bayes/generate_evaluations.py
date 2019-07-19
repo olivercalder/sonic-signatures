@@ -14,33 +14,38 @@ def print_help_string():
 Usage: python3 {} [arguments]
 
 Arguments:
-    -h              Help
+    -h              Prints help string
     -n #_of_threads Specifies number of threads to use for computation
     -c class_id     Specifies the class (role, gender, genre, social class) to predict
-    -s              Silent
-    -wt             Write text
-    -wc             Write csv
-    -t title        Title, used in output filename
-    -d directory    Output directory
+    -s              Silent: Do not print output
+    -wt             Write output to text file
+    -wc             Write output to csv file
+    -R              Recursively preserve write preferences for intermediate scripts
+    -t title        Title of run, used in output filename
+    -d directory    Directory in which to write output files
+    -2 class        Performs twofold classification, with specified class as cutoff
+                        First: Predict "[class]" or non-"[class]"
+                        Second: Of the non-"[class]"s, predict from remaining classes
 '''.format(sys.argv[0]))
 
 
 class MyThread(threading.Thread):
-    def __init__(self, thread_name, work_queue, queue_lock, exit_flag, results_list):
+    def __init__(self, thread_name, work_queue, queue_lock, exit_flag, results_list, keep_intermediate):
         threading.Thread.__init__(self)
         self.thread_name = thread_name
         self.work_queue = work_queue
         self.queue_lock = queue_lock
         self.exit_flag = exit_flag
         self.results_list = results_list
+        self.keep_intermediate = keep_intermediate
 
     def run(self):
         print('Starting', self.thread_name)
-        classify_and_eval(self.thread_name, self.work_queue, self.queue_lock, self.exit_flag, self.results_list)
+        classify_and_eval(self.thread_name, self.work_queue, self.queue_lock, self.exit_flag, self.results_list, self.keep_intermediate)
         print('Exiting', self.thread_name)
 
 
-def classify_and_eval(thread_name, work_queue, queue_lock, exit_flag, results_list):
+def classify_and_eval(thread_name, work_queue, queue_lock, exit_flag, results_list, keep_intermediate):
     while not exit_flag[0]:
         queue_lock.acquire()
         if not work_queue.empty():
@@ -49,7 +54,7 @@ def classify_and_eval(thread_name, work_queue, queue_lock, exit_flag, results_li
             print('-->', thread_name, 'beginning', name)
             os.system('python3 classification.py {}'.format(class_args))
             os.system('python3 evaluation.py {}'.format(eval_args))
-            arg_list = class_args.split(' ')
+            arg_list = eval_args.split(' ')
             index = arg_list.index('-d')
             directory = arg_list[index + 1]
             filename = directory + '/confusion-matrix.json'
@@ -58,6 +63,8 @@ def classify_and_eval(thread_name, work_queue, queue_lock, exit_flag, results_li
             overall_accuracy = conf_dict['overall_accuracy']
             average_accuracy = conf_dict['average_accuracy']
             results_list.append([name, overall_accuracy, average_accuracy])
+            if not keep_intermediate:
+                os.system('rm -r {}'.format(filename))
             print('<--', thread_name, 'finished', name)
         else:
             queue_lock.release()
@@ -115,17 +122,26 @@ def write_csv(sorted_results, title='', directory=''):
             writer.writerow(line)
 
 
-def main(thread_count, class_id, silent, wt, wc, title, directory):
+def main(thread_count, class_id, twofold='', silent=False, wt=False, wc=False, cascade=False, title='', directory=''):
     names = get_class_eval_names()
-    class_args = get_class_args()
-    eval_args = get_eval_args()
+    class_args = get_class_args(twofold)
+    eval_args = get_eval_args(twofold)
 
     new_class_args = []
     for arg in class_args:
         new_class_args.append(arg + ' -c ' + class_id)
     class_args = new_class_args
 
-    if directory:
+    if silent:
+        new_class_args = []
+        new_eval_args = []
+        for arg in class_args:
+            new_class_args.append(arg + ' -s')
+            new_eval_args.append(arg + ' -s')
+        class_args = new_class_args
+        eval_args = new_eval_args
+
+    if directory and cascade:
         directory = directory.rstrip('/')
         new_class_args = []
         new_eval_args = []
@@ -135,6 +151,21 @@ def main(thread_count, class_id, silent, wt, wc, title, directory):
             new_eval_args.append(arg.replace('../Results', directory))
         class_args = new_class_args
         eval_args = new_eval_args
+    elif (not directory and not cascade) or (directory and not cascade):
+        new_class_args = []
+        new_eval_args = []
+        for arg in class_args:
+            new_class_args.append(arg.replace('../Results', 'tmp'))
+        for arg in eval_args:
+            new_eval_args.append(arg.replace('../Results', 'tmp'))
+        class_args = new_class_args
+        eval_args = new_eval_args
+
+
+    keep_intermediate = False
+    if cascade and (wt or wc):
+        keep_intermediate = True
+
 
     exit_flag = [0]
     work_queue = queue.Queue(len(names))
@@ -145,7 +176,7 @@ def main(thread_count, class_id, silent, wt, wc, title, directory):
     threads = []
     for i in range(int(thread_count)):
         thread_name = 'Thread_{}'.format(i)
-        thread = MyThread(thread_name, work_queue, queue_lock, exit_flag, results_list)
+        thread = MyThread(thread_name, work_queue, queue_lock, exit_flag, results_list, keep_intermediate)
         thread.start()
         threads.append(thread)
 
@@ -189,9 +220,11 @@ def main(thread_count, class_id, silent, wt, wc, title, directory):
 if __name__ == '__main__':
     thread_count = 4
     class_id = ''
+    twofold = ''
     silent = False
     wt = False
     wc = False
+    cascade = False
     title = ''
     directory = ''
 
@@ -217,12 +250,20 @@ if __name__ == '__main__':
                 class_id = sys.argv[i]
             else:
                 unrecognized.append('-c: Missing Specifier')
+        elif sys.argv[i] == '-2':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                twofold = sys.argv[i]
+            else:
+                unrecognized.append('-2: Missing Specifier')
         elif sys.argv[i] == '-s':
             silent = True
         elif sys.argv[i] == '-wt':
             wt = True
         elif sys.argv[i] == '-wc':
             wc = True
+        elif sys.argv[i] == '-R':
+            cascade = True
         elif sys.argv[i] == '-t':
             if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
@@ -249,4 +290,4 @@ if __name__ == '__main__':
         print()
         print_help_string()
     else:
-        main(thread_count, class_id, silent, wt, wc, title, directory)
+        main(thread_count, class_id, twofold, silent, wt, wc, cascade, title, directory)

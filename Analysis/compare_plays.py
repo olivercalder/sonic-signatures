@@ -52,19 +52,22 @@ def write_csv(sorted_results, title='', directory=''):
             writer.writerow(line)
 
 
-def main(in_csv='', in_json='', all_combos=False, class_id='', silent=False, wt=False, wj=False, cascade=False, title='', directory='', twofold=False):
+def main(in_csv='', in_json='', all_combos=False, class_id='', twofold='', silent=False, wt=False, wj=False, cascade=False, title='', directory=''):
     if all_combos:
         title = (title + '_All-Combos').lstrip('_')
         play_dict = {}
         dir_names = get_names()
         for name in dir_names:
             for infile in [('counts.csv', 'Counts'), ('percentages.csv', 'Percentages')]:
-                for twofold in [False, True]:
+                twofold_classes = ['']
+                if twofold:
+                    twofold_classes.append[twofold]
+                for twofold_class in twofold_classes:
                     filename = '../Archive/' + name + '/' + infile[0]
                     class_name = name + '-' + infile[1]
-                    if twofold:
+                    if twofold_class:
                         class_name += '-Twofold'
-                    tmp_dict = classification.build_play_confusion_dictionary(filename, '', class_id, silent, wj and cascade, title + '_' + class_name, directory, twofold)
+                    tmp_dict = classification.build_play_confusion_dictionary(filename, '', class_id, twofold_class, silent, wj and cascade, title + '_' + class_name, directory)
                     for play in tmp_dict:
                         if play not in play_dict:
                             play_dict[play] = {}
@@ -72,7 +75,7 @@ def main(in_csv='', in_json='', all_combos=False, class_id='', silent=False, wt=
                             new_char = char + '-' + class_name
                             play_dict[play][new_char] = tmp_dict[play][char]
     else:
-        play_dict = classification.build_play_confusion_dictionary(in_csv, in_json, class_id, silent, wj and cascade, title, directory, twofold)
+        play_dict = classification.build_play_confusion_dictionary(in_csv, in_json, class_id, twofold='', silent, wj and cascade, title, directory)
     results_list = []
     for play in play_dict:
         play_title = (title + '_' + play).lstrip('_')

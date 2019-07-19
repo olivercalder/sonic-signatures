@@ -14,12 +14,12 @@ defaults = [
         [{'cascade':True}, '-R' ]]
 
 class_defaults = [
-        [{'silent':True}, '-s' ],
+#       [{'silent':True}, '-s' ],
         [{'wt':True},     '-wt'],
         [{'wj':True},     '-wj']]
 
 eval_defaults = [
-        [{'silent':True},  '-s' ],
+#       [{'silent':True},  '-s' ],
         [{'wt':True},      '-wt'],
         [{'wj':True},      '-wj'],
         [{'verbose':True}, '-v' ]]
@@ -83,7 +83,7 @@ def get_boolean_options():
 
 def get_iterable_options():
     iterable_options = {}
-    iterable_options['characters'] =[char[2] for char in char_combos]
+    iterable_options['characters'] = [char[2] for char in char_combos]
     return iterable_options
 
 
@@ -166,14 +166,18 @@ def get_arg_strings():
     return arg_strings
 
 
-def get_class_args():
+def get_class_args(twofold=''):
     arg_strings = []
     for char_combo in char_combos:
         for option_combo in get_option_combos():
             for filetype_option in filetype_options:
-                for class_option in class_options:
+                twofold_classes = ['']
+                if twofold:
+                    twofold_classes.append(twofold)
+                for twofold_class in twofold_class:
                     arg_list = []
-                    arg_list += [arg[1] for arg in class_defaults]
+                    if class_defaults:
+                        arg_list += [arg[1] for arg in class_defaults]
 
                     name_list = []
                     for option in option_combo:
@@ -184,9 +188,9 @@ def get_class_args():
                     arg_list.append(load_arg)
 
                     name_list.append(filetype_option[2])
-                    if class_option[2]:
-                        arg_list.append(class_option[1])
-                        name_list.append(class_option[2])
+                    if twofold_class:
+                        arg_list.append('-2 ' + twofold_class)
+                        name_list.append(Twofold)
                     name = '-'.join(name_list)
 
                     dir_arg = write_class_eval[1] + name
@@ -196,22 +200,26 @@ def get_class_args():
                     arg_strings.append(arg_string)
     return arg_strings
 
-def get_eval_args():
+def get_eval_args(twofold=''):
     arg_strings = []
     for char_combo in char_combos:
         for option_combo in get_option_combos():
             for filetype_option in filetype_options:
-                for class_option in class_options:
+                twofold_classes = ['']
+                if twofold:
+                    twofold_classes.append(twofold)
+                for twofold_class in twofold_class:
                     arg_list = []
-                    arg_list += [arg[1] for arg in eval_defaults]
+                    if eval_defaults:
+                        arg_list += [arg[1] for arg in eval_defaults]
 
                     name_list = []
                     for option in option_combo:
                         name_list.append(option[2])
                     name_list.append(char_combo[2])
                     name_list.append(filetype_option[2])
-                    if class_option[2]:
-                        name_list.append(class_option[2])
+                    if twofold_class:
+                        name_list.append('Twofold')
                     name = '-'.join(name_list)
 
                     load_arg = load_results_csv[1] + name + '/' + 'results-dictionary.csv'
