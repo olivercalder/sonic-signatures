@@ -398,11 +398,11 @@ class ConfusionMatrix:
                     i = 0
                     line = ''
                     for i in range(len(chars)):
-                        if len(line + '\t' + chars[i]) > 80:
+                        if len(line + '\t\t' + chars[i]) > 80:
                             lines.append(line.lstrip('\t'))
                             line = ''
-                        line += '\t' + chars[i]
-                    lines.append(line)
+                        line += '\t\t' + chars[i]
+                    lines.append(line.lstrip('\t')
                     lines.append('\n')
 
         return '\n'.join(lines)
