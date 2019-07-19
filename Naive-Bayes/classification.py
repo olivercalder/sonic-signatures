@@ -9,9 +9,10 @@ from sklearn.naive_bayes import MultinomialNB
 
 def print_help_string():
     print('''
-Usage: python3 classification.py [arguments]
+Usage: python3 {} [arguments]
 
 Arguments:
+    -h                  Prints help string
     -lt filename.csv    Loads phoneme vectors from given csv file
     -lj filename.json   Loads phoneme vectors from given json file
     -c class_id         Specifies the class (role, gender, social class, etc.) to predict
@@ -27,7 +28,7 @@ Arguments:
 Sample Filenames:
     ../Archive/Emphasis-Min-500/counts.csv
     ../Archive/No-Others/percentages.json
-''')
+'''.format(sys.argv[0]))
 
 
 def convert_list_to_dict(dict_list):
