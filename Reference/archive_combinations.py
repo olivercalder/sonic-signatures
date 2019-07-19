@@ -174,7 +174,7 @@ def get_class_args(twofold=''):
                 twofold_classes = ['']
                 if twofold:
                     twofold_classes.append(twofold)
-                for twofold_class in twofold_class:
+                for twofold_class in twofold_classes:
                     arg_list = []
                     if class_defaults:
                         arg_list += [arg[1] for arg in class_defaults]
