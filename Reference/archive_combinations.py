@@ -100,15 +100,18 @@ def get_names():
             names.append(name)
     return names
 
-def get_class_eval_names():
+def get_class_eval_names(twofold):
     names = get_names()
     class_names = []
     for name in names:
         for filetype_option in filetype_options:
-            for class_option in class_options:
+            twofold_classes = ['']
+            if twofold:
+                twofold_classes.append(twofold)
+            for twofold_class in twofold_classes:
                 new_name = name + '-' + filetype_option[2]
-                if class_option[2]:
-                    new_name += '-' + class_option[2]
+                if twofold_class:
+                    new_name += '-Twofold'
                 class_names.append(new_name)
     return class_names
 

@@ -123,7 +123,7 @@ def write_csv(sorted_results, title='', directory=''):
 
 
 def main(thread_count, class_id, twofold='', silent=False, wt=False, wc=False, cascade=False, title='', directory=''):
-    names = get_class_eval_names()
+    names = get_class_eval_names(twofold)
     class_args = get_class_args(twofold)
     eval_args = get_eval_args(twofold)
 
