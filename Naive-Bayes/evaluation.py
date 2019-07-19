@@ -9,7 +9,7 @@ import classification
 
 def print_help_string():
     print('''
-Usage: python3 {} Arguments
+Usage: python3 {} [arguments]
 
 Arguments:
     -lt filename.csv    Loads classifications from given csv file

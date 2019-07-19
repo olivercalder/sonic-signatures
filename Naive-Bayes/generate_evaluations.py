@@ -15,7 +15,8 @@ Usage: python3 {} [arguments]
 
 Arguments:
     -h              Help
-    -c #_of_threads
+    -n #_of_threads Specifies number of threads to use for computation
+    -c class_id     Specifies the class (role, gender, social class, etc.) to predict
     -s              Silent
     -wt             Write text
     -wc             Write csv
@@ -112,10 +113,15 @@ def write_csv(sorted_results, title='', directory=''):
             writer.writerow(line)
 
 
-def main(thread_count, silent, wt, wc, title, directory):
+def main(thread_count, class_id, silent, wt, wc, title, directory):
     names = get_class_eval_names()
     class_args = get_class_args()
     eval_args = get_eval_args()
+
+    new_class_args = []
+    for arg in class_args:
+        new_class_args.append(arg + ' -c ' + class_id)
+    class_args = new_class_args
 
     if directory:
         directory = directory.rstrip('/')
@@ -180,6 +186,7 @@ def main(thread_count, silent, wt, wc, title, directory):
 
 if __name__ == '__main__':
     thread_count = 4
+    class_id = ''
     silent = False
     wt = False
     wc = False
@@ -196,12 +203,18 @@ if __name__ == '__main__':
         if sys.argv[i] == '-h':
             print_help_string()
             quit()
-        elif sys.argv[i] == '-c':
+        elif sys.argv[i] == '-n':
             if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
                 thread_count = int(sys.argv[i])
             else:
                 unrecognized.append('-t: Missing Specifier')
+        elif sys.argv[i] == '-c':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                class_id = sys.argv[i]
+            else:
+                unrecognized.append('-c: Missing Specifier')
         elif sys.argv[i] == '-s':
             silent = True
         elif sys.argv[i] == '-wt':
@@ -224,6 +237,9 @@ if __name__ == '__main__':
             unrecognized.append(sys.argv[i])
         i += 1
 
+    if not class_id:
+        unrecognized.append('Missing class id: Please specify with -c')
+
     if len(unrecognized) > 0:
         print('\nERROR: Unrecognized Arguments:')
         for arg in unrecognized:
@@ -231,4 +247,4 @@ if __name__ == '__main__':
         print()
         print_help_string()
     else:
-        main(thread_count, silent, wt, wc, title, directory)
+        main(thread_count, class_id, silent, wt, wc, title, directory)
