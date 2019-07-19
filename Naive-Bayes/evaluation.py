@@ -402,7 +402,7 @@ class ConfusionMatrix:
                             lines.append(line.lstrip('\t'))
                             line = ''
                         line += '\t\t' + chars[i]
-                    lines.append(line.lstrip('\t')
+                    lines.append(line.lstrip('\t'))
                     lines.append('\n')
 
         return '\n'.join(lines)

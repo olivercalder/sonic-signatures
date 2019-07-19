@@ -49,8 +49,10 @@ def classify_and_eval(thread_name, work_queue, queue_lock, exit_flag, results_li
             print('-->', thread_name, 'beginning', name)
             os.system('python3 classification.py {}'.format(class_args))
             os.system('python3 evaluation.py {}'.format(eval_args))
-            dir_list = class_args.split(' ')
-            filename = dir_list[-1] + '/confusion-matrix.json'
+            arg_list = class_args.split(' ')
+            index = arg_list.index('-d')
+            directory = arg_list[index + 1]
+            filename = directory + '/confusion-matrix.json'
             with open(filename, 'r') as result_file:
                 conf_dict = json.load(result_file)
             overall_accuracy = conf_dict['overall_accuracy']
