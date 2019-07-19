@@ -190,7 +190,7 @@ def get_class_args(twofold=''):
                     name_list.append(filetype_option[2])
                     if twofold_class:
                         arg_list.append('-2 ' + twofold_class)
-                        name_list.append(Twofold)
+                        name_list.append('Twofold')
                     name = '-'.join(name_list)
 
                     dir_arg = write_class_eval[1] + name
