@@ -16,7 +16,7 @@ Usage: python3 {} [arguments]
 Arguments:
     -h              Help
     -n #_of_threads Specifies number of threads to use for computation
-    -c class_id     Specifies the class (role, gender, social class, etc.) to predict
+    -c class_id     Specifies the class (role, gender, genre, social class) to predict
     -s              Silent
     -wt             Write text
     -wc             Write csv

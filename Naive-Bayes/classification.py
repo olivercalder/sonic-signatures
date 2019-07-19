@@ -15,7 +15,7 @@ Arguments:
     -h                  Prints help string
     -lt filename.csv    Loads phoneme vectors from given csv file
     -lj filename.json   Loads phoneme vectors from given json file
-    -c class_id         Specifies the class (role, gender, social class, etc.) to predict
+    -c class_id         Specifies the class (role, gender, genre, social class) to predict
     -s                  Silent: Do not print output
     -wt                 Writes output to csv file
     -wj                 Writes output to json file
