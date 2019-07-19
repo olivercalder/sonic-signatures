@@ -75,7 +75,7 @@ def main(in_csv='', in_json='', all_combos=False, class_id='', twofold='', silen
                             new_char = char + '-' + class_name
                             play_dict[play][new_char] = tmp_dict[play][char]
     else:
-        play_dict = classification.build_play_confusion_dictionary(in_csv, in_json, class_id, twofold='', silent, wj and cascade, title, directory)
+        play_dict = classification.build_play_confusion_dictionary(in_csv, in_json, class_id, twofold, silent, wj and cascade, title, directory)
     results_list = []
     for play in play_dict:
         play_title = (title + '_' + play).lstrip('_')

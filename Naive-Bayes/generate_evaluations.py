@@ -137,6 +137,7 @@ def main(thread_count, class_id, twofold='', silent=False, wt=False, wc=False, c
         new_eval_args = []
         for arg in class_args:
             new_class_args.append(arg + ' -s')
+        for arg in eval_args:
             new_eval_args.append(arg + ' -s')
         class_args = new_class_args
         eval_args = new_eval_args
