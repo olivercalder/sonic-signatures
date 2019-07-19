@@ -51,7 +51,7 @@ def write_csv(sorted_results, title='', directory=''):
             writer.writerow(line)
 
 
-def main(in_csv='', in_json='', all_combos=False, silent=False, wt=False, wj=False, cascade=False, title='', directory='', twofold=False):
+def main(in_csv='', in_json='', all_combos=False, class_id='', silent=False, wt=False, wj=False, cascade=False, title='', directory='', twofold=False):
     if all_combos:
         title = (title + '_All-Combos').lstrip('_')
         play_dict = {}
@@ -63,7 +63,7 @@ def main(in_csv='', in_json='', all_combos=False, silent=False, wt=False, wj=Fal
                     class_name = name + '-' + infile[1]
                     if twofold:
                         class_name += '-Twofold'
-                    tmp_dict = classification.build_play_confusion_dictionary(filename, '', silent, wj and cascade, title + '_' + class_name, directory, twofold)
+                    tmp_dict = classification.build_play_confusion_dictionary(filename, '', class_id, silent, wj and cascade, title + '_' + class_name, directory, twofold)
                     for play in tmp_dict:
                         if play not in play_dict:
                             play_dict[play] = {}
@@ -71,7 +71,7 @@ def main(in_csv='', in_json='', all_combos=False, silent=False, wt=False, wj=Fal
                             new_char = char + '-' + class_name
                             play_dict[play][new_char] = tmp_dict[play][char]
     else:
-        play_dict = classification.build_play_confusion_dictionary(in_csv, in_json, silent, wj and cascade, title, directory, twofold)
+        play_dict = classification.build_play_confusion_dictionary(in_csv, in_json, class_id, silent, wj and cascade, title, directory, twofold)
     results_list = []
     for play in play_dict:
         play_title = (title + '_' + play).lstrip('_')
@@ -118,6 +118,7 @@ if __name__ == '__main__':
     lt = ''
     lj = ''
     all_combos = False
+    class_id = ''
     silent = False
     wt = False
     wj = False
@@ -146,6 +147,12 @@ if __name__ == '__main__':
                 unrecognized.append('-lj: Missing Specifier')
         elif sys.argv[i] == '-a':
             all_combos = True
+        elif sys.argv[i] == '-c':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                class_id = sys.argv[i]
+            else:
+                unrecognized.append('-c: Missing Specifier')
         elif sys.argv[i] == '-s':
             silent = True
         elif sys.argv[i] == '-wt':
@@ -185,4 +192,4 @@ if __name__ == '__main__':
         print_help_string()
 
     else:
-        main(lt, lj, all_combos, silent, wt, wj, cascade, title, directory, twofold)
+        main(lt, lj, all_combos, class_id, silent, wt, wj, cascade, title, directory, twofold)

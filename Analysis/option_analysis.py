@@ -9,13 +9,13 @@ def print_help_string():
 Usage: python3 {} -lt filename [arguments]
 
 Arguments:
-    -h              Help
-    -lt filename    Name of file to analyze
-    -s              Silent
-    -wt             Write text
-    -wc             Write csv
-    -t title        Title, used in output filename
-    -d directory    Output directory
+    -h              Prints help string
+    -lc filename    Name of file to analyze (such as results_overall_sorted.csv)
+    -s              Silent: Do not print output
+    -wt             Write output to text file
+    -wc             Write output to csv file
+    -t title        Title of run, used in output filename
+    -d directory    Directory in which to write output files
 '''.format(sys.argv[0]))
 
 
@@ -176,13 +176,17 @@ if __name__ == '__main__':
     title = ''
     directory = ''
 
+    if len(sys.argv) == 1:
+        print_help_string()
+        quit()
+
     i = 1
     unrecognized = []
     while i < len(sys.argv):
         if sys.argv[i] == '-h':
             print_help_string()
             quit()
-        elif sys.argv[i] == '-lt':
+        elif sys.argv[i] == '-lc':
             if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
                 filename = sys.argv[i]
