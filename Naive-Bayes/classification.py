@@ -373,7 +373,7 @@ def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold=
     return new_play_dict
 
 
-def main(in_csv='', in_json='', class_id='', twofold='', plays=False, silent=False, wt=False, wj=False, title='', directory='', twofold=False):
+def main(in_csv='', in_json='', class_id='', twofold='', plays=False, silent=False, wt=False, wj=False, title='', directory=''):
     if plays:
         dictionary = build_play_confusion_dictionary(in_csv, in_json, class_id, twofold, silent, wj, title, directory)
     else:
