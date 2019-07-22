@@ -309,13 +309,20 @@ class ConfusionMatrix:
         class_total = self.get_class_total(c, actual_or_predicted)
         return class_total / total
 
+    def get_total_correct(self):
+        correct = 0
+        for c in self.get_classes():
+            correct += self.matrix[c][c]
+        return correct
+
+    def get_class_correct(self, c):
+        return self.matrix[c][c]
+
     def get_overall_accuracy(self):
         total = self.get_total()
         if total == 0:
             total = 1
-        correct = 0
-        for c in self.get_classes():
-            correct += self.matrix[c][c]
+        correct = self.get_total_correct()
         return correct / total
 
     def get_average_accuracy(self):
@@ -343,6 +350,54 @@ class ConfusionMatrix:
                 characters += self.char_matrix[c2][c1]
         return characters
 
+    def get_class_precision(self, c):
+        correct = self.get_class_correct(c)
+        predicted = self.get_class_total(c, 'predicted')
+        return correct / predicted
+
+    def get_class_recall(self, c):
+        correct = self.get_class_correct(c)
+        actual = self.get_class_total(c, 'actual')
+        return correct / actual
+
+    def get_f1(self):
+        f1_sum = 0.0
+        classes = self.get_classes()
+        for c in classes:
+            f1_sum += self.get_class_f1(c)
+        avg_f1 = f1_sum / len(classes)
+        return avg_f1
+
+    def get_class_f1(self, c):
+        correct = self.get_class_correct(c)
+        actual = self.get_class_total(c, 'actual')
+        predicted = self.get_class_total(c, 'predicted')
+        f1 = 2 * correct / (actual + predicted)
+        return f1
+
+    def get_mcc(self):
+        mcc_sum = 0.0
+        classes = self.get_classes()
+        for c in classes:
+            mcc_sum += self.get_class_mcc(c)
+        avg_mcc = mcc_sum / len(classes)
+        return avg_mcc
+
+    def get_class_mcc(self, c1):
+        classes = self.get_classes()
+        classes.remove(c1)
+        tp = self.matrix[c1][c1]
+        fp = 0
+        fn = 0
+        for c2 in classes[1:]:
+            fp += self.matrix[c1][c2]
+            fn += self.matrix[c2][c1]
+        tn = self.get_total() - tp - fp - fn
+
+        numerator = (tp * tn) - (fp * fn)
+        denominator = ((tp + fp) * (tp + fn) * (tn + fp) * (tn + fn))**(-1)
+        return numerator / denominator
+
     def get_summary(self, verbose=False):
         lines = []
         title = 'Summary: {}'.format(self.name)
@@ -352,7 +407,11 @@ class ConfusionMatrix:
         overall_accuracy = percent_line.format('Overall accuracy', self.get_overall_accuracy())
         lines.append('{:^80}'.format(overall_accuracy))
         average_accuracy = percent_line.format('Average accuracy', self.get_average_accuracy())
-        lines.append('{:^80}\n\n'.format(average_accuracy))
+        lines.append('{:^80}\n'.format(average_accuracy))
+        average_f1 = percent_line.format('Average F1 score', self.get_f1())
+        lines.append('{:^80}'.format(average_f1))
+        average_mcc = percent_line.format('Average MCC', self.get_mcc())
+        lines.append('{:^80}\n\n'.format(average_mcc))
         lines.append(self.pretty_matrix(name='Confusion Matrix'))
 
         classes = self.get_classes()
@@ -388,6 +447,16 @@ class ConfusionMatrix:
         if verbose:
             for c in classes:
                 lines.append(percent_line.format('Percent correct of predicted "{}"'.format(c), self.get_class_accuracy(c, 'predicted')))
+            lines.append('\n')
+
+            lines.append('{:^80}'.format('F1 Scores:'))
+            for c in classes:
+                lines.append(percent_line.format('F1 score for "{}"'.format(c), self.get_class_f1(c)))
+            lines.append('\n')
+
+            lines.append('{:^80}'.format('Matthews Correlation Coefficients:'))
+            for c in classes:
+                lines.append(percent_line.format('MCC score for "{}"'.format(c), self.get_class_mcc(c)))
             lines.append('\n')
 
             lines.append('\n{:^80}\n\n'.format('Characters:'))
@@ -434,6 +503,8 @@ class ConfusionMatrix:
         out_dict['data'] = self.data
         out_dict['overall_accuracy'] = self.get_overall_accuracy()
         out_dict['average_accuracy'] = self.get_average_accuracy()
+        out_dict['average_f1'] = self.get_average_f1()
+        out_dict['average_mcc'] = self.get_average_mcc()
         out_dict['matrix'] = self.matrix
         out_dict['character_matrix'] = self.char_matrix
         out_dict['percent_matrix'] = self.get_percent_matrix()
@@ -452,6 +523,8 @@ class ConfusionMatrix:
             out_dict['classes'][c]['accuracy_predicted'] = self.get_class_accuracy(c, 'predicted')
             out_dict['classes'][c]['actual_characters'] = self.get_class_characters(c, 'actual')
             out_dict['classes'][c]['predicted_characters'] = self.get_class_characters(c, 'predicted')
+            out_dict['classes'][c]['f1'] = self.get_class_f1(c)
+            out_Dict['classes'][c]['mcc'] = self.get_class_mcc(c)
         if directory != '':
             directory = directory.rstrip('/') + '/'
             self.create_directory(directory)
