@@ -30,7 +30,7 @@ Arguments:
 
 
 class MyThread(threading.Thread):
-    def __init__(self, thread_name, work_queue, queue_lock, exit_flag, results_list, keep_intermediate):
+    def __init__(self, thread_name, work_queue, queue_lock, exit_flag, results_list, keep_intermediate, title):
         threading.Thread.__init__(self)
         self.thread_name = thread_name
         self.work_queue = work_queue
@@ -38,34 +38,39 @@ class MyThread(threading.Thread):
         self.exit_flag = exit_flag
         self.results_list = results_list
         self.keep_intermediate = keep_intermediate
+        self.title = title
 
     def run(self):
         print('Starting', self.thread_name)
-        classify_and_eval(self.thread_name, self.work_queue, self.queue_lock, self.exit_flag, self.results_list, self.keep_intermediate)
+        classify_and_eval(self.thread_name, self.work_queue, self.queue_lock, self.exit_flag, self.results_list, self.keep_intermediate, self.title)
         print('Exiting', self.thread_name)
 
 
-def classify_and_eval(thread_name, work_queue, queue_lock, exit_flag, results_list, keep_intermediate):
+def classify_and_eval(thread_name, work_queue, queue_lock, exit_flag, results_list, keep_intermediate, title):
+    if title:
+        title = title + '_'
     while not exit_flag[0]:
         queue_lock.acquire()
         if not work_queue.empty():
             name, class_args, eval_args = work_queue.get()
             queue_lock.release()
-            print('-->', thread_name, 'beginning', name)
+            print('-->', thread_name, 'beginning', title + name)
             os.system('python3 classification.py {}'.format(class_args))
             os.system('python3 evaluation.py {}'.format(eval_args))
             arg_list = eval_args.split(' ')
             index = arg_list.index('-d')
             directory = arg_list[index + 1]
-            filename = directory + '/confusion-matrix.json'
+            filename = '{}/{}confusion-matrix.json'.format(directory, title)
             with open(filename, 'r') as result_file:
                 conf_dict = json.load(result_file)
             overall_accuracy = conf_dict['overall_accuracy']
             average_accuracy = conf_dict['average_accuracy']
-            results_list.append([name, overall_accuracy, average_accuracy])
+            f1 = conf_dict['f1']
+            mcc = conf_dict['mcc']
+            results_list.append([name, overall_accuracy, average_accuracy, f1, mcc])
             if not keep_intermediate:
-                os.system('rm -r {}'.format(filename))
-            print('<--', thread_name, 'finished', name)
+                os.system('rm -r {}*'.format(directory))
+            print('<--', thread_name, 'finished', title + name)
         else:
             queue_lock.release()
             time.sleep(1)
@@ -73,16 +78,28 @@ def classify_and_eval(thread_name, work_queue, queue_lock, exit_flag, results_li
 def get_string(results_list):
     overall_sorted = sorted(results_list, key=lambda result: result[1], reverse=True)
     average_sorted = sorted(results_list, key=lambda result: result[2], reverse=True)
+    f1_sorted = sorted(results_list, key=lambda result: result[3], reverse=True)
+    mcc_sorted = sorted(results_list, key=lambda result: result[4], reverse=True)
     lines = []
     lines.append('{:^80}\n'.format('Overall Accuracy:'))
-    lines.append('{:>60} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average'))
+    lines.append('{:>50} {:^10} {:^10} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average', 'F1 Score', 'MCC'))
     for item in overall_sorted:
-        lines.append('{:>60} {:^10.2%} {:^10.2%}'.format(*item))
+        lines.append('{:>50} {:^10.2%} {:^10.2%} {:^10.2%} {:^10.2%}'.format(*item))
     lines.append('')
     lines.append('{:^80}\n'.format('Average Accuracy:'))
-    lines.append('{:>60} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average'))
+    lines.append('{:>50} {:^10} {:^10} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average', 'F1 Score', 'MCC'))
     for item in average_sorted:
-        lines.append('{:>60} {:^10.2%} {:^10.2%}'.format(*item))
+        lines.append('{:>50} {:^10.2%} {:^10.2%} {:^10.2%} {:^10.2%}'.format(*item))
+    lines.append('')
+    lines.append('{:^80}\n'.format('Average F1 Score:'))
+    lines.append('{:>50} {:^10} {:^10} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average', 'F1 Score', 'MCC'))
+    for item in f1_sorted:
+        lines.append('{:>50} {:^10.2%} {:^10.2%} {:^10.2%} {:^10.2%}'.format(*item))
+    lines.append('')
+    lines.append('{:^80}\n'.format('Average Matthews Correlation Coefficient:'))
+    lines.append('{:>50} {:^10} {:^10} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average', 'F1 Score', 'MCC'))
+    for item in mcc_sorted:
+        lines.append('{:>50} {:^10.2%} {:^10.2%} {:^10.2%} {:^10.2%}'.format(*item))
     string = '\n'.join(lines)
     return string
 
@@ -117,7 +134,7 @@ def write_csv(sorted_results, title='', directory=''):
     filename = directory + 'results_' + title + 'sorted.csv'
     with open(filename, 'w', newline = '') as csv_out:
         writer = csv.writer(csv_out)
-        writer.writerow(['name', 'overall', 'average'])
+        writer.writerow(['name', 'overall', 'average', 'f1', 'mcc'])
         for line in sorted_results:
             writer.writerow(line)
 
@@ -139,6 +156,21 @@ def main(thread_count, class_id, twofold='', silent=False, wt=False, wc=False, c
             new_class_args.append(arg + ' -s')
         for arg in eval_args:
             new_eval_args.append(arg + ' -s')
+        class_args = new_class_args
+        eval_args = new_eval_args
+
+    if title:
+        new_class_args = []
+        new_eval_args = []
+        for arg in class_args:
+            arg = arg + ' -t {}'.format(title)
+            arg = arg.replace('../Results/', '../Results/{}_'.format(title))
+            new_class_args.append(arg)
+        for arg in eval_args:
+            arg = arg + ' -t {}'.format(title)
+            arg = arg.replace('../Results/', '../Results/{}_'.format(title))
+            arg = arg.replace('results-dictionary', title + '_results-dictionary')
+            new_eval_args.append(arg)
         class_args = new_class_args
         eval_args = new_eval_args
 
@@ -177,7 +209,7 @@ def main(thread_count, class_id, twofold='', silent=False, wt=False, wc=False, c
     threads = []
     for i in range(int(thread_count)):
         thread_name = 'Thread_{}'.format(i)
-        thread = MyThread(thread_name, work_queue, queue_lock, exit_flag, results_list, keep_intermediate)
+        thread = MyThread(thread_name, work_queue, queue_lock, exit_flag, results_list, keep_intermediate, title)
         thread.start()
         threads.append(thread)
 
@@ -201,6 +233,15 @@ def main(thread_count, class_id, twofold='', silent=False, wt=False, wc=False, c
 
     overall_sorted = sorted(results_list, key=lambda result: result[1], reverse=True)
     average_sorted = sorted(results_list, key=lambda result: result[2], reverse=True)
+    f1_sorted = sorted(results_list, key=lambda result: result[3], reverse=True)
+    mcc_sorted = sorted(results_list, key=lambda result: result[4], reverse=True)
+
+    if not keep_intermediate:
+        try:
+            os.system('rmdir {}'.format('tmp'))
+        except:
+            pass  # In case multiple non-cascading scripts are running recursively,
+                  #     and thus 'tmp' is non-empty
 
     if not directory:
         directory = '../Results/'
@@ -211,11 +252,13 @@ def main(thread_count, class_id, twofold='', silent=False, wt=False, wc=False, c
     if wc:
         write_csv(overall_sorted, title + '_overall', directory)
         write_csv(average_sorted, title + '_average', directory)
+        write_csv(f1_sorted, title + '_f1', directory)
+        write_csv(mcc_sorted, title + '_mcc', directory
     
     if not silent:
         print_summary(results_list)
 
-    return overall_sorted, average_sorted
+    return overall_sorted, average_sorted, f1_sorted, mcc_sorted
 
 
 if __name__ == '__main__':

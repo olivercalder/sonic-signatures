@@ -392,7 +392,7 @@ class ConfusionMatrix:
             tp = self.matrix[c1][c1]
             fp = 0
             fn = 0
-            for c2 in classes[1:]:
+            for c2 in classes:
                 fp += self.matrix[c1][c2]
                 fn += self.matrix[c2][c1]
             tn = self.get_total() - tp - fp - fn
