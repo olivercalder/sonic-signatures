@@ -524,7 +524,7 @@ class ConfusionMatrix:
             out_dict['classes'][c]['actual_characters'] = self.get_class_characters(c, 'actual')
             out_dict['classes'][c]['predicted_characters'] = self.get_class_characters(c, 'predicted')
             out_dict['classes'][c]['f1'] = self.get_class_f1(c)
-            out_Dict['classes'][c]['mcc'] = self.get_class_mcc(c)
+            out_dict['classes'][c]['mcc'] = self.get_class_mcc(c)
         if directory != '':
             directory = directory.rstrip('/') + '/'
             self.create_directory(directory)
