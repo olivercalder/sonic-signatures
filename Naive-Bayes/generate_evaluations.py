@@ -253,7 +253,7 @@ def main(thread_count, class_id, twofold='', silent=False, wt=False, wc=False, c
         write_csv(overall_sorted, title + '_overall', directory)
         write_csv(average_sorted, title + '_average', directory)
         write_csv(f1_sorted, title + '_f1', directory)
-        write_csv(mcc_sorted, title + '_mcc', directory
+        write_csv(mcc_sorted, title + '_mcc', directory)
     
     if not silent:
         print_summary(results_list)
