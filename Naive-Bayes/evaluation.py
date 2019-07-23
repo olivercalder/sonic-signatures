@@ -503,8 +503,8 @@ class ConfusionMatrix:
         out_dict['data'] = self.data
         out_dict['overall_accuracy'] = self.get_overall_accuracy()
         out_dict['average_accuracy'] = self.get_average_accuracy()
-        out_dict['average_f1'] = self.get_average_f1()
-        out_dict['average_mcc'] = self.get_average_mcc()
+        out_dict['f1'] = self.get_f1()
+        out_dict['mcc'] = self.get_mcc()
         out_dict['matrix'] = self.matrix
         out_dict['character_matrix'] = self.char_matrix
         out_dict['percent_matrix'] = self.get_percent_matrix()
