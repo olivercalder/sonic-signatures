@@ -123,13 +123,13 @@ if __name__ == '__main__':
     lj = ''
     all_combos = False
     class_id = ''
+    twofold = ''
     silent = False
     wt = False
     wj = False
     cascade = False
     title = ''
     directory = ''
-    twofold = False
 
     i = 1
     unrecognized = []
@@ -157,6 +157,12 @@ if __name__ == '__main__':
                 class_id = sys.argv[i]
             else:
                 unrecognized.append('-c: Missing Specifier')
+        elif sys.argv[i] == '-2':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                twofold = sys.argv[i]
+            else:
+                unrecognized.append('-2: Missing Specifier')
         elif sys.argv[i] == '-s':
             silent = True
         elif sys.argv[i] == '-wt':
@@ -177,8 +183,6 @@ if __name__ == '__main__':
                 directory = sys.argv[i]
             else:
                 unrecognized.append('-d: Missing Specifier')
-        elif sys.argv[i] == '-2':
-            twofold = True
         else:
             unrecognized.append(sys.argv[i])
         i += 1
@@ -196,4 +200,4 @@ if __name__ == '__main__':
         print_help_string()
 
     else:
-        main(lt, lj, all_combos, class_id, silent, wt, wj, cascade, title, directory, twofold)
+        main(lt, lj, all_combos, class_id, twofold, silent, wt, wj, cascade, title, directory)
