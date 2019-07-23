@@ -53,8 +53,9 @@ def write_csv(sorted_results, title='', directory=''):
 
 
 def main(in_csv='', in_json='', all_combos=False, class_id='', twofold='', silent=False, wt=False, wj=False, cascade=False, title='', directory=''):
+    if title:
+        title = title + '_'
     if all_combos:
-        title = (title + '_All-Combos').lstrip('_')
         play_dict = {}
         dir_names = get_names()
         for name in dir_names:
@@ -67,7 +68,7 @@ def main(in_csv='', in_json='', all_combos=False, class_id='', twofold='', silen
                     class_name = name + '-' + infile[1]
                     if twofold_class:
                         class_name += '-Twofold'
-                    tmp_dict = classification.build_play_confusion_dictionary(filename, '', class_id, twofold_class, silent, wj and cascade, title + '_' + class_name, directory)
+                    tmp_dict = classification.build_play_confusion_dictionary(filename, '', class_id, twofold_class, silent, wj and cascade, title + class_name, directory)
                     for play in tmp_dict:
                         if play not in play_dict:
                             play_dict[play] = {}
@@ -78,7 +79,7 @@ def main(in_csv='', in_json='', all_combos=False, class_id='', twofold='', silen
         play_dict = classification.build_play_confusion_dictionary(in_csv, in_json, class_id, twofold, silent, wj and cascade, title, directory)
     results_list = []
     for play in play_dict:
-        play_title = (title + '_' + play).lstrip('_')
+        play_title = (title + 'All-Combos_' + play).lstrip('_')
         char_dict = play_dict[play]
         play_matrix = evaluation.ConfusionMatrix()
         play_matrix.build(char_dict, play_title)
