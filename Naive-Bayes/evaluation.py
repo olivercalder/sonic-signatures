@@ -385,18 +385,24 @@ class ConfusionMatrix:
 
     def get_class_mcc(self, c1):
         classes = self.get_classes()
-        classes.remove(c1)
-        tp = self.matrix[c1][c1]
-        fp = 0
-        fn = 0
-        for c2 in classes[1:]:
-            fp += self.matrix[c1][c2]
-            fn += self.matrix[c2][c1]
-        tn = self.get_total() - tp - fp - fn
+        if len(classes) == 1:
+            mcc = 1
+        else:
+            classes.remove(c1)
+            tp = self.matrix[c1][c1]
+            fp = 0
+            fn = 0
+            for c2 in classes[1:]:
+                fp += self.matrix[c1][c2]
+                fn += self.matrix[c2][c1]
+            tn = self.get_total() - tp - fp - fn
 
-        numerator = (tp * tn) - (fp * fn)
-        denominator = ((tp + fp) * (tp + fn) * (tn + fp) * (tn + fn))**(-1)
-        return numerator / denominator
+            numerator = (tp * tn) - (fp * fn)
+            denominator = ((tp + fp) * (tp + fn) * (tn + fp) * (tn + fn))**(1/2)
+            if denominator == 0:
+                denominator = 1
+            mcc = numerator / denominator
+        return mcc
 
     def get_summary(self, verbose=False):
         lines = []
