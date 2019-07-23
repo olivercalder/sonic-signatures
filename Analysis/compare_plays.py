@@ -43,8 +43,8 @@ def write_csv(sorted_results, title='', directory=''):
         directory = directory.rstrip('/') + '/'
         create_directory(directory)
     if title != '':
-        title = title + '_'
-    filename = directory + 'plays_results_' + title + 'sorted.csv'
+        title = (title + '_').rstrip('_')
+    filename = directory + 'play_results_' + title + 'sorted.csv'
     with open(filename, 'w', newline = '') as csv_out:
         writer = csv.writer(csv_out)
         writer.writerow(['name', 'overall', 'average'])
@@ -98,8 +98,6 @@ def main(in_csv='', in_json='', all_combos=False, class_id='', twofold='', silen
     overall_sorted = sorted(results_list, key=lambda result: result[1], reverse=True)
     average_sorted = sorted(results_list, key=lambda result: result[2], reverse=True)
 
-    if title:
-        title += '_'
     if wt:
         write_csv(overall_sorted, title + 'overall', directory)
         write_csv(average_sorted, title + 'average', directory)
