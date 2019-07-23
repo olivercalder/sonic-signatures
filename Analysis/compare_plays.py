@@ -61,7 +61,7 @@ def main(in_csv='', in_json='', all_combos=False, class_id='', twofold='', silen
             for infile in [('counts.csv', 'Counts'), ('percentages.csv', 'Percentages')]:
                 twofold_classes = ['']
                 if twofold:
-                    twofold_classes.append[twofold]
+                    twofold_classes.append(twofold)
                 for twofold_class in twofold_classes:
                     filename = '../Archive/' + name + '/' + infile[0]
                     class_name = name + '-' + infile[1]
