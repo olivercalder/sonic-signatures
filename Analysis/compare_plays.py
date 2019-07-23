@@ -25,7 +25,9 @@ Arguments:
     -R                  Recursively write intermediate outputs along the way
     -t title            Title of run, used in output filenames
     -d directory        Directory in which to write output files
-    -2                  Twofold classification
+    -2 class            Performs twofold classification, with specified class as cutoff
+                            First: Predict "[class]" or non-"[class]"
+                            Second: Of the non-"[class]"s, predict from remaining classes
 '''.format(sys.argv[0]))
 
 
