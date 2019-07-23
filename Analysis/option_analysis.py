@@ -1,6 +1,6 @@
 import sys
 import csv
-sys.path.append('Reference')
+sys.path.append('../Reference')
 from archive_combinations import get_boolean_options, get_iterable_options
 
 
