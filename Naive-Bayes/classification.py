@@ -13,8 +13,8 @@ Usage: python3 {} [arguments]
 
 Arguments:
     -h                  Prints help string
-    -lt filename.csv    Loads phoneme vectors from given csv file
-    -lj filename.json   Loads phoneme vectors from given json file
+    -lt filename.csv    Loads phoneme vectors from specified csv file
+    -lj filename.json   Loads phoneme vectors from specified json file
     -c class_id         Specifies the class (role, gender, genre, social class) to predict
     -s                  Silent: Do not print output
     -wt                 Writes output to csv file
@@ -26,8 +26,8 @@ Arguments:
                             Second: Of the non-"[class]"s, predict from remaining classes
 
 Sample Filenames:
-    ../Archive/Emphasis-Min-500/counts.csv
-    ../Archive/No-Others/percentages.json
+    ../Archive/role/role_Emphasis-Min-500/role_counts.csv
+    ../Archive/role/role_No-Others/role_percentages.json
 '''.format(sys.argv[0]))
 
 
@@ -66,7 +66,7 @@ def load_csv(filename):
         for line in reader:
             char_list.append(line[0])  # Saves ordering of characters for later reference
             vector_list.append(line[1:])  # Strips name from vector
-    char_list = char_list[1:]  # Strips "name" from list of character codes
+    char_list = char_list[1:]  # Strips "character" from list of character codes
     vector_list = vector_list[1:]  # Strips header from vector list
     return char_list, vector_list
 
@@ -376,6 +376,11 @@ def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold=
         char_list, vector_list = load_csv(in_csv)
     elif in_json:
         char_list, vector_list = load_json(in_json)
+    else:
+        print('ERROR: Missing input file')
+        print_help_string()
+        quit()
+
     class_list = load_class_list(char_list, class_id)
     
     play_dict = generate_play_dict(char_list, vector_list, class_list, twofold)
@@ -476,7 +481,7 @@ if __name__ == '__main__':
     if lt == '' and lj == '':
         unrecognized.append('Missing input file: Please specify with -lt or -lj')
 
-    elif lt !='' and lj != '':
+    elif lt != '' and lj != '':
         unrecognized.append('Conflicting input files: Please include only one of -lt or -lj')
 
     if len(unrecognized) > 0:
