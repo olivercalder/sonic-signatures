@@ -1,0 +1,317 @@
+                          Summary: Min-100-Percentages                          
+
+
+                      Overall accuracy = 58.89%                                 
+                      Average accuracy = 59.01%                                 
+
+                      Average F1 score = 58.73%                                 
+                           Average MCC = 38.40%                                 
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+                            |  comedy  | history  | tragedy  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    comedy  |   171    |    55    |    65    |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   history  |    52    |   181    |    30    |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   tragedy  |    77    |    61    |   135    |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+                         Total samples = 827                                    
+
+                 Total actual "comedy" = 291                                    
+              Total predicted "comedy" = 300                                    
+                Total actual "history" = 263                                    
+             Total predicted "history" = 297                                    
+                Total actual "tragedy" = 273                                    
+             Total predicted "tragedy" = 230                                    
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+                            |  comedy  | history  | tragedy  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    comedy  |  20.68%  |  6.65%   |  7.86%   |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   history  |  6.29%   |  21.89%  |  3.63%   |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   tragedy  |  9.31%   |  7.38%   |  16.32%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+               Percent actual "comedy" = 35.19%                                 
+            Percent predicted "comedy" = 36.28%                                 
+              Percent actual "history" = 31.80%                                 
+           Percent predicted "history" = 35.91%                                 
+              Percent actual "tragedy" = 33.01%                                 
+           Percent predicted "tragedy" = 27.81%                                 
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+                            |  comedy  | history  | tragedy  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    comedy  |  58.76%  |  18.90%  |  22.34%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   history  |  19.77%  |  68.82%  |  11.41%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   tragedy  |  28.21%  |  22.34%  |  49.45%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+    Percent correct of actual "comedy" = 58.76%                                 
+   Percent correct of actual "history" = 68.82%                                 
+   Percent correct of actual "tragedy" = 49.45%                                 
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+                            |  comedy  | history  | tragedy  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    comedy  |  57.00%  |  18.52%  |  28.26%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   history  |  17.33%  |  60.94%  |  13.04%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   tragedy  |  25.67%  |  20.54%  |  58.70%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+ Percent correct of predicted "comedy" = 57.00%                                 
+Percent correct of predicted "history" = 60.94%                                 
+Percent correct of predicted "tragedy" = 58.70%                                 
+
+
+                                   F1 Scores:                                   
+                 F1 score for "comedy" = 57.87%                                 
+                F1 score for "history" = 64.64%                                 
+                F1 score for "tragedy" = 53.68%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+                MCC score for "comedy" = 34.46%                                 
+               MCC score for "history" = 46.84%                                 
+               MCC score for "tragedy" = 33.90%                                 
+
+
+
+                                  Characters:                                   
+
+
+                     Actual "comedy" Predicted as "comedy":                     
+
+AWW_Bertram		AWW_Countess		AWW_Diana		AWW_Fool		AWW_GENTLEMEN.3		AWW_Helen
+AWW_Lafew		AWW_Parolles		AWW_SOLDIERS.Interpreter		AWW_Steward		AWW_Widow
+AYL_Adam		AYL_Celia		AYL_Corin		AYL_DukeFrederick		AYL_Jaques
+AYL_LORDS.FREDERICK.LeBeau		AYL_Oliver		AYL_Orlando		AYL_Phoebe		AYL_Rosalind
+AYL_Silvius		AYL_Touchstone		Ado_Balthasar		Ado_Beatrice		Ado_Benedick
+Ado_Claudio		Ado_Conrade		Ado_Dogberry		Ado_DonJohn		Ado_DonPedro
+Ado_FriarFrancis		Ado_Leonato		Ado_LeonatosBrother		Ado_Margaret		Ado_Sexton
+Ado_Ursula		Ado_Verges		Err_Angelo		Err_AntipholusOfEphesus
+Err_AntipholusOfSyracuse		Err_Balthasar		Err_Courtesan		Err_DromioOfEphesus
+Err_DromioOfSyracuse		Err_Luciana		Err_Merchant1		Err_Merchant2		LLL_Boy
+LLL_Costard		LLL_Jaquenetta		LLL_Katherine		LLL_King		LLL_Rosaline
+MM_Abhorson		MM_Angelo		MM_Barnardine		MM_Duke		MM_Elbow		MM_Escalus
+MM_Isabella		MM_Lucio		MM_Mariana		MM_Pompey		MM_Provost		MND_Bottom
+MND_Demetrius		MND_Egeus		MND_Helena		MND_Hermia		MND_Quince		MV_Antonio
+MV_Bassanio		MV_Duke		MV_Gratiano		MV_Jessica		MV_LanceletGobbo		MV_Lorenzo
+MV_Nerissa		MV_OldGobbo		MV_Portia		MV_Shylock		Per_Bawd		Per_Bolt
+Per_Cerimon		Per_Dionyza		Per_FISHERMEN.2		Per_FISHERMEN.3		Per_Helicanus
+Per_Lysimachus		Per_Marina		Per_Pericles		Per_Simonides		Per_Thaisa
+Shr_Baptista		Shr_Bianca		Shr_Biondello		Shr_Gremio		Shr_Hortensio
+Shr_Katherine		Shr_Lucentio		Shr_Merchant		Shr_Petruchio
+Shr_SERVANTS.LORD.0.1		Shr_SERVANTS.LORD.0.2		Shr_Tailor		Shr_Tranio
+Shr_Vincentio		TGV_Duke		TGV_Eglamour		TGV_Host		TGV_Julia		TGV_Lance
+TGV_Lucetta		TGV_OUTLAWS.1		TGV_OUTLAWS.2		TGV_Pantino		TGV_Proteus		TGV_Speed
+TGV_Sylvia		TGV_Thurio		TGV_Valentine		TNK_Arcite		TNK_Doctor		TNK_Epilogue
+TNK_Hippolyta		TNK_Jailer		TNK_Theseus		TNK_Wooer
+TN_ATTENDANTS.ORSINO.Valentine		TN_AndrewAguecheek		TN_Antonio		TN_Captain
+TN_Fabian		TN_Feste		TN_Malvolio		TN_Maria		TN_Olivia		TN_Sebastian		TN_Viola
+Tmp_Boatswain		Tmp_Ferdinand		Tmp_Miranda		Tmp_Sebastian		WT_ATTENDANTS.0.1
+WT_Archidamus		WT_Autolycus		WT_Camillo		WT_Florizell		WT_Hermione
+WT_LADIES.Emilia		WT_Mamillius		WT_Mopsa		WT_Paulina		WT_Perdita
+WT_SERVANTS.X.3		WT_Shepherd		Wiv_AnnePage		Wiv_Bardolph		Wiv_Falstaff
+Wiv_Fenton		Wiv_MasterFord		Wiv_MasterPage		Wiv_MistressFord		Wiv_MistressPage
+Wiv_MistressQuickly		Wiv_Nym		Wiv_Robin		Wiv_Shallow		Wiv_Simple		Wiv_Slender
+
+
+                    Actual "comedy" Predicted as "history":                     
+
+AWW_Duke		AYL_DukeSenior		AYL_LORDS.SENIOR.0.1		AYL_SERVANTS.1		AYL_SERVANTS.2
+AYL_SecondBrother		Ado_WATCHMEN.1		Err_Abbess		Err_Duke		Err_Egeon		LLL_Armado
+LLL_Berowne		LLL_Dumaine		LLL_Nathaniel		LLL_Princess		LLL_Winter
+MM_GENTLEMEN.1		MND_FAIRIES.TITANIA.0.1		MND_Hippolyta		MND_Oberon
+MND_Philostrate		MND_RobinGoodfellow		MND_Snout		MND_Snug		MND_Theseus
+MND_Titania		MV_Morocco		MV_Salerio		Per_Antiochus		Per_FISHERMEN.1
+Per_LORDS.TYRE.0.1		Per_Thaliard		Shr_Page		Shr_Sly		TGV_OUTLAWS.3		TNK_Boy
+TNK_COUNTRYMEN.0.2		TNK_QUEENS.1		TNK_QUEENS.2		TNK_QUEENS.3		TNK_Schoolmaster
+Tmp_Alonso		Tmp_Ariel		Tmp_Caliban		Tmp_Gonzalo		Tmp_Prospero
+Tmp_SPIRITS.Ceres		Tmp_Stephano		Tmp_Trinculo		WT_ATTENDANTS.1
+WT_ATTENDANTS.2		WT_Antigonus		WT_Cleomenes		WT_OFFICERS.0.1		Wiv_Pistol
+
+
+                    Actual "comedy" Predicted as "tragedy":                     
+
+AWW_King		AWW_LORDS.DUMAINE.1		AWW_LORDS.DUMAINE.2		AWW_Mariana		AYL_Audrey
+AYL_Charles		AYL_Hymen		AYL_LORDS.SENIOR.Amiens		Ado_Borachio		Ado_Hero
+Ado_MESSENGERS.LEONATO.1		Ado_WATCHMEN.Seacoal		Err_Adriana		Err_Messenger
+Err_Pinch		LLL_Boyet		LLL_Dull		LLL_Holofernes		LLL_Longaville		LLL_Maria
+MM_Bawd		MM_Claudio		MM_FriarPeter		MND_FAIRIES.TITANIA.1		MND_Flute
+MND_Lysander		MV_Arragon		MV_Salarino		MV_Solanio		Per_Cleon		Per_Gower
+Per_Leonine		Per_Pander		Shr_Curtis		Shr_Grumio		Shr_Lord
+Shr_SERVANTS.LORD.0.3		TGV_Antonio		TNK_COUNTRYMEN.0.1		TNK_COUNTRYMEN.0.3
+TNK_COUNTRYMEN.0.4		TNK_Daughter		TNK_Emilia		TNK_FRIENDS.1		TNK_FRIENDS.2
+TNK_MESSENGERS.X.1		TNK_Palamon		TNK_Pirithous		TNK_Prologue		TN_OFFICERS.1
+TN_Orsino		TN_TobyBelch		Tmp_Antonio		Tmp_SPIRITS.Iris		WT_ATTENDANTS.3
+WT_ATTENDANTS.X		WT_Chorus		WT_Dion		WT_Leontes		WT_Polixenes
+WT_SERVANTS.SHEPHERD.1		WT_ShepherdsSon		Wiv_DoctorCaius		Wiv_Host
+Wiv_HughEvans
+
+
+                    Actual "history" Predicted as "comedy":                     
+
+1H4_Bardolph		1H4_Glendower		1H4_LadyPercy		1H4_MistressQuickly		1H4_Mortimer
+1H6_JohnTalbot		1H6_QueenMargaret		1H6_Vernon		1H6_Warwick		2H4_Bardolph
+2H4_Bedford		2H4_ChiefJustice		2H4_Davy		2H4_DollTearsheet		2H4_Epilogue
+2H4_Falstaff		2H4_HenryV		2H4_MistressQuickly		2H4_SERVANTS.FALSTAFF.1
+2H4_Shallow		2H4_Westmoreland		2H6_Bolingbroke		2H6_Clifford		2H6_Horner
+2H6_Hume		2H6_Simpcox		2H6_Thump		3H6_Clarence		3H6_Montgomery
+3H6_QueenElizabeth		H5_AMBASSADORS.0.1		H5_Bardolph		H5_Fluellen		H5_MacMorris
+H5_Nym		H5_SOLDIERS.ENGLISH.Bates		H5_SOLDIERS.ENGLISH.Williams		H8_Anne
+H8_Campeius		H8_Cromwell		H8_HenryVIII		H8_Katherine		H8_OldLady		H8_Surveyor
+H8_Wolsey		Jn_Arthur		Jn_Blanche		Jn_Hubert		Jn_RobertFaulconbridge
+R3_EdwardIV		R3_MURDERERS.2		R3_York
+
+
+                    Actual "history" Predicted as "history":                    
+
+1H4_Archbishop		1H4_Blunt		1H4_Chamberlain		1H4_Douglas		1H4_Falstaff
+1H4_Gadshill		1H4_HenryV		1H4_Hotspur		1H4_Northumberland		1H4_Poins
+1H4_TRAVELERS.CARRIERS.1		1H4_TRAVELERS.CARRIERS.2		1H4_Vernon
+1H4_Westmoreland		1H4_Worcester		1H6_Alanson		1H6_Basset		1H6_Bastard
+1H6_Bedford		1H6_Burgundy		1H6_CardinalBeaufort		1H6_Charles		1H6_Exeter
+1H6_General		1H6_Gloucester		1H6_HenryVI		1H6_Lucy		1H6_MESSENGERS.ENGLISH.1
+1H6_MESSENGERS.ENGLISH.3		1H6_MESSENGERS.FRENCH.1		1H6_MasterGunner		1H6_Mayor
+1H6_Mortimer		1H6_Pucelle		1H6_Reignier		1H6_Shepherd		1H6_Somerset
+1H6_Suffolk		1H6_Talbot		1H6_York		2H4_Archbishop		2H4_Bullcalf		2H4_Chorus
+2H4_Clarence		2H4_HenryIV		2H4_LordBardolph		2H4_Morton		2H4_Mowbray
+2H4_Northumberland		2H4_Pistol		2H4_Silence		2H4_Travers		2H4_Warwick
+2H6_Bevis		2H6_Buckingham		2H6_Cade		2H6_CardinalBeaufort		2H6_Dick
+2H6_DuchessOfGloucester		2H6_Gloucester		2H6_HenryVI		2H6_Holland		2H6_Iden
+2H6_Lieutenant		2H6_QueenMargaret		2H6_Salisbury		2H6_Saye		2H6_Smith
+2H6_Somerset		2H6_Stafford		2H6_Suffolk		2H6_Warwick		2H6_Whitmore		2H6_York
+3H6_Clifford		3H6_EdwardIV		3H6_Exeter		3H6_GAMEKEEPERS.1		3H6_GAMEKEEPERS.2
+3H6_Hastings		3H6_HenryVI		3H6_KingLewis		3H6_MESSENGERS.Post
+3H6_MESSENGERS.X.2		3H6_Montague		3H6_Oxford		3H6_PrinceEdward
+3H6_QueenMargaret		3H6_RichardIII		3H6_Rutland		3H6_Somerset		3H6_Son
+3H6_Warwick		3H6_York		H5_BishopOfCanterbury		H5_BishopOfEly		H5_Burgundy
+H5_Cambridge		H5_Chorus		H5_Constable		H5_Dauphin		H5_Exeter		H5_Gower
+H5_Grandpre		H5_HenryV		H5_KingOfFrance		H5_Montjoy		H5_Pistol
+H5_QueenOfFrance		H5_Westmoreland		H8_Chamberlain		H8_Chancellor
+H8_GENTLEMEN.3		H8_Lovell		H8_Norfolk		H8_Porter		H8_Prologue		H8_Sands
+H8_Suffolk		H8_Surrey		Jn_Austria		Jn_Bastard		Jn_CITIZENS.0.1		Jn_Chatillion
+Jn_Constance		Jn_Dauphin		Jn_HERALDS.ENGLISH		Jn_KingJohn		Jn_KingPhilip
+Jn_LadyFaulconbridge		Jn_MESSENGERS.ENGLISH.1		Jn_Melun		Jn_Pandulph
+Jn_Pembroke		Jn_PrinceHenry		Jn_QueenEleanor		Jn_Salisbury		R2_Bagot
+R2_BishopOfCarlisle		R2_Bushy		R2_DuchessOfGloucester		R2_DuchessOfYork
+R2_Exton		R2_Fitzwater		R2_Gardener		R2_Gaunt		R2_Green		R2_HenryIV
+R2_Hotspur		R2_LordMarshal		R2_Mowbray		R2_Northumberland		R2_Queen
+R2_RichardII		R2_Ross		R2_Salisbury		R2_Scroop		R2_WelshCaptain		R2_Willoughby
+R2_York		R3_Brakenbury		R3_Buckingham		R3_CITIZENS.3		R3_Catesby		R3_Clarence
+R3_ClarencesBoy		R3_Dorset		R3_DuchessOfYork		R3_EdwardV		R3_Grey		R3_Hastings
+R3_HenryVII		R3_LadyAnne		R3_QueenElizabeth		R3_QueenMargaret		R3_Ratcliffe
+R3_RichardIII		R3_Rivers		R3_Scrivener		R3_Stanley		R3_Tyrrel
+
+
+                    Actual "history" Predicted as "tragedy":                    
+
+1H4_HenryIV		1H6_Countess		1H6_Salisbury		2H4_Gloucester		2H4_Hastings
+2H4_LadyPercy		2H4_Poins		2H6_RichardIII		2H6_YoungClifford		3H6_Father
+3H6_Northumberland		H5_Alice		H5_Boy		H5_Katherine		H5_MistressQuickly
+H5_Orleans		H8_Abergavenny		H8_Buckingham		H8_Cranmer		H8_Epilogue
+H8_GENTLEMEN.1		H8_GENTLEMEN.2		H8_Gardiner		H8_Griffith		H8_SERVANTS.PORTER.1
+R2_Aumerle		R3_CITIZENS.2		R3_MESSENGERS.X.2		R3_MURDERERS.1		R3_MayorOfLondon
+
+
+                    Actual "tragedy" Predicted as "comedy":                     
+
+Ant_Charmian		Ant_Countryman		Ant_Dolabella		Ant_Enobarbus		Ant_Lepidus
+Ant_Proculeius		Ant_Soothsayer		Ant_Ventidius		Cor_Adrian
+Cor_CITIZENS.ROMAN.2		Cor_Coriolanus		Cor_Menenius		Cor_SERVANTS.1
+Cor_Virgilia		Cor_WATCHMEN.1		Cym_ATTENDANTS.CLOTEN.1		Cym_Arviragus
+Cym_Cloten		Cym_Cornelius		Cym_Frenchman		Cym_Iachimo		Cym_Imogen
+Cym_JAILERS.1		Cym_Philario		Cym_Pisanio		Cym_Posthumus		Cym_Queen
+Cym_SENATORS.1		Ham_Guildenstern		Ham_Hamlet		Ham_Osric		Ham_Polonius
+JC_COMMONERS.Cobbler		JC_CinnaPoet		JC_Marullus		JC_Portia
+Lr_ATTENDANTS.LEAR.0.3		Lr_Cordelia		Lr_Edmund		Lr_Goneril		Lr_Kent		Lr_Regan
+Mac_Gentlewoman		Mac_LadyMacbeth		Mac_MacduffsSon		Oth_Bianca		Oth_Cassio
+Oth_Clown		Oth_Desdemona		Oth_Duke		Oth_Iago		Oth_Lodovico		Oth_Roderigo
+Rom_Capulet		Rom_Nurse		Rom_Paris		Rom_SERVANTS.CAPULET.Peter
+Rom_SERVANTS.CAPULET.Sampson		Rom_SERVANTS.CAPULET.X.1
+Rom_SERVANTS.MONTAGUE.Balthasar		Rom_Tybalt		Tim_FRIENDS.0.2		Tim_Fool
+Tim_LORDS.0.1		Tim_SENATORS.0.1		Tim_SERVANTS.Caphis		Tit_Aemilius
+Tit_Bassianus		Tit_CountryFellow		Tit_YoungLucius		Tro_Ajax		Tro_Calchas
+Tro_Cressida		Tro_Diomedes		Tro_Helen		Tro_Pandarus		Tro_Patroclus
+
+
+                    Actual "tragedy" Predicted as "history":                    
+
+Ant_Mardian		Ant_Menas		Ant_Octavia		Ant_Scarus		Cor_MESSENGERS.TRIBUNES.1
+Cor_OFFICERS.1		Cym_ATTENDANTS.0.2		Cym_Soothsayer		Ham_Barnardo		Ham_Ghost
+Ham_Horatio		Ham_Marcellus		Ham_PLAYERS.1		Ham_PLAYERS.King		Ham_PLAYERS.Queen
+Ham_Rosencrantz		JC_Calphurnia		JC_Flavius		JC_Lucius
+JC_SOLDIERS.BRUTUS.Titinius		Lr_ATTENDANTS.X.3		Lr_Edgar		Lr_Fool		Lr_France
+Lr_Gloucester		Lr_MESSENGERS.X.1		Mac_Hecate		Mac_Lord		Mac_Macbeth
+Mac_Macduff		Mac_Malcolm		Mac_Ross		Mac_SOLDIERS.Captain		Mac_WITCHES.1
+Mac_WITCHES.2		Mac_WITCHES.3		Oth_SENATORS.0.1		Rom_FriarLawrence
+Rom_Mercutio		Rom_PrinceEscalus		Rom_Romeo		Rom_SERVANTS.CAPULET.0.1
+Tim_Alcibiades		Tim_Apemantus		Tim_LORDS.0.2		Tim_SENATORS.1		Tim_SENATORS.2
+Tim_SERVANTS.LUCIUS.1		Tim_SERVANTS.TIMON.X.2		Tim_Timon		Tit_Aaron
+Tit_GOTHS.0.2		Tit_Lavinia		Tit_Martius		Tit_Tamora		Tro_Agamemnon
+Tro_Cassandra		Tro_Hector		Tro_Nestor		Tro_Prologue		Tro_Thersites
+
+
+                    Actual "tragedy" Predicted as "tragedy":                    
+
+Ant_Agrippa		Ant_Alexas		Ant_Ambassador		Ant_Antony		Ant_Canidius
+Ant_Cleopatra		Ant_Diomedes		Ant_Eros		Ant_GUARDS.Dercetus		Ant_Iras
+Ant_MESSENGERS.X.2		Ant_Maecenas		Ant_Octavius		Ant_Philo		Ant_Pompey
+Ant_Thidias		Cor_Aufidius		Cor_CITIZENS.ROMAN		Cor_CITIZENS.ROMAN.0.1
+Cor_CITIZENS.ROMAN.0.2		Cor_CITIZENS.ROMAN.0.3		Cor_CITIZENS.ROMAN.3
+Cor_Cominius		Cor_LORDS.VOLSCIAN.0.1		Cor_Lartius		Cor_MESSENGERS.TRIBUNES.2
+Cor_Nicanor		Cor_OFFICERS.2		Cor_SENATORS.ROMAN.0.1		Cor_SENATORS.VOLSCIAN.0.1
+Cor_SERVANTS.2		Cor_SERVANTS.3		Cor_TRIBUNES.Brutus		Cor_TRIBUNES.Sicinius
+Cor_Valeria		Cor_Volumnia		Cym_ATTENDANTS.1		Cym_ATTENDANTS.CLOTEN.2
+Cym_Belarius		Cym_Cymbeline		Cym_GHOSTS.Father		Cym_Guiderius		Cym_Jupiter
+Cym_Lucius		Ham_Claudius		Ham_Fortinbras		Ham_Gertrude		Ham_Gravedigger
+Ham_Laertes		Ham_Ophelia		Ham_Voltemand		JC_Antony		JC_Artemidorus		JC_Brutus
+JC_Caesar		JC_Casca		JC_Cassius		JC_Cinna		JC_Decius		JC_Ligarius		JC_Metellus
+JC_Octavius		JC_PLEBEIANS.0.1		JC_PLEBEIANS.0.2		JC_PLEBEIANS.0.3
+JC_PLEBEIANS.0.4		JC_Pindarus		JC_SERVANTS.ANTONY.1
+JC_SOLDIERS.BRUTUS.Lucilius		JC_SOLDIERS.BRUTUS.Messala		JC_Soothsayer
+Lr_ATTENDANTS.CORDELIA.1		Lr_ATTENDANTS.X.4		Lr_Albany		Lr_Cornwall		Lr_Doctor
+Lr_Lear		Lr_Oswald		Mac_Angus		Mac_Banquo		Mac_Doctor2		Mac_Duncan
+Mac_LadyMacduff		Mac_Lennox		Mac_MURDERERS.1		Mac_MURDERERS.2		Mac_Porter
+Mac_Siward		Oth_Brabantio		Oth_Emilia		Oth_GENTLEMEN.3		Oth_Gratiano
+Oth_Herald		Oth_Montano		Oth_Othello		Rom_Benvolio		Rom_Chorus		Rom_Juliet
+Rom_LadyCapulet		Rom_Montague		Rom_SERVANTS.CAPULET.Gregory		Rom_WATCHMEN.0.1
+Tim_BANDITS.1		Tim_FRIENDS.0.1		Tim_FRIENDS.Lucius		Tim_FRIENDS.Lucullus
+Tim_FRIENDS.Sempronius		Tim_Flavius		Tim_OldMan		Tim_Painter		Tim_Poet
+Tim_SENATORS.X		Tim_SERVANTS.TIMON.Flaminius		Tim_SERVANTS.TIMON.Servilius
+Tim_SERVANTS.VARRO.1		Tim_SOLDIERS.1		Tim_STRANGERS.1		Tit_Chiron
+Tit_Demetrius		Tit_Lucius		Tit_Marcus		Tit_Nurse		Tit_Publius		Tit_Quintus
+Tit_Saturninus		Tit_Titus		Tro_Achilles		Tro_Aeneas		Tro_Alexander
+Tro_Andromache		Tro_Paris		Tro_Priam		Tro_SERVANTS.PARIS.1		Tro_Troilus
+Tro_Ulysses
+
+

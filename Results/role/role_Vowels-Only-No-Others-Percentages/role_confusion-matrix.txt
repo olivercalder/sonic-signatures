@@ -1,0 +1,164 @@
+                   Summary: Vowels-Only-No-Others-Percentages                   
+
+
+                      Overall accuracy = 52.27%                                 
+                      Average accuracy = 52.48%                                 
+
+                      Average F1 score = 52.49%                                 
+                           Average MCC = 28.24%                                 
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+                            |  antag   |   fool   |  protag  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    antag   |    13    |    6     |    10    |                  
+                  ——————————|——————————|——————————|——————————|                  
+                     fool   |    5     |    14    |    5     |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    protag  |    12    |    4     |    19    |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+                         Total samples = 88                                     
+
+                  Total actual "antag" = 29                                     
+               Total predicted "antag" = 30                                     
+                   Total actual "fool" = 24                                     
+                Total predicted "fool" = 24                                     
+                 Total actual "protag" = 35                                     
+              Total predicted "protag" = 34                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+                            |  antag   |   fool   |  protag  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    antag   |  14.77%  |  6.82%   |  11.36%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                     fool   |  5.68%   |  15.91%  |  5.68%   |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    protag  |  13.64%  |  4.55%   |  21.59%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+                Percent actual "antag" = 32.95%                                 
+             Percent predicted "antag" = 34.09%                                 
+                 Percent actual "fool" = 27.27%                                 
+              Percent predicted "fool" = 27.27%                                 
+               Percent actual "protag" = 39.77%                                 
+            Percent predicted "protag" = 38.64%                                 
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+                            |  antag   |   fool   |  protag  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    antag   |  44.83%  |  20.69%  |  34.48%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                     fool   |  20.83%  |  58.33%  |  20.83%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    protag  |  34.29%  |  11.43%  |  54.29%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+     Percent correct of actual "antag" = 44.83%                                 
+      Percent correct of actual "fool" = 58.33%                                 
+    Percent correct of actual "protag" = 54.29%                                 
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+                            |  antag   |   fool   |  protag  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    antag   |  43.33%  |  25.00%  |  29.41%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                     fool   |  16.67%  |  58.33%  |  14.71%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    protag  |  40.00%  |  16.67%  |  55.88%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+  Percent correct of predicted "antag" = 43.33%                                 
+   Percent correct of predicted "fool" = 58.33%                                 
+ Percent correct of predicted "protag" = 55.88%                                 
+
+
+                                   F1 Scores:                                   
+                  F1 score for "antag" = 44.07%                                 
+                   F1 score for "fool" = 58.33%                                 
+                 F1 score for "protag" = 55.07%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+                 MCC score for "antag" = 15.88%                                 
+                  MCC score for "fool" = 42.71%                                 
+                MCC score for "protag" = 26.12%                                 
+
+
+
+                                  Characters:                                   
+
+
+                      Actual "antag" Predicted as "antag":                      
+
+1H4_Hotspur		2H4_ChiefJustice		Ant_Octavius		Cor_TRIBUNES.Brutus		Cym_Iachimo
+H5_Dauphin		Ham_Claudius		JC_Antony		Jn_KingPhilip		LLL_Princess
+Per_Antiochus		Rom_Tybalt		WT_Polixenes
+
+
+                      Actual "antag" Predicted as "fool":                       
+
+AWW_Bertram		Ado_DonJohn		Lr_Goneril		TN_Malvolio		Tmp_Antonio		Wiv_Falstaff
+
+
+                     Actual "antag" Predicted as "protag":                      
+
+1H6_Charles		AYL_DukeFrederick		Err_AntipholusOfEphesus		H8_Wolsey		MM_Angelo
+MV_Shylock		Oth_Iago		R2_HenryIV		TGV_Proteus		Tit_Aaron
+
+
+                      Actual "fool" Predicted as "antag":                       
+
+2H4_Falstaff		Cym_Cloten		Ham_Gravedigger		Mac_Porter		Tro_Thersites
+
+
+                       Actual "fool" Predicted as "fool":                       
+
+AWW_Fool		Ado_Dogberry		Err_DromioOfEphesus		Err_DromioOfSyracuse		LLL_Costard
+MM_Pompey		MND_Bottom		MV_LanceletGobbo		Oth_Clown		TGV_Lance		TGV_Speed
+TN_Feste		Tit_CountryFellow		WT_Autolycus
+
+
+                      Actual "fool" Predicted as "protag":                      
+
+1H4_Falstaff		JC_PLEBEIANS		Lr_Fool		Shr_Grumio		Tim_Fool
+
+
+                     Actual "protag" Predicted as "antag":                      
+
+1H6_HenryVI		2H4_HenryV		AWW_Helen		H5_HenryV		H8_HenryVIII		Ham_Hamlet
+Jn_KingJohn		LLL_King		MM_Duke		MV_Portia		TNK_Theseus		Wiv_MistressPage
+
+
+                      Actual "protag" Predicted as "fool":                      
+
+AYL_Rosalind		Ado_Beatrice		Cym_Imogen		TN_Viola
+
+
+                     Actual "protag" Predicted as "protag":                     
+
+1H4_HenryV		Ant_Antony		Cor_Coriolanus		Err_AntipholusOfSyracuse		JC_Brutus
+Lr_Lear		Mac_Macbeth		Oth_Othello		Per_Pericles		R2_RichardII		R3_RichardIII
+Rom_Romeo		Shr_Petruchio		TGV_Valentine		Tim_Timon		Tit_Titus		Tmp_Prospero
+Tro_Troilus		WT_Leontes
+
+

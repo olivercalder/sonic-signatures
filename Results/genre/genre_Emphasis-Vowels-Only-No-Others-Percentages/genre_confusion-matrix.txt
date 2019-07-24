@@ -1,0 +1,167 @@
+              Summary: Emphasis-Vowels-Only-No-Others-Percentages               
+
+
+                      Overall accuracy = 64.77%                                 
+                      Average accuracy = 66.58%                                 
+
+                      Average F1 score = 63.70%                                 
+                           Average MCC = 46.52%                                 
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+                            |  comedy  | history  | tragedy  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    comedy  |    29    |    4     |    8     |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   history  |    2     |    14    |    1     |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   tragedy  |    9     |    7     |    14    |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+                         Total samples = 88                                     
+
+                 Total actual "comedy" = 41                                     
+              Total predicted "comedy" = 40                                     
+                Total actual "history" = 17                                     
+             Total predicted "history" = 25                                     
+                Total actual "tragedy" = 30                                     
+             Total predicted "tragedy" = 23                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+                            |  comedy  | history  | tragedy  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    comedy  |  32.95%  |  4.55%   |  9.09%   |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   history  |  2.27%   |  15.91%  |  1.14%   |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   tragedy  |  10.23%  |  7.95%   |  15.91%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+               Percent actual "comedy" = 46.59%                                 
+            Percent predicted "comedy" = 45.45%                                 
+              Percent actual "history" = 19.32%                                 
+           Percent predicted "history" = 28.41%                                 
+              Percent actual "tragedy" = 34.09%                                 
+           Percent predicted "tragedy" = 26.14%                                 
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+                            |  comedy  | history  | tragedy  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    comedy  |  70.73%  |  9.76%   |  19.51%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   history  |  11.76%  |  82.35%  |  5.88%   |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   tragedy  |  30.00%  |  23.33%  |  46.67%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+    Percent correct of actual "comedy" = 70.73%                                 
+   Percent correct of actual "history" = 82.35%                                 
+   Percent correct of actual "tragedy" = 46.67%                                 
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+                            |  comedy  | history  | tragedy  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    comedy  |  72.50%  |  16.00%  |  34.78%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   history  |  5.00%   |  56.00%  |  4.35%   |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   tragedy  |  22.50%  |  28.00%  |  60.87%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+ Percent correct of predicted "comedy" = 72.50%                                 
+Percent correct of predicted "history" = 56.00%                                 
+Percent correct of predicted "tragedy" = 60.87%                                 
+
+
+                                   F1 Scores:                                   
+                 F1 score for "comedy" = 71.60%                                 
+                F1 score for "history" = 66.67%                                 
+                F1 score for "tragedy" = 52.83%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+                MCC score for "comedy" = 47.41%                                 
+               MCC score for "history" = 58.53%                                 
+               MCC score for "tragedy" = 33.61%                                 
+
+
+
+                                  Characters:                                   
+
+
+                     Actual "comedy" Predicted as "comedy":                     
+
+AWW_Bertram		AWW_Fool		AWW_Helen		AYL_Rosalind		Ado_Beatrice		Ado_Dogberry
+Ado_DonJohn		Err_AntipholusOfEphesus		Err_AntipholusOfSyracuse
+Err_DromioOfEphesus		Err_DromioOfSyracuse		LLL_Costard		LLL_Princess
+MM_Angelo		MM_Pompey		MND_Bottom		MV_LanceletGobbo		MV_Portia		MV_Shylock
+Per_Pericles		Shr_Grumio		Shr_Petruchio		TGV_Speed		TGV_Valentine		TN_Feste
+TN_Malvolio		TN_Viola		WT_Autolycus		Wiv_Falstaff
+
+
+                    Actual "comedy" Predicted as "history":                     
+
+Per_Antiochus		TNK_Theseus		Tmp_Prospero		WT_Polixenes
+
+
+                    Actual "comedy" Predicted as "tragedy":                     
+
+AYL_DukeFrederick		LLL_King		MM_Duke		TGV_Lance		TGV_Proteus		Tmp_Antonio
+WT_Leontes		Wiv_MistressPage
+
+
+                    Actual "history" Predicted as "comedy":                     
+
+1H4_Falstaff		2H4_Falstaff
+
+
+                    Actual "history" Predicted as "history":                    
+
+1H4_HenryV		1H4_Hotspur		1H6_Charles		1H6_HenryVI		2H4_ChiefJustice
+2H4_HenryV		H5_Dauphin		H5_HenryV		H8_Wolsey		Jn_KingJohn		Jn_KingPhilip
+R2_HenryIV		R2_RichardII		R3_RichardIII
+
+
+                    Actual "history" Predicted as "tragedy":                    
+
+H8_HenryVIII
+
+
+                    Actual "tragedy" Predicted as "comedy":                     
+
+Cym_Imogen		Lr_Fool		Lr_Goneril		Lr_Lear		Mac_Porter		Oth_Clown		Tim_Fool
+Tim_Timon		Tit_CountryFellow
+
+
+                    Actual "tragedy" Predicted as "history":                    
+
+Cym_Iachimo		Ham_Claudius		Rom_Romeo		Rom_Tybalt		Tit_Aaron		Tro_Thersites
+Tro_Troilus
+
+
+                    Actual "tragedy" Predicted as "tragedy":                    
+
+Ant_Antony		Ant_Octavius		Cor_Coriolanus		Cor_TRIBUNES.Brutus		Cym_Cloten
+Ham_Gravedigger		Ham_Hamlet		JC_Antony		JC_Brutus		JC_PLEBEIANS		Mac_Macbeth
+Oth_Iago		Oth_Othello		Tit_Titus
+
+
