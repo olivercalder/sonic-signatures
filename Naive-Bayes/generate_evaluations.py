@@ -85,17 +85,17 @@ def get_string(results_list):
     lines.append('{:>50} {:^10} {:^10} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average', 'F1 Score', 'MCC'))
     for item in overall_sorted:
         lines.append('{:>50} {:^10.2%} {:^10.2%} {:^10.2%} {:^10.2%}'.format(*item))
-    lines.append('')
+    lines.append('\n')
     lines.append('{:^80}\n'.format('Average Accuracy:'))
     lines.append('{:>50} {:^10} {:^10} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average', 'F1 Score', 'MCC'))
     for item in average_sorted:
         lines.append('{:>50} {:^10.2%} {:^10.2%} {:^10.2%} {:^10.2%}'.format(*item))
-    lines.append('')
+    lines.append('\n')
     lines.append('{:^80}\n'.format('Average F1 Score:'))
     lines.append('{:>50} {:^10} {:^10} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average', 'F1 Score', 'MCC'))
     for item in f1_sorted:
         lines.append('{:>50} {:^10.2%} {:^10.2%} {:^10.2%} {:^10.2%}'.format(*item))
-    lines.append('')
+    lines.append('\n')
     lines.append('{:^80}\n'.format('Average Matthews Correlation Coefficient:'))
     lines.append('{:>50} {:^10} {:^10} {:^10} {:^10}'.format('Option Combination', 'Overall', 'Average', 'F1 Score', 'MCC'))
     for item in mcc_sorted:

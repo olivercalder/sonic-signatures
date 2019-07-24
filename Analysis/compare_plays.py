@@ -31,6 +31,38 @@ Arguments:
 '''.format(sys.argv[0]))
 
 
+def get_string(results_list):
+    overall_sorted = sorted(results_list, key=lambda result: result[1], reverse=True)
+    average_sorted = sorted(results_list, key=lambda result: result[2], reverse=True)
+    f1_sorted = sorted(results_list, key=lambda result: result[3], reverse=True)
+    mcc_sorted = sorted(results_list, key=lambda result: result[4], reverse=True)
+    lines = []
+    lines.append('{:^44}\n'.format('Overall Accuracy:'))
+    lines.append('{:^8} {:^8} {:^8} {:^8} {:^8}'.format('Play', 'Overall', 'Average', 'F1 Score', 'MCC'))
+    for item in overall_sorted:
+        lines.append('{:^8} {:^8.2%} {:^8.2%} {:^8.2%} {:^8.2%}'.format(*item))
+    lines.append('\n')
+    lines.append('{:^44}\n'.format('Average Accuracy:'))
+    lines.append('{:^8} {:^8} {:^8} {:^8} {:^8}'.format('Play', 'Overall', 'Average', 'F1 Score', 'MCC'))
+    for item in average_sorted:
+        lines.append('{:^8} {:^8.2%} {:^8.2%} {:^8.2%} {:^8.2%}'.format(*item))
+    lines.append('\n')
+    lines.append('{:^44}\n'.format('Average F1 Score'))
+    lines.append('{:^8} {:^8} {:^8} {:^8} {:^8}'.format('Play', 'Overall', 'Average', 'F1 Score', 'MCC'))
+    for item in f1_sorted:
+        lines.append('{:^8} {:^8.2%} {:^8.2%} {:^8.2%} {:^8.2%}'.format(*item))
+    lines.append('\n')
+    lines.append('{:^44}\n'.format('Average Matthews Correlation Coefficient'))
+    lines.append('{:^8} {:^8} {:^8} {:^8} {:^8}'.format('Play', 'Overall', 'Average', 'F1 Score', 'MCC'))
+    for item in mcc_sorted:
+        lines.append('{:^8} {:^8.2%} {:^8.2%} {:^8.2%} {:^8.2%}'.format(*item))
+    string = '\n'.join(lines)
+    return string
+
+def print_summary(results_list):
+    print(get_string(results_list))
+
+
 def create_directory(directory):
     if not os.path.isdir(directory):
         path = directory.rstrip('/').split('/')
@@ -88,7 +120,9 @@ def main(in_csv='', in_json='', all_combos=False, class_id='', twofold='', silen
 
         overall_accuracy = play_matrix.get_overall_accuracy()
         average_accuracy = play_matrix.get_average_accuracy()
-        results_list.append([play, overall_accuracy, average_accuracy])
+        average_f1 = play_matrix.get_f1()
+        average_mcc = play_matrix.get_mcc()
+        results_list.append([play, overall_accuracy, average_accuracy, average_f1, average_mcc])
 
         if not silent:
             play_matrix.print_summary()
@@ -99,24 +133,19 @@ def main(in_csv='', in_json='', all_combos=False, class_id='', twofold='', silen
     
     overall_sorted = sorted(results_list, key=lambda result: result[1], reverse=True)
     average_sorted = sorted(results_list, key=lambda result: result[2], reverse=True)
+    f1_sorted = sorted(results_list, key=lambda result: result[3], reverse=True)
+    mcc_sorted = sorted(results_list, key=lambda result: result[4], reverse=True)
 
     if wt:
         write_csv(overall_sorted, title + 'overall', directory)
         write_csv(average_sorted, title + 'average', directory)
+        write_csv(f1_sorted, title + 'f1', directory)
+        write_csv(mcc, title + 'mcc', directory)
 
     if not silent:
-        print('{:^27}'.format('Overall Accuracy:'))
-        print('{:^8} {:^8} {:^8}'.format('name', 'overall', 'average'))
-        for item in overall_sorted:
-            print('{:^8} {:^8.2%} {:^8.2%}'.format(*item))
-        print()
-        print('{:^27}'.format('Average Accuracy:'))
-        print('{:^8} {:^8} {:^8}'.format('name', 'overall', 'average'))
-        for item in average_sorted:
-            print('{:^8} {:^8.2%} {:^8.2%}'.format(*item))
-        print()
+        print_summary(results_list)
 
-    return overall_sorted, average_sorted
+    return overall_sorted, average_sorted, f1_sorted, mcc_sorted
 
 
 if __name__ == '__main__':
