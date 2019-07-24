@@ -120,8 +120,8 @@ def write_text(results_list, title='', directory=''):
         create_directory(directory)
     if title != '':
         title = (title + '_').lstrip('_')
-    results_string = get_string(results_list)
     filename = directory + 'results_' + title + 'sorted.txt'
+    results_string = get_string(results_list)
     with open(filename, 'w') as text_out:
         print(results_string, file=text_out)
 

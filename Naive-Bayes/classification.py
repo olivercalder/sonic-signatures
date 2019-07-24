@@ -124,6 +124,23 @@ def write_csv(dict_list, title='', directory=''):
     csv_out.close()
 
 
+def write_play_csv(play_dict, title='', directory=''):
+    if directory != '':
+        directory = directory.rstrip('/') + '/'
+        create_directory(directory)
+    if title != '':
+        title = title + '_'
+    filename = directory + title + 'play-results-dictionary.csv'
+    csv_out = open(filename, 'w', newline='')
+    fieldnames = ['character', 'actual', 'predicted']
+    writer = csv.DictWriter(csv_out, fieldnames=fieldnames)
+    writer.writeheader()
+    for play in sorted(play_dict):
+        for entry in play_dict[play]:
+            writer.writerow(entry)
+    csv_out.close()
+
+
 def write_json(dict_list, title='', directory=''):
     if directory != '':
         directory = directory.rstrip('/') + '/'
@@ -344,7 +361,7 @@ def build_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', s
     return char_dict
 
 
-def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', silent=False, wj=False, title='', directory=''):
+def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', silent=False, wt=False, wj=False, title='', directory=''):
     if not class_id:
         print('ERROR: Missing class id')
         print_help_string()
@@ -365,6 +382,8 @@ def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold=
 
     if not silent:
         print_play_results(play_dict)
+    if wt:
+        write_play_csv(play_dict, title, directory)
     if wj:
         write_play_json(play_dict, title, directory)
     new_play_dict = {}

@@ -20,8 +20,8 @@ Arguments:
                             Archive and averages results
     -c class_id         Specifies the class (role, gender, genre, social class) to predict
     -s                  Silent: Do not print output
-    -wt                 Writes output to csv file
-    -wj                 Writes output to json file
+    -wt                 Writes output to text file
+    -wj                 Writes output to csv file
     -R                  Recursively write intermediate outputs along the way
     -t title            Title of run, used in output filenames
     -d directory        Directory in which to write output files
@@ -72,12 +72,24 @@ def create_directory(directory):
                 os.mkdir(path_chunk)
 
 
+def write_text(results_list, title='', directory=''):
+    if directory != '':
+        directory = directory.rstrip('/') + '/'
+        create_directory(directory)
+    if title != '':
+        title = (title.rstrip('_') + '_').lstrip('_')
+    filename = directory + 'play_results_' + title + 'sorted.txt'
+    results_string = get_string(results_list)
+    with open(filename, 'w') as text_out:
+        print(results_string, file=text_out)
+
+
 def write_csv(sorted_results, title='', directory=''):
     if directory != '':
         directory = directory.rstrip('/') + '/'
         create_directory(directory)
     if title != '':
-        title = (title + '_').rstrip('_')
+        title = (title.rstrip('_') + '_').lstrip('_')
     filename = directory + 'play_results_' + title + 'sorted.csv'
     with open(filename, 'w', newline = '') as csv_out:
         writer = csv.writer(csv_out)
@@ -86,7 +98,7 @@ def write_csv(sorted_results, title='', directory=''):
             writer.writerow(line)
 
 
-def main(in_csv='', in_json='', all_combos=False, class_id='', twofold='', silent=False, wt=False, wj=False, cascade=False, title='', directory=''):
+def main(in_csv='', in_json='', all_combos=False, class_id='', twofold='', silent=False, wt=False, wc=False, cascade=False, title='', directory=''):
     if title:
         title = title + '_'
     if all_combos:
@@ -102,7 +114,7 @@ def main(in_csv='', in_json='', all_combos=False, class_id='', twofold='', silen
                     class_name = name + '-' + infile[1]
                     if twofold_class:
                         class_name += '-Twofold'
-                    tmp_dict = classification.build_play_confusion_dictionary(filename, '', class_id, twofold_class, silent, wj and cascade, title + class_name, directory)
+                    tmp_dict = classification.build_play_confusion_dictionary(filename, '', class_id, twofold_class, silent, (wt or wc) and cascade, (wt or wc) and cascade, title + class_name, directory)
                     for play in tmp_dict:
                         if play not in play_dict:
                             play_dict[play] = {}
@@ -110,7 +122,7 @@ def main(in_csv='', in_json='', all_combos=False, class_id='', twofold='', silen
                             new_char = char + '-' + class_name
                             play_dict[play][new_char] = tmp_dict[play][char]
     else:
-        play_dict = classification.build_play_confusion_dictionary(in_csv, in_json, class_id, twofold, silent, wj and cascade, title, directory)
+        play_dict = classification.build_play_confusion_dictionary(in_csv, in_json, class_id, twofold, silent, (wt or wc) and cascade, (wt or wc) and cascade, title, directory)
     results_list = []
     for play in play_dict:
         play_title = (title + 'All-Combos_' + play).lstrip('_')
@@ -126,21 +138,24 @@ def main(in_csv='', in_json='', all_combos=False, class_id='', twofold='', silen
 
         if not silent:
             play_matrix.print_summary()
-        if wt and cascade:
+        if (wt or wc) and cascade:
             play_matrix.write_text(play_title, directory, True)
-        if wj and cascade:
+        if (wt or wc) and cascade:
             play_matrix.write_json(play_title, directory)
-    
+
     overall_sorted = sorted(results_list, key=lambda result: result[1], reverse=True)
     average_sorted = sorted(results_list, key=lambda result: result[2], reverse=True)
     f1_sorted = sorted(results_list, key=lambda result: result[3], reverse=True)
     mcc_sorted = sorted(results_list, key=lambda result: result[4], reverse=True)
 
     if wt:
+       write_text(results_list, title, directory) 
+
+    if wc:
         write_csv(overall_sorted, title + 'overall', directory)
         write_csv(average_sorted, title + 'average', directory)
         write_csv(f1_sorted, title + 'f1', directory)
-        write_csv(mcc, title + 'mcc', directory)
+        write_csv(mcc_sorted, title + 'mcc', directory)
 
     if not silent:
         print_summary(results_list)
@@ -156,7 +171,7 @@ if __name__ == '__main__':
     twofold = ''
     silent = False
     wt = False
-    wj = False
+    wc = False
     cascade = False
     title = ''
     directory = ''
@@ -197,8 +212,8 @@ if __name__ == '__main__':
             silent = True
         elif sys.argv[i] == '-wt':
             wt = True
-        elif sys.argv[i] == '-wj':
-            wj = True
+        elif sys.argv[i] == '-wc':
+            wc = True
         elif sys.argv[i] == '-R':
             cascade = True
         elif sys.argv[i] == '-t':
@@ -230,4 +245,4 @@ if __name__ == '__main__':
         print_help_string()
 
     else:
-        main(lt, lj, all_combos, class_id, twofold, silent, wt, wj, cascade, title, directory)
+        main(lt, lj, all_combos, class_id, twofold, silent, wt, wc, cascade, title, directory)
