@@ -144,15 +144,14 @@ def write_csv(percentages, title='', directory='', unknowns=False):
     if unknowns:
         title = title + 'unknowns_'
     filename = directory + title + 'percentages.csv'
-    csvfile = open(filename, 'w', newline='')
-    fieldnames = ['character'] + phoneme_list
-    percentages_copy = copy.deepcopy(percentages)
-    writer = csv.DictWriter(csvfile, fieldnames)
-    writer.writeheader()
-    for char in char_list:
-        percentages_copy[char]['character'] = char
-        writer.writerow(percentages_copy[char])
-    csvfile.close()
+    with open(filename, 'w', newline='') as out_csv:
+        fieldnames = ['character'] + phoneme_list
+        percentages_copy = copy.deepcopy(percentages)
+        writer = csv.DictWriter(out_csv, fieldnames)
+        writer.writeheader()
+        for char in char_list:
+            percentages_copy[char]['character'] = char
+            writer.writerow(percentages_copy[char])
 
 
 def write_json(percentages, title='', directory='', unknowns=False):
@@ -222,7 +221,7 @@ def build_percentages(load_json_filenames=set([]), play_codes=set([]), char_code
         write_csv(percentages, title, directory, unknowns=return_unknowns)
     if wj == True:
         write_json(percentages, title, directory, unknowns=return_unknowns)
-    return counts
+    return percentages
 
 
 def main(load_json_filenames=set([]), play_codes=set([]), char_codes=set([]), ep=set([]), ec=set([]), eo=False, nested=False, silent=False, wt=False, wj=False, title='', directory='', cascade=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False, raw=False, min_words=0):

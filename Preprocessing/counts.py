@@ -168,15 +168,14 @@ def write_csv(counts_dict, title='', directory='', unknowns=False):
     if unknowns:
         title = title + 'unknowns_'
     filename = directory + title + 'counts.csv'
-    csvfile = open(filename, 'w', newline='')
-    copied_counts = copy.deepcopy(counts_dict)
-    fieldnames = ['character'] + phoneme_list
-    writer = csv.DictWriter(csvfile, fieldnames)
-    writer.writeheader()
-    for char in char_list:
-        copied_counts[char]['character'] = char
-        writer.writerow(copied_counts[char])
-    csvfile.close()
+    with open(filename, 'w', newline='') as out_csv:
+        copied_counts = copy.deepcopy(counts_dict)
+        fieldnames = ['character'] + phoneme_list
+        writer = csv.DictWriter(out_csv, fieldnames)
+        writer.writeheader()
+        for char in char_list:
+            copied_counts[char]['character'] = char
+            writer.writerow(copied_counts[char])
 
 
 def write_json(counts_dict, title='', directory='', unknowns=False):
@@ -188,9 +187,8 @@ def write_json(counts_dict, title='', directory='', unknowns=False):
     if unknowns:
         title = title + 'unknowns_'
     filename = directory + title + 'counts.json'
-    out_json = open(filename, 'w')
-    json.dump(counts_dict, out_json)
-    out_json.close()
+    with open(filename, 'w') as out_json:
+        json.dump(counts_dict, out_json)
 
 
 def count_phoneme_list(phoneme_list, vowels_only=False, preserve_emphasis=False):
