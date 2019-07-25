@@ -538,6 +538,7 @@ class ConfusionMatrix:
                 lines.append(percent_line.format('MCC score for "{}"'.format(c), self.get_class_mcc(c)))
             lines.append('\n')
 
+        if self.z_scores:
             lines.append('\n{:^80}\n\n'.format('Actual Class Average Z-Scores'))
             for c in classes:
                 lines.append('{:^80}'.format('Actual "{}" Average Z-Scores:'.format(c)))
@@ -570,6 +571,7 @@ class ConfusionMatrix:
 
             lines.append('\n')
 
+        if verbose:
             lines.append('\n{:^80}\n\n'.format('Characters:'))
             for c1 in classes:
                 for c2 in classes:
@@ -597,7 +599,8 @@ class ConfusionMatrix:
         out_dict['mcc'] = self.get_mcc()
         out_dict['matrix'] = self.matrix
         out_dict['character_matrix'] = self.char_matrix
-        out_dict['z_scores'] = self.z_scores
+        if self.z_scores:
+            out_dict['z_scores'] = self.z_scores
         out_dict['percent_matrix'] = self.get_percent_matrix()
         out_dict['percent_matrix_given_actual'] = self.get_percent_matrix_given_actual()
         out_dict['percent_matrix_given_predicted'] = self.get_percent_matrix_given_predicted()
@@ -614,8 +617,9 @@ class ConfusionMatrix:
             out_dict['classes'][c]['accuracy_predicted'] = self.get_class_accuracy(c, 'predicted')
             out_dict['classes'][c]['actual_characters'] = self.get_class_characters(c, 'actual')
             out_dict['classes'][c]['predicted_characters'] = self.get_class_characters(c, 'predicted')
-            out_dict['classes'][c]['actual_z_scores'] = self.get_class_z_scores(c, 'actual')
-            out_dict['classes'][c]['predicted_z_scores'] = self.get_class_z_scores(c, 'predicted')
+            if self.z_scores:
+                out_dict['classes'][c]['actual_z_scores'] = self.get_class_z_scores(c, 'actual')
+                out_dict['classes'][c]['predicted_z_scores'] = self.get_class_z_scores(c, 'predicted')
             out_dict['classes'][c]['f1'] = self.get_class_f1(c)
             out_dict['classes'][c]['mcc'] = self.get_class_mcc(c)
         return out_dict
