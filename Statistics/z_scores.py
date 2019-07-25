@@ -66,17 +66,17 @@ def load_csv(filename):
 
 
 def load_json(filename):
+    vectors = {}
     with open(filename) as in_json:
         string_vectors = json.load(in_json)
-        vectors = {}
+        if is_nested(string_vectors):
+            string_vectors = unnest_dict(string_vectors)
         for char in string_vectors:
             vectors[char] = {}
             for phoneme in string_vectors[char]:
                 vectors[char][phoneme] = float(string_vectors[char][phoneme])
                 if int(vectors[char][phoneme]) == vectors[char][phoneme]:
                     vectors[char][phoneme] = int(vectors[char][phoneme])
-        if is_nested(vectors):
-            vectors = unnest_dict(vectors)
     return vectors
 
 

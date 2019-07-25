@@ -13,11 +13,11 @@ Usage: python3 {} [arguments]
 
 Arguments:
     -h                  Prints help string
-    -lt filename.csv    Loads phoneme vectors from specified csv file
+    -lc filename.csv    Loads phoneme vectors from specified csv file
     -lj filename.json   Loads phoneme vectors from specified json file
     -c class_id         Specifies the class (role, gender, genre, social class) to predict
     -s                  Silent: Do not print output
-    -wt                 Writes output to csv file
+    -wc                 Writes output to csv file
     -wj                 Writes output to json file
     -t title            Title of run, used in output filenames
     -d directory        Directory in which to write output files
@@ -26,8 +26,8 @@ Arguments:
                             Second: Of the non-"[class]"s, predict from remaining classes
 
 Sample Filenames:
-    ../Archive/role/role_Emphasis-Min-500/role_counts.csv
-    ../Archive/role/role_No-Others/role_percentages.json
+    ../Archive/Emphasis-Min-500/counts.csv
+    ../Archive/No-Others/percentages.json
 '''.format(sys.argv[0]))
 
 
@@ -336,7 +336,7 @@ def generate_play_dict(char_list, vector_list, class_list, twofold=''):
     return play_dict
 
 
-def build_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', silent=False, wt=False, wj=False, title='', directory=''):
+def build_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', silent=False, wc=False, wj=False, title='', directory=''):
     if in_csv and in_json:
         print('ERROR: Conflicting input files')
         print('    csv:', in_csv)
@@ -353,7 +353,7 @@ def build_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', s
 
     if not silent:
         print_results(dict_list)
-    if wt:
+    if wc:
         write_csv(dict_list, title, directory)
     if wj:
         write_json(dict_list, title, directory)
@@ -361,7 +361,7 @@ def build_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', s
     return char_dict
 
 
-def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', silent=False, wt=False, wj=False, title='', directory=''):
+def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', silent=False, wc=False, wj=False, title='', directory=''):
     if not class_id:
         print('ERROR: Missing class id')
         print_help_string()
@@ -387,7 +387,7 @@ def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold=
 
     if not silent:
         print_play_results(play_dict)
-    if wt:
+    if wc:
         write_play_csv(play_dict, title, directory)
     if wj:
         write_play_json(play_dict, title, directory)
@@ -397,22 +397,22 @@ def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold=
     return new_play_dict
 
 
-def main(in_csv='', in_json='', class_id='', twofold='', plays=False, silent=False, wt=False, wj=False, title='', directory=''):
+def main(in_csv='', in_json='', class_id='', twofold='', plays=False, silent=False, wc=False, wj=False, title='', directory=''):
     if plays:
         dictionary = build_play_confusion_dictionary(in_csv, in_json, class_id, twofold, silent, wj, title, directory)
     else:
-        dictionary = build_confusion_dictionary(in_csv, in_json, class_id, twofold, silent, wt, wj, title, directory)
+        dictionary = build_confusion_dictionary(in_csv, in_json, class_id, twofold, silent, wc, wj, title, directory)
     return dictionary
 
 
 if __name__ == '__main__':
-    lt = ''
+    lc = ''
     lj = ''
     class_id = ''
     twofold = ''
     plays = False
     silent = False
-    wt = False
+    wc = False
     wj = False
     title = ''
     directory = ''
@@ -427,12 +427,12 @@ if __name__ == '__main__':
         if sys.argv[i] == '-h':
             print_help_string()
             quit()
-        elif sys.argv[i] == '-lt':
+        elif sys.argv[i] == '-lc':
             if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
-                lt = sys.argv[i]
+                lc = sys.argv[i]
             else:
-                unrecognized.append('-lt: Missing Specifier')
+                unrecognized.append('-lc: Missing Specifier')
         elif sys.argv[i] == '-lj':
             if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
@@ -455,8 +455,8 @@ if __name__ == '__main__':
             plays = True
         elif sys.argv[i] == '-s':
             silent = True
-        elif sys.argv[i] == '-wt':
-            wt = True
+        elif sys.argv[i] == '-wc':
+            wc = True
         elif sys.argv[i] == '-wj':
             wj = True
         elif sys.argv[i] == '-t':
@@ -478,11 +478,11 @@ if __name__ == '__main__':
     if not class_id:
         unrecognized.append('Missing class id: Please specify with -c')
 
-    if lt == '' and lj == '':
-        unrecognized.append('Missing input file: Please specify with -lt or -lj')
+    if lc == '' and lj == '':
+        unrecognized.append('Missing input file: Please specify with -lc or -lj')
 
-    elif lt != '' and lj != '':
-        unrecognized.append('Conflicting input files: Please include only one of -lt or -lj')
+    elif lc != '' and lj != '':
+        unrecognized.append('Conflicting input files: Please include only one of -lc or -lj')
 
     if len(unrecognized) > 0:
         print('\nERROR: Unrecognized Arguments:')
@@ -491,4 +491,4 @@ if __name__ == '__main__':
         print_help_string()
 
     else:
-        main(lt, lj, class_id, twofold, plays, silent, wt, wj, title, directory)
+        main(lc, lj, class_id, twofold, plays, silent, wc, wj, title, directory)
