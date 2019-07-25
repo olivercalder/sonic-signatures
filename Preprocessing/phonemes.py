@@ -156,6 +156,7 @@ def write_json(phoneme_dict, title='', directory='', unknowns=False):
 def convert_text_to_phonemes(text, return_unknowns=False, vowels_only=False, preserve_emphasis=False):
     d = nltk.corpus.cmudict.dict()
     phonemes = []
+    unknowns = []
     for w in text.split():
         word = w.lower()
         if word in d and not return_unknowns:
@@ -167,8 +168,11 @@ def convert_text_to_phonemes(text, return_unknowns=False, vowels_only=False, pre
                     else:
                         phonemes.append(phon)
         elif word not in d:
-            phonemes.append(word)
-    return phonemes
+            unknowns.append(word)
+    if return_unknowns:
+        return unknowns
+    else:
+        return phonemes
 
 
 def get_phoneme_dict(text_dict, nested=False, return_unknowns=False, vowels_only=False, preserve_emphasis=False):
