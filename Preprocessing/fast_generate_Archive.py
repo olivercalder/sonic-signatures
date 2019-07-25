@@ -31,7 +31,7 @@ def build_directory(thread_name, work_queue, queue_lock, exit_flag):
             os.system('python3 percentages.py {}'.format(args))
             arg_list = args.split(' ')
             index = arg_list.index('-d')
-            load_directory = args[index + 1]
+            load_directory = args_list[index + 1]
             texts_filename = load_directory + '/texts.json'
             os.system('python3 phonemes.py {}'.format(args.replace('-R ', '') + ' -u -l ' + texts_filename))
             print('<--', thread_name, 'finished', name)
