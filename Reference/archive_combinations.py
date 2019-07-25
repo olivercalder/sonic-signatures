@@ -15,7 +15,7 @@ defaults = [
 
 class_defaults = [
 #       [{'silent':True}, '-s' ],
-        [{'wt':True},     '-wt'],
+        [{'wc':True},     '-wc'],
         [{'wj':True},     '-wj']]
 
 eval_defaults = [
@@ -28,12 +28,12 @@ eval_defaults = [
 directory = [{'directory':'../Archive/'}, '-d ../Archive/']
 
 
-load_csv = [{'in_csv':'../Archive/'}, '-lt ../Archive/']
+load_csv = [{'in_csv':'../Archive/'}, '-lc ../Archive/']
 
 load_json = [{'in_json':'../Archive/'}, '-lj ../Archive/']
 
 
-load_results_csv = [{'in_csv':'../Results/'}, '-lt ../Results/']
+load_results_csv = [{'in_csv':'../Results/'}, '-lc ../Results/']
 
 load_results_json = [{'in_json':'../Results/'}, '-lj ../Results/']
 
@@ -220,6 +220,10 @@ def get_eval_args(twofold=''):
                     for option in option_combo:
                         name_list.append(option[2])
                     name_list.append(char_combo[2])
+
+                    z_score_arg = '-zc ../Archive/' + '-'.join(name_list) + '/' + filetype_option[2].lower() + '_Z-scores.csv'
+                    arg_list.append(z_score_arg)
+
                     name_list.append(filetype_option[2])
                     if twofold_class:
                         name_list.append('Twofold')
