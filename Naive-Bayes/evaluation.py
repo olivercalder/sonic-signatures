@@ -540,7 +540,7 @@ class ConfusionMatrix:
 
             lines.append('\n{:^80}\n\n'.format('Actual Class Average Z-Scores'))
             for c in classes:
-                lines.append('{:^80}'.format('Actual "{}" Average Z-Scores:'))
+                lines.append('{:^80}'.format('Actual "{}" Average Z-Scores:'.format(c)))
                 class_z_scores = self.get_class_z_scores(c, 'actual')
                 phoneme_list = sorted(class_z_scores)
                 line = ''
@@ -555,7 +555,7 @@ class ConfusionMatrix:
 
             lines.append('\n{:^80}\n\n'.format('Predicted Class Average Z-Scores'))
             for c in classes:
-                lines.append('{:^80}'.format('Predicted "{}" Average Z-Scores:'))
+                lines.append('{:^80}'.format('Predicted "{}" Average Z-Scores:'.format(c)))
                 class_z_scores = self.get_class_z_scores(c, 'predicted')
                 phoneme_list = sorted(class_z_scores)
                 line = ''
