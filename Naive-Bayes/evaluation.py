@@ -1,10 +1,11 @@
 import sys
-from collections import OrderedDict
 import os
 import csv
 import json
+import copy
 import numpy as np
 import classification
+from collections import OrderedDict
 
 
 def print_help_string():
@@ -12,8 +13,8 @@ def print_help_string():
 Usage: python3 {} [arguments]
 
 Arguments:
-    -lt filename.csv    Loads classifications from given csv file
-    -lj filename.json   Loads classifications from given json file
+    -lc filename.csv    Loads classifications from specified csv file
+    -lj filename.json   Loads classifications from specified json file
     -s                  Silent: Do not print output
     -wt                 Writes output to csv file
     -wj                 Writes output to json file
@@ -21,6 +22,8 @@ Arguments:
     -n name             Name of matrix, used in printing but not in filenames
     -t title            Title of run, used in output filenames
     -d directory        Directory in which to write output files
+    -zc filename.csv    Loads Z-scores from specified csv file
+    -zj filename.json   Loads Z-scores from specified json file
 '''.format(sys.argv[0]))
 
 
@@ -92,12 +95,31 @@ def print_matrix(matrix, name='Confusion Matrix', percents=False):
     print(pretty_matrix(matrix, name))
 
 
+def is_nested(vectors):
+    nested = False
+    for outer_key in string_z_scores:
+        for inner_key in string_z_scores[outer_key]:
+            if type(string_z_scores[outer_key][inner_key]) == type({}):
+                nested = True
+            break
+        break
+    return nested
+
+def unnest_dict(nested_vectors):
+    vectors = {}
+    for play in nested_vectors:
+        for char in nested_vectors[play]:
+            vectors[char] = nested_vectors[play][char]
+    return vectors
+
+
 class ConfusionMatrix:
     def __init__(self, char_dict=None, name=None):
         self.data = OrderedDict()
         self.matrix = OrderedDict()
         self.char_matrix = OrderedDict()
         self.name = ''
+        self.z_scores = OrderedDict()
         if char_dict:
             self.build(char_dict, name)
         if name:
@@ -109,6 +131,7 @@ class ConfusionMatrix:
         self.data = OrderedDict(char_dict)
         self.matrix = OrderedDict()
         self.char_matrix = OrderedDict()
+        self.z_scores = OrderedDict()
         for actual in self.get_classes():
             self.matrix[actual] = OrderedDict()
             self.char_matrix[actual] = OrderedDict()
@@ -116,6 +139,8 @@ class ConfusionMatrix:
                 count = 0
                 self.char_matrix[actual][predicted] = []
                 for char in self.get_characters():
+                    if char not in self.z_scores:
+                        self.z_scores[char] = OrderedDict()
                     if char_dict[char]['actual'] == actual:
                         if char_dict[char]['predicted'] == predicted:
                             count += 1
@@ -143,6 +168,37 @@ class ConfusionMatrix:
             char_dict = json.load(json_in)
         self.build(char_dict, name)
         return self
+
+    def load_z_scores_csv(self, filename):
+        z_scores = OrderedDict()
+        with open(filename, newline='') as in_csv:
+            reader = csv.DictReader(in_csv)
+            for row in reader:
+                char = row.pop('character')
+                z_scores[char] = OrderedDict()
+                for phoneme in row:
+                    z_scores[char][phoneme] = float(row[phoneme])
+                    if int(z_scores[char][phoneme]) == z_scores[char][phoneme]:
+                        z_scores[char][phoneme] = int(z_scores[char][phoneme])
+        self.z_scores = z_scores
+        return self
+
+
+    def load_z_scores_json(self, filename):
+        z_scores = OrderedDict()
+        with open(filename) as in_json:
+            string_z_scores = json.load(in_json)
+            if is_nested(string_z_scores):
+                string_z_scores = unnest_dict(string_z_scores)
+            for char in string_z_scores:
+                z_scores[char] = OrderedDict()
+                for phoneme in string_z_scores[char]:
+                    z_scores[char][phoneme] = float(string_z_scores[char][phoneme])
+                    if int(z_scores[char][phoneme]) == z_scores[char][phoneme]:
+                        z_scores[char][phoneme] = int(z_scores[char][phoneme])
+        self.z_scores = z_scores
+        return z_scores
+
 
     def pretty_matrix(self, matrix=None, name='', percents=False):
         if not matrix:
@@ -403,6 +459,23 @@ class ConfusionMatrix:
                 denominator = 1
             mcc = numerator / denominator
         return mcc
+    
+    def get_character_z_scores(self, char_code):
+        return self.z_scores[char]
+
+    def get_class_z_scores(self, c1, actual_or_predicted='actual'):
+        class_characters = self.get_class_characters(c1, actual_or_predicted)
+        phoneme_list = sorted(self.z_scores[class_characters[1]])
+        sums = OrderedDict()
+        means = OrderedDict()
+        for phoneme in phoneme_list:
+            sums[phoneme] = 0
+            for char in class_characters:
+                sums[phoneme] += self.z_scores[char][phoneme]
+            means[phoneme] = sums[phoneme] / len(class_characters)
+        class_z_scores = means
+        return class_z_scores
+
 
     def get_summary(self, verbose=False):
         lines = []
@@ -465,6 +538,38 @@ class ConfusionMatrix:
                 lines.append(percent_line.format('MCC score for "{}"'.format(c), self.get_class_mcc(c)))
             lines.append('\n')
 
+            lines.append('\n{:^80}\n\n'.format('Actual Class Average Z-Scores'))
+            for c in classes:
+                lines.append('{:^80}'.format('Actual "{}" Average Z-Scores:'))
+                class_z_scores = self.get_class_z_scores(c, 'actual')
+                phoneme_list = sorted(class_z_scores)
+                line = ''
+                for phoneme in phoneme_list:
+                    if len(line) >= 80:
+                        lines.append(line)
+                        line = ''
+                    line += '{:>3}: {:5.2f}  '.format(phoneme, class_z_scores[phoneme])
+                if line:
+                    lines.append(line)
+                lines.append('\n')
+
+            lines.append('\n{:^80}\n\n'.format('Predicted Class Average Z-Scores'))
+            for c in classes:
+                lines.append('{:^80}'.format('Predicted "{}" Average Z-Scores:'))
+                class_z_scores = self.get_class_z_scores(c, 'predicted')
+                phoneme_list = sorted(class_z_scores)
+                line = ''
+                for phoneme in phoneme_list:
+                    if len(line) >= 80:
+                        lines.append(line)
+                        line = ''
+                    line += '{:>3}: {:5.2f}  '.format(phoneme, class_z_scores[phoneme])
+                if line:
+                    lines.append(line)
+                lines.append('\n')
+
+            lines.append('\n')
+
             lines.append('\n{:^80}\n\n'.format('Characters:'))
             for c1 in classes:
                 for c2 in classes:
@@ -481,6 +586,40 @@ class ConfusionMatrix:
                     lines.append('\n')
 
         return '\n'.join(lines)
+
+    def get_json(self):
+        out_dict = {}
+        out_dict['name'] = self.name
+        out_dict['data'] = self.data
+        out_dict['overall_accuracy'] = self.get_overall_accuracy()
+        out_dict['average_accuracy'] = self.get_average_accuracy()
+        out_dict['f1'] = self.get_f1()
+        out_dict['mcc'] = self.get_mcc()
+        out_dict['matrix'] = self.matrix
+        out_dict['character_matrix'] = self.char_matrix
+        out_dict['z_scores'] = self.z_scores
+        out_dict['percent_matrix'] = self.get_percent_matrix()
+        out_dict['percent_matrix_given_actual'] = self.get_percent_matrix_given_actual()
+        out_dict['percent_matrix_given_predicted'] = self.get_percent_matrix_given_predicted()
+        out_dict['total'] = self.get_total(),
+        out_dict['classes'] = {}
+        classes = self.get_classes()
+        for c in classes:
+            out_dict['classes'][c] = {}
+            out_dict['classes'][c]['total_actual'] = self.get_class_total(c, 'actual')
+            out_dict['classes'][c]['total_predicted'] = self.get_class_total(c, 'predicted')
+            out_dict['classes'][c]['percent_actual'] = self.get_class_percent(c, 'actual')
+            out_dict['classes'][c]['percent_predicted'] = self.get_class_percent(c, 'predicted')
+            out_dict['classes'][c]['accuracy_actual'] = self.get_class_accuracy(c, 'actual')
+            out_dict['classes'][c]['accuracy_predicted'] = self.get_class_accuracy(c, 'predicted')
+            out_dict['classes'][c]['actual_characters'] = self.get_class_characters(c, 'actual')
+            out_dict['classes'][c]['predicted_characters'] = self.get_class_characters(c, 'predicted')
+            out_dict['classes'][c]['actual_z_scores'] = self.get_class_z_scores(c, 'actual')
+            out_dict['classes'][c]['predicted_z_scores'] = self.get_class_z_scores(c, 'predicted')
+            out_dict['classes'][c]['f1'] = self.get_class_f1(c)
+            out_dict['classes'][c]['mcc'] = self.get_class_mcc(c)
+        return out_dict
+
 
     def create_directory(self, directory):
         if not os.path.isdir(directory):
@@ -504,33 +643,7 @@ class ConfusionMatrix:
             print(self.get_summary(verbose), file=outfile)
 
     def write_json(self, title='', directory=''):
-        out_dict = {}
-        out_dict['name'] = self.name
-        out_dict['data'] = self.data
-        out_dict['overall_accuracy'] = self.get_overall_accuracy()
-        out_dict['average_accuracy'] = self.get_average_accuracy()
-        out_dict['f1'] = self.get_f1()
-        out_dict['mcc'] = self.get_mcc()
-        out_dict['matrix'] = self.matrix
-        out_dict['character_matrix'] = self.char_matrix
-        out_dict['percent_matrix'] = self.get_percent_matrix()
-        out_dict['percent_matrix_given_actual'] = self.get_percent_matrix_given_actual()
-        out_dict['percent_matrix_given_predicted'] = self.get_percent_matrix_given_predicted()
-        out_dict['total'] = self.get_total(),
-        out_dict['classes'] = {}
-        classes = self.get_classes()
-        for c in classes:
-            out_dict['classes'][c] = {}
-            out_dict['classes'][c]['total_actual'] = self.get_class_total(c, 'actual')
-            out_dict['classes'][c]['total_predicted'] = self.get_class_total(c, 'predicted')
-            out_dict['classes'][c]['percent_actual'] = self.get_class_percent(c, 'actual')
-            out_dict['classes'][c]['percent_predicted'] = self.get_class_percent(c, 'predicted')
-            out_dict['classes'][c]['accuracy_actual'] = self.get_class_accuracy(c, 'actual')
-            out_dict['classes'][c]['accuracy_predicted'] = self.get_class_accuracy(c, 'predicted')
-            out_dict['classes'][c]['actual_characters'] = self.get_class_characters(c, 'actual')
-            out_dict['classes'][c]['predicted_characters'] = self.get_class_characters(c, 'predicted')
-            out_dict['classes'][c]['f1'] = self.get_class_f1(c)
-            out_dict['classes'][c]['mcc'] = self.get_class_mcc(c)
+        out_dict = self.get_json()
         if directory != '':
             directory = directory.rstrip('/') + '/'
             self.create_directory(directory)
@@ -541,18 +654,29 @@ class ConfusionMatrix:
             json.dump(out_dict, outfile)
 
 
-def main(in_csv='', in_json='', silent=False, wt=False, wj=False, verbose=False, name='', title='', directory=''):
-    if title and not name:
-        name = title
-    matrix = ConfusionMatrix()
+def main(in_csv='', in_json='', silent=False, wt=False, wj=False, verbose=False, name='', title='', directory='', z_csv='', z_json=''):
     if in_csv and in_json:
         print('ERROR: Conflicting input files')
         print_help_string()
         quit()
+    if z_csv and z_json:
+        print('ERROR: Conflicting Z-score input files')
+        print_help_string()
+        quit()
+    if title and not name:
+        name = title
+
+    matrix = ConfusionMatrix()
     if in_csv:
         matrix.load_csv(in_csv, name)
     elif in_json:
         matrix.load_json(in_json, name)
+
+    if z_csv:
+        matrix.load_z_scores_csv(z_csv)
+    elif z_json:
+        matrix.load_z_scores_json(z_json)
+
     if not silent:
         matrix.print_summary(verbose)
     if wt:
@@ -565,7 +689,7 @@ def main(in_csv='', in_json='', silent=False, wt=False, wj=False, verbose=False,
 
 
 if __name__ == '__main__':
-    lt = ''
+    lc = ''
     lj = ''
     silent = False
     wt = False
@@ -574,6 +698,8 @@ if __name__ == '__main__':
     name = ''
     title = ''
     directory = ''
+    zc = ''
+    zj = ''
 
     i = 1
     unrecognized = []
@@ -581,12 +707,12 @@ if __name__ == '__main__':
         if sys.argv[i] == '-h':
             print_help_string()
             quit()
-        elif sys.argv[i] == '-lt':
+        elif sys.argv[i] == '-lc':
             if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
-                lt = sys.argv[i]
+                lc = sys.argv[i]
             else:
-                unrecognized.append('-lt: Missing Specifier')
+                unrecognized.append('-lc: Missing Specifier')
         elif sys.argv[i] == '-lj':
             if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
@@ -619,15 +745,30 @@ if __name__ == '__main__':
                 directory = sys.argv[i]
             else:
                 unrecognized.append('-d: Missing Specifier')
+        elif sys.argv[i] == '-zc':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                zc = sys.argv[i]
+            else:
+                unrecognized.append('-zc: Missing Specifier')
+        elif sys.argv[i] == '-zj':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                zj = sys.argv[i]
+            else:
+                unrecognized.append('-zj: Missing Specifier')
         else:
             unrecognized.append(sys.argv[i])
         i += 1
 
-    if lt == '' and lj == '':
-        unrecognized.append('Missing input file: Please specify with -lt or -lj')
+    if lc == '' and lj == '':
+        unrecognized.append('Missing input file: Please specify with -lc or -lj')
 
-    elif lt !='' and lj != '':
-        unrecognized.append('Conflicting input files: Please include only one of -lt or -lj')
+    elif lc != '' and lj != '':
+        unrecognized.append('Conflicting input files: Please include only one of -lc or -lj')
+
+    if zc != '' and zj != '':
+        unrecognized.append('Conflicting Z-score input files: Please include only one of -zc or -zj')
 
     if len(unrecognized) > 0:
         print('\nERROR: Unrecognized Arguments:')
@@ -636,4 +777,4 @@ if __name__ == '__main__':
         print_help_string()
 
     else:
-        main(lt, lj, silent, wt, wj, verbose, name, title, directory)
+        main(lc, lj, silent, wt, wj, verbose, name, title, directory, zc, zj)
