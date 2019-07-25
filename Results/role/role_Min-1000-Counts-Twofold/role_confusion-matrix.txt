@@ -1,0 +1,327 @@
+                        Summary: Min-1000-Counts-Twofold                        
+
+
+                      Overall accuracy = 58.02%                                 
+                      Average accuracy = 41.54%                                 
+
+                      Average F1 score = 40.14%                                 
+                           Average MCC = 20.07%                                 
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+                      |  antag   |   fool   |  other   |  protag  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              antag   |    3     |    1     |    16    |    3     |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               fool   |    3     |    9     |    5     |    1     |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              other   |    22    |    9     |   128    |    27    |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              protag  |    5     |    2     |    16    |    12    |             
+            ——————————|——————————|——————————|——————————|——————————|             
+
+
+                         Total samples = 262                                    
+
+                  Total actual "antag" = 23                                     
+               Total predicted "antag" = 33                                     
+                   Total actual "fool" = 18                                     
+                Total predicted "fool" = 21                                     
+                  Total actual "other" = 186                                    
+               Total predicted "other" = 165                                    
+                 Total actual "protag" = 35                                     
+              Total predicted "protag" = 43                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+                      |  antag   |   fool   |  other   |  protag  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              antag   |  1.15%   |  0.38%   |  6.11%   |  1.15%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               fool   |  1.15%   |  3.44%   |  1.91%   |  0.38%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              other   |  8.40%   |  3.44%   |  48.85%  |  10.31%  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              protag  |  1.91%   |  0.76%   |  6.11%   |  4.58%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+
+
+                Percent actual "antag" = 8.78%                                  
+             Percent predicted "antag" = 12.60%                                 
+                 Percent actual "fool" = 6.87%                                  
+              Percent predicted "fool" = 8.02%                                  
+                Percent actual "other" = 70.99%                                 
+             Percent predicted "other" = 62.98%                                 
+               Percent actual "protag" = 13.36%                                 
+            Percent predicted "protag" = 16.41%                                 
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+                      |  antag   |   fool   |  other   |  protag  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              antag   |  13.04%  |  4.35%   |  69.57%  |  13.04%  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               fool   |  16.67%  |  50.00%  |  27.78%  |  5.56%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              other   |  11.83%  |  4.84%   |  68.82%  |  14.52%  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              protag  |  14.29%  |  5.71%   |  45.71%  |  34.29%  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+
+
+     Percent correct of actual "antag" = 13.04%                                 
+      Percent correct of actual "fool" = 50.00%                                 
+     Percent correct of actual "other" = 68.82%                                 
+    Percent correct of actual "protag" = 34.29%                                 
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+                      |  antag   |   fool   |  other   |  protag  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              antag   |  9.09%   |  4.76%   |  9.70%   |  6.98%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               fool   |  9.09%   |  42.86%  |  3.03%   |  2.33%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              other   |  66.67%  |  42.86%  |  77.58%  |  62.79%  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              protag  |  15.15%  |  9.52%   |  9.70%   |  27.91%  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+
+
+  Percent correct of predicted "antag" = 9.09%                                  
+   Percent correct of predicted "fool" = 42.86%                                 
+  Percent correct of predicted "other" = 77.58%                                 
+ Percent correct of predicted "protag" = 27.91%                                 
+
+
+                                   F1 Scores:                                   
+                  F1 score for "antag" = 10.71%                                 
+                   F1 score for "fool" = 46.15%                                 
+                  F1 score for "other" = 72.93%                                 
+                 F1 score for "protag" = 30.77%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+                 MCC score for "antag" = 0.42%                                  
+                  MCC score for "fool" = 42.00%                                 
+                 MCC score for "other" = 18.92%                                 
+                MCC score for "protag" = 18.95%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                        Actual "antag" Average Z-Scores:                        
+ AA:  0.23   AE:  0.27   AH:  0.30   AO:  0.30   AW:  0.11   AY:  0.20    B:  0.24  
+ CH:  0.33    D:  0.24   DH:  0.15   EH:  0.25   ER:  0.27   EY:  0.24    F:  0.25  
+  G:  0.23   HH:  0.27   IH:  0.30   IY:  0.25   JH:  0.42    K:  0.22    L:  0.26  
+  M:  0.26    N:  0.28   NG:  0.31   OW:  0.25   OY:  0.21    P:  0.33    R:  0.26  
+  S:  0.34   SH:  0.45    T:  0.31   TH:  0.16   UH:  0.30   UW:  0.33    V:  0.36  
+  W:  0.24    Y:  0.38    Z:  0.20   ZH:  0.10  
+
+
+                        Actual "fool" Average Z-Scores:                         
+ AA: -0.10   AE:  0.13   AH: -0.19   AO: -0.20   AW: -0.24   AY: -0.13    B: -0.13  
+ CH: -0.40    D: -0.28   DH: -0.15   EH: -0.23   ER: -0.05   EY: -0.15    F: -0.14  
+  G: -0.02   HH: -0.19   IH: -0.20   IY: -0.22   JH: -0.46    K: -0.18    L: -0.19  
+  M: -0.12    N: -0.18   NG: -0.15   OW: -0.12   OY: -0.47    P: -0.26    R: -0.27  
+  S: -0.24   SH: -0.09    T: -0.17   TH: -0.14   UH:  0.05   UW: -0.17    V: -0.23  
+  W: -0.17    Y: -0.18    Z: -0.26   ZH: -0.32  
+
+
+                        Actual "other" Average Z-Scores:                        
+ AA: -0.31   AE: -0.33   AH: -0.31   AO: -0.30   AW: -0.29   AY: -0.31    B: -0.30  
+ CH: -0.29    D: -0.29   DH: -0.30   EH: -0.31   ER: -0.32   EY: -0.30    F: -0.31  
+  G: -0.29   HH: -0.28   IH: -0.30   IY: -0.31   JH: -0.25    K: -0.30    L: -0.30  
+  M: -0.32    N: -0.31   NG: -0.28   OW: -0.29   OY: -0.21    P: -0.30    R: -0.30  
+  S: -0.31   SH: -0.33    T: -0.32   TH: -0.30   UH: -0.28   UW: -0.31    V: -0.31  
+  W: -0.31    Y: -0.29    Z: -0.29   ZH: -0.18  
+
+
+                       Actual "protag" Average Z-Scores:                        
+ AA:  1.55   AE:  1.51   AH:  1.53   AO:  1.52   AW:  1.57   AY:  1.59    B:  1.51  
+ CH:  1.52    D:  1.54   DH:  1.59   EH:  1.59   ER:  1.54   EY:  1.52    F:  1.55  
+  G:  1.42   HH:  1.40   IH:  1.51   IY:  1.58   JH:  1.30    K:  1.52    L:  1.50  
+  M:  1.58    N:  1.56   NG:  1.36   OW:  1.46   OY:  1.22    P:  1.53    R:  1.58  
+  S:  1.57   SH:  1.48    T:  1.56   TH:  1.55   UH:  1.29   UW:  1.51    V:  1.54  
+  W:  1.56    Y:  1.41    Z:  1.51   ZH:  1.04  
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                      Predicted "antag" Average Z-Scores:                       
+ AA:  0.11   AE:  0.21   AH:  0.18   AO:  0.10   AW: -0.12   AY:  0.12    B:  0.10  
+ CH:  0.15    D:  0.04   DH:  0.02   EH:  0.11   ER:  0.19   EY:  0.18    F:  0.09  
+  G:  0.16   HH:  0.06   IH:  0.15   IY:  0.13   JH:  0.15    K:  0.11    L:  0.12  
+  M:  0.20    N:  0.12   NG:  0.07   OW:  0.16   OY: -0.19    P:  0.19    R:  0.05  
+  S:  0.19   SH:  0.27    T:  0.17   TH:  0.06   UH:  0.21   UW:  0.39    V:  0.24  
+  W:  0.13    Y:  0.58    Z:  0.12   ZH:  0.02  
+
+
+                       Predicted "fool" Average Z-Scores:                       
+ AA: -0.11   AE:  0.04   AH: -0.23   AO: -0.23   AW: -0.33   AY: -0.01    B: -0.18  
+ CH: -0.38    D: -0.29   DH: -0.25   EH: -0.26   ER: -0.04   EY: -0.16    F: -0.19  
+  G: -0.15   HH: -0.18   IH: -0.22   IY: -0.18   JH: -0.45    K: -0.14    L: -0.21  
+  M: -0.07    N: -0.17   NG: -0.23   OW: -0.13   OY: -0.50    P: -0.34    R: -0.28  
+  S: -0.23   SH: -0.04    T: -0.17   TH: -0.22   UH:  0.13   UW: -0.05    V: -0.18  
+  W: -0.08    Y:  0.09    Z: -0.31   ZH: -0.15  
+
+
+                      Predicted "other" Average Z-Scores:                       
+ AA: -0.10   AE: -0.12   AH: -0.07   AO: -0.04   AW: -0.07   AY: -0.12    B: -0.07  
+ CH: -0.07    D: -0.03   DH: -0.09   EH: -0.06   ER: -0.10   EY: -0.08    F: -0.07  
+  G: -0.08   HH: -0.01   IH: -0.05   IY: -0.07   JH: -0.00    K: -0.06    L: -0.06  
+  M: -0.10    N: -0.07   NG: -0.02   OW: -0.09   OY:  0.03    P: -0.05    R: -0.04  
+  S: -0.08   SH: -0.12    T: -0.09   TH: -0.06   UH: -0.10   UW: -0.12    V: -0.10  
+  W: -0.08    Y: -0.13    Z: -0.04   ZH: -0.02  
+
+
+                      Predicted "protag" Average Z-Scores:                      
+ AA:  0.36   AE:  0.27   AH:  0.25   AO:  0.18   AW:  0.52   AY:  0.37    B:  0.28  
+ CH:  0.35    D:  0.22   DH:  0.46   EH:  0.28   ER:  0.26   EY:  0.26    F:  0.29  
+  G:  0.25   HH:  0.08   IH:  0.19   IY:  0.26   JH:  0.11    K:  0.21    L:  0.22  
+  M:  0.28    N:  0.27   NG:  0.12   OW:  0.27   OY:  0.27    P:  0.23    R:  0.26  
+  S:  0.27   SH:  0.28    T:  0.31   TH:  0.28   UH:  0.14   UW:  0.18    V:  0.31  
+  W:  0.25    Y:  0.03    Z:  0.21   ZH:  0.12  
+
+
+
+
+
+                                  Characters:                                   
+
+
+                      Actual "antag" Predicted as "antag":                      
+
+MM_Angelo		TGV_Proteus		TN_Malvolio
+
+
+                      Actual "antag" Predicted as "fool":                       
+
+Wiv_Falstaff
+
+
+                      Actual "antag" Predicted as "other":                      
+
+1H4_Hotspur		2H4_ChiefJustice		AWW_Bertram		Ant_Octavius		Cor_TRIBUNES.Brutus
+Cym_Iachimo		H8_Wolsey		Ham_Claudius		JC_Antony		Jn_KingPhilip		LLL_Princess
+Lr_Goneril		MV_Shylock		Oth_Iago		R2_HenryIV		Tit_Aaron
+
+
+                     Actual "antag" Predicted as "protag":                      
+
+1H6_Charles		Err_AntipholusOfEphesus		WT_Polixenes
+
+
+                      Actual "fool" Predicted as "antag":                       
+
+2H4_Falstaff		Ado_Dogberry		WT_Autolycus
+
+
+                       Actual "fool" Predicted as "fool":                       
+
+Cym_Cloten		Err_DromioOfEphesus		Err_DromioOfSyracuse		LLL_Costard		MND_Bottom
+MV_LanceletGobbo		TGV_Lance		TGV_Speed		TN_Feste
+
+
+                      Actual "fool" Predicted as "other":                       
+
+AWW_Fool		Lr_Fool		MM_Pompey		Shr_Grumio		Tro_Thersites
+
+
+                      Actual "fool" Predicted as "protag":                      
+
+1H4_Falstaff
+
+
+                      Actual "other" Predicted as "antag":                      
+
+AWW_Countess		Cor_Menenius		Cym_Queen		H5_Fluellen		H8_Cranmer		JC_Cassius
+LLL_Boy		LLL_Holofernes		Lr_Kent		MM_Escalus		MV_Bassanio		Oth_Cassio
+Shr_Baptista		Shr_Katherine		Shr_Lucentio		Shr_Tranio		TGV_Julia		TGV_Sylvia
+TNK_Arcite		TN_Olivia		WT_Hermione		Wiv_MasterFord
+
+
+                      Actual "other" Predicted as "fool":                       
+
+AWW_Lafew		Ado_Benedick		Shr_Hortensio		Tmp_Miranda		Tmp_Stephano
+Tro_Cressida		WT_Florizell		Wiv_MasterPage		Wiv_Slender
+
+
+                      Actual "other" Predicted as "other":                      
+
+1H4_HenryIV		1H4_Worcester		1H6_Gloucester		1H6_Pucelle		1H6_Suffolk
+1H6_Talbot		1H6_York		2H4_Archbishop		2H4_HenryIV		2H4_MistressQuickly
+2H4_Shallow		2H6_Gloucester		2H6_HenryVI		2H6_QueenMargaret		2H6_Suffolk
+2H6_Warwick		2H6_York		3H6_Clifford		3H6_EdwardIV		3H6_HenryVI
+3H6_QueenMargaret		3H6_RichardIII		3H6_Warwick		AWW_Diana		AWW_LORDS.DUMAINE.1
+AWW_Parolles		AYL_Jaques		AYL_Oliver		Ado_Claudio		Ado_DonPedro		Ado_Leonato
+Ant_Cleopatra		Ant_Enobarbus		Cor_Aufidius		Cor_Cominius
+Cor_TRIBUNES.Sicinius		Cym_Belarius		Cym_Cymbeline		Cym_Guiderius		Cym_Pisanio
+Err_Adriana		Err_Egeon		H5_BishopOfCanterbury		H5_Chorus		H5_Pistol
+H8_Buckingham		H8_Chamberlain		H8_Katherine		H8_Norfolk		Ham_Gertrude
+Ham_Horatio		Ham_Laertes		Ham_Ophelia		Ham_Polonius		JC_Caesar		JC_Casca
+Jn_Bastard		Jn_Constance		Jn_Dauphin		Jn_Hubert		Jn_Salisbury		LLL_Berowne
+LLL_Boyet		Lr_Edgar		Lr_Gloucester		Lr_Regan		MM_Isabella		MM_Lucio
+MM_Provost		MND_Demetrius		MND_Helena		MND_Hermia		MND_Lysander
+MND_RobinGoodfellow		MND_Theseus		MND_Titania		MV_Antonio		MV_Gratiano
+MV_Lorenzo		Mac_LadyMacbeth		Mac_Macduff		Mac_Malcolm		Oth_Desdemona
+Oth_Emilia		Per_Gower		Per_Marina		Per_Simonides		R2_Mowbray
+R2_Northumberland		R2_York		R3_Buckingham		R3_Clarence		R3_DuchessOfYork
+R3_Hastings		R3_HenryVII		R3_LadyAnne		R3_QueenElizabeth		Rom_Benvolio
+Rom_Capulet		Rom_Mercutio		Rom_Nurse		Shr_Gremio		Shr_Lord		TNK_Daughter
+TN_AndrewAguecheek		TN_Maria		TN_TobyBelch		Tim_Alcibiades		Tim_Flavius
+Tit_Lucius		Tit_Marcus		Tit_Saturninus		Tit_Tamora		Tmp_Ariel		Tmp_Caliban
+Tmp_Gonzalo		Tro_Aeneas		Tro_Agamemnon		Tro_Nestor		Tro_Pandarus		Tro_Ulysses
+WT_Camillo		WT_Paulina		WT_Shepherd		WT_ShepherdsSon		Wiv_HughEvans
+Wiv_MistressFord		Wiv_MistressQuickly
+
+
+                     Actual "other" Predicted as "protag":                      
+
+2H6_Cade		3H6_York		AWW_King		AYL_Celia		AYL_Orlando		AYL_Touchstone
+Cor_Volumnia		Cym_Posthumus		Jn_Pandulph		LLL_Armado		LLL_Rosaline		Lr_Albany
+Lr_Edmund		MND_Oberon		Oth_Brabantio		R2_Gaunt		R3_QueenMargaret
+Rom_FriarLawrence		Rom_Juliet		TGV_Duke		TNK_Emilia		TNK_Palamon		TN_Orsino
+TN_Sebastian		Tim_Apemantus		Tro_Achilles		Tro_Hector
+
+
+                     Actual "protag" Predicted as "antag":                      
+
+H8_HenryVIII		Ham_Hamlet		TGV_Valentine		TNK_Theseus		TN_Viola
+
+
+                      Actual "protag" Predicted as "fool":                      
+
+AYL_Rosalind		Shr_Petruchio
+
+
+                     Actual "protag" Predicted as "other":                      
+
+1H6_HenryVI		AWW_Helen		Ado_Beatrice		Ant_Antony		Cym_Imogen		H5_HenryV
+Jn_KingJohn		MM_Duke		MV_Portia		Mac_Macbeth		R2_RichardII		R3_RichardIII
+Rom_Romeo		Tit_Titus		WT_Leontes		Wiv_MistressPage
+
+
+                     Actual "protag" Predicted as "protag":                     
+
+1H4_HenryV		2H4_HenryV		Cor_Coriolanus		Err_AntipholusOfSyracuse		JC_Brutus
+LLL_King		Lr_Lear		Oth_Othello		Per_Pericles		Tim_Timon		Tmp_Prospero
+Tro_Troilus
+
+

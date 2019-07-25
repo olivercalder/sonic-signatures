@@ -1,0 +1,286 @@
+                       Summary: Emphasis-Min-1000-Counts                        
+
+
+                      Overall accuracy = 69.85%                                 
+                      Average accuracy = 70.20%                                 
+
+                      Average F1 score = 69.65%                                 
+                           Average MCC = 54.23%                                 
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+                            |  comedy  | history  | tragedy  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    comedy  |    81    |    12    |    23    |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   history  |    9     |    53    |    6     |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   tragedy  |    19    |    10    |    49    |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+                         Total samples = 262                                    
+
+                 Total actual "comedy" = 116                                    
+              Total predicted "comedy" = 109                                    
+                Total actual "history" = 68                                     
+             Total predicted "history" = 75                                     
+                Total actual "tragedy" = 78                                     
+             Total predicted "tragedy" = 78                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+                            |  comedy  | history  | tragedy  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    comedy  |  30.92%  |  4.58%   |  8.78%   |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   history  |  3.44%   |  20.23%  |  2.29%   |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   tragedy  |  7.25%   |  3.82%   |  18.70%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+               Percent actual "comedy" = 44.27%                                 
+            Percent predicted "comedy" = 41.60%                                 
+              Percent actual "history" = 25.95%                                 
+           Percent predicted "history" = 28.63%                                 
+              Percent actual "tragedy" = 29.77%                                 
+           Percent predicted "tragedy" = 29.77%                                 
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+                            |  comedy  | history  | tragedy  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    comedy  |  69.83%  |  10.34%  |  19.83%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   history  |  13.24%  |  77.94%  |  8.82%   |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   tragedy  |  24.36%  |  12.82%  |  62.82%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+    Percent correct of actual "comedy" = 69.83%                                 
+   Percent correct of actual "history" = 77.94%                                 
+   Percent correct of actual "tragedy" = 62.82%                                 
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+                            |  comedy  | history  | tragedy  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    comedy  |  74.31%  |  16.00%  |  29.49%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   history  |  8.26%   |  70.67%  |  7.69%   |                  
+                  ——————————|——————————|——————————|——————————|                  
+                   tragedy  |  17.43%  |  13.33%  |  62.82%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+
+
+ Percent correct of predicted "comedy" = 74.31%                                 
+Percent correct of predicted "history" = 70.67%                                 
+Percent correct of predicted "tragedy" = 62.82%                                 
+
+
+                                   F1 Scores:                                   
+                 F1 score for "comedy" = 72.00%                                 
+                F1 score for "history" = 74.13%                                 
+                F1 score for "tragedy" = 62.82%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+                MCC score for "comedy" = 51.04%                                 
+               MCC score for "history" = 64.59%                                 
+               MCC score for "tragedy" = 47.06%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                       Actual "comedy" Average Z-Scores:                        
+AA0: -0.15  AA1: -0.22  AA2:  0.00  AE0: -0.06  AE1: -0.15  AE2: -0.15  AH0: -0.21  
+AH1: -0.19  AH2:  0.08  AO0: -0.03  AO1: -0.20  AO2:  0.02  AW0: -0.17  AW1: -0.27  
+AW2: -0.23  AY0: -0.09  AY1: -0.13  AY2: -0.05    B: -0.19   CH: -0.18    D: -0.25  
+ DH: -0.23  EH0: -0.17  EH1: -0.21  EH2: -0.22  ER0: -0.16  ER1: -0.07  ER2: -0.16  
+EY0: -0.16  EY1: -0.19  EY2: -0.19    F: -0.18    G: -0.26   HH: -0.18  IH0: -0.17  
+IH1: -0.17  IH2: -0.11  IY0: -0.18  IY1: -0.15  IY2: -0.03   JH: -0.18    K: -0.22  
+  L: -0.22    M: -0.16    N: -0.20   NG: -0.23  OW0: -0.05  OW1: -0.20  OW2: -0.01  
+OY0:  0.01  OY1: -0.36  OY2:  0.02    P: -0.22    R: -0.23    S: -0.19   SH: -0.12  
+  T: -0.18   TH: -0.18  UH0: -0.11  UH1: -0.09  UH2: -0.08  UW0: -0.19  UW1: -0.08  
+UW2: -0.14    V: -0.17    W: -0.15    Y:  0.00    Z: -0.24   ZH: -0.07  
+
+
+                       Actual "history" Average Z-Scores:                       
+AA0: -0.01  AA1:  0.04  AA2: -0.20  AE0:  0.07  AE1: -0.04  AE2:  0.16  AH0:  0.09  
+AH1:  0.06  AH2: -0.09  AO0: -0.05  AO1:  0.11  AO2:  0.08  AW0:  0.07  AW1:  0.19  
+AW2:  0.14  AY0: -0.03  AY1: -0.03  AY2: -0.00    B:  0.06   CH:  0.00    D:  0.14  
+ DH:  0.07  EH0:  0.14  EH1:  0.03  EH2:  0.21  ER0:  0.01  ER1: -0.12  ER2:  0.20  
+EY0:  0.22  EY1:  0.03  EY2: -0.00    F:  0.07    G:  0.15   HH: -0.07  IH0:  0.05  
+IH1:  0.00  IH2:  0.08  IY0:  0.08  IY1: -0.09  IY2: -0.18   JH:  0.20    K:  0.13  
+  L:  0.11    M: -0.04    N:  0.05   NG:  0.22  OW0: -0.10  OW1: -0.13  OW2: -0.19  
+OY0:  0.08  OY1:  0.22  OY2: -0.00    P:  0.04    R:  0.11    S: -0.00   SH: -0.06  
+  T: -0.04   TH:  0.04  UH0:  0.10  UH1: -0.13  UH2:  0.06  UW0:  0.24  UW1: -0.15  
+UW2:  0.24    V:  0.03    W: -0.02    Y: -0.20    Z:  0.03   ZH: -0.13  
+
+
+                       Actual "tragedy" Average Z-Scores:                       
+AA0:  0.23  AA1:  0.29  AA2:  0.17  AE0:  0.03  AE1:  0.25  AE2:  0.09  AH0:  0.23  
+AH1:  0.23  AH2: -0.03  AO0:  0.09  AO1:  0.20  AO2: -0.10  AW0:  0.18  AW1:  0.24  
+AW2:  0.22  AY0:  0.17  AY1:  0.21  AY2:  0.08    B:  0.23   CH:  0.26    D:  0.26  
+ DH:  0.29  EH0:  0.13  EH1:  0.28  EH2:  0.15  ER0:  0.24  ER1:  0.21  ER2:  0.07  
+EY0:  0.04  EY1:  0.25  EY2:  0.29    F:  0.20    G:  0.25   HH:  0.32  IH0:  0.20  
+IH1:  0.26  IH2:  0.09  IY0:  0.19  IY1:  0.31  IY2:  0.20   JH:  0.10    K:  0.22  
+  L:  0.24    M:  0.28    N:  0.25   NG:  0.16  OW0:  0.17  OW1:  0.41  OW2:  0.17  
+OY0: -0.09  OY1:  0.34  OY2: -0.04    P:  0.29    R:  0.25    S:  0.29   SH:  0.23  
+  T:  0.31   TH:  0.24  UH0:  0.07  UH1:  0.25  UH2:  0.06  UW0:  0.07  UW1:  0.25  
+UW2:  0.00    V:  0.22    W:  0.23    Y:  0.17    Z:  0.34   ZH:  0.21  
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                      Predicted "comedy" Average Z-Scores:                      
+AA0: -0.09  AA1: -0.12  AA2:  0.01  AE0: -0.00  AE1: -0.03  AE2: -0.17  AH0: -0.12  
+AH1: -0.12  AH2:  0.08  AO0: -0.01  AO1: -0.07  AO2: -0.11  AW0: -0.20  AW1: -0.31  
+AW2: -0.18  AY0: -0.19  AY1: -0.03  AY2: -0.04    B: -0.12   CH: -0.09    D: -0.15  
+ DH: -0.22  EH0: -0.13  EH1: -0.13  EH2: -0.14  ER0: -0.09  ER1:  0.05  ER2: -0.08  
+EY0: -0.15  EY1: -0.10  EY2: -0.10    F: -0.11    G: -0.12   HH: -0.06  IH0: -0.11  
+IH1: -0.07  IH2:  0.00  IY0: -0.08  IY1: -0.08  IY2: -0.04   JH: -0.07    K: -0.14  
+  L: -0.13    M: -0.05    N: -0.11   NG: -0.15  OW0:  0.01  OW1: -0.08  OW2:  0.11  
+OY0:  0.02  OY1: -0.40  OY2:  0.07    P: -0.15    R: -0.15    S: -0.12   SH: -0.04  
+  T: -0.09   TH: -0.12  UH0: -0.11  UH1:  0.10  UH2:  0.08  UW0: -0.16  UW1:  0.10  
+UW2: -0.11    V: -0.08    W: -0.08    Y:  0.29    Z: -0.16   ZH:  0.01  
+
+
+                     Predicted "history" Average Z-Scores:                      
+AA0: -0.18  AA1: -0.06  AA2:  0.00  AE0:  0.06  AE1: -0.14  AE2:  0.32  AH0:  0.02  
+AH1: -0.01  AH2: -0.08  AO0:  0.03  AO1: -0.00  AO2:  0.10  AW0:  0.05  AW1:  0.17  
+AW2:  0.08  AY0:  0.10  AY1: -0.12  AY2:  0.06    B: -0.01   CH: -0.04    D:  0.05  
+ DH:  0.05  EH0:  0.13  EH1: -0.04  EH2:  0.13  ER0: -0.05  ER1: -0.18  ER2:  0.12  
+EY0:  0.24  EY1: -0.04  EY2:  0.04    F:  0.01    G:  0.01   HH: -0.15  IH0:  0.04  
+IH1: -0.08  IH2:  0.03  IY0:  0.01  IY1: -0.16  IY2: -0.13   JH:  0.13    K:  0.05  
+  L:  0.03    M: -0.14    N: -0.01   NG:  0.13  OW0: -0.19  OW1: -0.20  OW2: -0.16  
+OY0:  0.07  OY1:  0.22  OY2: -0.06    P: -0.01    R:  0.04    S: -0.05   SH: -0.12  
+  T: -0.10   TH: -0.00  UH0:  0.04  UH1: -0.30  UH2: -0.02  UW0:  0.28  UW1: -0.28  
+UW2:  0.25    V: -0.05    W: -0.09    Y: -0.40    Z: -0.04   ZH: -0.08  
+
+
+                     Predicted "tragedy" Average Z-Scores:                      
+AA0:  0.29  AA1:  0.22  AA2: -0.01  AE0: -0.05  AE1:  0.17  AE2: -0.07  AH0:  0.15  
+AH1:  0.17  AH2: -0.03  AO0: -0.01  AO1:  0.10  AO2:  0.06  AW0:  0.23  AW1:  0.28  
+AW2:  0.17  AY0:  0.17  AY1:  0.16  AY2: -0.00    B:  0.18   CH:  0.16    D:  0.16  
+ DH:  0.27  EH0:  0.05  EH1:  0.22  EH2:  0.06  ER0:  0.17  ER1:  0.10  ER2: -0.00  
+EY0: -0.02  EY1:  0.18  EY2:  0.10    F:  0.15    G:  0.15   HH:  0.22  IH0:  0.12  
+IH1:  0.18  IH2: -0.04  IY0:  0.10  IY1:  0.27  IY2:  0.18   JH: -0.02    K:  0.14  
+  L:  0.15    M:  0.20    N:  0.17   NG:  0.08  OW0:  0.18  OW1:  0.31  OW2: -0.01  
+OY0: -0.09  OY1:  0.35  OY2: -0.04    P:  0.22    R:  0.17    S:  0.22   SH:  0.17  
+  T:  0.22   TH:  0.17  UH0:  0.11  UH1:  0.15  UH2: -0.09  UW0: -0.05  UW1:  0.13  
+UW2: -0.08    V:  0.16    W:  0.20    Y: -0.02    Z:  0.27   ZH:  0.06  
+
+
+
+
+
+                                  Characters:                                   
+
+
+                     Actual "comedy" Predicted as "comedy":                     
+
+AWW_Bertram		AWW_Countess		AWW_Diana		AWW_Fool		AWW_Helen		AWW_Lafew
+AWW_Parolles		AYL_Celia		AYL_Jaques		AYL_Oliver		AYL_Orlando		AYL_Rosalind
+Ado_Beatrice		Ado_Benedick		Ado_Claudio		Ado_Dogberry		Ado_DonPedro
+Ado_Leonato		Err_AntipholusOfEphesus		Err_AntipholusOfSyracuse
+Err_DromioOfEphesus		Err_DromioOfSyracuse		LLL_Boy		LLL_Costard		LLL_Rosaline
+MM_Angelo		MM_Duke		MM_Escalus		MM_Isabella		MM_Lucio		MM_Pompey		MM_Provost
+MND_Bottom		MND_Demetrius		MND_Helena		MND_Hermia		MV_Antonio		MV_Bassanio
+MV_Gratiano		MV_LanceletGobbo		MV_Lorenzo		MV_Portia		MV_Shylock		Per_Marina
+Per_Simonides		Shr_Baptista		Shr_Gremio		Shr_Hortensio		Shr_Katherine
+Shr_Lucentio		Shr_Petruchio		Shr_Tranio		TGV_Duke		TGV_Julia		TGV_Proteus
+TGV_Speed		TGV_Sylvia		TGV_Valentine		TNK_Arcite		TNK_Theseus
+TN_AndrewAguecheek		TN_Feste		TN_Malvolio		TN_Maria		TN_Olivia		TN_Sebastian
+TN_Viola		Tmp_Miranda		WT_Autolycus		WT_Camillo		WT_Florizell		WT_Hermione
+WT_Paulina		Wiv_Falstaff		Wiv_HughEvans		Wiv_MasterFord		Wiv_MasterPage
+Wiv_MistressFord		Wiv_MistressPage		Wiv_MistressQuickly		Wiv_Slender
+
+
+                    Actual "comedy" Predicted as "history":                     
+
+Err_Egeon		LLL_Armado		LLL_Holofernes		MND_Oberon		MND_RobinGoodfellow
+MND_Theseus		MND_Titania		Per_Gower		Shr_Lord		Tmp_Ariel		Tmp_Gonzalo
+Tmp_Prospero
+
+
+                    Actual "comedy" Predicted as "tragedy":                     
+
+AWW_King		AWW_LORDS.DUMAINE.1		AYL_Touchstone		Err_Adriana		LLL_Berowne
+LLL_Boyet		LLL_King		LLL_Princess		MND_Lysander		Per_Pericles		Shr_Grumio
+TGV_Lance		TNK_Daughter		TNK_Emilia		TNK_Palamon		TN_Orsino		TN_TobyBelch
+Tmp_Caliban		Tmp_Stephano		WT_Leontes		WT_Polixenes		WT_Shepherd
+WT_ShepherdsSon
+
+
+                    Actual "history" Predicted as "comedy":                     
+
+2H4_ChiefJustice		2H4_Falstaff		2H4_MistressQuickly		2H4_Shallow		H5_Fluellen
+H8_HenryVIII		H8_Katherine		H8_Wolsey		Jn_Hubert
+
+
+                    Actual "history" Predicted as "history":                    
+
+1H4_Falstaff		1H4_HenryIV		1H4_HenryV		1H4_Hotspur		1H4_Worcester		1H6_Charles
+1H6_Gloucester		1H6_HenryVI		1H6_Pucelle		1H6_Suffolk		1H6_Talbot		1H6_York
+2H4_Archbishop		2H4_HenryIV		2H6_Cade		2H6_Gloucester		2H6_HenryVI
+2H6_QueenMargaret		2H6_Suffolk		2H6_Warwick		2H6_York		3H6_Clifford
+3H6_EdwardIV		3H6_HenryVI		3H6_QueenMargaret		3H6_RichardIII		3H6_Warwick
+3H6_York		H5_BishopOfCanterbury		H5_Chorus		H5_HenryV		H5_Pistol		H8_Cranmer
+H8_Norfolk		Jn_Bastard		Jn_Constance		Jn_Dauphin		Jn_KingJohn		Jn_KingPhilip
+Jn_Pandulph		Jn_Salisbury		R2_Gaunt		R2_HenryIV		R2_Mowbray		R2_Northumberland
+R2_RichardII		R3_Buckingham		R3_Clarence		R3_HenryVII		R3_LadyAnne
+R3_QueenElizabeth		R3_QueenMargaret		R3_RichardIII
+
+
+                    Actual "history" Predicted as "tragedy":                    
+
+2H4_HenryV		H8_Buckingham		H8_Chamberlain		R2_York		R3_DuchessOfYork
+R3_Hastings
+
+
+                    Actual "tragedy" Predicted as "comedy":                     
+
+Cor_Menenius		Cym_Cloten		Cym_Iachimo		Cym_Imogen		Cym_Pisanio		Cym_Posthumus
+Cym_Queen		Ham_Polonius		Lr_Edmund		Lr_Goneril		Lr_Kent		Lr_Regan
+Oth_Desdemona		Oth_Emilia		Oth_Iago		Rom_Capulet		Rom_Nurse		Tro_Cressida
+Tro_Pandarus
+
+
+                    Actual "tragedy" Predicted as "history":                    
+
+Ham_Horatio		Mac_Malcolm		Rom_FriarLawrence		Tit_Lucius		Tit_Tamora
+Tro_Agamemnon		Tro_Hector		Tro_Nestor		Tro_Thersites		Tro_Ulysses
+
+
+                    Actual "tragedy" Predicted as "tragedy":                    
+
+Ant_Antony		Ant_Cleopatra		Ant_Enobarbus		Ant_Octavius		Cor_Aufidius
+Cor_Cominius		Cor_Coriolanus		Cor_TRIBUNES.Brutus		Cor_TRIBUNES.Sicinius
+Cor_Volumnia		Cym_Belarius		Cym_Cymbeline		Cym_Guiderius		Ham_Claudius
+Ham_Gertrude		Ham_Hamlet		Ham_Laertes		Ham_Ophelia		JC_Antony		JC_Brutus
+JC_Caesar		JC_Casca		JC_Cassius		Lr_Albany		Lr_Edgar		Lr_Fool		Lr_Gloucester
+Lr_Lear		Mac_LadyMacbeth		Mac_Macbeth		Mac_Macduff		Oth_Brabantio		Oth_Cassio
+Oth_Othello		Rom_Benvolio		Rom_Juliet		Rom_Mercutio		Rom_Romeo		Tim_Alcibiades
+Tim_Apemantus		Tim_Flavius		Tim_Timon		Tit_Aaron		Tit_Marcus		Tit_Saturninus
+Tit_Titus		Tro_Achilles		Tro_Aeneas		Tro_Troilus
+
+

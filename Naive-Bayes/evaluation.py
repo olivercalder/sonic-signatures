@@ -465,7 +465,7 @@ class ConfusionMatrix:
 
     def get_class_z_scores(self, c1, actual_or_predicted='actual'):
         class_characters = self.get_class_characters(c1, actual_or_predicted)
-        phoneme_list = sorted(self.z_scores[class_characters[1]])
+        phoneme_list = sorted(self.z_scores[self.get_characters()[0]])
         sums = OrderedDict()
         means = OrderedDict()
         for phoneme in phoneme_list:
