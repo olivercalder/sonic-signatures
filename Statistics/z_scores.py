@@ -101,7 +101,7 @@ def write_csv(z_scores, title='', directory=''):
         create_directory(directory)
     if title != '':
         title = title + '_'
-    filename = directory + title + 'Z-Scores.csv'
+    filename = directory + title + 'Z-scores.csv'
 
     char_list = sorted(z_scores)
     phoneme_list = sorted(z_scores[char_list[0]])
@@ -122,7 +122,7 @@ def write_json(z_scores, title='', directory=''):
         create_directory(directory)
     if title != '':
         title = title + '_'
-    filename = directory + title + 'Z-Scores.json'
+    filename = directory + title + 'Z-scores.json'
     with open(filename, 'w') as out_json:
         json.dump(z_scores, out_json)
 
@@ -163,6 +163,8 @@ def get_variances(vectors):
     for char in vectors:
         for phoneme in phonemes:
             variances[phoneme] += (vectors[char][phoneme] - means[phoneme])**2
+    for phoneme in phonemes:
+        variances[phoneme] /= len(vectors)
     return variances
 
 
