@@ -100,7 +100,7 @@ def get_names():
             names.append(name)
     return names
 
-def get_class_eval_names(twofold):
+def get_class_eval_names(twofold=''):
     names = get_names()
     class_names = []
     for name in names:

@@ -4,6 +4,7 @@ from archive_combinations import get_names, get_param_dict
 import queue
 import threading
 import percentages
+import phonemes
 import time
 
 
@@ -29,6 +30,14 @@ def build_directory(thread_name, work_queue, queue_lock, exit_flag):
             queue_lock.release()
             print('-->', thread_name, 'beginning', name)
             percentages.build_percentages(**args_dict)  # Way to unpack args_dict and assign to appropriate optional parameters
+            unknowns_args_dict = {}
+            unknowns_args_dict.update(args_dict)
+            del unknowns_args_dict['cascade']
+            load_directory = args_dict['directory']
+            texts_filename = load_directory + '/texts.json'
+            unknowns_args_dict['load_json_filenames'] = set([texts_filename])
+            unknowns_args_dict['return_unknowns'] = True
+            phonemes.build_phoneme_dict(**unknowns_args_dict)
             print('<--', thread_name, 'finished', name)
         else:
             queue_lock.release()
