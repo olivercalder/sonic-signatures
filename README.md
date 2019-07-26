@@ -28,8 +28,9 @@ Research into the classification of characters based on the patterns of phoneme 
 1. `characters.py` and `texts.py` pull character lists and texts, respectively, from [folgerdigitaltexts.org/api](https://www.folgerdigitaltexts.org/api/)
 2. `phonemes.py` converts texts to a list of phonemes for each character
 3. `counts.py` and `percentages.py` count the number of occurrences and the percentage of total, respectively, for each phoneme, and returns phoneme vectors
-4. `classification.py` loads from a phoneme vector file a list of characters and a list of phoneme vectors and performs hold-one-out classification on each vector in the list, producing a dictionary of actual and predicted class for each character
-5. `evaluation.py` takes the classification dictionary and converts it into a confusion matrix, calculating its overall and average accuracy as well as other statistics
+4. `z_scores.py` calculates Z-scores for the count or percentage vectors in a given file
+5. `classification.py` loads from a phoneme vector file a list of characters and a list of phoneme vectors and performs hold-one-out classification on each vector in the list, producing a dictionary of actual and predicted class for each character
+6. `evaluation.py` takes the classification dictionary and converts it into a confusion matrix, calculating its overall and average accuracy as well as other statistics
 
 ## Directory Structure:
 - [Analysis](https://hithub.com/olivercalder/sonic-signatures/tree/master/Analysis): Scripts and outputs for the analysis of trends in the results of different classifications
@@ -38,6 +39,7 @@ Research into the classification of characters based on the patterns of phoneme 
 - [Preprocessing](https://github.com/olivercalder/sonic-signatures/tree/master/Preprocessing): Scripts to get character lists and texts from [folgerdigitaltexts.org/api](https://www.folgerdigitaltexts.org/api/) and convert those texts into phonemes, and then count or percentage vectors for each character
 - [Reference](https://hitgub.com/olivercalder/sonic-signatures/tree/master/Reference): Helper scripts and data used by other scripts to classify characters or generate combinations of parameters
 - [Results](https://github.com/olivercalder/sonic-signatures/tree/master/Results): Saved classification results and summaries generated from the count or percentage data in the [Archive](https://github.com/olivercalder/sonic-signatures/tree/master/Archive) using the scripts in [Naive-Bayes](https://github.com/olivercalder/sonic-signatures/tree/master/Naive-Bayes)
+- [Statistics](https://github.com/olivercalder/sonic-signatures/tree/master/Statistics): Scripts to generate statistical information on phoneme vectors, and to be used by other scripts to yield more informative results regarding classifications
 
 ## Preprocessing Details:
 | Program: | Returns: | Writes: | Depends: |
