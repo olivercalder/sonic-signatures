@@ -2,6 +2,9 @@ var width = 1200;
 var height = 400;
 var xMargin = 100;
 var yMargin = 60;
+
+var radius = 4;
+
 var classifiers = {
     "role":   ["protag", "antag",   "fool",  "other"],
     "gender": ["m",      "f"],
@@ -10,20 +13,18 @@ var classifiers = {
 var colors =  ["blue",   "red",     "green", "yellow"]
 
 var classifier = "role";
-var characteristics = new Array()
+var characteristics = new Object();
 
-function getColor(d, classifier, characteristics) {
-    name = d.character;
-    charInfo = characteristics.find(item => item.character === name);
-    classification = charInfo[classifier];
+function getColor(d, classifier) {
+    classification = d[classifier];
     colorIndex = classifiers[classifier].indexOf(classification);
     return colors[colorIndex];
 };
 
 function colorCircles() {
     d3.selectAll("circle")
-        .style("fill", function(d) { return getColor(d, classifier, characteristics) })
-        .style("stroke", function(d) { return getColor(d, classifier, characteristics) });
+        .style("fill", function(d) { return getColor(d, classifier) })
+        .style("stroke", function(d) { return getColor(d, classifier) });
 };
 
 function handleMouseOver(d, i) {
@@ -32,8 +33,8 @@ function handleMouseOver(d, i) {
         .style("fill", "white")
         .style("stroke", "black");
 
-    let charName = circ.attr("character");
-    let score = parseFloat(circ.attr("score")).toFixed(3);
+    let charName = d.character;
+    let Zscore = d.Zscore.toFixed(3);
 
     let graph = d3.select(this.parentNode)  // g element containing circles
 
@@ -49,13 +50,13 @@ function handleMouseOver(d, i) {
         .attr("id", labelID)
         .attr("x", function() { return circ.attr("cx") - 50 })
         .attr("y", function() { return circ.attr("cy") - 15 })
-        .text(function() { return charName + ": " + score; });
+        .text(function() { return charName + ": " + Zscore; });
 }
 
 function handleMouseOut(d, i) {
     circ = d3.select(this)
-        .style("fill", function() { return getColor(d, classifier, characteristics) })
-        .style("stroke", function() { return getColor(d, classifier, characteristics) });
+        .style("fill", function() { return getColor(d, classifier) })
+        .style("stroke", function() { return getColor(d, classifier) });
 
     let graph = d3.select(this.parentNode)  // g element containing circles
 
@@ -77,28 +78,37 @@ function handleMouseOut(d, i) {
 //       https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/Archive/Vowels-Only-All/percentages_Z-scores.json
 d3.json("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/Archive/Vowels-Only-No-Others/percentages_Z-scores.json", function(rawData) { 
     d3.csv("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/Reference/characteristics.csv", function(c) {
-        characteristics = c;
+        for (let i = 0; i < c.length; i++) {
+            entry = c[i];
+            characteristics[entry["character"]] = entry;
+        }
 
         var characters = Object.keys(rawData);
         var phonemes = Object.keys(rawData[characters[0]]);
         var data = new Array();
-        var scoreMin = 0;
-        var scoreMax = 0;
-        for (let i=0; i<phonemes.length; i++) {
+        var ZscoreMin = 0;
+        var ZscoreMax = 0;
+        for (let i = 0; i < phonemes.length; i++) {
             phoneme = phonemes[i];
             var phonData = new Array();
             data.push({"phoneme": phoneme, "data": phonData});
-            for (let j=0; j<characters.length; j++) {
+            for (let j = 0; j < characters.length; j++) {
                 var charName = characters[j];
                 var Zscore = rawData[charName][phoneme];
-                scoreMin = Math.min(Zscore, scoreMin);
-                scoreMax = Math.max(Zscore, scoreMax);
-                phonData.push({"score": Zscore, "character": charName});
+                ZscoreMin = Math.min(Zscore, ZscoreMin);
+                ZscoreMax = Math.max(Zscore, ZscoreMax);
+                phonData.push({
+                    "Zscore": parseFloat(Zscore),
+                    "character": charName,
+                    "role": characteristics[charName]["role"],
+                    "gender": characteristics[charName]["gender"],
+                    "genre": characteristics[charName]["genre"],
+                });
             };
         };
         // This creates data with structure:
         //      data = [{"phoneme": phoneme, "data": phonData}, ...]
-        //      where phonData = [{"score": Zscore, "character": charName}, ...]
+        //      where phonData = [{"Zscore": Zscore, "character": charName, ...}, ...]
 
         var ZscoreWindow = d3.select("#ZscoreWindow");
         var svgs = ZscoreWindow.selectAll("svg")
@@ -133,23 +143,23 @@ d3.json("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/
                 .attr("width", width - xMargin)
                 .attr("height", yMargin);
 
-            function truncScore(score) {
-                if (score > 3) {
+/*            function truncScore(Zscore) {
+                if (Zscore > 3) {
                     return 4;
-                } else if (score < -3) {
+                } else if (Zscore < -3) {
                     return -4;
                 } else {
-                    return score;
+                    return Zscore;
                 };
             }
-/*
+
             xScale = d3.scaleLinear()
-//                .domain(d3.extent(chartData, function(d) { return truncScore(d.score); }))
+//                .domain(d3.extent(chartData, function(d) { return truncScore(d.Zscore); }))
                 .domain([-4, 4])
                 .range([10, width - xMargin - 10]);
 */
             xScale = d3.scaleLinear()
-                .domain([scoreMin, scoreMax])
+                .domain([ZscoreMin, ZscoreMax])
                 .range([10, width - xMargin - 10]);               
 
             var xAxis = d3.axisBottom(xScale);
@@ -161,38 +171,51 @@ d3.json("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/
                 .attr("height", yMargin)
                 .call(xAxis);
 
+            var middle = (height / 2) - yMargin;
+
+            var xForce = d3.forceX(function(d) { return xScale(d.Zscore); })  // force to pull circle towards its specified x value
+                .strength(0.9);
+            var yForce = d3.forceY(middle)
+                .strength(0.1);
+            var collision = d3.forceCollide()  // applied to every node
+                .radius(radius + 1)
+                .strength(0.7)
+                .iterations(10);
+
+            var simulation = d3.forceSimulation(chartData)  // Initializes a simulation with each circle as a node
+                .force("xForce", xForce)
+                .force("yForce", yForce)
+                .force("collision", collision)
+                .stop();
+
+            for (let i = 0; i < 120; i++) { simulation.tick(); };
+
             var g = d3.select(this).append("g")  // Element to contain circles
                 .attr("class", "graph")
                 .attr("transform", "translate(" + xMargin + "," + yMargin + ")")
                 .attr("width", width - xMargin)
                 .attr("height", height - yMargin);
 
-            var middle = (height / 2) - yMargin;
-
             var circles = g.selectAll("circle")
-                    .data(chartData)
-                .enter().append("circle")
-                    .attr("r", 4)
-                    .attr("cx", function(d) { return xScale(d.score); })  //truncScore(d.score)); })
-                    .attr("cy", middle)
-                    .attr("character", function(d) { return d.character; })
-                    .attr("score", function(d) { return parseFloat(d.score); })
-                    .attr("title", function(d) { return d.character + ": " + parseFloat(d.score).toFixed(3); })
-                    .on("mouseover", handleMouseOver)
-                    .on("mouseout", handleMouseOut);
+                    .data(chartData);
+            circle = circles.enter().append("circle")
+                .attr("r", function(d) { return radius; })
+                .attr("cx", function(d) { return d.x; })  //truncScore(d.Zscore)); })
+                .attr("cy", function(d) { return d.y; })
+                .attr("character", function(d) { return d.character; })
+                .attr("Zscore", function(d) { return d.Zscore; })
+                .attr("title", function(d) { return d.character + ": " + d.Zscore.toFixed(3); })
+                .on("mouseover", handleMouseOver)
+                .on("mouseout", handleMouseOut);
 
-            var xForce = d3.forceX(function(d) { return xScale(d.score); })  // force to pull circle towards its specified x value
-                .strength(0.9);
-            var yForce = d3.forceY(middle)
-                .strength(0.1);
-            var collision = d3.forceCollide()  // applied to every node
-                .strength(0.7)
-                .iterations(10);
-
-            var simulation = d3.forceSimulation(circles)  // Initializes a simulation with each circle as a node
-                .force("xForce", xForce)
-                .force("yForce", yForce)
-                .force("collision", collision);
+            let classifier_keys = Object.keys(classifiers);
+            circle.attr("class", function(d) { 
+                let class_list = new Array();
+                for (let i = 0; i < classifier_keys.length; i++) {
+                    class_list.push(d[classifier_keys[i]]);
+                };
+                return class_list.join(" ");
+            });
 
             colorCircles();
         });
