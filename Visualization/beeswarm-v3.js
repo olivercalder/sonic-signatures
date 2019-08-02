@@ -27,7 +27,6 @@ function colorCircles() {
 };
 
 function handleMouseOver(d, i) {
-    // d3.selectAll("." + d.character);
     let circ = d3.select(this)  // circle element being modified
         .style("fill", "white")
         .style("stroke", "black");
@@ -43,7 +42,7 @@ function handleMouseOver(d, i) {
     let phonIndex = chartID.indexOf("_");
     let phon = chartID.slice(phonIndex + 1);
 
-    let labelID = phon + "_" + charName.replace(/\./g, "-") + "_label";
+    let labelID = phon + "_" + charName.replace(".", "-") + "_label";
 
     circLabel = graph.append("text")
         .attr("id", labelID)
@@ -66,7 +65,7 @@ function handleMouseOut(d, i) {
     let phon = chartID.slice(phonIndex + 1);
     let charName = circ.attr("character");
 
-    let labelID = phon + "_" + charName.replace(/\./g, "-") + "_label";
+    let labelID = phon + "_" + charName.replace(".", "-") + "_label";
 
     d3.select("#" + labelID).remove();
 }
@@ -82,8 +81,6 @@ d3.json("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/
         var characters = Object.keys(rawData);
         var phonemes = Object.keys(rawData[characters[0]]);
         var data = new Array();
-        var scoreMin = 0;
-        var scoreMax = 0;
         for (let i=0; i<phonemes.length; i++) {
             phoneme = phonemes[i];
             var phonData = new Array();
@@ -91,8 +88,6 @@ d3.json("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/
             for (let j=0; j<characters.length; j++) {
                 var charName = characters[j];
                 var Zscore = rawData[charName][phoneme];
-                scoreMin = Math.min(Zscore, scoreMin);
-                scoreMax = Math.max(Zscore, scoreMax);
                 phonData.push({"score": Zscore, "character": charName});
             };
         };
@@ -133,26 +128,13 @@ d3.json("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/
                 .attr("width", width - xMargin)
                 .attr("height", yMargin);
 
-            function truncScore(score) {
-                if (score > 3) {
-                    return 4;
-                } else if (score < -3) {
-                    return -4;
-                } else {
-                    return score;
-                };
-            }
-/*
-            xScale = d3.scaleLinear()
-//                .domain(d3.extent(chartData, function(d) { return truncScore(d.score); }))
-                .domain([-4, 4])
+            xScale = d3.scale.linear()
+                .domain(d3.extent(chartData, function(d) { return d.score; }))
                 .range([10, width - xMargin - 10]);
-*/
-            xScale = d3.scaleLinear()
-                .domain([scoreMin, scoreMax])
-                .range([10, width - xMargin - 10]);               
 
-            var xAxis = d3.axisBottom(xScale);
+            var xAxis = d3.svg.axis()
+                .orient("bottom")
+                .scale(xScale);
 
             var axis = d3.select(this).append("g")  // Element to contain axis
                 .attr("class", "axis")
@@ -167,32 +149,26 @@ d3.json("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/
                 .attr("width", width - xMargin)
                 .attr("height", height - yMargin);
 
-            var middle = (height / 2) - yMargin;
-
             var circles = g.selectAll("circle")
                     .data(chartData)
                 .enter().append("circle")
                     .attr("r", 4)
-                    .attr("cx", function(d) { return xScale(d.score); })  //truncScore(d.score)); })
-                    .attr("cy", middle)
+                    .attr("cx", function(d) { return xScale(d.score); })
+                    .attr("cy", (height / 2) - yMargin)
                     .attr("character", function(d) { return d.character; })
-                    .attr("score", function(d) { return parseFloat(d.score); })
+                    .attr("score", function(d) { return d.score; })
                     .attr("title", function(d) { return d.character + ": " + parseFloat(d.score).toFixed(3); })
                     .on("mouseover", handleMouseOver)
                     .on("mouseout", handleMouseOut);
 
-            var xForce = d3.forceX(function(d) { return xScale(d.score); })  // force to pull circle towards its specified x value
-                .strength(0.9);
-            var yForce = d3.forceY(middle)
-                .strength(0.1);
-            var collision = d3.forceCollide()  // applied to every node
-                .strength(0.7)
-                .iterations(10);
+            var force = d3.layout.force()
+                .nodes(circles)
+                .charge(-30)
+                .chargeDistance(10);
 
-            var simulation = d3.forceSimulation(circles)  // Initializes a simulation with each circle as a node
-                .force("xForce", xForce)
-                .force("yForce", yForce)
-                .force("collision", collision);
+            force.start();
+            for (let n=0; n<10; n++) { force.tick(); };
+            force.stop();
 
             colorCircles();
         });
