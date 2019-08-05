@@ -21,7 +21,7 @@ Arguments:
     -c class_id         Specifies the class (role, gender, genre, social class) to predict
     -s                  Silent: Do not print output
     -wt                 Writes output to text file
-    -wj                 Writes output to csv file
+    -wc                 Writes output to csv file
     -R                  Recursively write intermediate outputs along the way
     -t title            Title of run, used in output filenames
     -d directory        Directory in which to write output files
