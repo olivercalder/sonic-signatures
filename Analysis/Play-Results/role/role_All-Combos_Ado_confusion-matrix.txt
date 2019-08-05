@@ -2,10 +2,10 @@
 
 
                       Overall accuracy = 60.88%                                 
-                      Average accuracy = 34.34%                                 
+                      Average accuracy = 34.58%                                 
 
-                      Average F1 score = 28.98%                                 
-                           Average MCC = 11.50%                                 
+                      Average F1 score = 29.13%                                 
+                           Average MCC = 11.72%                                 
 
 
                                 Confusion Matrix                                
@@ -16,9 +16,9 @@
             ——————————|——————————|——————————|——————————|——————————|             
               antag   |    4     |    31    |    34    |    11    |             
             ——————————|——————————|——————————|——————————|——————————|             
-               fool   |    22    |    59    |    15    |    0     |             
+               fool   |    22    |    60    |    14    |    0     |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |    93    |   139    |   726    |    66    |             
+              other   |    96    |   137    |   725    |    66    |             
             ——————————|——————————|——————————|——————————|——————————|             
               protag  |    18    |    23    |    55    |    0     |             
             ——————————|——————————|——————————|——————————|——————————|             
@@ -27,11 +27,11 @@
                          Total samples = 1296                                   
 
                   Total actual "antag" = 80                                     
-               Total predicted "antag" = 137                                    
+               Total predicted "antag" = 140                                    
                    Total actual "fool" = 96                                     
-                Total predicted "fool" = 252                                    
+                Total predicted "fool" = 251                                    
                   Total actual "other" = 1024                                   
-               Total predicted "other" = 830                                    
+               Total predicted "other" = 828                                    
                  Total actual "protag" = 96                                     
               Total predicted "protag" = 77                                     
 
@@ -44,20 +44,20 @@
             ——————————|——————————|——————————|——————————|——————————|             
               antag   |  0.31%   |  2.39%   |  2.62%   |  0.85%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-               fool   |  1.70%   |  4.55%   |  1.16%   |  0.00%   |             
+               fool   |  1.70%   |  4.63%   |  1.08%   |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |  7.18%   |  10.73%  |  56.02%  |  5.09%   |             
+              other   |  7.41%   |  10.57%  |  55.94%  |  5.09%   |             
             ——————————|——————————|——————————|——————————|——————————|             
               protag  |  1.39%   |  1.77%   |  4.24%   |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
 
 
                 Percent actual "antag" = 6.17%                                  
-             Percent predicted "antag" = 10.57%                                 
+             Percent predicted "antag" = 10.80%                                 
                  Percent actual "fool" = 7.41%                                  
-              Percent predicted "fool" = 19.44%                                 
+              Percent predicted "fool" = 19.37%                                 
                 Percent actual "other" = 79.01%                                 
-             Percent predicted "other" = 64.04%                                 
+             Percent predicted "other" = 63.89%                                 
                Percent actual "protag" = 7.41%                                  
             Percent predicted "protag" = 5.94%                                  
 
@@ -70,17 +70,17 @@
             ——————————|——————————|——————————|——————————|——————————|             
               antag   |  5.00%   |  38.75%  |  42.50%  |  13.75%  |             
             ——————————|——————————|——————————|——————————|——————————|             
-               fool   |  22.92%  |  61.46%  |  15.62%  |  0.00%   |             
+               fool   |  22.92%  |  62.50%  |  14.58%  |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |  9.08%   |  13.57%  |  70.90%  |  6.45%   |             
+              other   |  9.38%   |  13.38%  |  70.80%  |  6.45%   |             
             ——————————|——————————|——————————|——————————|——————————|             
               protag  |  18.75%  |  23.96%  |  57.29%  |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
 
 
      Percent correct of actual "antag" = 5.00%                                  
-      Percent correct of actual "fool" = 61.46%                                 
-     Percent correct of actual "other" = 70.90%                                 
+      Percent correct of actual "fool" = 62.50%                                 
+     Percent correct of actual "other" = 70.80%                                 
     Percent correct of actual "protag" = 0.00%                                  
 
 
@@ -90,34 +90,68 @@
 
                       |  antag   |   fool   |  other   |  protag  |             
             ——————————|——————————|——————————|——————————|——————————|             
-              antag   |  2.92%   |  12.30%  |  4.10%   |  14.29%  |             
+              antag   |  2.86%   |  12.35%  |  4.11%   |  14.29%  |             
             ——————————|——————————|——————————|——————————|——————————|             
-               fool   |  16.06%  |  23.41%  |  1.81%   |  0.00%   |             
+               fool   |  15.71%  |  23.90%  |  1.69%   |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |  67.88%  |  55.16%  |  87.47%  |  85.71%  |             
+              other   |  68.57%  |  54.58%  |  87.56%  |  85.71%  |             
             ——————————|——————————|——————————|——————————|——————————|             
-              protag  |  13.14%  |  9.13%   |  6.63%   |  0.00%   |             
+              protag  |  12.86%  |  9.16%   |  6.64%   |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
 
 
-  Percent correct of predicted "antag" = 2.92%                                  
-   Percent correct of predicted "fool" = 23.41%                                 
-  Percent correct of predicted "other" = 87.47%                                 
+  Percent correct of predicted "antag" = 2.86%                                  
+   Percent correct of predicted "fool" = 23.90%                                 
+  Percent correct of predicted "other" = 87.56%                                 
  Percent correct of predicted "protag" = 0.00%                                  
 
 
                                    F1 Scores:                                   
-                  F1 score for "antag" = 3.69%                                  
-                   F1 score for "fool" = 33.91%                                 
-                  F1 score for "other" = 78.32%                                 
+                  F1 score for "antag" = 3.64%                                  
+                   F1 score for "fool" = 34.58%                                 
+                  F1 score for "other" = 78.29%                                 
                  F1 score for "protag" = 0.00%                                  
 
 
                        Matthews Correlation Coefficients:                       
-                 MCC score for "antag" = -4.65%                                 
-                  MCC score for "fool" = 30.03%                                 
-                 MCC score for "other" = 27.72%                                 
+                 MCC score for "antag" = -4.79%                                 
+                  MCC score for "fool" = 30.87%                                 
+                 MCC score for "other" = 27.92%                                 
                 MCC score for "protag" = -7.11%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                        Actual "antag" Average Z-Scores:                        
+
+
+                        Actual "fool" Average Z-Scores:                         
+
+
+                        Actual "other" Average Z-Scores:                        
+
+
+                       Actual "protag" Average Z-Scores:                        
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                      Predicted "antag" Average Z-Scores:                       
+
+
+                       Predicted "fool" Average Z-Scores:                       
+
+
+                      Predicted "other" Average Z-Scores:                       
+
+
+                      Predicted "protag" Average Z-Scores:                      
+
+
 
 
 
@@ -268,6 +302,7 @@ Ado_Dogberry-Emphasis-Vowels-Only-No-Others-Counts-Twofold
 Ado_Dogberry-Emphasis-Vowels-Only-No-Others-Percentages
 Ado_Dogberry-Emphasis-Vowels-Only-No-Others-Percentages-Twofold
 Ado_Dogberry-Min-250-Percentages		Ado_Dogberry-Min-250-Percentages-Twofold
+Ado_Dogberry-Vowels-Only-All-Percentages
 Ado_Dogberry-Vowels-Only-Min-100-Percentages
 Ado_Dogberry-Vowels-Only-Min-1000-Counts
 Ado_Dogberry-Vowels-Only-Min-1000-Percentages
@@ -293,7 +328,6 @@ Ado_Dogberry-Emphasis-Vowels-Only-Min-250-Counts-Twofold
 Ado_Dogberry-Emphasis-Vowels-Only-Min-500-Counts-Twofold
 Ado_Dogberry-Vowels-Only-All-Counts
 Ado_Dogberry-Vowels-Only-All-Counts-Twofold
-Ado_Dogberry-Vowels-Only-All-Percentages
 Ado_Dogberry-Vowels-Only-All-Percentages-Twofold
 Ado_Dogberry-Vowels-Only-Min-100-Counts
 Ado_Dogberry-Vowels-Only-Min-100-Counts-Twofold
@@ -311,6 +345,7 @@ Ado_Dogberry-Vowels-Only-Min-500-Counts-Twofold
                       Actual "other" Predicted as "antag":                      
 
 Ado_ATTENDANTS.0.1-Vowels-Only-All-Percentages
+Ado_ATTENDANTS.0.1-Vowels-Only-All-Percentages-Twofold
 Ado_Benedick-Emphasis-Min-2500-Counts-Twofold
 Ado_Benedick-Emphasis-Min-2500-Percentages-Twofold
 Ado_Benedick-Emphasis-Vowels-Only-Min-1000-Percentages-Twofold
@@ -363,6 +398,8 @@ Ado_LeonatosBrother-Min-250-Percentages-Twofold
 Ado_LeonatosBrother-Vowels-Only-All-Percentages
 Ado_LeonatosBrother-Vowels-Only-All-Percentages-Twofold
 Ado_MESSENGERS.DONPEDRO.1-Emphasis-Vowels-Only-All-Percentages
+Ado_MESSENGERS.DONPEDRO.1-Emphasis-Vowels-Only-All-Percentages-Twofold
+Ado_MESSENGERS.DONPEDRO.1-Vowels-Only-All-Percentages
 Ado_MESSENGERS.LEONATO.1-Emphasis-Vowels-Only-All-Percentages
 Ado_Margaret-Emphasis-Vowels-Only-Min-500-Percentages
 Ado_Margaret-Emphasis-Vowels-Only-Min-500-Percentages-Twofold
@@ -384,7 +421,7 @@ Ado_Ursula-Vowels-Only-All-Percentages-Twofold
 Ado_Ursula-Vowels-Only-Min-100-Percentages
 Ado_Ursula-Vowels-Only-Min-250-Percentages
 Ado_WATCHMEN.1-Vowels-Only-Min-100-Percentages		Ado_WATCHMEN.2-All-Percentages
-Ado_WATCHMEN.2-All-Percentages-Twofold		Ado_WATCHMEN.Seacoal-All-Percentages
+Ado_WATCHMEN.2-Emphasis-All-Percentages		Ado_WATCHMEN.Seacoal-All-Percentages
 
 
                       Actual "other" Predicted as "fool":                       
@@ -497,8 +534,6 @@ Ado_Verges-Vowels-Only-All-Percentages
 Ado_Verges-Vowels-Only-All-Percentages-Twofold
 Ado_Verges-Vowels-Only-Min-100-Percentages
 Ado_Verges-Vowels-Only-Min-100-Percentages-Twofold
-Ado_WATCHMEN.2-Emphasis-All-Percentages
-Ado_WATCHMEN.2-Emphasis-All-Percentages-Twofold
 
 
                       Actual "other" Predicted as "other":                      
@@ -514,8 +549,7 @@ Ado_ATTENDANTS.0.1-Emphasis-Vowels-Only-All-Counts-Twofold
 Ado_ATTENDANTS.0.1-Emphasis-Vowels-Only-All-Percentages
 Ado_ATTENDANTS.0.1-Emphasis-Vowels-Only-All-Percentages-Twofold
 Ado_ATTENDANTS.0.1-Vowels-Only-All-Counts
-Ado_ATTENDANTS.0.1-Vowels-Only-All-Counts-Twofold
-Ado_ATTENDANTS.0.1-Vowels-Only-All-Percentages-Twofold		Ado_Antonio-All-Counts
+Ado_ATTENDANTS.0.1-Vowels-Only-All-Counts-Twofold		Ado_Antonio-All-Counts
 Ado_Antonio-All-Counts-Twofold		Ado_Antonio-Emphasis-All-Counts
 Ado_Antonio-Emphasis-All-Counts-Twofold
 Ado_Antonio-Emphasis-Vowels-Only-All-Counts
@@ -918,10 +952,8 @@ Ado_MESSENGERS.DONPEDRO.1-Emphasis-All-Percentages
 Ado_MESSENGERS.DONPEDRO.1-Emphasis-All-Percentages-Twofold
 Ado_MESSENGERS.DONPEDRO.1-Emphasis-Vowels-Only-All-Counts
 Ado_MESSENGERS.DONPEDRO.1-Emphasis-Vowels-Only-All-Counts-Twofold
-Ado_MESSENGERS.DONPEDRO.1-Emphasis-Vowels-Only-All-Percentages-Twofold
 Ado_MESSENGERS.DONPEDRO.1-Vowels-Only-All-Counts
 Ado_MESSENGERS.DONPEDRO.1-Vowels-Only-All-Counts-Twofold
-Ado_MESSENGERS.DONPEDRO.1-Vowels-Only-All-Percentages
 Ado_MESSENGERS.DONPEDRO.1-Vowels-Only-All-Percentages-Twofold
 Ado_MESSENGERS.LEONATO.1-All-Counts
 Ado_MESSENGERS.LEONATO.1-All-Counts-Twofold
@@ -1083,7 +1115,9 @@ Ado_WATCHMEN.1-Vowels-Only-Min-100-Counts
 Ado_WATCHMEN.1-Vowels-Only-Min-100-Counts-Twofold
 Ado_WATCHMEN.1-Vowels-Only-Min-100-Percentages-Twofold
 Ado_WATCHMEN.2-All-Counts		Ado_WATCHMEN.2-All-Counts-Twofold
-Ado_WATCHMEN.2-Emphasis-All-Counts		Ado_WATCHMEN.2-Emphasis-All-Counts-Twofold
+Ado_WATCHMEN.2-All-Percentages-Twofold		Ado_WATCHMEN.2-Emphasis-All-Counts
+Ado_WATCHMEN.2-Emphasis-All-Counts-Twofold
+Ado_WATCHMEN.2-Emphasis-All-Percentages-Twofold
 Ado_WATCHMEN.2-Emphasis-Vowels-Only-All-Counts
 Ado_WATCHMEN.2-Emphasis-Vowels-Only-All-Counts-Twofold
 Ado_WATCHMEN.2-Emphasis-Vowels-Only-All-Percentages

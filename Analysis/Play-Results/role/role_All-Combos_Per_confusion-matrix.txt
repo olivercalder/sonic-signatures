@@ -1,11 +1,11 @@
                           Summary: role_All-Combos_Per                          
 
 
-                      Overall accuracy = 78.44%                                 
-                      Average accuracy = 69.85%                                 
+                      Overall accuracy = 78.26%                                 
+                      Average accuracy = 70.28%                                 
 
-                      Average F1 score = 56.61%                                 
-                           Average MCC = 39.66%                                 
+                      Average F1 score = 56.53%                                 
+                           Average MCC = 39.73%                                 
 
 
                                 Confusion Matrix                                
@@ -14,22 +14,22 @@
 
                             |  antag   |  other   |  protag  |                  
                   ——————————|——————————|——————————|——————————|                  
-                    antag   |    24    |    36    |    4     |                  
+                    antag   |    25    |    35    |    4     |                  
                   ——————————|——————————|——————————|——————————|                  
-                    other   |   178    |   1058   |   100    |                  
+                    other   |   178    |   1055   |   104    |                  
                   ——————————|——————————|——————————|——————————|                  
                     protag  |    0     |    8     |   104    |                  
                   ——————————|——————————|——————————|——————————|                  
 
 
-                         Total samples = 1512                                   
+                         Total samples = 1513                                   
 
                   Total actual "antag" = 64                                     
-               Total predicted "antag" = 202                                    
-                  Total actual "other" = 1336                                   
-               Total predicted "other" = 1102                                   
+               Total predicted "antag" = 203                                    
+                  Total actual "other" = 1337                                   
+               Total predicted "other" = 1098                                   
                  Total actual "protag" = 112                                    
-              Total predicted "protag" = 208                                    
+              Total predicted "protag" = 212                                    
 
 
                                  Percent Matrix                                 
@@ -38,20 +38,20 @@
 
                             |  antag   |  other   |  protag  |                  
                   ——————————|——————————|——————————|——————————|                  
-                    antag   |  1.59%   |  2.38%   |  0.26%   |                  
+                    antag   |  1.65%   |  2.31%   |  0.26%   |                  
                   ——————————|——————————|——————————|——————————|                  
-                    other   |  11.77%  |  69.97%  |  6.61%   |                  
+                    other   |  11.76%  |  69.73%  |  6.87%   |                  
                   ——————————|——————————|——————————|——————————|                  
-                    protag  |  0.00%   |  0.53%   |  6.88%   |                  
+                    protag  |  0.00%   |  0.53%   |  6.87%   |                  
                   ——————————|——————————|——————————|——————————|                  
 
 
                 Percent actual "antag" = 4.23%                                  
-             Percent predicted "antag" = 13.36%                                 
-                Percent actual "other" = 88.36%                                 
-             Percent predicted "other" = 72.88%                                 
-               Percent actual "protag" = 7.41%                                  
-            Percent predicted "protag" = 13.76%                                 
+             Percent predicted "antag" = 13.42%                                 
+                Percent actual "other" = 88.37%                                 
+             Percent predicted "other" = 72.57%                                 
+               Percent actual "protag" = 7.40%                                  
+            Percent predicted "protag" = 14.01%                                 
 
 
              Percent Matrix with Total of Each Actual Class = 100%              
@@ -60,16 +60,16 @@
 
                             |  antag   |  other   |  protag  |                  
                   ——————————|——————————|——————————|——————————|                  
-                    antag   |  37.50%  |  56.25%  |  6.25%   |                  
+                    antag   |  39.06%  |  54.69%  |  6.25%   |                  
                   ——————————|——————————|——————————|——————————|                  
-                    other   |  13.32%  |  79.19%  |  7.49%   |                  
+                    other   |  13.31%  |  78.91%  |  7.78%   |                  
                   ——————————|——————————|——————————|——————————|                  
                     protag  |  0.00%   |  7.14%   |  92.86%  |                  
                   ——————————|——————————|——————————|——————————|                  
 
 
-     Percent correct of actual "antag" = 37.50%                                 
-     Percent correct of actual "other" = 79.19%                                 
+     Percent correct of actual "antag" = 39.06%                                 
+     Percent correct of actual "other" = 78.91%                                 
     Percent correct of actual "protag" = 92.86%                                 
 
 
@@ -79,29 +79,57 @@
 
                             |  antag   |  other   |  protag  |                  
                   ——————————|——————————|——————————|——————————|                  
-                    antag   |  11.88%  |  3.27%   |  1.92%   |                  
+                    antag   |  12.32%  |  3.19%   |  1.89%   |                  
                   ——————————|——————————|——————————|——————————|                  
-                    other   |  88.12%  |  96.01%  |  48.08%  |                  
+                    other   |  87.68%  |  96.08%  |  49.06%  |                  
                   ——————————|——————————|——————————|——————————|                  
-                    protag  |  0.00%   |  0.73%   |  50.00%  |                  
+                    protag  |  0.00%   |  0.73%   |  49.06%  |                  
                   ——————————|——————————|——————————|——————————|                  
 
 
-  Percent correct of predicted "antag" = 11.88%                                 
-  Percent correct of predicted "other" = 96.01%                                 
- Percent correct of predicted "protag" = 50.00%                                 
+  Percent correct of predicted "antag" = 12.32%                                 
+  Percent correct of predicted "other" = 96.08%                                 
+ Percent correct of predicted "protag" = 49.06%                                 
 
 
                                    F1 Scores:                                   
-                  F1 score for "antag" = 18.05%                                 
-                  F1 score for "other" = 86.79%                                 
-                 F1 score for "protag" = 65.00%                                 
+                  F1 score for "antag" = 18.73%                                 
+                  F1 score for "other" = 86.65%                                 
+                 F1 score for "protag" = 64.20%                                 
 
 
                        Matthews Correlation Coefficients:                       
-                 MCC score for "antag" = 14.92%                                 
-                 MCC score for "other" = 39.09%                                 
-                MCC score for "protag" = 64.95%                                 
+                 MCC score for "antag" = 15.81%                                 
+                 MCC score for "other" = 39.15%                                 
+                MCC score for "protag" = 64.22%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                        Actual "antag" Average Z-Scores:                        
+
+
+                        Actual "other" Average Z-Scores:                        
+
+
+                       Actual "protag" Average Z-Scores:                        
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                      Predicted "antag" Average Z-Scores:                       
+
+
+                      Predicted "other" Average Z-Scores:                       
+
+
+                      Predicted "protag" Average Z-Scores:                      
+
+
 
 
 
@@ -128,6 +156,7 @@ Per_Antiochus-No-Others-Counts		Per_Antiochus-No-Others-Counts-Twofold
 Per_Antiochus-No-Others-Percentages
 Per_Antiochus-No-Others-Percentages-Twofold
 Per_Antiochus-Vowels-Only-All-Percentages
+Per_Antiochus-Vowels-Only-All-Percentages-Twofold
 Per_Antiochus-Vowels-Only-Min-100-Percentages
 Per_Antiochus-Vowels-Only-Min-250-Percentages
 Per_Antiochus-Vowels-Only-No-Others-Percentages
@@ -159,7 +188,6 @@ Per_Antiochus-Min-250-Counts		Per_Antiochus-Min-250-Counts-Twofold
 Per_Antiochus-Min-250-Percentages		Per_Antiochus-Min-250-Percentages-Twofold
 Per_Antiochus-Vowels-Only-All-Counts
 Per_Antiochus-Vowels-Only-All-Counts-Twofold
-Per_Antiochus-Vowels-Only-All-Percentages-Twofold
 Per_Antiochus-Vowels-Only-Min-100-Counts
 Per_Antiochus-Vowels-Only-Min-100-Counts-Twofold
 Per_Antiochus-Vowels-Only-Min-100-Percentages-Twofold
@@ -239,8 +267,6 @@ Per_Dionyza-Emphasis-Min-100-Percentages-Twofold
 Per_Dionyza-Emphasis-Min-250-Percentages
 Per_Dionyza-Emphasis-Min-250-Percentages-Twofold
 Per_Dionyza-Emphasis-Min-500-Percentages-Twofold
-Per_Dionyza-Emphasis-Vowels-Only-All-Percentages
-Per_Dionyza-Emphasis-Vowels-Only-All-Percentages-Twofold
 Per_Dionyza-Emphasis-Vowels-Only-Min-250-Percentages
 Per_Dionyza-Emphasis-Vowels-Only-Min-250-Percentages-Twofold
 Per_Dionyza-Emphasis-Vowels-Only-Min-500-Percentages-Twofold
@@ -248,6 +274,7 @@ Per_Dionyza-Min-500-Percentages-Twofold
 Per_Dionyza-Vowels-Only-Min-500-Percentages
 Per_Dionyza-Vowels-Only-Min-500-Percentages-Twofold
 Per_GENTLEMEN.EPHESUS.1-All-Percentages
+Per_GENTLEMEN.EPHESUS.1-All-Percentages-Twofold
 Per_GENTLEMEN.EPHESUS.1-Emphasis-All-Percentages
 Per_GENTLEMEN.EPHESUS.1-Emphasis-All-Percentages-Twofold
 Per_GENTLEMEN.MYTILENE.1-Emphasis-Vowels-Only-All-Percentages
@@ -262,7 +289,7 @@ Per_Gower-Vowels-Only-All-Percentages
 Per_Gower-Vowels-Only-Min-1000-Percentages
 Per_Gower-Vowels-Only-Min-250-Percentages
 Per_Gower-Vowels-Only-Min-500-Percentages		Per_Helicanus-All-Percentages
-Per_Helicanus-All-Percentages-Twofold		Per_Helicanus-Emphasis-All-Percentages
+Per_Helicanus-Emphasis-All-Percentages
 Per_Helicanus-Emphasis-All-Percentages-Twofold
 Per_Helicanus-Emphasis-Vowels-Only-All-Percentages
 Per_Helicanus-Emphasis-Vowels-Only-All-Percentages-Twofold
@@ -296,6 +323,9 @@ Per_LORDS.TYRE.0.2-Emphasis-Vowels-Only-All-Percentages
 Per_LORDS.TYRE.0.2-Emphasis-Vowels-Only-All-Percentages-Twofold
 Per_LORDS.TYRE.0.2-Vowels-Only-All-Percentages
 Per_LORDS.TYRE.0.2-Vowels-Only-All-Percentages-Twofold
+Per_LORDS.TYRE.0.3-All-Percentages		Per_LORDS.TYRE.0.3-All-Percentages-Twofold
+Per_LORDS.TYRE.0.3-Vowels-Only-All-Percentages
+Per_LORDS.TYRE.0.3-Vowels-Only-All-Percentages-Twofold
 Per_Lysimachus-All-Percentages		Per_Lysimachus-Emphasis-All-Percentages
 Per_Lysimachus-Emphasis-All-Percentages-Twofold
 Per_Lysimachus-Min-100-Percentages		Per_Lysimachus-Min-250-Percentages
@@ -309,8 +339,6 @@ Per_SAILORS.1-All-Percentages		Per_SERVANTS.CERIMON.0.1-All-Percentages
 Per_SERVANTS.CERIMON.0.1-All-Percentages-Twofold
 Per_SERVANTS.CERIMON.0.1-Emphasis-All-Percentages
 Per_SERVANTS.CERIMON.0.1-Emphasis-All-Percentages-Twofold
-Per_Simonides-Emphasis-All-Percentages
-Per_Simonides-Emphasis-All-Percentages-Twofold
 Per_Simonides-Emphasis-Min-1000-Percentages
 Per_Simonides-Emphasis-Min-1000-Percentages-Twofold
 Per_Simonides-Emphasis-Vowels-Only-All-Percentages
@@ -472,9 +500,9 @@ Per_Diana-Emphasis-All-Counts-Twofold
 Per_Diana-Emphasis-Vowels-Only-All-Counts
 Per_Diana-Emphasis-Vowels-Only-All-Counts-Twofold
 Per_Diana-Vowels-Only-All-Counts		Per_Diana-Vowels-Only-All-Counts-Twofold
-Per_Diana-Vowels-Only-All-Percentages-Twofold		Per_Dionyza-All-Counts
-Per_Dionyza-All-Counts-Twofold		Per_Dionyza-Emphasis-All-Counts
-Per_Dionyza-Emphasis-All-Counts-Twofold		Per_Dionyza-Emphasis-Min-100-Counts
+Per_Dionyza-All-Counts		Per_Dionyza-All-Counts-Twofold
+Per_Dionyza-Emphasis-All-Counts		Per_Dionyza-Emphasis-All-Counts-Twofold
+Per_Dionyza-Emphasis-Min-100-Counts
 Per_Dionyza-Emphasis-Min-100-Counts-Twofold
 Per_Dionyza-Emphasis-Min-250-Counts
 Per_Dionyza-Emphasis-Min-250-Counts-Twofold
@@ -495,7 +523,6 @@ Per_Dionyza-Min-250-Counts		Per_Dionyza-Min-250-Counts-Twofold
 Per_Dionyza-Min-250-Percentages		Per_Dionyza-Min-500-Counts
 Per_Dionyza-Min-500-Counts-Twofold		Per_Dionyza-Min-500-Percentages
 Per_Dionyza-Vowels-Only-All-Counts		Per_Dionyza-Vowels-Only-All-Counts-Twofold
-Per_Dionyza-Vowels-Only-All-Percentages
 Per_Dionyza-Vowels-Only-Min-100-Counts
 Per_Dionyza-Vowels-Only-Min-100-Counts-Twofold
 Per_Dionyza-Vowels-Only-Min-250-Counts
@@ -552,7 +579,6 @@ Per_FISHERMEN.3-Vowels-Only-All-Counts-Twofold
 Per_FISHERMEN.3-Vowels-Only-Min-100-Counts
 Per_FISHERMEN.3-Vowels-Only-Min-100-Counts-Twofold
 Per_GENTLEMEN.EPHESUS.1-All-Counts		Per_GENTLEMEN.EPHESUS.1-All-Counts-Twofold
-Per_GENTLEMEN.EPHESUS.1-All-Percentages-Twofold
 Per_GENTLEMEN.EPHESUS.1-Emphasis-All-Counts
 Per_GENTLEMEN.EPHESUS.1-Emphasis-All-Counts-Twofold
 Per_GENTLEMEN.EPHESUS.1-Emphasis-Vowels-Only-All-Counts
@@ -669,8 +695,8 @@ Per_Gower-Vowels-Only-Min-250-Percentages-Twofold
 Per_Gower-Vowels-Only-Min-500-Counts
 Per_Gower-Vowels-Only-Min-500-Counts-Twofold
 Per_Gower-Vowels-Only-Min-500-Percentages-Twofold		Per_Helicanus-All-Counts
-Per_Helicanus-All-Counts-Twofold		Per_Helicanus-Emphasis-All-Counts
-Per_Helicanus-Emphasis-All-Counts-Twofold
+Per_Helicanus-All-Counts-Twofold		Per_Helicanus-All-Percentages-Twofold
+Per_Helicanus-Emphasis-All-Counts		Per_Helicanus-Emphasis-All-Counts-Twofold
 Per_Helicanus-Emphasis-Min-100-Counts
 Per_Helicanus-Emphasis-Min-100-Counts-Twofold
 Per_Helicanus-Emphasis-Min-100-Percentages
@@ -824,6 +850,7 @@ Per_LORDS.TYRE-All-Counts		Per_LORDS.TYRE-All-Counts-Twofold
 Per_LORDS.TYRE-Emphasis-All-Counts		Per_LORDS.TYRE-Emphasis-All-Counts-Twofold
 Per_LORDS.TYRE-Emphasis-Vowels-Only-All-Counts
 Per_LORDS.TYRE-Emphasis-Vowels-Only-All-Counts-Twofold
+Per_LORDS.TYRE-Emphasis-Vowels-Only-All-Percentages-Twofold
 Per_LORDS.TYRE-Vowels-Only-All-Counts
 Per_LORDS.TYRE-Vowels-Only-All-Counts-Twofold		Per_LORDS.TYRE.0.1-All-Counts
 Per_LORDS.TYRE.0.1-All-Counts-Twofold		Per_LORDS.TYRE.0.1-All-Percentages
@@ -861,6 +888,7 @@ Per_LORDS.TYRE.0.2-Vowels-Only-All-Counts-Twofold
 Per_LORDS.TYRE.0.3-All-Counts		Per_LORDS.TYRE.0.3-All-Counts-Twofold
 Per_LORDS.TYRE.0.3-Emphasis-All-Counts
 Per_LORDS.TYRE.0.3-Emphasis-All-Counts-Twofold
+Per_LORDS.TYRE.0.3-Emphasis-All-Percentages-Twofold
 Per_LORDS.TYRE.0.3-Emphasis-Vowels-Only-All-Counts
 Per_LORDS.TYRE.0.3-Emphasis-Vowels-Only-All-Counts-Twofold
 Per_LORDS.TYRE.0.3-Emphasis-Vowels-Only-All-Percentages-Twofold
@@ -911,7 +939,6 @@ Per_Lychorida-Emphasis-All-Percentages
 Per_Lychorida-Emphasis-All-Percentages-Twofold
 Per_Lychorida-Emphasis-Vowels-Only-All-Counts
 Per_Lychorida-Emphasis-Vowels-Only-All-Counts-Twofold
-Per_Lychorida-Emphasis-Vowels-Only-All-Percentages
 Per_Lychorida-Emphasis-Vowels-Only-All-Percentages-Twofold
 Per_Lychorida-Vowels-Only-All-Counts
 Per_Lychorida-Vowels-Only-All-Counts-Twofold
@@ -983,9 +1010,7 @@ Per_MESSENGERS.ANTIOCH.1-Emphasis-Vowels-Only-All-Percentages
 Per_MESSENGERS.ANTIOCH.1-Emphasis-Vowels-Only-All-Percentages-Twofold
 Per_MESSENGERS.ANTIOCH.1-Vowels-Only-All-Counts
 Per_MESSENGERS.ANTIOCH.1-Vowels-Only-All-Counts-Twofold
-Per_MESSENGERS.ANTIOCH.1-Vowels-Only-All-Percentages-Twofold
-Per_Marina-All-Counts-Twofold		Per_Marina-Emphasis-All-Counts
-Per_Marina-Emphasis-All-Counts-Twofold
+Per_Marina-All-Counts-Twofold		Per_Marina-Emphasis-All-Counts-Twofold
 Per_Marina-Emphasis-Min-100-Counts-Twofold
 Per_Marina-Emphasis-Min-1000-Counts-Twofold
 Per_Marina-Emphasis-Min-250-Counts-Twofold
@@ -1009,7 +1034,6 @@ Per_Marshal-Emphasis-All-Counts-Twofold		Per_Marshal-Emphasis-All-Percentages
 Per_Marshal-Emphasis-All-Percentages-Twofold
 Per_Marshal-Emphasis-Vowels-Only-All-Counts
 Per_Marshal-Emphasis-Vowels-Only-All-Counts-Twofold
-Per_Marshal-Emphasis-Vowels-Only-All-Percentages
 Per_Marshal-Emphasis-Vowels-Only-All-Percentages-Twofold
 Per_Marshal-Vowels-Only-All-Counts		Per_Marshal-Vowels-Only-All-Counts-Twofold
 Per_Marshal-Vowels-Only-All-Percentages
@@ -1042,7 +1066,6 @@ Per_PIRATES.0.3-Emphasis-All-Percentages
 Per_PIRATES.0.3-Emphasis-All-Percentages-Twofold
 Per_PIRATES.0.3-Emphasis-Vowels-Only-All-Counts
 Per_PIRATES.0.3-Emphasis-Vowels-Only-All-Counts-Twofold
-Per_PIRATES.0.3-Emphasis-Vowels-Only-All-Percentages
 Per_PIRATES.0.3-Emphasis-Vowels-Only-All-Percentages-Twofold
 Per_PIRATES.0.3-Vowels-Only-All-Counts
 Per_PIRATES.0.3-Vowels-Only-All-Counts-Twofold
@@ -1085,6 +1108,7 @@ Per_SAILORS.1-Emphasis-All-Percentages
 Per_SAILORS.1-Emphasis-All-Percentages-Twofold
 Per_SAILORS.1-Emphasis-Vowels-Only-All-Counts
 Per_SAILORS.1-Emphasis-Vowels-Only-All-Counts-Twofold
+Per_SAILORS.1-Emphasis-Vowels-Only-All-Percentages
 Per_SAILORS.1-Emphasis-Vowels-Only-All-Percentages-Twofold
 Per_SAILORS.1-Vowels-Only-All-Counts
 Per_SAILORS.1-Vowels-Only-All-Counts-Twofold
@@ -1210,8 +1234,9 @@ Per_Thaisa-Vowels-Only-Min-250-Counts
 Per_Thaisa-Vowels-Only-Min-250-Counts-Twofold
 Per_Thaisa-Vowels-Only-Min-500-Counts
 Per_Thaisa-Vowels-Only-Min-500-Counts-Twofold		Per_Thaliard-All-Counts
-Per_Thaliard-All-Counts-Twofold		Per_Thaliard-Emphasis-All-Counts
-Per_Thaliard-Emphasis-All-Counts-Twofold		Per_Thaliard-Emphasis-Min-100-Counts
+Per_Thaliard-All-Counts-Twofold		Per_Thaliard-All-Percentages
+Per_Thaliard-Emphasis-All-Counts		Per_Thaliard-Emphasis-All-Counts-Twofold
+Per_Thaliard-Emphasis-Min-100-Counts
 Per_Thaliard-Emphasis-Min-100-Counts-Twofold
 Per_Thaliard-Emphasis-Min-100-Percentages
 Per_Thaliard-Emphasis-Min-100-Percentages-Twofold
@@ -1237,13 +1262,12 @@ Per_Diana-All-Percentages-Twofold		Per_Diana-Emphasis-All-Percentages
 Per_Diana-Emphasis-All-Percentages-Twofold
 Per_Diana-Emphasis-Vowels-Only-All-Percentages
 Per_Diana-Emphasis-Vowels-Only-All-Percentages-Twofold
-Per_Diana-Vowels-Only-All-Percentages		Per_Dionyza-All-Percentages
+Per_Diana-Vowels-Only-All-Percentages
+Per_Diana-Vowels-Only-All-Percentages-Twofold		Per_Dionyza-All-Percentages
 Per_Dionyza-All-Percentages-Twofold		Per_Dionyza-Min-100-Percentages
 Per_Dionyza-Min-100-Percentages-Twofold
 Per_Dionyza-Min-250-Percentages-Twofold
 Per_Dionyza-Vowels-Only-Min-250-Percentages-Twofold
-Per_FISHERMEN.2-Vowels-Only-All-Percentages
-Per_FISHERMEN.2-Vowels-Only-All-Percentages-Twofold
 Per_GENTLEMEN.MYTILENE.1-All-Percentages
 Per_GENTLEMEN.MYTILENE.1-All-Percentages-Twofold
 Per_GENTLEMEN.MYTILENE.1-Emphasis-All-Percentages
@@ -1256,10 +1280,14 @@ Per_KNIGHTS.0.3-Emphasis-All-Percentages
 Per_KNIGHTS.0.3-Emphasis-Vowels-Only-All-Percentages
 Per_KNIGHTS.0.3-Emphasis-Vowels-Only-All-Percentages-Twofold
 Per_LORDS.PENTAPOLIS.0.1-Emphasis-Vowels-Only-All-Percentages
+Per_LORDS.TYRE-All-Percentages		Per_LORDS.TYRE-All-Percentages-Twofold
+Per_LORDS.TYRE-Emphasis-All-Percentages
+Per_LORDS.TYRE-Emphasis-All-Percentages-Twofold
+Per_LORDS.TYRE-Vowels-Only-All-Percentages
+Per_LORDS.TYRE-Vowels-Only-All-Percentages-Twofold
 Per_MESSENGERS.ANTIOCH.1-Vowels-Only-All-Percentages
-Per_Marina-Emphasis-All-Percentages
-Per_Marina-Emphasis-All-Percentages-Twofold		Per_PIRATES.0.2-All-Percentages
-Per_PIRATES.0.2-Emphasis-All-Percentages
+Per_MESSENGERS.ANTIOCH.1-Vowels-Only-All-Percentages-Twofold
+Per_PIRATES.0.2-All-Percentages		Per_PIRATES.0.2-Emphasis-All-Percentages
 Per_PIRATES.0.2-Emphasis-Vowels-Only-All-Percentages
 Per_PIRATES.0.2-Emphasis-Vowels-Only-All-Percentages-Twofold
 Per_PIRATES.0.2-Vowels-Only-All-Percentages

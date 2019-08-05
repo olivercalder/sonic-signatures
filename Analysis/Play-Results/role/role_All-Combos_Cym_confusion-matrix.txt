@@ -1,11 +1,11 @@
                           Summary: role_All-Combos_Cym                          
 
 
-                      Overall accuracy = 58.41%                                 
-                      Average accuracy = 33.62%                                 
+                      Overall accuracy = 58.64%                                 
+                      Average accuracy = 34.66%                                 
 
-                      Average F1 score = 28.08%                                 
-                           Average MCC = 10.62%                                 
+                      Average F1 score = 28.65%                                 
+                           Average MCC = 11.32%                                 
 
 
                                 Confusion Matrix                                
@@ -16,9 +16,9 @@
             ——————————|——————————|——————————|——————————|——————————|             
               antag   |    51    |    0     |    61    |    0     |             
             ——————————|——————————|——————————|——————————|——————————|             
-               fool   |    46    |    20    |    27    |    3     |             
+               fool   |    42    |    24    |    27    |    3     |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |   228    |   166    |   955    |    91    |             
+              other   |   231    |   159    |   955    |    95    |             
             ——————————|——————————|——————————|——————————|——————————|             
               protag  |    0     |    87    |    23    |    2     |             
             ——————————|——————————|——————————|——————————|——————————|             
@@ -27,13 +27,13 @@
                          Total samples = 1760                                   
 
                   Total actual "antag" = 112                                    
-               Total predicted "antag" = 325                                    
+               Total predicted "antag" = 324                                    
                    Total actual "fool" = 96                                     
-                Total predicted "fool" = 273                                    
+                Total predicted "fool" = 270                                    
                   Total actual "other" = 1440                                   
                Total predicted "other" = 1066                                   
                  Total actual "protag" = 112                                    
-              Total predicted "protag" = 96                                     
+              Total predicted "protag" = 100                                    
 
 
                                  Percent Matrix                                 
@@ -44,22 +44,22 @@
             ——————————|——————————|——————————|——————————|——————————|             
               antag   |  2.90%   |  0.00%   |  3.47%   |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-               fool   |  2.61%   |  1.14%   |  1.53%   |  0.17%   |             
+               fool   |  2.39%   |  1.36%   |  1.53%   |  0.17%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |  12.95%  |  9.43%   |  54.26%  |  5.17%   |             
+              other   |  13.12%  |  9.03%   |  54.26%  |  5.40%   |             
             ——————————|——————————|——————————|——————————|——————————|             
               protag  |  0.00%   |  4.94%   |  1.31%   |  0.11%   |             
             ——————————|——————————|——————————|——————————|——————————|             
 
 
                 Percent actual "antag" = 6.36%                                  
-             Percent predicted "antag" = 18.47%                                 
+             Percent predicted "antag" = 18.41%                                 
                  Percent actual "fool" = 5.45%                                  
-              Percent predicted "fool" = 15.51%                                 
+              Percent predicted "fool" = 15.34%                                 
                 Percent actual "other" = 81.82%                                 
              Percent predicted "other" = 60.57%                                 
                Percent actual "protag" = 6.36%                                  
-            Percent predicted "protag" = 5.45%                                  
+            Percent predicted "protag" = 5.68%                                  
 
 
              Percent Matrix with Total of Each Actual Class = 100%              
@@ -70,16 +70,16 @@
             ——————————|——————————|——————————|——————————|——————————|             
               antag   |  45.54%  |  0.00%   |  54.46%  |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-               fool   |  47.92%  |  20.83%  |  28.12%  |  3.12%   |             
+               fool   |  43.75%  |  25.00%  |  28.12%  |  3.12%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |  15.83%  |  11.53%  |  66.32%  |  6.32%   |             
+              other   |  16.04%  |  11.04%  |  66.32%  |  6.60%   |             
             ——————————|——————————|——————————|——————————|——————————|             
               protag  |  0.00%   |  77.68%  |  20.54%  |  1.79%   |             
             ——————————|——————————|——————————|——————————|——————————|             
 
 
      Percent correct of actual "antag" = 45.54%                                 
-      Percent correct of actual "fool" = 20.83%                                 
+      Percent correct of actual "fool" = 25.00%                                 
      Percent correct of actual "other" = 66.32%                                 
     Percent correct of actual "protag" = 1.79%                                  
 
@@ -90,34 +90,68 @@
 
                       |  antag   |   fool   |  other   |  protag  |             
             ——————————|——————————|——————————|——————————|——————————|             
-              antag   |  15.69%  |  0.00%   |  5.72%   |  0.00%   |             
+              antag   |  15.74%  |  0.00%   |  5.72%   |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-               fool   |  14.15%  |  7.33%   |  2.53%   |  3.12%   |             
+               fool   |  12.96%  |  8.89%   |  2.53%   |  3.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |  70.15%  |  60.81%  |  89.59%  |  94.79%  |             
+              other   |  71.30%  |  58.89%  |  89.59%  |  95.00%  |             
             ——————————|——————————|——————————|——————————|——————————|             
-              protag  |  0.00%   |  31.87%  |  2.16%   |  2.08%   |             
+              protag  |  0.00%   |  32.22%  |  2.16%   |  2.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
 
 
-  Percent correct of predicted "antag" = 15.69%                                 
-   Percent correct of predicted "fool" = 7.33%                                  
+  Percent correct of predicted "antag" = 15.74%                                 
+   Percent correct of predicted "fool" = 8.89%                                  
   Percent correct of predicted "other" = 89.59%                                 
- Percent correct of predicted "protag" = 2.08%                                  
+ Percent correct of predicted "protag" = 2.00%                                  
 
 
                                    F1 Scores:                                   
-                  F1 score for "antag" = 23.34%                                 
-                   F1 score for "fool" = 10.84%                                 
+                  F1 score for "antag" = 23.39%                                 
+                   F1 score for "fool" = 13.11%                                 
                   F1 score for "other" = 76.22%                                 
-                 F1 score for "protag" = 1.92%                                  
+                 F1 score for "protag" = 1.89%                                  
 
 
                        Matthews Correlation Coefficients:                       
-                 MCC score for "antag" = 18.19%                                 
-                  MCC score for "fool" = 3.53%                                  
+                 MCC score for "antag" = 18.25%                                 
+                  MCC score for "fool" = 6.44%                                  
                  MCC score for "other" = 24.96%                                 
-                MCC score for "protag" = -4.21%                                 
+                MCC score for "protag" = -4.39%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                        Actual "antag" Average Z-Scores:                        
+
+
+                        Actual "fool" Average Z-Scores:                         
+
+
+                        Actual "other" Average Z-Scores:                        
+
+
+                       Actual "protag" Average Z-Scores:                        
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                      Predicted "antag" Average Z-Scores:                       
+
+
+                       Predicted "fool" Average Z-Scores:                       
+
+
+                      Predicted "other" Average Z-Scores:                       
+
+
+                      Predicted "protag" Average Z-Scores:                      
+
+
 
 
 
@@ -239,7 +273,6 @@ Cym_Iachimo-Vowels-Only-Min-500-Percentages-Twofold
 
                       Actual "fool" Predicted as "antag":                       
 
-Cym_Cloten-All-Percentages		Cym_Cloten-All-Percentages-Twofold
 Cym_Cloten-Emphasis-All-Counts		Cym_Cloten-Emphasis-All-Counts-Twofold
 Cym_Cloten-Emphasis-All-Percentages
 Cym_Cloten-Emphasis-All-Percentages-Twofold
@@ -265,7 +298,6 @@ Cym_Cloten-Emphasis-Vowels-Only-No-Others-Counts
 Cym_Cloten-Emphasis-Vowels-Only-No-Others-Counts-Twofold
 Cym_Cloten-Emphasis-Vowels-Only-No-Others-Percentages
 Cym_Cloten-Emphasis-Vowels-Only-No-Others-Percentages-Twofold
-Cym_Cloten-No-Others-Percentages		Cym_Cloten-No-Others-Percentages-Twofold
 Cym_Cloten-Vowels-Only-All-Percentages
 Cym_Cloten-Vowels-Only-All-Percentages-Twofold
 Cym_Cloten-Vowels-Only-Min-100-Percentages
@@ -284,6 +316,7 @@ Cym_Cloten-Vowels-Only-No-Others-Percentages-Twofold
                        Actual "fool" Predicted as "fool":                       
 
 Cym_Cloten-All-Counts		Cym_Cloten-All-Counts-Twofold
+Cym_Cloten-All-Percentages		Cym_Cloten-All-Percentages-Twofold
 Cym_Cloten-Min-100-Counts		Cym_Cloten-Min-100-Counts-Twofold
 Cym_Cloten-Min-100-Percentages		Cym_Cloten-Min-100-Percentages-Twofold
 Cym_Cloten-Min-1000-Counts		Cym_Cloten-Min-1000-Counts-Twofold
@@ -293,6 +326,7 @@ Cym_Cloten-Min-250-Percentages		Cym_Cloten-Min-250-Percentages-Twofold
 Cym_Cloten-Min-500-Counts		Cym_Cloten-Min-500-Counts-Twofold
 Cym_Cloten-Min-500-Percentages		Cym_Cloten-Min-500-Percentages-Twofold
 Cym_Cloten-No-Others-Counts		Cym_Cloten-No-Others-Counts-Twofold
+Cym_Cloten-No-Others-Percentages		Cym_Cloten-No-Others-Percentages-Twofold
 
 
                       Actual "fool" Predicted as "other":                       
@@ -349,6 +383,8 @@ Cym_ATTENDANTS.1-Vowels-Only-Min-250-Percentages
 Cym_ATTENDANTS.1-Vowels-Only-Min-500-Percentages
 Cym_ATTENDANTS.1-Vowels-Only-Min-500-Percentages-Twofold
 Cym_ATTENDANTS.2-All-Percentages		Cym_ATTENDANTS.2-All-Percentages-Twofold
+Cym_ATTENDANTS.2-Emphasis-All-Percentages
+Cym_ATTENDANTS.2-Emphasis-All-Percentages-Twofold
 Cym_ATTENDANTS.CLOTEN.2-All-Percentages
 Cym_ATTENDANTS.CLOTEN.2-All-Percentages-Twofold
 Cym_ATTENDANTS.CLOTEN.2-Emphasis-All-Percentages
@@ -407,6 +443,7 @@ Cym_Cymbeline-Emphasis-Vowels-Only-Min-250-Percentages
 Cym_Cymbeline-Min-100-Percentages		Cym_Cymbeline-Min-250-Percentages
 Cym_Cymbeline-Min-250-Percentages-Twofold
 Cym_Cymbeline-Vowels-Only-All-Percentages
+Cym_Cymbeline-Vowels-Only-All-Percentages-Twofold
 Cym_Cymbeline-Vowels-Only-Min-100-Percentages
 Cym_Cymbeline-Vowels-Only-Min-250-Percentages
 Cym_GHOSTS.BROTHERS.1-Emphasis-Vowels-Only-All-Percentages
@@ -419,7 +456,6 @@ Cym_GHOSTS.Mother-Emphasis-Vowels-Only-All-Percentages
 Cym_GHOSTS.Mother-Emphasis-Vowels-Only-All-Percentages-Twofold
 Cym_GHOSTS.Mother-Vowels-Only-All-Percentages
 Cym_GHOSTS.Mother-Vowels-Only-All-Percentages-Twofold
-Cym_JAILERS.1-All-Percentages		Cym_JAILERS.1-All-Percentages-Twofold
 Cym_JAILERS.1-Emphasis-Min-250-Counts
 Cym_JAILERS.1-Emphasis-Min-250-Counts-Twofold		Cym_JAILERS.1-Min-100-Counts
 Cym_JAILERS.1-Min-250-Counts		Cym_JAILERS.1-Min-250-Percentages
@@ -436,9 +472,12 @@ Cym_MESSENGERS.1-Emphasis-All-Percentages
 Cym_MESSENGERS.1-Emphasis-All-Percentages-Twofold
 Cym_MESSENGERS.1-Emphasis-Vowels-Only-All-Percentages
 Cym_MESSENGERS.1-Emphasis-Vowels-Only-All-Percentages-Twofold
-Cym_MESSENGERS.2-All-Percentages		Cym_MESSENGERS.2-Vowels-Only-All-Percentages
+Cym_MESSENGERS.2-Vowels-Only-All-Percentages
 Cym_MUSICIANS-Emphasis-Vowels-Only-All-Percentages
 Cym_MUSICIANS-Emphasis-Vowels-Only-All-Percentages-Twofold
+Cym_Philario-All-Percentages		Cym_Philario-All-Percentages-Twofold
+Cym_Philario-Emphasis-All-Percentages
+Cym_Philario-Emphasis-All-Percentages-Twofold
 Cym_Philario-Emphasis-Min-100-Percentages
 Cym_Philario-Emphasis-Min-100-Percentages-Twofold
 Cym_Philario-Emphasis-Min-250-Percentages
@@ -511,6 +550,7 @@ Cym_SOLDIERS.ROMAN.0.1-All-Percentages
 Cym_SOLDIERS.ROMAN.0.1-All-Percentages-Twofold
 Cym_SOLDIERS.ROMAN.0.1-Emphasis-All-Percentages
 Cym_SOLDIERS.ROMAN.0.1-Emphasis-All-Percentages-Twofold
+Cym_SOLDIERS.ROMAN.0.1-Emphasis-Vowels-Only-All-Percentages
 Cym_SOLDIERS.ROMAN.0.1-Vowels-Only-All-Percentages
 Cym_Soothsayer-All-Percentages		Cym_Soothsayer-All-Percentages-Twofold
 Cym_Soothsayer-Emphasis-All-Percentages
@@ -518,11 +558,9 @@ Cym_Soothsayer-Emphasis-All-Percentages-Twofold
 Cym_Soothsayer-Emphasis-Min-100-Percentages
 Cym_Soothsayer-Emphasis-Min-250-Percentages
 Cym_Soothsayer-Emphasis-Vowels-Only-All-Percentages
-Cym_Soothsayer-Emphasis-Vowels-Only-All-Percentages-Twofold
 Cym_Soothsayer-Min-100-Percentages		Cym_Soothsayer-Min-250-Percentages
 Cym_Soothsayer-Min-250-Percentages-Twofold
 Cym_Soothsayer-Vowels-Only-All-Percentages
-Cym_Soothsayer-Vowels-Only-All-Percentages-Twofold
 Cym_Soothsayer-Vowels-Only-Min-100-Percentages
 Cym_Soothsayer-Vowels-Only-Min-250-Percentages
 Cym_TRIBUNES.0.1-All-Percentages		Cym_TRIBUNES.0.1-Emphasis-All-Percentages
@@ -535,9 +573,8 @@ Cym_TRIBUNES.0.1-Vowels-Only-All-Percentages-Twofold
 
                       Actual "other" Predicted as "fool":                       
 
-Cym_ATTENDANTS.2-Emphasis-All-Percentages
-Cym_ATTENDANTS.2-Emphasis-All-Percentages-Twofold
 Cym_ATTENDANTS.2-Emphasis-Vowels-Only-All-Percentages
+Cym_ATTENDANTS.3-Emphasis-Vowels-Only-All-Percentages
 Cym_ATTENDANTS.3-Vowels-Only-All-Percentages
 Cym_ATTENDANTS.CLOTEN.1-All-Percentages
 Cym_ATTENDANTS.CLOTEN.1-All-Percentages-Twofold
@@ -553,10 +590,8 @@ Cym_ATTENDANTS.CLOTEN.1-Min-100-Percentages-Twofold
 Cym_ATTENDANTS.CLOTEN.1-Vowels-Only-All-Percentages
 Cym_ATTENDANTS.CLOTEN.1-Vowels-Only-Min-100-Percentages
 Cym_ATTENDANTS.CLOTEN.1-Vowels-Only-Min-100-Percentages-Twofold
-Cym_Arviragus-All-Percentages		Cym_Arviragus-All-Percentages-Twofold
 Cym_Arviragus-Min-250-Percentages		Cym_Arviragus-Min-250-Percentages-Twofold
 Cym_Arviragus-Min-500-Percentages		Cym_Arviragus-Min-500-Percentages-Twofold
-Cym_Arviragus-Vowels-Only-All-Counts
 Cym_Arviragus-Vowels-Only-All-Percentages
 Cym_Arviragus-Vowels-Only-All-Percentages-Twofold
 Cym_Arviragus-Vowels-Only-Min-100-Counts
@@ -571,8 +606,6 @@ Cym_Arviragus-Vowels-Only-Min-500-Percentages-Twofold
 Cym_Frenchman-Emphasis-Vowels-Only-All-Percentages
 Cym_Frenchman-Emphasis-Vowels-Only-All-Percentages-Twofold
 Cym_Frenchman-Emphasis-Vowels-Only-Min-100-Percentages
-Cym_Frenchman-Vowels-Only-All-Percentages
-Cym_Frenchman-Vowels-Only-All-Percentages-Twofold
 Cym_GHOSTS.Mother-All-Percentages		Cym_GHOSTS.Mother-Emphasis-All-Percentages
 Cym_Guiderius-All-Percentages		Cym_Guiderius-All-Percentages-Twofold
 Cym_Guiderius-Emphasis-All-Counts		Cym_Guiderius-Emphasis-All-Percentages
@@ -609,6 +642,7 @@ Cym_Guiderius-Vowels-Only-Min-250-Percentages
 Cym_Guiderius-Vowels-Only-Min-250-Percentages-Twofold
 Cym_Guiderius-Vowels-Only-Min-500-Percentages
 Cym_Guiderius-Vowels-Only-Min-500-Percentages-Twofold
+Cym_JAILERS.1-All-Percentages		Cym_JAILERS.1-All-Percentages-Twofold
 Cym_JAILERS.1-Emphasis-All-Percentages
 Cym_JAILERS.1-Emphasis-All-Percentages-Twofold
 Cym_JAILERS.1-Emphasis-Min-100-Percentages
@@ -631,15 +665,14 @@ Cym_JAILERS.1-Vowels-Only-Min-100-Percentages-Twofold
 Cym_JAILERS.1-Vowels-Only-Min-250-Percentages
 Cym_JAILERS.1-Vowels-Only-Min-250-Percentages-Twofold
 Cym_LADIES.IMOGEN-Vowels-Only-All-Percentages
-Cym_LADIES.QUEEN.0.1-Emphasis-Vowels-Only-All-Percentages
 Cym_MESSENGERS.1-All-Percentages		Cym_MESSENGERS.1-All-Percentages-Twofold
 Cym_MESSENGERS.1-Vowels-Only-All-Percentages
 Cym_MESSENGERS.1-Vowels-Only-All-Percentages-Twofold
-Cym_MUSICIANS-All-Percentages		Cym_MUSICIANS-Vowels-Only-All-Percentages
-Cym_MUSICIANS-Vowels-Only-All-Percentages-Twofold
-Cym_Philario-All-Percentages		Cym_Philario-All-Percentages-Twofold
-Cym_Philario-Emphasis-All-Percentages
-Cym_Philario-Emphasis-All-Percentages-Twofold		Cym_Pisanio-All-Percentages
+Cym_MESSENGERS.2-All-Percentages		Cym_MUSICIANS-All-Percentages
+Cym_MUSICIANS-Emphasis-All-Percentages
+Cym_MUSICIANS-Emphasis-All-Percentages-Twofold
+Cym_MUSICIANS-Vowels-Only-All-Percentages
+Cym_MUSICIANS-Vowels-Only-All-Percentages-Twofold		Cym_Pisanio-All-Percentages
 Cym_Pisanio-All-Percentages-Twofold		Cym_Pisanio-Min-100-Percentages
 Cym_Pisanio-Min-100-Percentages-Twofold		Cym_Pisanio-Min-1000-Percentages
 Cym_Pisanio-Min-500-Percentages		Cym_Pisanio-Vowels-Only-All-Percentages
@@ -677,14 +710,13 @@ Cym_Queen-Vowels-Only-Min-500-Percentages
 Cym_Queen-Vowels-Only-Min-500-Percentages-Twofold
 Cym_SENATORS.2-Emphasis-All-Percentages
 Cym_SENATORS.2-Emphasis-Vowels-Only-All-Percentages
+Cym_SENATORS.2-Vowels-Only-All-Percentages
 Cym_SOLDIERS.BRITON.0.2-All-Percentages
 Cym_SOLDIERS.BRITON.0.2-All-Percentages-Twofold
 Cym_SOLDIERS.BRITON.0.2-Emphasis-All-Percentages
 Cym_SOLDIERS.BRITON.0.2-Emphasis-Vowels-Only-All-Percentages
 Cym_SOLDIERS.BRITON.0.2-Vowels-Only-All-Percentages
 Cym_SOLDIERS.BRITON.0.2-Vowels-Only-All-Percentages-Twofold
-Cym_SOLDIERS.ROMAN.0.1-Emphasis-Vowels-Only-All-Percentages
-Cym_SOLDIERS.ROMAN.0.1-Emphasis-Vowels-Only-All-Percentages-Twofold
 
 
                       Actual "other" Predicted as "other":                      
@@ -793,7 +825,6 @@ Cym_ATTENDANTS.3-Emphasis-All-Percentages
 Cym_ATTENDANTS.3-Emphasis-All-Percentages-Twofold
 Cym_ATTENDANTS.3-Emphasis-Vowels-Only-All-Counts
 Cym_ATTENDANTS.3-Emphasis-Vowels-Only-All-Counts-Twofold
-Cym_ATTENDANTS.3-Emphasis-Vowels-Only-All-Percentages
 Cym_ATTENDANTS.3-Emphasis-Vowels-Only-All-Percentages-Twofold
 Cym_ATTENDANTS.3-Vowels-Only-All-Counts
 Cym_ATTENDANTS.3-Vowels-Only-All-Counts-Twofold
@@ -861,6 +892,7 @@ Cym_Arviragus-Emphasis-Vowels-Only-Min-500-Counts
 Cym_Arviragus-Min-100-Counts		Cym_Arviragus-Min-100-Counts-Twofold
 Cym_Arviragus-Min-250-Counts		Cym_Arviragus-Min-250-Counts-Twofold
 Cym_Arviragus-Min-500-Counts		Cym_Arviragus-Min-500-Counts-Twofold
+Cym_Arviragus-Vowels-Only-All-Counts
 Cym_Arviragus-Vowels-Only-All-Counts-Twofold
 Cym_Arviragus-Vowels-Only-Min-100-Counts-Twofold
 Cym_Arviragus-Vowels-Only-Min-250-Counts-Twofold
@@ -989,7 +1021,6 @@ Cym_Cymbeline-Min-1000-Counts-Twofold		Cym_Cymbeline-Min-250-Counts
 Cym_Cymbeline-Min-250-Counts-Twofold		Cym_Cymbeline-Min-500-Counts
 Cym_Cymbeline-Min-500-Counts-Twofold		Cym_Cymbeline-Vowels-Only-All-Counts
 Cym_Cymbeline-Vowels-Only-All-Counts-Twofold
-Cym_Cymbeline-Vowels-Only-All-Percentages-Twofold
 Cym_Cymbeline-Vowels-Only-Min-100-Counts
 Cym_Cymbeline-Vowels-Only-Min-100-Counts-Twofold
 Cym_Cymbeline-Vowels-Only-Min-100-Percentages-Twofold
@@ -1196,6 +1227,7 @@ Cym_LADIES.QUEEN.0.1-Emphasis-All-Percentages
 Cym_LADIES.QUEEN.0.1-Emphasis-All-Percentages-Twofold
 Cym_LADIES.QUEEN.0.1-Emphasis-Vowels-Only-All-Counts
 Cym_LADIES.QUEEN.0.1-Emphasis-Vowels-Only-All-Counts-Twofold
+Cym_LADIES.QUEEN.0.1-Emphasis-Vowels-Only-All-Percentages
 Cym_LADIES.QUEEN.0.1-Emphasis-Vowels-Only-All-Percentages-Twofold
 Cym_LADIES.QUEEN.0.1-Vowels-Only-All-Counts
 Cym_LADIES.QUEEN.0.1-Vowels-Only-All-Counts-Twofold
@@ -1267,8 +1299,6 @@ Cym_MESSENGERS.2-Vowels-Only-All-Counts-Twofold
 Cym_MESSENGERS.2-Vowels-Only-All-Percentages-Twofold		Cym_MUSICIANS-All-Counts
 Cym_MUSICIANS-All-Counts-Twofold		Cym_MUSICIANS-All-Percentages-Twofold
 Cym_MUSICIANS-Emphasis-All-Counts		Cym_MUSICIANS-Emphasis-All-Counts-Twofold
-Cym_MUSICIANS-Emphasis-All-Percentages
-Cym_MUSICIANS-Emphasis-All-Percentages-Twofold
 Cym_MUSICIANS-Emphasis-Vowels-Only-All-Counts
 Cym_MUSICIANS-Emphasis-Vowels-Only-All-Counts-Twofold
 Cym_MUSICIANS-Vowels-Only-All-Counts
@@ -1436,7 +1466,6 @@ Cym_SENATORS.2-Emphasis-Vowels-Only-All-Counts-Twofold
 Cym_SENATORS.2-Emphasis-Vowels-Only-All-Percentages-Twofold
 Cym_SENATORS.2-Vowels-Only-All-Counts
 Cym_SENATORS.2-Vowels-Only-All-Counts-Twofold
-Cym_SENATORS.2-Vowels-Only-All-Percentages
 Cym_SENATORS.2-Vowels-Only-All-Percentages-Twofold
 Cym_SOLDIERS.BRITON.0.1-All-Counts		Cym_SOLDIERS.BRITON.0.1-All-Counts-Twofold
 Cym_SOLDIERS.BRITON.0.1-All-Percentages
@@ -1467,6 +1496,7 @@ Cym_SOLDIERS.ROMAN.0.1-Emphasis-All-Counts
 Cym_SOLDIERS.ROMAN.0.1-Emphasis-All-Counts-Twofold
 Cym_SOLDIERS.ROMAN.0.1-Emphasis-Vowels-Only-All-Counts
 Cym_SOLDIERS.ROMAN.0.1-Emphasis-Vowels-Only-All-Counts-Twofold
+Cym_SOLDIERS.ROMAN.0.1-Emphasis-Vowels-Only-All-Percentages-Twofold
 Cym_SOLDIERS.ROMAN.0.1-Vowels-Only-All-Counts
 Cym_SOLDIERS.ROMAN.0.1-Vowels-Only-All-Counts-Twofold
 Cym_SOLDIERS.ROMAN.0.1-Vowels-Only-All-Percentages-Twofold
@@ -1480,6 +1510,7 @@ Cym_Soothsayer-Emphasis-Min-250-Counts-Twofold
 Cym_Soothsayer-Emphasis-Min-250-Percentages-Twofold
 Cym_Soothsayer-Emphasis-Vowels-Only-All-Counts
 Cym_Soothsayer-Emphasis-Vowels-Only-All-Counts-Twofold
+Cym_Soothsayer-Emphasis-Vowels-Only-All-Percentages-Twofold
 Cym_Soothsayer-Emphasis-Vowels-Only-Min-100-Counts
 Cym_Soothsayer-Emphasis-Vowels-Only-Min-100-Counts-Twofold
 Cym_Soothsayer-Emphasis-Vowels-Only-Min-100-Percentages
@@ -1492,6 +1523,7 @@ Cym_Soothsayer-Min-100-Counts		Cym_Soothsayer-Min-100-Counts-Twofold
 Cym_Soothsayer-Min-100-Percentages-Twofold		Cym_Soothsayer-Min-250-Counts
 Cym_Soothsayer-Min-250-Counts-Twofold		Cym_Soothsayer-Vowels-Only-All-Counts
 Cym_Soothsayer-Vowels-Only-All-Counts-Twofold
+Cym_Soothsayer-Vowels-Only-All-Percentages-Twofold
 Cym_Soothsayer-Vowels-Only-Min-100-Counts
 Cym_Soothsayer-Vowels-Only-Min-100-Counts-Twofold
 Cym_Soothsayer-Vowels-Only-Min-100-Percentages-Twofold
@@ -1509,6 +1541,7 @@ Cym_TRIBUNES.0.1-Vowels-Only-All-Counts-Twofold
 
                      Actual "other" Predicted as "protag":                      
 
+Cym_Arviragus-All-Percentages		Cym_Arviragus-All-Percentages-Twofold
 Cym_Arviragus-Emphasis-All-Percentages
 Cym_Arviragus-Emphasis-All-Percentages-Twofold
 Cym_Arviragus-Emphasis-Min-100-Percentages
@@ -1561,6 +1594,8 @@ Cym_Frenchman-Emphasis-All-Percentages-Twofold
 Cym_Frenchman-Emphasis-Min-100-Percentages
 Cym_Frenchman-Emphasis-Min-100-Percentages-Twofold
 Cym_Frenchman-Min-100-Percentages		Cym_Frenchman-Min-100-Percentages-Twofold
+Cym_Frenchman-Vowels-Only-All-Percentages
+Cym_Frenchman-Vowels-Only-All-Percentages-Twofold
 Cym_Frenchman-Vowels-Only-Min-100-Percentages
 Cym_Frenchman-Vowels-Only-Min-100-Percentages-Twofold
 Cym_Lucius-All-Percentages		Cym_Lucius-All-Percentages-Twofold

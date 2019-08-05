@@ -1,86 +1,75 @@
                           Summary: role_All-Combos_JC                           
 
 
-                      Overall accuracy = 67.74%                                 
-                      Average accuracy = 53.76%                                 
+                      Overall accuracy = 76.42%                                 
+                      Average accuracy = 68.50%                                 
 
-                      Average F1 score = 41.49%                                 
-                           Average MCC = 26.71%                                 
+                      Average F1 score = 55.87%                                 
+                           Average MCC = 37.40%                                 
 
 
                                 Confusion Matrix                                
 
                       rows : actual :: columns : predicted                      
 
-                      |  antag   |   fool   |  other   |  protag  |             
-            ——————————|——————————|——————————|——————————|——————————|             
-              antag   |    34    |    0     |    76    |    2     |             
-            ——————————|——————————|——————————|——————————|——————————|             
-               fool   |    6     |    6     |    12    |    8     |             
-            ——————————|——————————|——————————|——————————|——————————|             
-              other   |    97    |   165    |   990    |   172    |             
-            ——————————|——————————|——————————|——————————|——————————|             
-              protag  |    0     |    0     |    4     |   108    |             
-            ——————————|——————————|——————————|——————————|——————————|             
+                            |  antag   |  other   |  protag  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    antag   |    34    |    76    |    2     |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    other   |    97    |   1002   |   174    |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    protag  |    0     |    4     |   108    |                  
+                  ——————————|——————————|——————————|——————————|                  
 
 
-                         Total samples = 1680                                   
+                         Total samples = 1497                                   
 
                   Total actual "antag" = 112                                    
-               Total predicted "antag" = 137                                    
-                   Total actual "fool" = 32                                     
-                Total predicted "fool" = 171                                    
-                  Total actual "other" = 1424                                   
+               Total predicted "antag" = 131                                    
+                  Total actual "other" = 1273                                   
                Total predicted "other" = 1082                                   
                  Total actual "protag" = 112                                    
-              Total predicted "protag" = 290                                    
+              Total predicted "protag" = 284                                    
 
 
                                  Percent Matrix                                 
 
                       rows : actual :: columns : predicted                      
 
-                      |  antag   |   fool   |  other   |  protag  |             
-            ——————————|——————————|——————————|——————————|——————————|             
-              antag   |  2.02%   |  0.00%   |  4.52%   |  0.12%   |             
-            ——————————|——————————|——————————|——————————|——————————|             
-               fool   |  0.36%   |  0.36%   |  0.71%   |  0.48%   |             
-            ——————————|——————————|——————————|——————————|——————————|             
-              other   |  5.77%   |  9.82%   |  58.93%  |  10.24%  |             
-            ——————————|——————————|——————————|——————————|——————————|             
-              protag  |  0.00%   |  0.00%   |  0.24%   |  6.43%   |             
-            ——————————|——————————|——————————|——————————|——————————|             
+                            |  antag   |  other   |  protag  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    antag   |  2.27%   |  5.08%   |  0.13%   |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    other   |  6.48%   |  66.93%  |  11.62%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    protag  |  0.00%   |  0.27%   |  7.21%   |                  
+                  ——————————|——————————|——————————|——————————|                  
 
 
-                Percent actual "antag" = 6.67%                                  
-             Percent predicted "antag" = 8.15%                                  
-                 Percent actual "fool" = 1.90%                                  
-              Percent predicted "fool" = 10.18%                                 
-                Percent actual "other" = 84.76%                                 
-             Percent predicted "other" = 64.40%                                 
-               Percent actual "protag" = 6.67%                                  
-            Percent predicted "protag" = 17.26%                                 
+                Percent actual "antag" = 7.48%                                  
+             Percent predicted "antag" = 8.75%                                  
+                Percent actual "other" = 85.04%                                 
+             Percent predicted "other" = 72.28%                                 
+               Percent actual "protag" = 7.48%                                  
+            Percent predicted "protag" = 18.97%                                 
 
 
              Percent Matrix with Total of Each Actual Class = 100%              
 
                       rows : actual :: columns : predicted                      
 
-                      |  antag   |   fool   |  other   |  protag  |             
-            ——————————|——————————|——————————|——————————|——————————|             
-              antag   |  30.36%  |  0.00%   |  67.86%  |  1.79%   |             
-            ——————————|——————————|——————————|——————————|——————————|             
-               fool   |  18.75%  |  18.75%  |  37.50%  |  25.00%  |             
-            ——————————|——————————|——————————|——————————|——————————|             
-              other   |  6.81%   |  11.59%  |  69.52%  |  12.08%  |             
-            ——————————|——————————|——————————|——————————|——————————|             
-              protag  |  0.00%   |  0.00%   |  3.57%   |  96.43%  |             
-            ——————————|——————————|——————————|——————————|——————————|             
+                            |  antag   |  other   |  protag  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    antag   |  30.36%  |  67.86%  |  1.79%   |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    other   |  7.62%   |  78.71%  |  13.67%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    protag  |  0.00%   |  3.57%   |  96.43%  |                  
+                  ——————————|——————————|——————————|——————————|                  
 
 
      Percent correct of actual "antag" = 30.36%                                 
-      Percent correct of actual "fool" = 18.75%                                 
-     Percent correct of actual "other" = 69.52%                                 
+     Percent correct of actual "other" = 78.71%                                 
     Percent correct of actual "protag" = 96.43%                                 
 
 
@@ -88,36 +77,59 @@
 
                       rows : actual :: columns : predicted                      
 
-                      |  antag   |   fool   |  other   |  protag  |             
-            ——————————|——————————|——————————|——————————|——————————|             
-              antag   |  24.82%  |  0.00%   |  7.02%   |  0.69%   |             
-            ——————————|——————————|——————————|——————————|——————————|             
-               fool   |  4.38%   |  3.51%   |  1.11%   |  2.76%   |             
-            ——————————|——————————|——————————|——————————|——————————|             
-              other   |  70.80%  |  96.49%  |  91.50%  |  59.31%  |             
-            ——————————|——————————|——————————|——————————|——————————|             
-              protag  |  0.00%   |  0.00%   |  0.37%   |  37.24%  |             
-            ——————————|——————————|——————————|——————————|——————————|             
+                            |  antag   |  other   |  protag  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    antag   |  25.95%  |  7.02%   |  0.70%   |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    other   |  74.05%  |  92.61%  |  61.27%  |                  
+                  ——————————|——————————|——————————|——————————|                  
+                    protag  |  0.00%   |  0.37%   |  38.03%  |                  
+                  ——————————|——————————|——————————|——————————|                  
 
 
-  Percent correct of predicted "antag" = 24.82%                                 
-   Percent correct of predicted "fool" = 3.51%                                  
-  Percent correct of predicted "other" = 91.50%                                 
- Percent correct of predicted "protag" = 37.24%                                 
+  Percent correct of predicted "antag" = 25.95%                                 
+  Percent correct of predicted "other" = 92.61%                                 
+ Percent correct of predicted "protag" = 38.03%                                 
 
 
                                    F1 Scores:                                   
-                  F1 score for "antag" = 27.31%                                 
-                   F1 score for "fool" = 5.91%                                  
-                  F1 score for "other" = 79.01%                                 
-                 F1 score for "protag" = 53.73%                                 
+                  F1 score for "antag" = 27.98%                                 
+                  F1 score for "other" = 85.10%                                 
+                 F1 score for "protag" = 54.55%                                 
 
 
                        Matthews Correlation Coefficients:                       
-                 MCC score for "antag" = 21.68%                                 
-                  MCC score for "fool" = 3.95%                                  
-                 MCC score for "other" = 25.21%                                 
-                MCC score for "protag" = 55.99%                                 
+                 MCC score for "antag" = 21.74%                                 
+                 MCC score for "other" = 34.26%                                 
+                MCC score for "protag" = 56.18%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                        Actual "antag" Average Z-Scores:                        
+
+
+                        Actual "other" Average Z-Scores:                        
+
+
+                       Actual "protag" Average Z-Scores:                        
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                      Predicted "antag" Average Z-Scores:                       
+
+
+                      Predicted "other" Average Z-Scores:                       
+
+
+                      Predicted "protag" Average Z-Scores:                      
+
+
 
 
 
@@ -155,11 +167,6 @@ JC_Antony-Vowels-Only-No-Others-Counts
 JC_Antony-Vowels-Only-No-Others-Counts-Twofold
 JC_Antony-Vowels-Only-No-Others-Percentages
 JC_Antony-Vowels-Only-No-Others-Percentages-Twofold
-
-
-                      Actual "antag" Predicted as "fool":                       
-
-
 
 
                       Actual "antag" Predicted as "other":                      
@@ -228,49 +235,6 @@ JC_Antony-Vowels-Only-Min-500-Percentages-Twofold
                      Actual "antag" Predicted as "protag":                      
 
 JC_Antony-Emphasis-Min-2500-Counts		JC_Antony-Emphasis-Min-2500-Percentages
-
-
-                      Actual "fool" Predicted as "antag":                       
-
-JC_PLEBEIANS-Emphasis-No-Others-Counts
-JC_PLEBEIANS-Emphasis-No-Others-Counts-Twofold		JC_PLEBEIANS-No-Others-Counts
-JC_PLEBEIANS-No-Others-Counts-Twofold		JC_PLEBEIANS-No-Others-Percentages
-JC_PLEBEIANS-No-Others-Percentages-Twofold
-
-
-                       Actual "fool" Predicted as "fool":                       
-
-JC_PLEBEIANS-Emphasis-No-Others-Percentages
-JC_PLEBEIANS-Emphasis-No-Others-Percentages-Twofold
-JC_PLEBEIANS-Emphasis-Vowels-Only-All-Percentages
-JC_PLEBEIANS-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_PLEBEIANS-Emphasis-Vowels-Only-No-Others-Percentages
-JC_PLEBEIANS-Emphasis-Vowels-Only-No-Others-Percentages-Twofold
-
-
-                      Actual "fool" Predicted as "other":                       
-
-JC_PLEBEIANS-All-Counts		JC_PLEBEIANS-All-Counts-Twofold
-JC_PLEBEIANS-All-Percentages		JC_PLEBEIANS-All-Percentages-Twofold
-JC_PLEBEIANS-Emphasis-All-Counts		JC_PLEBEIANS-Emphasis-All-Counts-Twofold
-JC_PLEBEIANS-Emphasis-All-Percentages
-JC_PLEBEIANS-Emphasis-All-Percentages-Twofold
-JC_PLEBEIANS-Emphasis-Vowels-Only-All-Counts
-JC_PLEBEIANS-Emphasis-Vowels-Only-All-Counts-Twofold
-JC_PLEBEIANS-Vowels-Only-All-Counts
-JC_PLEBEIANS-Vowels-Only-All-Counts-Twofold
-
-
-                      Actual "fool" Predicted as "protag":                      
-
-JC_PLEBEIANS-Emphasis-Vowels-Only-No-Others-Counts
-JC_PLEBEIANS-Emphasis-Vowels-Only-No-Others-Counts-Twofold
-JC_PLEBEIANS-Vowels-Only-All-Percentages
-JC_PLEBEIANS-Vowels-Only-All-Percentages-Twofold
-JC_PLEBEIANS-Vowels-Only-No-Others-Counts
-JC_PLEBEIANS-Vowels-Only-No-Others-Counts-Twofold
-JC_PLEBEIANS-Vowels-Only-No-Others-Percentages
-JC_PLEBEIANS-Vowels-Only-No-Others-Percentages-Twofold
 
 
                       Actual "other" Predicted as "antag":                      
@@ -351,163 +315,6 @@ JC_SOLDIERS.BRUTUS.Messala-Emphasis-Vowels-Only-Min-250-Percentages-Twofold
 JC_SOLDIERS.BRUTUS.Titinius-Emphasis-Vowels-Only-All-Percentages
 JC_SOLDIERS.BRUTUS.Titinius-Emphasis-Vowels-Only-All-Percentages-Twofold
 JC_SOLDIERS.BRUTUS.Titinius-Emphasis-Vowels-Only-Min-100-Percentages
-
-
-                      Actual "other" Predicted as "fool":                       
-
-JC_COMMONERS.Carpenter-All-Percentages
-JC_COMMONERS.Carpenter-All-Percentages-Twofold
-JC_COMMONERS.Carpenter-Emphasis-All-Percentages
-JC_COMMONERS.Carpenter-Emphasis-Vowels-Only-All-Percentages
-JC_COMMONERS.Carpenter-Vowels-Only-All-Percentages
-JC_COMMONERS.Carpenter-Vowels-Only-All-Percentages-Twofold
-JC_COMMONERS.Cobbler-All-Percentages
-JC_COMMONERS.Cobbler-All-Percentages-Twofold
-JC_COMMONERS.Cobbler-Emphasis-All-Percentages
-JC_COMMONERS.Cobbler-Emphasis-All-Percentages-Twofold
-JC_COMMONERS.Cobbler-Emphasis-Min-100-Counts
-JC_COMMONERS.Cobbler-Emphasis-Min-100-Percentages
-JC_COMMONERS.Cobbler-Emphasis-Min-100-Percentages-Twofold
-JC_COMMONERS.Cobbler-Emphasis-Vowels-Only-All-Percentages
-JC_COMMONERS.Cobbler-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_COMMONERS.Cobbler-Emphasis-Vowels-Only-Min-100-Counts
-JC_COMMONERS.Cobbler-Emphasis-Vowels-Only-Min-100-Percentages
-JC_COMMONERS.Cobbler-Emphasis-Vowels-Only-Min-100-Percentages-Twofold
-JC_COMMONERS.Cobbler-Min-100-Percentages
-JC_COMMONERS.Cobbler-Min-100-Percentages-Twofold
-JC_COMMONERS.Cobbler-Vowels-Only-All-Percentages
-JC_COMMONERS.Cobbler-Vowels-Only-All-Percentages-Twofold
-JC_COMMONERS.Cobbler-Vowels-Only-Min-100-Percentages
-JC_COMMONERS.Cobbler-Vowels-Only-Min-100-Percentages-Twofold
-JC_Caesar-Min-500-Percentages		JC_Caesar-Min-500-Percentages-Twofold
-JC_Cicero-All-Percentages		JC_Cicero-All-Percentages-Twofold
-JC_Cicero-Vowels-Only-All-Percentages
-JC_Cicero-Vowels-Only-All-Percentages-Twofold
-JC_Cinna-Emphasis-Vowels-Only-All-Percentages
-JC_Cinna-Emphasis-Vowels-Only-Min-100-Percentages
-JC_CinnaPoet-All-Percentages		JC_CinnaPoet-All-Percentages-Twofold
-JC_CinnaPoet-Emphasis-All-Percentages
-JC_CinnaPoet-Emphasis-All-Percentages-Twofold
-JC_CinnaPoet-Emphasis-Min-100-Percentages
-JC_CinnaPoet-Emphasis-Min-100-Percentages-Twofold
-JC_CinnaPoet-Emphasis-Vowels-Only-All-Percentages
-JC_CinnaPoet-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_CinnaPoet-Emphasis-Vowels-Only-Min-100-Percentages
-JC_CinnaPoet-Emphasis-Vowels-Only-Min-100-Percentages-Twofold
-JC_CinnaPoet-Min-100-Percentages		JC_CinnaPoet-Min-100-Percentages-Twofold
-JC_CinnaPoet-Vowels-Only-All-Percentages
-JC_CinnaPoet-Vowels-Only-All-Percentages-Twofold
-JC_CinnaPoet-Vowels-Only-Min-100-Percentages
-JC_CinnaPoet-Vowels-Only-Min-100-Percentages-Twofold
-JC_Decius-Emphasis-All-Percentages		JC_Decius-Emphasis-All-Percentages-Twofold
-JC_Decius-Emphasis-Min-250-Percentages
-JC_Decius-Emphasis-Min-250-Percentages-Twofold
-JC_Decius-Emphasis-Vowels-Only-All-Percentages
-JC_Decius-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_Decius-Emphasis-Vowels-Only-Min-100-Percentages
-JC_Decius-Emphasis-Vowels-Only-Min-100-Percentages-Twofold
-JC_Decius-Emphasis-Vowels-Only-Min-250-Percentages
-JC_Decius-Emphasis-Vowels-Only-Min-250-Percentages-Twofold
-JC_Lepidus-All-Percentages		JC_Lepidus-All-Percentages-Twofold
-JC_Lepidus-Emphasis-All-Percentages
-JC_Lepidus-Emphasis-All-Percentages-Twofold
-JC_Lepidus-Emphasis-Vowels-Only-All-Percentages
-JC_Lepidus-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_Lepidus-Vowels-Only-All-Percentages
-JC_Lepidus-Vowels-Only-All-Percentages-Twofold
-JC_Lucius-Emphasis-Min-100-Percentages
-JC_Lucius-Emphasis-Min-100-Percentages-Twofold
-JC_Lucius-Emphasis-Vowels-Only-All-Percentages
-JC_Lucius-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_Lucius-Emphasis-Vowels-Only-Min-100-Percentages
-JC_Lucius-Emphasis-Vowels-Only-Min-100-Percentages-Twofold
-JC_Lucius-Vowels-Only-All-Percentages
-JC_Lucius-Vowels-Only-All-Percentages-Twofold
-JC_Lucius-Vowels-Only-Min-100-Percentages
-JC_Lucius-Vowels-Only-Min-100-Percentages-Twofold
-JC_Octavius-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_PLEBEIANS.0.2-Emphasis-Vowels-Only-All-Percentages
-JC_PLEBEIANS.0.2-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_PLEBEIANS.0.2-Emphasis-Vowels-Only-Min-100-Percentages
-JC_PLEBEIANS.0.2-Vowels-Only-All-Percentages
-JC_PLEBEIANS.0.2-Vowels-Only-All-Percentages-Twofold
-JC_PLEBEIANS.0.2-Vowels-Only-Min-100-Percentages
-JC_PLEBEIANS.0.3-Emphasis-Min-100-Percentages
-JC_PLEBEIANS.0.3-Emphasis-Vowels-Only-All-Percentages
-JC_PLEBEIANS.0.3-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_PLEBEIANS.0.3-Emphasis-Vowels-Only-Min-100-Percentages
-JC_Pindarus-All-Percentages-Twofold		JC_Pindarus-Emphasis-All-Percentages
-JC_Pindarus-Emphasis-Min-100-Percentages
-JC_Pindarus-Emphasis-Min-100-Percentages-Twofold
-JC_Pindarus-Emphasis-Vowels-Only-Min-100-Percentages
-JC_Pindarus-Emphasis-Vowels-Only-Min-100-Percentages-Twofold
-JC_Pindarus-Min-100-Percentages		JC_Pindarus-Min-100-Percentages-Twofold
-JC_Poet-All-Percentages		JC_Poet-All-Percentages-Twofold
-JC_Popilius-Emphasis-All-Percentages
-JC_Popilius-Emphasis-All-Percentages-Twofold
-JC_Popilius-Emphasis-Vowels-Only-All-Percentages
-JC_Popilius-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_Popilius-Vowels-Only-All-Percentages
-JC_Popilius-Vowels-Only-All-Percentages-Twofold
-JC_Publius-Vowels-Only-All-Percentages		JC_SERVANTS.CAESAR.1-All-Percentages
-JC_SERVANTS.CAESAR.1-All-Percentages-Twofold
-JC_SERVANTS.CAESAR.1-Emphasis-All-Percentages
-JC_SERVANTS.CAESAR.1-Emphasis-All-Percentages-Twofold
-JC_SERVANTS.CAESAR.1-Emphasis-Vowels-Only-All-Percentages
-JC_SERVANTS.CAESAR.1-Vowels-Only-All-Percentages
-JC_SOLDIERS.ANTONY.0.2-All-Percentages
-JC_SOLDIERS.ANTONY.0.2-All-Percentages-Twofold
-JC_SOLDIERS.ANTONY.0.2-Emphasis-All-Percentages
-JC_SOLDIERS.ANTONY.0.2-Emphasis-Vowels-Only-All-Percentages
-JC_SOLDIERS.ANTONY.0.2-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_SOLDIERS.ANTONY.0.2-Vowels-Only-All-Percentages
-JC_SOLDIERS.ANTONY.0.2-Vowels-Only-All-Percentages-Twofold
-JC_SOLDIERS.BRUTUS.0.1-Emphasis-All-Percentages
-JC_SOLDIERS.BRUTUS.0.1-Emphasis-All-Percentages-Twofold
-JC_SOLDIERS.BRUTUS.0.1-Emphasis-Vowels-Only-All-Percentages
-JC_SOLDIERS.BRUTUS.0.1-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_SOLDIERS.BRUTUS.0.1-Vowels-Only-All-Percentages
-JC_SOLDIERS.BRUTUS.0.1-Vowels-Only-All-Percentages-Twofold
-JC_SOLDIERS.BRUTUS.0.2-Emphasis-All-Percentages
-JC_SOLDIERS.BRUTUS.0.2-Emphasis-All-Percentages-Twofold
-JC_SOLDIERS.BRUTUS.0.2-Emphasis-Vowels-Only-All-Percentages
-JC_SOLDIERS.BRUTUS.0.2-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_SOLDIERS.BRUTUS.0.2-Vowels-Only-All-Percentages
-JC_SOLDIERS.BRUTUS.0.2-Vowels-Only-All-Percentages-Twofold
-JC_SOLDIERS.BRUTUS.0.3-Emphasis-All-Percentages
-JC_SOLDIERS.BRUTUS.0.3-Emphasis-All-Percentages-Twofold
-JC_SOLDIERS.BRUTUS.0.3-Emphasis-Vowels-Only-All-Percentages
-JC_SOLDIERS.BRUTUS.0.3-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_SOLDIERS.BRUTUS.0.3-Vowels-Only-All-Percentages
-JC_SOLDIERS.BRUTUS.0.3-Vowels-Only-All-Percentages-Twofold
-JC_SOLDIERS.BRUTUS.Clitus-Emphasis-Vowels-Only-All-Percentages
-JC_SOLDIERS.BRUTUS.Dardanus-Emphasis-Vowels-Only-All-Percentages
-JC_SOLDIERS.BRUTUS.Dardanus-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_SOLDIERS.BRUTUS.Dardanus-Vowels-Only-All-Percentages
-JC_SOLDIERS.BRUTUS.Dardanus-Vowels-Only-All-Percentages-Twofold
-JC_SOLDIERS.BRUTUS.Messala-Vowels-Only-All-Percentages
-JC_SOLDIERS.BRUTUS.Messala-Vowels-Only-All-Percentages-Twofold
-JC_SOLDIERS.BRUTUS.Messala-Vowels-Only-Min-100-Percentages
-JC_SOLDIERS.BRUTUS.Messala-Vowels-Only-Min-100-Percentages-Twofold
-JC_SOLDIERS.BRUTUS.Messala-Vowels-Only-Min-250-Percentages
-JC_SOLDIERS.BRUTUS.Messala-Vowels-Only-Min-250-Percentages-Twofold
-JC_SOLDIERS.BRUTUS.Strato-Emphasis-Vowels-Only-All-Percentages
-JC_SOLDIERS.BRUTUS.Strato-Vowels-Only-All-Percentages
-JC_Soothsayer-All-Percentages		JC_Soothsayer-All-Percentages-Twofold
-JC_Soothsayer-Emphasis-All-Percentages
-JC_Soothsayer-Emphasis-All-Percentages-Twofold
-JC_Soothsayer-Emphasis-Min-100-Percentages
-JC_Soothsayer-Emphasis-Min-100-Percentages-Twofold
-JC_Soothsayer-Min-100-Percentages		JC_Soothsayer-Min-100-Percentages-Twofold
-JC_Soothsayer-Vowels-Only-All-Percentages
-JC_Soothsayer-Vowels-Only-All-Percentages-Twofold
-JC_Soothsayer-Vowels-Only-Min-100-Percentages
-JC_Trebonius-Emphasis-All-Percentages
-JC_Trebonius-Emphasis-All-Percentages-Twofold
-JC_Trebonius-Emphasis-Vowels-Only-All-Percentages
-JC_Trebonius-Emphasis-Vowels-Only-All-Percentages-Twofold
-JC_Trebonius-Vowels-Only-All-Percentages
-JC_Trebonius-Vowels-Only-All-Percentages-Twofold
 
 
                       Actual "other" Predicted as "other":                      
@@ -888,10 +695,18 @@ JC_Octavius-Vowels-Only-Min-100-Percentages-Twofold
 JC_Octavius-Vowels-Only-Min-250-Counts
 JC_Octavius-Vowels-Only-Min-250-Counts-Twofold
 JC_Octavius-Vowels-Only-Min-250-Percentages
-JC_Octavius-Vowels-Only-Min-250-Percentages-Twofold
-JC_PLEBEIANS.0.1-All-Counts		JC_PLEBEIANS.0.1-All-Counts-Twofold
-JC_PLEBEIANS.0.1-All-Percentages		JC_PLEBEIANS.0.1-All-Percentages-Twofold
-JC_PLEBEIANS.0.1-Emphasis-All-Counts
+JC_Octavius-Vowels-Only-Min-250-Percentages-Twofold		JC_PLEBEIANS-All-Counts
+JC_PLEBEIANS-All-Counts-Twofold		JC_PLEBEIANS-All-Percentages
+JC_PLEBEIANS-All-Percentages-Twofold		JC_PLEBEIANS-Emphasis-All-Counts
+JC_PLEBEIANS-Emphasis-All-Counts-Twofold
+JC_PLEBEIANS-Emphasis-All-Percentages
+JC_PLEBEIANS-Emphasis-All-Percentages-Twofold
+JC_PLEBEIANS-Emphasis-Vowels-Only-All-Counts
+JC_PLEBEIANS-Emphasis-Vowels-Only-All-Counts-Twofold
+JC_PLEBEIANS-Vowels-Only-All-Counts
+JC_PLEBEIANS-Vowels-Only-All-Counts-Twofold		JC_PLEBEIANS.0.1-All-Counts
+JC_PLEBEIANS.0.1-All-Counts-Twofold		JC_PLEBEIANS.0.1-All-Percentages
+JC_PLEBEIANS.0.1-All-Percentages-Twofold		JC_PLEBEIANS.0.1-Emphasis-All-Counts
 JC_PLEBEIANS.0.1-Emphasis-All-Counts-Twofold
 JC_PLEBEIANS.0.1-Emphasis-All-Percentages
 JC_PLEBEIANS.0.1-Emphasis-All-Percentages-Twofold
@@ -1448,6 +1263,8 @@ JC_Messenger-Emphasis-Vowels-Only-All-Percentages
 JC_Messenger-Emphasis-Vowels-Only-All-Percentages-Twofold
 JC_Messenger-Vowels-Only-All-Percentages
 JC_Messenger-Vowels-Only-All-Percentages-Twofold
+JC_PLEBEIANS-Vowels-Only-All-Percentages
+JC_PLEBEIANS-Vowels-Only-All-Percentages-Twofold
 JC_Pindarus-Vowels-Only-Min-100-Percentages
 JC_Pindarus-Vowels-Only-Min-100-Percentages-Twofold
 JC_Poet-Emphasis-All-Percentages		JC_Poet-Emphasis-All-Percentages-Twofold
@@ -1498,11 +1315,6 @@ JC_Trebonius-All-Percentages		JC_Trebonius-All-Percentages-Twofold
 
 
                      Actual "protag" Predicted as "antag":                      
-
-
-
-
-                      Actual "protag" Predicted as "fool":                      
 
 
 

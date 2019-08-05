@@ -1,11 +1,11 @@
                           Summary: role_All-Combos_2H4                          
 
 
-                      Overall accuracy = 62.89%                                 
-                      Average accuracy = 42.55%                                 
+                      Overall accuracy = 62.45%                                 
+                      Average accuracy = 42.42%                                 
 
-                      Average F1 score = 34.53%                                 
-                           Average MCC = 17.88%                                 
+                      Average F1 score = 34.52%                                 
+                           Average MCC = 17.80%                                 
 
 
                                 Confusion Matrix                                
@@ -18,7 +18,7 @@
             ——————————|——————————|——————————|——————————|——————————|             
                fool   |    96    |    7     |    9     |    0     |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |   133    |   275    |   1199   |   153    |             
+              other   |   131    |   289    |   1190   |   150    |             
             ——————————|——————————|——————————|——————————|——————————|             
               protag  |    8     |    0     |    33    |    55    |             
             ——————————|——————————|——————————|——————————|——————————|             
@@ -27,13 +27,13 @@
                          Total samples = 2064                                   
 
                   Total actual "antag" = 96                                     
-               Total predicted "antag" = 274                                    
+               Total predicted "antag" = 272                                    
                    Total actual "fool" = 112                                    
-                Total predicted "fool" = 282                                    
+                Total predicted "fool" = 296                                    
                   Total actual "other" = 1760                                   
-               Total predicted "other" = 1300                                   
+               Total predicted "other" = 1291                                   
                  Total actual "protag" = 96                                     
-              Total predicted "protag" = 208                                    
+              Total predicted "protag" = 205                                    
 
 
                                  Percent Matrix                                 
@@ -46,20 +46,20 @@
             ——————————|——————————|——————————|——————————|——————————|             
                fool   |  4.65%   |  0.34%   |  0.44%   |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |  6.44%   |  13.32%  |  58.09%  |  7.41%   |             
+              other   |  6.35%   |  14.00%  |  57.66%  |  7.27%   |             
             ——————————|——————————|——————————|——————————|——————————|             
               protag  |  0.39%   |  0.00%   |  1.60%   |  2.66%   |             
             ——————————|——————————|——————————|——————————|——————————|             
 
 
                 Percent actual "antag" = 4.65%                                  
-             Percent predicted "antag" = 13.28%                                 
+             Percent predicted "antag" = 13.18%                                 
                  Percent actual "fool" = 5.43%                                  
-              Percent predicted "fool" = 13.66%                                 
+              Percent predicted "fool" = 14.34%                                 
                 Percent actual "other" = 85.27%                                 
-             Percent predicted "other" = 62.98%                                 
+             Percent predicted "other" = 62.55%                                 
                Percent actual "protag" = 4.65%                                  
-            Percent predicted "protag" = 10.08%                                 
+            Percent predicted "protag" = 9.93%                                  
 
 
              Percent Matrix with Total of Each Actual Class = 100%              
@@ -72,7 +72,7 @@
             ——————————|——————————|——————————|——————————|——————————|             
                fool   |  85.71%  |  6.25%   |  8.04%   |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |  7.56%   |  15.62%  |  68.12%  |  8.69%   |             
+              other   |  7.44%   |  16.42%  |  67.61%  |  8.52%   |             
             ——————————|——————————|——————————|——————————|——————————|             
               protag  |  8.33%   |  0.00%   |  34.38%  |  57.29%  |             
             ——————————|——————————|——————————|——————————|——————————|             
@@ -80,7 +80,7 @@
 
      Percent correct of actual "antag" = 38.54%                                 
       Percent correct of actual "fool" = 6.25%                                  
-     Percent correct of actual "other" = 68.12%                                 
+     Percent correct of actual "other" = 67.61%                                 
     Percent correct of actual "protag" = 57.29%                                 
 
 
@@ -90,34 +90,68 @@
 
                       |  antag   |   fool   |  other   |  protag  |             
             ——————————|——————————|——————————|——————————|——————————|             
-              antag   |  13.50%  |  0.00%   |  4.54%   |  0.00%   |             
+              antag   |  13.60%  |  0.00%   |  4.57%   |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-               fool   |  35.04%  |  2.48%   |  0.69%   |  0.00%   |             
+               fool   |  35.29%  |  2.36%   |  0.70%   |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |  48.54%  |  97.52%  |  92.23%  |  73.56%  |             
+              other   |  48.16%  |  97.64%  |  92.18%  |  73.17%  |             
             ——————————|——————————|——————————|——————————|——————————|             
-              protag  |  2.92%   |  0.00%   |  2.54%   |  26.44%  |             
+              protag  |  2.94%   |  0.00%   |  2.56%   |  26.83%  |             
             ——————————|——————————|——————————|——————————|——————————|             
 
 
-  Percent correct of predicted "antag" = 13.50%                                 
-   Percent correct of predicted "fool" = 2.48%                                  
-  Percent correct of predicted "other" = 92.23%                                 
- Percent correct of predicted "protag" = 26.44%                                 
+  Percent correct of predicted "antag" = 13.60%                                 
+   Percent correct of predicted "fool" = 2.36%                                  
+  Percent correct of predicted "other" = 92.18%                                 
+ Percent correct of predicted "protag" = 26.83%                                 
 
 
                                    F1 Scores:                                   
-                  F1 score for "antag" = 20.00%                                 
-                   F1 score for "fool" = 3.55%                                  
-                  F1 score for "other" = 78.37%                                 
-                 F1 score for "protag" = 36.18%                                 
+                  F1 score for "antag" = 20.11%                                 
+                   F1 score for "fool" = 3.43%                                  
+                  F1 score for "other" = 78.01%                                 
+                 F1 score for "protag" = 36.54%                                 
 
 
                        Matthews Correlation Coefficients:                       
-                 MCC score for "antag" = 16.45%                                 
-                  MCC score for "fool" = -5.17%                                 
-                 MCC score for "other" = 25.62%                                 
-                MCC score for "protag" = 34.64%                                 
+                 MCC score for "antag" = 16.56%                                 
+                  MCC score for "fool" = -5.53%                                 
+                 MCC score for "other" = 25.18%                                 
+                MCC score for "protag" = 34.97%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                        Actual "antag" Average Z-Scores:                        
+
+
+                        Actual "fool" Average Z-Scores:                         
+
+
+                        Actual "other" Average Z-Scores:                        
+
+
+                       Actual "protag" Average Z-Scores:                        
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                      Predicted "antag" Average Z-Scores:                       
+
+
+                       Predicted "fool" Average Z-Scores:                       
+
+
+                      Predicted "other" Average Z-Scores:                       
+
+
+                      Predicted "protag" Average Z-Scores:                      
+
+
 
 
 
@@ -385,10 +419,11 @@
 2H4_DRAWERS.1-Emphasis-Vowels-Only-All-Percentages-Twofold
 2H4_DRAWERS.1-Vowels-Only-All-Percentages
 2H4_DRAWERS.1-Vowels-Only-All-Percentages-Twofold
-2H4_DRAWERS.Will-Vowels-Only-All-Percentages		2H4_DRAWERS.X-All-Percentages
-2H4_DRAWERS.X-All-Percentages-Twofold		2H4_Davy-Min-100-Percentages
-2H4_Davy-Min-100-Percentages-Twofold		2H4_Davy-Min-250-Percentages
-2H4_Davy-Min-250-Percentages-Twofold		2H4_Epilogue-Emphasis-All-Percentages
+2H4_DRAWERS.X-All-Percentages		2H4_DRAWERS.X-All-Percentages-Twofold
+2H4_Davy-All-Percentages		2H4_Davy-All-Percentages-Twofold
+2H4_Davy-Min-100-Percentages		2H4_Davy-Min-100-Percentages-Twofold
+2H4_Davy-Min-250-Percentages		2H4_Davy-Min-250-Percentages-Twofold
+2H4_Epilogue-Emphasis-All-Percentages
 2H4_Epilogue-Emphasis-All-Percentages-Twofold
 2H4_Epilogue-Emphasis-Min-100-Percentages
 2H4_Epilogue-Emphasis-Min-100-Percentages-Twofold
@@ -406,7 +441,7 @@
 2H4_Hastings-All-Percentages-Twofold		2H4_Hastings-Emphasis-All-Percentages
 2H4_Hastings-Vowels-Only-All-Percentages
 2H4_Hastings-Vowels-Only-Min-250-Percentages
-2H4_LadyPercy-Emphasis-All-Percentages
+2H4_LadyPercy-All-Percentages-Twofold		2H4_LadyPercy-Emphasis-All-Percentages
 2H4_LadyPercy-Emphasis-All-Percentages-Twofold
 2H4_LadyPercy-Emphasis-Vowels-Only-All-Percentages
 2H4_LadyPercy-Emphasis-Vowels-Only-Min-100-Percentages
@@ -439,11 +474,8 @@
 2H4_Mowbray-Vowels-Only-Min-100-Percentages
 2H4_Mowbray-Vowels-Only-Min-250-Percentages
 2H4_Mowbray-Vowels-Only-Min-250-Percentages-Twofold
-2H4_OFFICERS.Fang-Vowels-Only-All-Percentages
-2H4_OFFICERS.Fang-Vowels-Only-All-Percentages-Twofold
 2H4_OFFICERS.Snare-Vowels-Only-All-Percentages
 2H4_OFFICERS.Snare-Vowels-Only-All-Percentages-Twofold
-2H4_Peto-All-Percentages		2H4_Peto-All-Percentages-Twofold
 2H4_Peto-Emphasis-All-Percentages		2H4_Peto-Emphasis-All-Percentages-Twofold
 2H4_Porter-Emphasis-Vowels-Only-All-Percentages		2H4_Warwick-All-Percentages
 2H4_Warwick-Emphasis-All-Percentages
@@ -466,7 +498,8 @@
                       Actual "other" Predicted as "fool":                       
 
 2H4_BEADLES.0.1-All-Percentages		2H4_BEADLES.0.1-All-Percentages-Twofold
-2H4_Bardolph-Emphasis-All-Counts		2H4_Bardolph-Emphasis-Min-100-Counts
+2H4_Bardolph-Emphasis-All-Counts		2H4_Bardolph-Emphasis-All-Percentages
+2H4_Bardolph-Emphasis-Min-100-Counts
 2H4_Bardolph-Emphasis-Min-100-Percentages
 2H4_Bardolph-Emphasis-Min-250-Counts
 2H4_Bardolph-Emphasis-Min-250-Percentages
@@ -482,9 +515,11 @@
 2H4_Bardolph-Vowels-Only-Min-100-Percentages
 2H4_Bardolph-Vowels-Only-Min-100-Percentages-Twofold
 2H4_Bardolph-Vowels-Only-Min-250-Percentages
+2H4_Bullcalf-Emphasis-All-Percentages
 2H4_Bullcalf-Emphasis-Min-100-Percentages
 2H4_Bullcalf-Emphasis-Vowels-Only-All-Counts
 2H4_Bullcalf-Emphasis-Vowels-Only-All-Percentages
+2H4_Bullcalf-Emphasis-Vowels-Only-All-Percentages-Twofold
 2H4_Bullcalf-Emphasis-Vowels-Only-Min-100-Counts
 2H4_Bullcalf-Emphasis-Vowels-Only-Min-100-Percentages
 2H4_Bullcalf-Emphasis-Vowels-Only-Min-100-Percentages-Twofold
@@ -500,12 +535,11 @@
 2H4_Colevile-Vowels-Only-All-Percentages-Twofold
 2H4_DRAWERS.Will-Emphasis-Vowels-Only-All-Percentages
 2H4_DRAWERS.Will-Emphasis-Vowels-Only-All-Percentages-Twofold
+2H4_DRAWERS.Will-Vowels-Only-All-Percentages
 2H4_DRAWERS.X-Emphasis-All-Percentages
 2H4_DRAWERS.X-Emphasis-All-Percentages-Twofold
 2H4_DRAWERS.X-Emphasis-Vowels-Only-All-Percentages
-2H4_DRAWERS.X-Emphasis-Vowels-Only-All-Percentages-Twofold
-2H4_DRAWERS.X-Vowels-Only-All-Percentages		2H4_Davy-All-Percentages
-2H4_Davy-All-Percentages-Twofold		2H4_Davy-Emphasis-All-Counts
+2H4_DRAWERS.X-Vowels-Only-All-Percentages		2H4_Davy-Emphasis-All-Counts
 2H4_Davy-Emphasis-All-Percentages		2H4_Davy-Emphasis-All-Percentages-Twofold
 2H4_Davy-Emphasis-Min-100-Counts		2H4_Davy-Emphasis-Min-100-Percentages
 2H4_Davy-Emphasis-Min-100-Percentages-Twofold
@@ -524,6 +558,7 @@
 2H4_Davy-Vowels-Only-Min-100-Percentages-Twofold
 2H4_Davy-Vowels-Only-Min-250-Percentages
 2H4_Davy-Vowels-Only-Min-250-Percentages-Twofold
+2H4_DollTearsheet-All-Percentages		2H4_DollTearsheet-All-Percentages-Twofold
 2H4_DollTearsheet-Emphasis-All-Counts
 2H4_DollTearsheet-Emphasis-All-Counts-Twofold
 2H4_DollTearsheet-Emphasis-All-Percentages
@@ -562,8 +597,8 @@
 2H4_Feeble-Emphasis-Vowels-Only-All-Percentages
 2H4_Feeble-Emphasis-Vowels-Only-All-Percentages-Twofold
 2H4_Feeble-Vowels-Only-All-Percentages
-2H4_Feeble-Vowels-Only-All-Percentages-Twofold
-2H4_LadyNorthumberland-Emphasis-Vowels-Only-All-Percentages
+2H4_Feeble-Vowels-Only-All-Percentages-Twofold		2H4_Harcourt-All-Percentages
+2H4_Harcourt-All-Percentages-Twofold		2H4_Harcourt-Vowels-Only-All-Percentages
 2H4_MESSENGERS.Gower-Emphasis-Vowels-Only-All-Percentages
 2H4_MESSENGERS.Gower-Emphasis-Vowels-Only-All-Percentages-Twofold
 2H4_MESSENGERS.Gower-Vowels-Only-All-Percentages
@@ -585,6 +620,8 @@
 2H4_MistressQuickly-Emphasis-Min-500-Percentages
 2H4_MistressQuickly-Emphasis-Min-500-Percentages-Twofold
 2H4_MistressQuickly-Emphasis-Vowels-Only-All-Counts
+2H4_MistressQuickly-Emphasis-Vowels-Only-All-Percentages
+2H4_MistressQuickly-Emphasis-Vowels-Only-All-Percentages-Twofold
 2H4_MistressQuickly-Emphasis-Vowels-Only-Min-100-Counts
 2H4_MistressQuickly-Emphasis-Vowels-Only-Min-100-Counts-Twofold
 2H4_MistressQuickly-Emphasis-Vowels-Only-Min-100-Percentages
@@ -624,17 +661,21 @@
 2H4_MistressQuickly-Vowels-Only-Min-500-Counts
 2H4_MistressQuickly-Vowels-Only-Min-500-Percentages
 2H4_MistressQuickly-Vowels-Only-Min-500-Percentages-Twofold
+2H4_Mouldy-Emphasis-All-Percentages
 2H4_Mouldy-Emphasis-Vowels-Only-All-Percentages
 2H4_Mouldy-Emphasis-Vowels-Only-All-Percentages-Twofold
 2H4_Mouldy-Vowels-Only-All-Percentages
 2H4_Mouldy-Vowels-Only-All-Percentages-Twofold
 2H4_OFFICERS.Fang-All-Percentages		2H4_OFFICERS.Fang-All-Percentages-Twofold
 2H4_OFFICERS.Fang-Emphasis-All-Percentages
-2H4_OFFICERS.Fang-Emphasis-All-Percentages-Twofold		2H4_Poins-All-Counts
-2H4_Poins-All-Percentages		2H4_Poins-All-Percentages-Twofold
-2H4_Poins-Emphasis-All-Counts		2H4_Poins-Emphasis-All-Percentages
-2H4_Poins-Emphasis-All-Percentages-Twofold		2H4_Poins-Emphasis-Min-100-Counts
-2H4_Poins-Emphasis-Min-100-Percentages
+2H4_OFFICERS.Fang-Emphasis-All-Percentages-Twofold
+2H4_OFFICERS.Fang-Vowels-Only-All-Percentages
+2H4_OFFICERS.Fang-Vowels-Only-All-Percentages-Twofold
+2H4_Peto-All-Percentages		2H4_Peto-All-Percentages-Twofold
+2H4_Poins-All-Counts		2H4_Poins-All-Percentages
+2H4_Poins-All-Percentages-Twofold		2H4_Poins-Emphasis-All-Counts
+2H4_Poins-Emphasis-All-Percentages		2H4_Poins-Emphasis-All-Percentages-Twofold
+2H4_Poins-Emphasis-Min-100-Counts		2H4_Poins-Emphasis-Min-100-Percentages
 2H4_Poins-Emphasis-Min-100-Percentages-Twofold
 2H4_Poins-Emphasis-Min-250-Counts		2H4_Poins-Emphasis-Min-250-Percentages
 2H4_Poins-Emphasis-Min-250-Percentages-Twofold
@@ -658,6 +699,7 @@
 2H4_Poins-Vowels-Only-Min-250-Counts
 2H4_Poins-Vowels-Only-Min-250-Percentages
 2H4_Poins-Vowels-Only-Min-250-Percentages-Twofold		2H4_Porter-All-Percentages
+2H4_Porter-Emphasis-All-Percentages
 2H4_SERVANTS.CHIEFJUSTICE.1-All-Percentages
 2H4_SERVANTS.CHIEFJUSTICE.1-Emphasis-All-Percentages
 2H4_SERVANTS.CHIEFJUSTICE.1-Emphasis-All-Percentages-Twofold
@@ -665,6 +707,7 @@
 2H4_SERVANTS.CHIEFJUSTICE.1-Emphasis-Vowels-Only-All-Percentages-Twofold
 2H4_SERVANTS.CHIEFJUSTICE.1-Vowels-Only-All-Percentages
 2H4_SERVANTS.CHIEFJUSTICE.1-Vowels-Only-All-Percentages-Twofold
+2H4_SERVANTS.FALSTAFF.1-Emphasis-Vowels-Only-All-Percentages
 2H4_SERVANTS.FALSTAFF.1-Emphasis-Vowels-Only-Min-100-Percentages
 2H4_SERVANTS.FALSTAFF.1-Vowels-Only-Min-100-Percentages
 2H4_Shadow-All-Percentages		2H4_Shadow-Emphasis-All-Percentages
@@ -716,7 +759,6 @@
 2H4_Archbishop-All-Counts		2H4_Archbishop-All-Counts-Twofold
 2H4_Archbishop-All-Percentages		2H4_Archbishop-All-Percentages-Twofold
 2H4_Archbishop-Emphasis-All-Counts		2H4_Archbishop-Emphasis-All-Counts-Twofold
-2H4_Archbishop-Emphasis-All-Percentages-Twofold
 2H4_Archbishop-Emphasis-Min-100-Counts
 2H4_Archbishop-Emphasis-Min-100-Counts-Twofold
 2H4_Archbishop-Emphasis-Min-100-Percentages
@@ -781,7 +823,6 @@
 2H4_BEADLES.0.1-Vowels-Only-All-Counts-Twofold		2H4_Bardolph-All-Counts
 2H4_Bardolph-All-Counts-Twofold		2H4_Bardolph-All-Percentages
 2H4_Bardolph-All-Percentages-Twofold		2H4_Bardolph-Emphasis-All-Counts-Twofold
-2H4_Bardolph-Emphasis-All-Percentages
 2H4_Bardolph-Emphasis-All-Percentages-Twofold
 2H4_Bardolph-Emphasis-Min-100-Counts-Twofold
 2H4_Bardolph-Emphasis-Min-100-Percentages-Twofold
@@ -845,13 +886,11 @@
 2H4_Bullcalf-All-Counts-Twofold		2H4_Bullcalf-All-Percentages
 2H4_Bullcalf-All-Percentages-Twofold		2H4_Bullcalf-Emphasis-All-Counts
 2H4_Bullcalf-Emphasis-All-Counts-Twofold
-2H4_Bullcalf-Emphasis-All-Percentages
 2H4_Bullcalf-Emphasis-All-Percentages-Twofold
 2H4_Bullcalf-Emphasis-Min-100-Counts
 2H4_Bullcalf-Emphasis-Min-100-Counts-Twofold
 2H4_Bullcalf-Emphasis-Min-100-Percentages-Twofold
 2H4_Bullcalf-Emphasis-Vowels-Only-All-Counts-Twofold
-2H4_Bullcalf-Emphasis-Vowels-Only-All-Percentages-Twofold
 2H4_Bullcalf-Emphasis-Vowels-Only-Min-100-Counts-Twofold
 2H4_Bullcalf-Min-100-Counts		2H4_Bullcalf-Min-100-Counts-Twofold
 2H4_Bullcalf-Min-100-Percentages-Twofold		2H4_Bullcalf-Vowels-Only-All-Counts
@@ -946,6 +985,7 @@
 2H4_DRAWERS.X-Emphasis-All-Counts-Twofold
 2H4_DRAWERS.X-Emphasis-Vowels-Only-All-Counts
 2H4_DRAWERS.X-Emphasis-Vowels-Only-All-Counts-Twofold
+2H4_DRAWERS.X-Emphasis-Vowels-Only-All-Percentages-Twofold
 2H4_DRAWERS.X-Vowels-Only-All-Counts
 2H4_DRAWERS.X-Vowels-Only-All-Counts-Twofold
 2H4_DRAWERS.X-Vowels-Only-All-Percentages-Twofold		2H4_Davy-All-Counts
@@ -1046,7 +1086,6 @@
 2H4_Harcourt-Emphasis-Vowels-Only-All-Percentages-Twofold
 2H4_Harcourt-Vowels-Only-All-Counts
 2H4_Harcourt-Vowels-Only-All-Counts-Twofold
-2H4_Harcourt-Vowels-Only-All-Percentages
 2H4_Harcourt-Vowels-Only-All-Percentages-Twofold		2H4_Hastings-All-Counts
 2H4_Hastings-All-Counts-Twofold		2H4_Hastings-Emphasis-All-Counts
 2H4_Hastings-Emphasis-All-Counts-Twofold
@@ -1122,14 +1161,15 @@
 2H4_LadyNorthumberland-Emphasis-All-Percentages-Twofold
 2H4_LadyNorthumberland-Emphasis-Vowels-Only-All-Counts
 2H4_LadyNorthumberland-Emphasis-Vowels-Only-All-Counts-Twofold
+2H4_LadyNorthumberland-Emphasis-Vowels-Only-All-Percentages
 2H4_LadyNorthumberland-Emphasis-Vowels-Only-All-Percentages-Twofold
 2H4_LadyNorthumberland-Vowels-Only-All-Counts
 2H4_LadyNorthumberland-Vowels-Only-All-Counts-Twofold
 2H4_LadyNorthumberland-Vowels-Only-All-Percentages
 2H4_LadyNorthumberland-Vowels-Only-All-Percentages-Twofold
 2H4_LadyPercy-All-Counts		2H4_LadyPercy-All-Counts-Twofold
-2H4_LadyPercy-All-Percentages		2H4_LadyPercy-All-Percentages-Twofold
-2H4_LadyPercy-Emphasis-All-Counts		2H4_LadyPercy-Emphasis-All-Counts-Twofold
+2H4_LadyPercy-All-Percentages		2H4_LadyPercy-Emphasis-All-Counts
+2H4_LadyPercy-Emphasis-All-Counts-Twofold
 2H4_LadyPercy-Emphasis-Min-100-Counts
 2H4_LadyPercy-Emphasis-Min-100-Counts-Twofold
 2H4_LadyPercy-Emphasis-Min-100-Percentages
@@ -1215,8 +1255,7 @@
 2H4_LordBardolph-Vowels-Only-Min-500-Counts-Twofold
 2H4_LordBardolph-Vowels-Only-Min-500-Percentages-Twofold
 2H4_MESSENGERS.1-All-Counts		2H4_MESSENGERS.1-All-Counts-Twofold
-2H4_MESSENGERS.1-All-Percentages		2H4_MESSENGERS.1-All-Percentages-Twofold
-2H4_MESSENGERS.1-Emphasis-All-Counts
+2H4_MESSENGERS.1-All-Percentages-Twofold		2H4_MESSENGERS.1-Emphasis-All-Counts
 2H4_MESSENGERS.1-Emphasis-All-Counts-Twofold
 2H4_MESSENGERS.1-Emphasis-All-Percentages
 2H4_MESSENGERS.1-Emphasis-All-Percentages-Twofold
@@ -1226,7 +1265,6 @@
 2H4_MESSENGERS.1-Emphasis-Vowels-Only-All-Percentages-Twofold
 2H4_MESSENGERS.1-Vowels-Only-All-Counts
 2H4_MESSENGERS.1-Vowels-Only-All-Counts-Twofold
-2H4_MESSENGERS.1-Vowels-Only-All-Percentages
 2H4_MESSENGERS.1-Vowels-Only-All-Percentages-Twofold
 2H4_MESSENGERS.Gower-All-Counts		2H4_MESSENGERS.Gower-All-Counts-Twofold
 2H4_MESSENGERS.Gower-All-Percentages
@@ -1303,7 +1341,7 @@
 2H4_Morton-Vowels-Only-Min-500-Percentages-Twofold		2H4_Mouldy-All-Counts
 2H4_Mouldy-All-Counts-Twofold		2H4_Mouldy-All-Percentages
 2H4_Mouldy-All-Percentages-Twofold		2H4_Mouldy-Emphasis-All-Counts
-2H4_Mouldy-Emphasis-All-Counts-Twofold		2H4_Mouldy-Emphasis-All-Percentages
+2H4_Mouldy-Emphasis-All-Counts-Twofold
 2H4_Mouldy-Emphasis-All-Percentages-Twofold
 2H4_Mouldy-Emphasis-Vowels-Only-All-Counts
 2H4_Mouldy-Emphasis-Vowels-Only-All-Counts-Twofold
@@ -1446,7 +1484,6 @@
 2H4_Poins-Vowels-Only-Min-250-Counts-Twofold		2H4_Porter-All-Counts
 2H4_Porter-All-Counts-Twofold		2H4_Porter-All-Percentages-Twofold
 2H4_Porter-Emphasis-All-Counts		2H4_Porter-Emphasis-All-Counts-Twofold
-2H4_Porter-Emphasis-All-Percentages
 2H4_Porter-Emphasis-All-Percentages-Twofold
 2H4_Porter-Emphasis-Vowels-Only-All-Counts
 2H4_Porter-Emphasis-Vowels-Only-All-Counts-Twofold
@@ -1476,7 +1513,6 @@
 2H4_SERVANTS.FALSTAFF.1-Emphasis-Min-100-Percentages-Twofold
 2H4_SERVANTS.FALSTAFF.1-Emphasis-Vowels-Only-All-Counts
 2H4_SERVANTS.FALSTAFF.1-Emphasis-Vowels-Only-All-Counts-Twofold
-2H4_SERVANTS.FALSTAFF.1-Emphasis-Vowels-Only-All-Percentages
 2H4_SERVANTS.FALSTAFF.1-Emphasis-Vowels-Only-All-Percentages-Twofold
 2H4_SERVANTS.FALSTAFF.1-Emphasis-Vowels-Only-Min-100-Counts
 2H4_SERVANTS.FALSTAFF.1-Emphasis-Vowels-Only-Min-100-Counts-Twofold
@@ -1702,6 +1738,7 @@
                      Actual "other" Predicted as "protag":                      
 
 2H4_Archbishop-Emphasis-All-Percentages
+2H4_Archbishop-Emphasis-All-Percentages-Twofold
 2H4_Archbishop-Emphasis-Min-500-Percentages		2H4_Bedford-All-Percentages
 2H4_Bedford-All-Percentages-Twofold		2H4_Bedford-Emphasis-All-Percentages
 2H4_Bedford-Emphasis-All-Percentages-Twofold
@@ -1717,8 +1754,7 @@
 2H4_DRAWERS.Francis-Emphasis-Vowels-Only-All-Percentages-Twofold
 2H4_DRAWERS.Francis-Vowels-Only-All-Percentages
 2H4_DRAWERS.Francis-Vowels-Only-All-Percentages-Twofold
-2H4_DollTearsheet-All-Counts-Twofold		2H4_DollTearsheet-All-Percentages
-2H4_DollTearsheet-All-Percentages-Twofold
+2H4_DollTearsheet-All-Counts-Twofold
 2H4_DollTearsheet-Emphasis-Min-250-Percentages
 2H4_DollTearsheet-Emphasis-Min-250-Percentages-Twofold
 2H4_DollTearsheet-Min-100-Counts		2H4_DollTearsheet-Min-100-Counts-Twofold
@@ -1751,8 +1787,8 @@
 2H4_GROOMS.2-Emphasis-Vowels-Only-All-Percentages
 2H4_GROOMS.2-Emphasis-Vowels-Only-All-Percentages-Twofold
 2H4_GROOMS.2-Vowels-Only-All-Percentages
-2H4_GROOMS.2-Vowels-Only-All-Percentages-Twofold		2H4_Harcourt-All-Percentages
-2H4_Harcourt-All-Percentages-Twofold		2H4_Harcourt-Emphasis-All-Percentages
+2H4_GROOMS.2-Vowels-Only-All-Percentages-Twofold
+2H4_Harcourt-Emphasis-All-Percentages
 2H4_Harcourt-Emphasis-All-Percentages-Twofold		2H4_HenryIV-All-Counts
 2H4_HenryIV-All-Percentages		2H4_HenryIV-All-Percentages-Twofold
 2H4_HenryIV-Emphasis-All-Counts		2H4_HenryIV-Emphasis-All-Percentages
@@ -1790,9 +1826,8 @@
 2H4_HenryIV-Vowels-Only-Min-250-Percentages-Twofold
 2H4_HenryIV-Vowels-Only-Min-500-Counts
 2H4_HenryIV-Vowels-Only-Min-500-Counts-Twofold
-2H4_HenryIV-Vowels-Only-Min-500-Percentages
-2H4_MistressQuickly-Emphasis-Vowels-Only-All-Percentages
-2H4_MistressQuickly-Emphasis-Vowels-Only-All-Percentages-Twofold
+2H4_HenryIV-Vowels-Only-Min-500-Percentages		2H4_MESSENGERS.1-All-Percentages
+2H4_MESSENGERS.1-Vowels-Only-All-Percentages
 2H4_Northumberland-All-Percentages		2H4_Northumberland-All-Percentages-Twofold
 2H4_Northumberland-Emphasis-All-Percentages
 2H4_Northumberland-Emphasis-All-Percentages-Twofold

@@ -1,11 +1,11 @@
                           Summary: role_All-Combos_TN                           
 
 
-                      Overall accuracy = 43.93%                                 
-                      Average accuracy = 41.80%                                 
+                      Overall accuracy = 44.30%                                 
+                      Average accuracy = 41.93%                                 
 
-                      Average F1 score = 31.05%                                 
-                           Average MCC = 18.36%                                 
+                      Average F1 score = 31.23%                                 
+                           Average MCC = 18.47%                                 
 
 
                                 Confusion Matrix                                
@@ -14,11 +14,11 @@
 
                       |  antag   |   fool   |  other   |  protag  |             
             ——————————|——————————|——————————|——————————|——————————|             
-              antag   |    14    |    45    |    22    |    15    |             
+              antag   |    14    |    49    |    22    |    11    |             
             ——————————|——————————|——————————|——————————|——————————|             
                fool   |    0     |    93    |    3     |    0     |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |    54    |   135    |   360    |   235    |             
+              other   |    59    |   124    |   364    |   237    |             
             ——————————|——————————|——————————|——————————|——————————|             
               protag  |    18    |    79    |    4     |    11    |             
             ——————————|——————————|——————————|——————————|——————————|             
@@ -27,13 +27,13 @@
                          Total samples = 1088                                   
 
                   Total actual "antag" = 96                                     
-               Total predicted "antag" = 86                                     
+               Total predicted "antag" = 91                                     
                    Total actual "fool" = 96                                     
-                Total predicted "fool" = 352                                    
+                Total predicted "fool" = 345                                    
                   Total actual "other" = 784                                    
-               Total predicted "other" = 389                                    
+               Total predicted "other" = 393                                    
                  Total actual "protag" = 112                                    
-              Total predicted "protag" = 261                                    
+              Total predicted "protag" = 259                                    
 
 
                                  Percent Matrix                                 
@@ -42,24 +42,24 @@
 
                       |  antag   |   fool   |  other   |  protag  |             
             ——————————|——————————|——————————|——————————|——————————|             
-              antag   |  1.29%   |  4.14%   |  2.02%   |  1.38%   |             
+              antag   |  1.29%   |  4.50%   |  2.02%   |  1.01%   |             
             ——————————|——————————|——————————|——————————|——————————|             
                fool   |  0.00%   |  8.55%   |  0.28%   |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |  4.96%   |  12.41%  |  33.09%  |  21.60%  |             
+              other   |  5.42%   |  11.40%  |  33.46%  |  21.78%  |             
             ——————————|——————————|——————————|——————————|——————————|             
               protag  |  1.65%   |  7.26%   |  0.37%   |  1.01%   |             
             ——————————|——————————|——————————|——————————|——————————|             
 
 
                 Percent actual "antag" = 8.82%                                  
-             Percent predicted "antag" = 7.90%                                  
+             Percent predicted "antag" = 8.36%                                  
                  Percent actual "fool" = 8.82%                                  
-              Percent predicted "fool" = 32.35%                                 
+              Percent predicted "fool" = 31.71%                                 
                 Percent actual "other" = 72.06%                                 
-             Percent predicted "other" = 35.75%                                 
+             Percent predicted "other" = 36.12%                                 
                Percent actual "protag" = 10.29%                                 
-            Percent predicted "protag" = 23.99%                                 
+            Percent predicted "protag" = 23.81%                                 
 
 
              Percent Matrix with Total of Each Actual Class = 100%              
@@ -68,11 +68,11 @@
 
                       |  antag   |   fool   |  other   |  protag  |             
             ——————————|——————————|——————————|——————————|——————————|             
-              antag   |  14.58%  |  46.88%  |  22.92%  |  15.62%  |             
+              antag   |  14.58%  |  51.04%  |  22.92%  |  11.46%  |             
             ——————————|——————————|——————————|——————————|——————————|             
                fool   |  0.00%   |  96.88%  |  3.12%   |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |  6.89%   |  17.22%  |  45.92%  |  29.97%  |             
+              other   |  7.53%   |  15.82%  |  46.43%  |  30.23%  |             
             ——————————|——————————|——————————|——————————|——————————|             
               protag  |  16.07%  |  70.54%  |  3.57%   |  9.82%   |             
             ——————————|——————————|——————————|——————————|——————————|             
@@ -80,7 +80,7 @@
 
      Percent correct of actual "antag" = 14.58%                                 
       Percent correct of actual "fool" = 96.88%                                 
-     Percent correct of actual "other" = 45.92%                                 
+     Percent correct of actual "other" = 46.43%                                 
     Percent correct of actual "protag" = 9.82%                                  
 
 
@@ -90,34 +90,68 @@
 
                       |  antag   |   fool   |  other   |  protag  |             
             ——————————|——————————|——————————|——————————|——————————|             
-              antag   |  16.28%  |  12.78%  |  5.66%   |  5.75%   |             
+              antag   |  15.38%  |  14.20%  |  5.60%   |  4.25%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-               fool   |  0.00%   |  26.42%  |  0.77%   |  0.00%   |             
+               fool   |  0.00%   |  26.96%  |  0.76%   |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |  62.79%  |  38.35%  |  92.54%  |  90.04%  |             
+              other   |  64.84%  |  35.94%  |  92.62%  |  91.51%  |             
             ——————————|——————————|——————————|——————————|——————————|             
-              protag  |  20.93%  |  22.44%  |  1.03%   |  4.21%   |             
+              protag  |  19.78%  |  22.90%  |  1.02%   |  4.25%   |             
             ——————————|——————————|——————————|——————————|——————————|             
 
 
-  Percent correct of predicted "antag" = 16.28%                                 
-   Percent correct of predicted "fool" = 26.42%                                 
-  Percent correct of predicted "other" = 92.54%                                 
- Percent correct of predicted "protag" = 4.21%                                  
+  Percent correct of predicted "antag" = 15.38%                                 
+   Percent correct of predicted "fool" = 26.96%                                 
+  Percent correct of predicted "other" = 92.62%                                 
+ Percent correct of predicted "protag" = 4.25%                                  
 
 
                                    F1 Scores:                                   
-                  F1 score for "antag" = 15.38%                                 
-                   F1 score for "fool" = 41.52%                                 
-                  F1 score for "other" = 61.38%                                 
-                 F1 score for "protag" = 5.90%                                  
+                  F1 score for "antag" = 14.97%                                 
+                   F1 score for "fool" = 42.18%                                 
+                  F1 score for "other" = 61.85%                                 
+                 F1 score for "protag" = 5.93%                                  
 
 
                        Matthews Correlation Coefficients:                       
-                 MCC score for "antag" = 7.70%                                  
-                  MCC score for "fool" = 42.90%                                 
-                 MCC score for "other" = 34.06%                                 
-                MCC score for "protag" = -11.24%                                
+                 MCC score for "antag" = 6.99%                                  
+                  MCC score for "fool" = 43.56%                                 
+                 MCC score for "other" = 34.46%                                 
+                MCC score for "protag" = -11.12%                                
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                        Actual "antag" Average Z-Scores:                        
+
+
+                        Actual "fool" Average Z-Scores:                         
+
+
+                        Actual "other" Average Z-Scores:                        
+
+
+                       Actual "protag" Average Z-Scores:                        
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                      Predicted "antag" Average Z-Scores:                       
+
+
+                       Predicted "fool" Average Z-Scores:                       
+
+
+                      Predicted "other" Average Z-Scores:                       
+
+
+                      Predicted "protag" Average Z-Scores:                      
+
+
 
 
 
@@ -140,6 +174,8 @@ TN_Malvolio-Vowels-Only-No-Others-Counts-Twofold
 
 TN_Malvolio-All-Percentages		TN_Malvolio-All-Percentages-Twofold
 TN_Malvolio-Emphasis-All-Counts		TN_Malvolio-Emphasis-All-Counts-Twofold
+TN_Malvolio-Emphasis-All-Percentages
+TN_Malvolio-Emphasis-All-Percentages-Twofold
 TN_Malvolio-Emphasis-Min-100-Counts
 TN_Malvolio-Emphasis-Min-100-Counts-Twofold
 TN_Malvolio-Emphasis-Min-100-Percentages
@@ -158,6 +194,8 @@ TN_Malvolio-Emphasis-Min-500-Percentages
 TN_Malvolio-Emphasis-Min-500-Percentages-Twofold
 TN_Malvolio-Emphasis-No-Others-Counts
 TN_Malvolio-Emphasis-No-Others-Counts-Twofold
+TN_Malvolio-Emphasis-No-Others-Percentages
+TN_Malvolio-Emphasis-No-Others-Percentages-Twofold
 TN_Malvolio-Emphasis-Vowels-Only-All-Counts-Twofold
 TN_Malvolio-Emphasis-Vowels-Only-Min-100-Counts-Twofold
 TN_Malvolio-Emphasis-Vowels-Only-Min-1000-Counts-Twofold
@@ -205,10 +243,6 @@ TN_Malvolio-Vowels-Only-Min-500-Percentages-Twofold
 
                      Actual "antag" Predicted as "protag":                      
 
-TN_Malvolio-Emphasis-All-Percentages
-TN_Malvolio-Emphasis-All-Percentages-Twofold
-TN_Malvolio-Emphasis-No-Others-Percentages
-TN_Malvolio-Emphasis-No-Others-Percentages-Twofold
 TN_Malvolio-Emphasis-Vowels-Only-All-Percentages
 TN_Malvolio-Emphasis-Vowels-Only-All-Percentages-Twofold
 TN_Malvolio-Emphasis-Vowels-Only-Min-100-Percentages
@@ -346,12 +380,18 @@ TN_Antonio-Vowels-Only-All-Percentages-Twofold
 TN_Antonio-Vowels-Only-Min-100-Percentages		TN_Captain-All-Percentages
 TN_Captain-All-Percentages-Twofold		TN_Captain-Emphasis-All-Percentages
 TN_Captain-Emphasis-All-Percentages-Twofold
-TN_Captain-Emphasis-Min-100-Percentages		TN_Captain-Min-100-Percentages
-TN_Fabian-All-Percentages		TN_Fabian-Min-500-Counts
-TN_Fabian-Min-500-Percentages		TN_Fabian-Vowels-Only-All-Percentages
+TN_Captain-Emphasis-Min-100-Percentages
+TN_Captain-Emphasis-Vowels-Only-All-Percentages-Twofold
+TN_Captain-Min-100-Percentages		TN_Fabian-All-Percentages
+TN_Fabian-Emphasis-Vowels-Only-All-Percentages
+TN_Fabian-Emphasis-Vowels-Only-All-Percentages-Twofold
+TN_Fabian-Min-500-Counts		TN_Fabian-Min-500-Percentages
+TN_Fabian-Vowels-Only-All-Percentages
 TN_Fabian-Vowels-Only-All-Percentages-Twofold
 TN_Fabian-Vowels-Only-Min-250-Percentages
-TN_Fabian-Vowels-Only-Min-500-Percentages		TN_Olivia-Min-250-Counts
+TN_Fabian-Vowels-Only-Min-500-Percentages
+TN_Maria-Vowels-Only-All-Percentages
+TN_Maria-Vowels-Only-All-Percentages-Twofold		TN_Olivia-Min-250-Counts
 TN_Olivia-Min-250-Counts-Twofold		TN_Olivia-Min-500-Counts
 TN_Olivia-Min-500-Counts-Twofold
 TN_Priest-Emphasis-Vowels-Only-All-Percentages
@@ -359,7 +399,8 @@ TN_Priest-Emphasis-Vowels-Only-All-Percentages
 
                       Actual "other" Predicted as "fool":                       
 
-TN_ATTENDANTS.ORSINO.Valentine-Vowels-Only-All-Percentages
+TN_ATTENDANTS.OLIVIA.1-Emphasis-Vowels-Only-All-Percentages
+TN_ATTENDANTS.OLIVIA.1-Emphasis-Vowels-Only-All-Percentages-Twofold
 TN_AndrewAguecheek-All-Counts		TN_AndrewAguecheek-All-Percentages
 TN_AndrewAguecheek-All-Percentages-Twofold
 TN_AndrewAguecheek-Emphasis-All-Counts
@@ -411,9 +452,6 @@ TN_AndrewAguecheek-Vowels-Only-Min-250-Percentages-Twofold
 TN_AndrewAguecheek-Vowels-Only-Min-500-Counts
 TN_AndrewAguecheek-Vowels-Only-Min-500-Percentages
 TN_AndrewAguecheek-Vowels-Only-Min-500-Percentages-Twofold
-TN_Fabian-Emphasis-All-Percentages		TN_Fabian-Emphasis-All-Percentages-Twofold
-TN_Fabian-Emphasis-Vowels-Only-All-Percentages
-TN_Fabian-Emphasis-Vowels-Only-All-Percentages-Twofold
 TN_Maria-All-Percentages		TN_Maria-All-Percentages-Twofold
 TN_Maria-Emphasis-All-Counts		TN_Maria-Emphasis-All-Percentages
 TN_Maria-Emphasis-All-Percentages-Twofold		TN_Maria-Emphasis-Min-100-Counts
@@ -430,14 +468,10 @@ TN_Maria-Emphasis-Vowels-Only-Min-250-Percentages
 TN_Maria-Emphasis-Vowels-Only-Min-500-Percentages
 TN_Maria-Min-100-Percentages		TN_Maria-Min-1000-Percentages
 TN_Maria-Min-250-Percentages		TN_Maria-Min-500-Percentages
-TN_Maria-Vowels-Only-All-Percentages
-TN_Maria-Vowels-Only-All-Percentages-Twofold		TN_OFFICERS.1-All-Percentages
-TN_OFFICERS.1-All-Percentages-Twofold		TN_OFFICERS.1-Min-100-Percentages
-TN_OFFICERS.1-Min-100-Percentages-Twofold
-TN_OFFICERS.1-Vowels-Only-All-Percentages
+TN_OFFICERS.1-All-Percentages		TN_OFFICERS.1-All-Percentages-Twofold
+TN_OFFICERS.1-Min-100-Percentages		TN_OFFICERS.1-Min-100-Percentages-Twofold
 TN_OFFICERS.1-Vowels-Only-Min-100-Percentages		TN_OFFICERS.2-All-Percentages
-TN_OFFICERS.2-All-Percentages-Twofold
-TN_OFFICERS.2-Vowels-Only-All-Percentages		TN_Olivia-All-Counts
+TN_OFFICERS.2-All-Percentages-Twofold		TN_Olivia-All-Counts
 TN_Olivia-All-Counts-Twofold		TN_Olivia-All-Percentages
 TN_Olivia-All-Percentages-Twofold		TN_Olivia-Min-100-Counts
 TN_Olivia-Min-100-Counts-Twofold		TN_Olivia-Min-100-Percentages
@@ -458,14 +492,11 @@ TN_Sebastian-Vowels-Only-Min-250-Percentages-Twofold
 TN_Sebastian-Vowels-Only-Min-500-Counts
 TN_Sebastian-Vowels-Only-Min-500-Percentages
 TN_Sebastian-Vowels-Only-Min-500-Percentages-Twofold
-TN_TobyBelch-Emphasis-All-Counts		TN_TobyBelch-Emphasis-All-Percentages
-TN_TobyBelch-Emphasis-All-Percentages-Twofold
-TN_TobyBelch-Emphasis-Min-100-Counts		TN_TobyBelch-Emphasis-Min-1000-Counts
-TN_TobyBelch-Emphasis-Min-250-Counts		TN_TobyBelch-Emphasis-Min-500-Counts
+TN_TobyBelch-Emphasis-All-Counts		TN_TobyBelch-Emphasis-Min-100-Counts
+TN_TobyBelch-Emphasis-Min-1000-Counts		TN_TobyBelch-Emphasis-Min-250-Counts
+TN_TobyBelch-Emphasis-Min-500-Counts
 TN_TobyBelch-Emphasis-Min-500-Counts-Twofold
 TN_TobyBelch-Emphasis-Min-500-Percentages-Twofold
-TN_TobyBelch-Emphasis-Vowels-Only-All-Percentages
-TN_TobyBelch-Emphasis-Vowels-Only-All-Percentages-Twofold
 
 
                       Actual "other" Predicted as "other":                      
@@ -518,6 +549,7 @@ TN_ATTENDANTS.ORSINO.Valentine-Min-100-Percentages
 TN_ATTENDANTS.ORSINO.Valentine-Min-100-Percentages-Twofold
 TN_ATTENDANTS.ORSINO.Valentine-Vowels-Only-All-Counts
 TN_ATTENDANTS.ORSINO.Valentine-Vowels-Only-All-Counts-Twofold
+TN_ATTENDANTS.ORSINO.Valentine-Vowels-Only-All-Percentages
 TN_ATTENDANTS.ORSINO.Valentine-Vowels-Only-All-Percentages-Twofold
 TN_ATTENDANTS.ORSINO.Valentine-Vowels-Only-Min-100-Counts
 TN_ATTENDANTS.ORSINO.Valentine-Vowels-Only-Min-100-Counts-Twofold
@@ -583,7 +615,6 @@ TN_Captain-Emphasis-Min-100-Percentages-Twofold
 TN_Captain-Emphasis-Vowels-Only-All-Counts
 TN_Captain-Emphasis-Vowels-Only-All-Counts-Twofold
 TN_Captain-Emphasis-Vowels-Only-All-Percentages
-TN_Captain-Emphasis-Vowels-Only-All-Percentages-Twofold
 TN_Captain-Emphasis-Vowels-Only-Min-100-Counts
 TN_Captain-Emphasis-Vowels-Only-Min-100-Counts-Twofold
 TN_Captain-Emphasis-Vowels-Only-Min-100-Percentages
@@ -599,6 +630,7 @@ TN_Captain-Vowels-Only-Min-100-Percentages
 TN_Captain-Vowels-Only-Min-100-Percentages-Twofold		TN_Fabian-All-Counts
 TN_Fabian-All-Counts-Twofold		TN_Fabian-All-Percentages-Twofold
 TN_Fabian-Emphasis-All-Counts		TN_Fabian-Emphasis-All-Counts-Twofold
+TN_Fabian-Emphasis-All-Percentages		TN_Fabian-Emphasis-All-Percentages-Twofold
 TN_Fabian-Emphasis-Min-100-Counts		TN_Fabian-Emphasis-Min-100-Counts-Twofold
 TN_Fabian-Emphasis-Min-100-Percentages
 TN_Fabian-Emphasis-Min-100-Percentages-Twofold
@@ -702,6 +734,7 @@ TN_OFFICERS.1-Emphasis-Vowels-Only-Min-100-Percentages-Twofold
 TN_OFFICERS.1-Min-100-Counts		TN_OFFICERS.1-Min-100-Counts-Twofold
 TN_OFFICERS.1-Vowels-Only-All-Counts
 TN_OFFICERS.1-Vowels-Only-All-Counts-Twofold
+TN_OFFICERS.1-Vowels-Only-All-Percentages
 TN_OFFICERS.1-Vowels-Only-All-Percentages-Twofold
 TN_OFFICERS.1-Vowels-Only-Min-100-Counts
 TN_OFFICERS.1-Vowels-Only-Min-100-Counts-Twofold
@@ -716,6 +749,7 @@ TN_OFFICERS.2-Emphasis-Vowels-Only-All-Percentages
 TN_OFFICERS.2-Emphasis-Vowels-Only-All-Percentages-Twofold
 TN_OFFICERS.2-Vowels-Only-All-Counts
 TN_OFFICERS.2-Vowels-Only-All-Counts-Twofold
+TN_OFFICERS.2-Vowels-Only-All-Percentages
 TN_OFFICERS.2-Vowels-Only-All-Percentages-Twofold
 TN_Olivia-Vowels-Only-All-Counts		TN_Olivia-Vowels-Only-All-Counts-Twofold
 TN_Olivia-Vowels-Only-Min-100-Counts
@@ -787,8 +821,6 @@ TN_TobyBelch-Vowels-Only-Min-250-Counts-Twofold
 
                      Actual "other" Predicted as "protag":                      
 
-TN_ATTENDANTS.OLIVIA.1-Emphasis-Vowels-Only-All-Percentages
-TN_ATTENDANTS.OLIVIA.1-Emphasis-Vowels-Only-All-Percentages-Twofold
 TN_ATTENDANTS.OLIVIA.1-Vowels-Only-All-Percentages
 TN_ATTENDANTS.OLIVIA.1-Vowels-Only-All-Percentages-Twofold
 TN_Olivia-Emphasis-All-Counts		TN_Olivia-Emphasis-All-Counts-Twofold
@@ -942,13 +974,16 @@ TN_Sebastian-Min-250-Percentages		TN_Sebastian-Min-250-Percentages-Twofold
 TN_Sebastian-Min-500-Counts		TN_Sebastian-Min-500-Counts-Twofold
 TN_Sebastian-Min-500-Percentages		TN_Sebastian-Min-500-Percentages-Twofold
 TN_TobyBelch-All-Counts-Twofold		TN_TobyBelch-All-Percentages
-TN_TobyBelch-All-Percentages-Twofold
+TN_TobyBelch-All-Percentages-Twofold		TN_TobyBelch-Emphasis-All-Percentages
+TN_TobyBelch-Emphasis-All-Percentages-Twofold
 TN_TobyBelch-Emphasis-Min-100-Percentages-Twofold
 TN_TobyBelch-Emphasis-Min-250-Percentages-Twofold
 TN_TobyBelch-Emphasis-Min-2500-Counts
 TN_TobyBelch-Emphasis-Min-2500-Counts-Twofold
 TN_TobyBelch-Emphasis-Min-2500-Percentages
 TN_TobyBelch-Emphasis-Min-2500-Percentages-Twofold
+TN_TobyBelch-Emphasis-Vowels-Only-All-Percentages
+TN_TobyBelch-Emphasis-Vowels-Only-All-Percentages-Twofold
 TN_TobyBelch-Emphasis-Vowels-Only-Min-100-Percentages-Twofold
 TN_TobyBelch-Emphasis-Vowels-Only-Min-2500-Counts
 TN_TobyBelch-Emphasis-Vowels-Only-Min-2500-Counts-Twofold

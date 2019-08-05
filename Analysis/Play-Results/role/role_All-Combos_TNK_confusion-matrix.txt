@@ -1,11 +1,11 @@
                           Summary: role_All-Combos_TNK                          
 
 
-                      Overall accuracy = 74.64%                                 
-                      Average accuracy = 38.70%                                 
+                      Overall accuracy = 74.89%                                 
+                      Average accuracy = 38.82%                                 
 
-                      Average F1 score = 42.74%                                 
-                           Average MCC = -10.15%                                
+                      Average F1 score = 42.82%                                 
+                           Average MCC = -10.05%                                
 
 
                                 Confusion Matrix                                
@@ -14,18 +14,18 @@
 
                                  |  other   |  protag  |                        
                        ——————————|——————————|——————————|                        
-                         other   |   983    |   287    |                        
+                         other   |   993    |   286    |                        
                        ——————————|——————————|——————————|                        
                          protag  |    47    |    0     |                        
                        ——————————|——————————|——————————|                        
 
 
-                         Total samples = 1317                                   
+                         Total samples = 1326                                   
 
-                  Total actual "other" = 1270                                   
-               Total predicted "other" = 1030                                   
+                  Total actual "other" = 1279                                   
+               Total predicted "other" = 1040                                   
                  Total actual "protag" = 47                                     
-              Total predicted "protag" = 287                                    
+              Total predicted "protag" = 286                                    
 
 
                                  Percent Matrix                                 
@@ -34,16 +34,16 @@
 
                                  |  other   |  protag  |                        
                        ——————————|——————————|——————————|                        
-                         other   |  74.64%  |  21.79%  |                        
+                         other   |  74.89%  |  21.57%  |                        
                        ——————————|——————————|——————————|                        
-                         protag  |  3.57%   |  0.00%   |                        
+                         protag  |  3.54%   |  0.00%   |                        
                        ——————————|——————————|——————————|                        
 
 
-                Percent actual "other" = 96.43%                                 
-             Percent predicted "other" = 78.21%                                 
-               Percent actual "protag" = 3.57%                                  
-            Percent predicted "protag" = 21.79%                                 
+                Percent actual "other" = 96.46%                                 
+             Percent predicted "other" = 78.43%                                 
+               Percent actual "protag" = 3.54%                                  
+            Percent predicted "protag" = 21.57%                                 
 
 
              Percent Matrix with Total of Each Actual Class = 100%              
@@ -52,13 +52,13 @@
 
                                  |  other   |  protag  |                        
                        ——————————|——————————|——————————|                        
-                         other   |  77.40%  |  22.60%  |                        
+                         other   |  77.64%  |  22.36%  |                        
                        ——————————|——————————|——————————|                        
                          protag  | 100.00%  |  0.00%   |                        
                        ——————————|——————————|——————————|                        
 
 
-     Percent correct of actual "other" = 77.40%                                 
+     Percent correct of actual "other" = 77.64%                                 
     Percent correct of actual "protag" = 0.00%                                  
 
 
@@ -68,24 +68,46 @@
 
                                  |  other   |  protag  |                        
                        ——————————|——————————|——————————|                        
-                         other   |  95.44%  | 100.00%  |                        
+                         other   |  95.48%  | 100.00%  |                        
                        ——————————|——————————|——————————|                        
-                         protag  |  4.56%   |  0.00%   |                        
+                         protag  |  4.52%   |  0.00%   |                        
                        ——————————|——————————|——————————|                        
 
 
-  Percent correct of predicted "other" = 95.44%                                 
+  Percent correct of predicted "other" = 95.48%                                 
  Percent correct of predicted "protag" = 0.00%                                  
 
 
                                    F1 Scores:                                   
-                  F1 score for "other" = 85.48%                                 
+                  F1 score for "other" = 85.64%                                 
                  F1 score for "protag" = 0.00%                                  
 
 
                        Matthews Correlation Coefficients:                       
-                 MCC score for "other" = -10.15%                                
-                MCC score for "protag" = -10.15%                                
+                 MCC score for "other" = -10.05%                                
+                MCC score for "protag" = -10.05%                                
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                        Actual "other" Average Z-Scores:                        
+
+
+                       Actual "protag" Average Z-Scores:                        
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                      Predicted "other" Average Z-Scores:                       
+
+
+                      Predicted "protag" Average Z-Scores:                      
+
+
 
 
 
@@ -137,9 +159,10 @@ TNK_Brother-Emphasis-Vowels-Only-All-Counts-Twofold
 TNK_Brother-Emphasis-Vowels-Only-All-Percentages-Twofold
 TNK_Brother-Vowels-Only-All-Counts		TNK_Brother-Vowels-Only-All-Counts-Twofold
 TNK_COUNTRYMEN.0.1-All-Counts		TNK_COUNTRYMEN.0.1-All-Counts-Twofold
-TNK_COUNTRYMEN.0.1-All-Percentages-Twofold
+TNK_COUNTRYMEN.0.1-All-Percentages		TNK_COUNTRYMEN.0.1-All-Percentages-Twofold
 TNK_COUNTRYMEN.0.1-Emphasis-All-Counts
 TNK_COUNTRYMEN.0.1-Emphasis-All-Counts-Twofold
+TNK_COUNTRYMEN.0.1-Emphasis-All-Percentages
 TNK_COUNTRYMEN.0.1-Emphasis-All-Percentages-Twofold
 TNK_COUNTRYMEN.0.1-Emphasis-Min-100-Counts
 TNK_COUNTRYMEN.0.1-Emphasis-Min-100-Counts-Twofold
@@ -186,7 +209,7 @@ TNK_COUNTRYMEN.0.2-Vowels-Only-Min-100-Counts-Twofold
 TNK_COUNTRYMEN.0.2-Vowels-Only-Min-100-Percentages
 TNK_COUNTRYMEN.0.2-Vowels-Only-Min-100-Percentages-Twofold
 TNK_COUNTRYMEN.0.3-All-Counts		TNK_COUNTRYMEN.0.3-All-Counts-Twofold
-TNK_COUNTRYMEN.0.3-All-Percentages-Twofold
+TNK_COUNTRYMEN.0.3-All-Percentages		TNK_COUNTRYMEN.0.3-All-Percentages-Twofold
 TNK_COUNTRYMEN.0.3-Emphasis-All-Counts
 TNK_COUNTRYMEN.0.3-Emphasis-All-Counts-Twofold
 TNK_COUNTRYMEN.0.3-Emphasis-All-Percentages-Twofold
@@ -195,6 +218,7 @@ TNK_COUNTRYMEN.0.3-Emphasis-Min-100-Counts-Twofold
 TNK_COUNTRYMEN.0.3-Emphasis-Min-100-Percentages-Twofold
 TNK_COUNTRYMEN.0.3-Emphasis-Vowels-Only-All-Counts
 TNK_COUNTRYMEN.0.3-Emphasis-Vowels-Only-All-Counts-Twofold
+TNK_COUNTRYMEN.0.3-Emphasis-Vowels-Only-All-Percentages-Twofold
 TNK_COUNTRYMEN.0.3-Emphasis-Vowels-Only-Min-100-Counts
 TNK_COUNTRYMEN.0.3-Emphasis-Vowels-Only-Min-100-Counts-Twofold
 TNK_COUNTRYMEN.0.3-Emphasis-Vowels-Only-Min-100-Percentages-Twofold
@@ -203,6 +227,7 @@ TNK_COUNTRYMEN.0.3-Min-100-Percentages
 TNK_COUNTRYMEN.0.3-Min-100-Percentages-Twofold
 TNK_COUNTRYMEN.0.3-Vowels-Only-All-Counts
 TNK_COUNTRYMEN.0.3-Vowels-Only-All-Counts-Twofold
+TNK_COUNTRYMEN.0.3-Vowels-Only-All-Percentages
 TNK_COUNTRYMEN.0.3-Vowels-Only-All-Percentages-Twofold
 TNK_COUNTRYMEN.0.3-Vowels-Only-Min-100-Counts
 TNK_COUNTRYMEN.0.3-Vowels-Only-Min-100-Counts-Twofold
@@ -211,6 +236,7 @@ TNK_COUNTRYMEN.0.3-Vowels-Only-Min-100-Percentages-Twofold
 TNK_COUNTRYMEN.0.4-All-Counts		TNK_COUNTRYMEN.0.4-All-Counts-Twofold
 TNK_COUNTRYMEN.0.4-Emphasis-All-Counts
 TNK_COUNTRYMEN.0.4-Emphasis-All-Counts-Twofold
+TNK_COUNTRYMEN.0.4-Emphasis-All-Percentages-Twofold
 TNK_COUNTRYMEN.0.4-Emphasis-Min-100-Counts
 TNK_COUNTRYMEN.0.4-Emphasis-Min-100-Counts-Twofold
 TNK_COUNTRYMEN.0.4-Emphasis-Min-100-Percentages-Twofold
@@ -240,6 +266,7 @@ TNK_COUNTRYMEN.0.5-Vowels-Only-All-Counts
 TNK_COUNTRYMEN.0.5-Vowels-Only-All-Counts-Twofold
 TNK_COUNTRYMEN.0.5-Vowels-Only-All-Percentages-Twofold
 TNK_COUNTRYWOMEN.0.1-All-Counts		TNK_COUNTRYWOMEN.0.1-All-Counts-Twofold
+TNK_COUNTRYWOMEN.0.1-All-Percentages
 TNK_COUNTRYWOMEN.0.1-All-Percentages-Twofold
 TNK_COUNTRYWOMEN.0.1-Emphasis-All-Counts
 TNK_COUNTRYWOMEN.0.1-Emphasis-All-Counts-Twofold
@@ -379,7 +406,8 @@ TNK_Epilogue-Vowels-Only-All-Counts-Twofold
 TNK_Epilogue-Vowels-Only-Min-100-Counts
 TNK_Epilogue-Vowels-Only-Min-100-Counts-Twofold		TNK_FRIENDS.1-All-Counts
 TNK_FRIENDS.1-All-Counts-Twofold		TNK_FRIENDS.1-All-Percentages
-TNK_FRIENDS.1-Emphasis-All-Counts		TNK_FRIENDS.1-Emphasis-All-Counts-Twofold
+TNK_FRIENDS.1-All-Percentages-Twofold		TNK_FRIENDS.1-Emphasis-All-Counts
+TNK_FRIENDS.1-Emphasis-All-Counts-Twofold
 TNK_FRIENDS.1-Emphasis-Min-100-Counts
 TNK_FRIENDS.1-Emphasis-Min-100-Counts-Twofold
 TNK_FRIENDS.1-Emphasis-Min-100-Percentages
@@ -394,6 +422,7 @@ TNK_FRIENDS.1-Min-100-Counts		TNK_FRIENDS.1-Min-100-Counts-Twofold
 TNK_FRIENDS.1-Min-100-Percentages		TNK_FRIENDS.1-Min-100-Percentages-Twofold
 TNK_FRIENDS.1-Vowels-Only-All-Counts
 TNK_FRIENDS.1-Vowels-Only-All-Counts-Twofold
+TNK_FRIENDS.1-Vowels-Only-All-Percentages
 TNK_FRIENDS.1-Vowels-Only-All-Percentages-Twofold
 TNK_FRIENDS.1-Vowels-Only-Min-100-Counts
 TNK_FRIENDS.1-Vowels-Only-Min-100-Counts-Twofold
@@ -511,7 +540,6 @@ TNK_KNIGHTS.PALAMON-Emphasis-Vowels-Only-All-Counts-Twofold
 TNK_KNIGHTS.PALAMON-Vowels-Only-All-Counts
 TNK_KNIGHTS.PALAMON-Vowels-Only-All-Counts-Twofold
 TNK_KNIGHTS.PALAMON.0.1-All-Counts		TNK_KNIGHTS.PALAMON.0.1-All-Counts-Twofold
-TNK_KNIGHTS.PALAMON.0.1-All-Percentages
 TNK_KNIGHTS.PALAMON.0.1-All-Percentages-Twofold
 TNK_KNIGHTS.PALAMON.0.1-Emphasis-All-Counts
 TNK_KNIGHTS.PALAMON.0.1-Emphasis-All-Counts-Twofold
@@ -539,6 +567,7 @@ TNK_KNIGHTS.PALAMON.0.2-Vowels-Only-All-Counts
 TNK_KNIGHTS.PALAMON.0.2-Vowels-Only-All-Counts-Twofold
 TNK_KNIGHTS.PALAMON.0.2-Vowels-Only-All-Percentages-Twofold
 TNK_KNIGHTS.PALAMON.0.3-All-Counts		TNK_KNIGHTS.PALAMON.0.3-All-Counts-Twofold
+TNK_KNIGHTS.PALAMON.0.3-All-Percentages
 TNK_KNIGHTS.PALAMON.0.3-All-Percentages-Twofold
 TNK_KNIGHTS.PALAMON.0.3-Emphasis-All-Counts
 TNK_KNIGHTS.PALAMON.0.3-Emphasis-All-Counts-Twofold
@@ -602,6 +631,7 @@ TNK_MESSENGERS.X.3-Emphasis-All-Percentages
 TNK_MESSENGERS.X.3-Emphasis-All-Percentages-Twofold
 TNK_MESSENGERS.X.3-Emphasis-Vowels-Only-All-Counts
 TNK_MESSENGERS.X.3-Emphasis-Vowels-Only-All-Counts-Twofold
+TNK_MESSENGERS.X.3-Emphasis-Vowels-Only-All-Percentages
 TNK_MESSENGERS.X.3-Emphasis-Vowels-Only-All-Percentages-Twofold
 TNK_MESSENGERS.X.3-Vowels-Only-All-Counts
 TNK_MESSENGERS.X.3-Vowels-Only-All-Counts-Twofold
@@ -649,8 +679,8 @@ TNK_Pirithous-Vowels-Only-Min-250-Counts
 TNK_Pirithous-Vowels-Only-Min-250-Counts-Twofold
 TNK_Pirithous-Vowels-Only-Min-500-Counts
 TNK_Pirithous-Vowels-Only-Min-500-Counts-Twofold		TNK_Prologue-All-Counts
-TNK_Prologue-All-Counts-Twofold		TNK_Prologue-Emphasis-All-Counts
-TNK_Prologue-Emphasis-All-Counts-Twofold
+TNK_Prologue-All-Counts-Twofold		TNK_Prologue-All-Percentages-Twofold
+TNK_Prologue-Emphasis-All-Counts		TNK_Prologue-Emphasis-All-Counts-Twofold
 TNK_Prologue-Emphasis-All-Percentages
 TNK_Prologue-Emphasis-All-Percentages-Twofold
 TNK_Prologue-Emphasis-Min-100-Counts
@@ -705,7 +735,6 @@ TNK_QUEENS.1-Emphasis-Min-500-Percentages
 TNK_QUEENS.1-Emphasis-Min-500-Percentages-Twofold
 TNK_QUEENS.1-Emphasis-Vowels-Only-All-Counts
 TNK_QUEENS.1-Emphasis-Vowels-Only-All-Counts-Twofold
-TNK_QUEENS.1-Emphasis-Vowels-Only-All-Percentages-Twofold
 TNK_QUEENS.1-Emphasis-Vowels-Only-Min-100-Counts
 TNK_QUEENS.1-Emphasis-Vowels-Only-Min-100-Counts-Twofold
 TNK_QUEENS.1-Emphasis-Vowels-Only-Min-100-Percentages-Twofold
@@ -737,9 +766,7 @@ TNK_QUEENS.1-Vowels-Only-Min-500-Counts-Twofold
 TNK_QUEENS.1-Vowels-Only-Min-500-Percentages-Twofold		TNK_QUEENS.2-All-Counts
 TNK_QUEENS.2-All-Counts-Twofold		TNK_QUEENS.2-All-Percentages
 TNK_QUEENS.2-All-Percentages-Twofold		TNK_QUEENS.2-Emphasis-All-Counts
-TNK_QUEENS.2-Emphasis-All-Counts-Twofold
-TNK_QUEENS.2-Emphasis-All-Percentages-Twofold
-TNK_QUEENS.2-Emphasis-Min-100-Counts
+TNK_QUEENS.2-Emphasis-All-Counts-Twofold		TNK_QUEENS.2-Emphasis-Min-100-Counts
 TNK_QUEENS.2-Emphasis-Min-100-Counts-Twofold
 TNK_QUEENS.2-Emphasis-Min-100-Percentages
 TNK_QUEENS.2-Emphasis-Min-100-Percentages-Twofold
@@ -884,6 +911,7 @@ TNK_Taborer-Vowels-Only-All-Counts		TNK_Taborer-Vowels-Only-All-Counts-Twofold
 TNK_Valerius-All-Counts		TNK_Valerius-All-Counts-Twofold
 TNK_Valerius-All-Percentages-Twofold		TNK_Valerius-Emphasis-All-Counts
 TNK_Valerius-Emphasis-All-Counts-Twofold
+TNK_Valerius-Emphasis-All-Percentages-Twofold
 TNK_Valerius-Emphasis-Vowels-Only-All-Counts
 TNK_Valerius-Emphasis-Vowels-Only-All-Counts-Twofold
 TNK_Valerius-Vowels-Only-All-Counts
@@ -926,7 +954,6 @@ TNK_Wooer-Vowels-Only-Min-500-Percentages-Twofold
 
                      Actual "other" Predicted as "protag":                      
 
-TNK_ATTENDANTS.1-All-Percentages		TNK_ATTENDANTS.1-All-Percentages-Twofold
 TNK_ATTENDANTS.1-Emphasis-All-Percentages
 TNK_ATTENDANTS.1-Emphasis-All-Percentages-Twofold
 TNK_ATTENDANTS.1-Emphasis-Vowels-Only-All-Percentages
@@ -996,7 +1023,6 @@ TNK_Brother-Vowels-Only-All-Percentages
 TNK_Brother-Vowels-Only-All-Percentages-Twofold
 TNK_COUNTRYMEN.0.4-All-Percentages		TNK_COUNTRYMEN.0.4-All-Percentages-Twofold
 TNK_COUNTRYMEN.0.4-Emphasis-All-Percentages
-TNK_COUNTRYMEN.0.4-Emphasis-All-Percentages-Twofold
 TNK_COUNTRYMEN.0.4-Emphasis-Min-100-Percentages
 TNK_COUNTRYMEN.0.4-Emphasis-Vowels-Only-All-Percentages
 TNK_COUNTRYMEN.0.4-Emphasis-Vowels-Only-Min-100-Percentages
@@ -1050,7 +1076,7 @@ TNK_Emilia-Vowels-Only-Min-100-Percentages
 TNK_Emilia-Vowels-Only-Min-100-Percentages-Twofold
 TNK_Emilia-Vowels-Only-Min-250-Percentages-Twofold
 TNK_Emilia-Vowels-Only-Min-500-Percentages-Twofold
-TNK_FRIENDS.1-All-Percentages-Twofold		TNK_FRIENDS.1-Emphasis-All-Percentages
+TNK_FRIENDS.1-Emphasis-All-Percentages
 TNK_FRIENDS.1-Emphasis-All-Percentages-Twofold
 TNK_FRIENDS.1-Emphasis-Vowels-Only-All-Percentages
 TNK_FRIENDS.1-Emphasis-Vowels-Only-All-Percentages-Twofold
@@ -1157,11 +1183,13 @@ TNK_Palamon-Vowels-Only-Min-500-Percentages-Twofold
 TNK_QUEENS.1-Emphasis-All-Percentages
 TNK_QUEENS.1-Emphasis-All-Percentages-Twofold
 TNK_QUEENS.2-Emphasis-All-Percentages
+TNK_QUEENS.2-Emphasis-All-Percentages-Twofold
 TNK_Taborer-Emphasis-Vowels-Only-All-Percentages
 TNK_Taborer-Emphasis-Vowels-Only-All-Percentages-Twofold
 TNK_Taborer-Vowels-Only-All-Percentages
-TNK_Taborer-Vowels-Only-All-Percentages-Twofold
-TNK_Wooer-Emphasis-All-Percentages		TNK_Wooer-Emphasis-All-Percentages-Twofold
+TNK_Taborer-Vowels-Only-All-Percentages-Twofold		TNK_Wooer-All-Percentages
+TNK_Wooer-All-Percentages-Twofold		TNK_Wooer-Emphasis-All-Percentages
+TNK_Wooer-Emphasis-All-Percentages-Twofold
 TNK_Wooer-Emphasis-Min-100-Percentages
 TNK_Wooer-Emphasis-Min-100-Percentages-Twofold
 TNK_Wooer-Emphasis-Min-250-Percentages

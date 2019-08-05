@@ -4,8 +4,8 @@
                       Overall accuracy = 59.66%                                 
                       Average accuracy = 53.85%                                 
 
-                      Average F1 score = 45.02%                                 
-                           Average MCC = 28.47%                                 
+                      Average F1 score = 44.91%                                 
+                           Average MCC = 28.39%                                 
 
 
                                 Confusion Matrix                                
@@ -18,7 +18,7 @@
             ——————————|——————————|——————————|——————————|——————————|             
                fool   |    0     |    84    |    12    |    0     |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |   172    |   106    |   588    |    78    |             
+              other   |   170    |   110    |   588    |    76    |             
             ——————————|——————————|——————————|——————————|——————————|             
               protag  |    18    |    0     |    19    |    59    |             
             ——————————|——————————|——————————|——————————|——————————|             
@@ -27,13 +27,13 @@
                          Total samples = 1232                                   
 
                   Total actual "antag" = 96                                     
-               Total predicted "antag" = 194                                    
+               Total predicted "antag" = 192                                    
                    Total actual "fool" = 96                                     
-                Total predicted "fool" = 190                                    
+                Total predicted "fool" = 194                                    
                   Total actual "other" = 944                                    
                Total predicted "other" = 691                                    
                  Total actual "protag" = 96                                     
-              Total predicted "protag" = 157                                    
+              Total predicted "protag" = 155                                    
 
 
                                  Percent Matrix                                 
@@ -46,20 +46,20 @@
             ——————————|——————————|——————————|——————————|——————————|             
                fool   |  0.00%   |  6.82%   |  0.97%   |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |  13.96%  |  8.60%   |  47.73%  |  6.33%   |             
+              other   |  13.80%  |  8.93%   |  47.73%  |  6.17%   |             
             ——————————|——————————|——————————|——————————|——————————|             
               protag  |  1.46%   |  0.00%   |  1.54%   |  4.79%   |             
             ——————————|——————————|——————————|——————————|——————————|             
 
 
                 Percent actual "antag" = 7.79%                                  
-             Percent predicted "antag" = 15.75%                                 
+             Percent predicted "antag" = 15.58%                                 
                  Percent actual "fool" = 7.79%                                  
-              Percent predicted "fool" = 15.42%                                 
+              Percent predicted "fool" = 15.75%                                 
                 Percent actual "other" = 76.62%                                 
              Percent predicted "other" = 56.09%                                 
                Percent actual "protag" = 7.79%                                  
-            Percent predicted "protag" = 12.74%                                 
+            Percent predicted "protag" = 12.58%                                 
 
 
              Percent Matrix with Total of Each Actual Class = 100%              
@@ -72,7 +72,7 @@
             ——————————|——————————|——————————|——————————|——————————|             
                fool   |  0.00%   |  87.50%  |  12.50%  |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |  18.22%  |  11.23%  |  62.29%  |  8.26%   |             
+              other   |  18.01%  |  11.65%  |  62.29%  |  8.05%   |             
             ——————————|——————————|——————————|——————————|——————————|             
               protag  |  18.75%  |  0.00%   |  19.79%  |  61.46%  |             
             ——————————|——————————|——————————|——————————|——————————|             
@@ -90,34 +90,68 @@
 
                       |  antag   |   fool   |  other   |  protag  |             
             ——————————|——————————|——————————|——————————|——————————|             
-              antag   |  2.06%   |  0.00%   |  10.42%  |  12.74%  |             
+              antag   |  2.08%   |  0.00%   |  10.42%  |  12.90%  |             
             ——————————|——————————|——————————|——————————|——————————|             
-               fool   |  0.00%   |  44.21%  |  1.74%   |  0.00%   |             
+               fool   |  0.00%   |  43.30%  |  1.74%   |  0.00%   |             
             ——————————|——————————|——————————|——————————|——————————|             
-              other   |  88.66%  |  55.79%  |  85.09%  |  49.68%  |             
+              other   |  88.54%  |  56.70%  |  85.09%  |  49.03%  |             
             ——————————|——————————|——————————|——————————|——————————|             
-              protag  |  9.28%   |  0.00%   |  2.75%   |  37.58%  |             
+              protag  |  9.38%   |  0.00%   |  2.75%   |  38.06%  |             
             ——————————|——————————|——————————|——————————|——————————|             
 
 
-  Percent correct of predicted "antag" = 2.06%                                  
-   Percent correct of predicted "fool" = 44.21%                                 
+  Percent correct of predicted "antag" = 2.08%                                  
+   Percent correct of predicted "fool" = 43.30%                                 
   Percent correct of predicted "other" = 85.09%                                 
- Percent correct of predicted "protag" = 37.58%                                 
+ Percent correct of predicted "protag" = 38.06%                                 
 
 
                                    F1 Scores:                                   
-                  F1 score for "antag" = 2.76%                                  
-                   F1 score for "fool" = 58.74%                                 
+                  F1 score for "antag" = 2.78%                                  
+                   F1 score for "fool" = 57.93%                                 
                   F1 score for "other" = 71.93%                                 
-                 F1 score for "protag" = 46.64%                                 
+                 F1 score for "protag" = 47.01%                                 
 
 
                        Matthews Correlation Coefficients:                       
-                 MCC score for "antag" = -9.24%                                 
-                  MCC score for "fool" = 58.02%                                 
+                 MCC score for "antag" = -9.15%                                 
+                  MCC score for "fool" = 57.27%                                 
                  MCC score for "other" = 22.62%                                 
-                MCC score for "protag" = 42.47%                                 
+                MCC score for "protag" = 42.84%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                        Actual "antag" Average Z-Scores:                        
+
+
+                        Actual "fool" Average Z-Scores:                         
+
+
+                        Actual "other" Average Z-Scores:                        
+
+
+                       Actual "protag" Average Z-Scores:                        
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                      Predicted "antag" Average Z-Scores:                       
+
+
+                       Predicted "fool" Average Z-Scores:                       
+
+
+                      Predicted "other" Average Z-Scores:                       
+
+
+                      Predicted "protag" Average Z-Scores:                      
+
+
 
 
 
@@ -456,8 +490,7 @@ LLL_Holofernes-Vowels-Only-Min-250-Percentages
 LLL_Holofernes-Vowels-Only-Min-500-Counts
 LLL_Holofernes-Vowels-Only-Min-500-Percentages
 LLL_Maria-Vowels-Only-Min-100-Percentages
-LLL_Maria-Vowels-Only-Min-250-Percentages		LLL_Rosaline-All-Percentages
-LLL_Rosaline-All-Percentages-Twofold
+LLL_Maria-Vowels-Only-Min-250-Percentages
 LLL_Spring-Emphasis-Vowels-Only-All-Percentages
 
 
@@ -478,7 +511,9 @@ LLL_Dumaine-Vowels-Only-All-Percentages
 LLL_Dumaine-Vowels-Only-Min-100-Percentages
 LLL_Dumaine-Vowels-Only-Min-100-Percentages-Twofold
 LLL_Dumaine-Vowels-Only-Min-250-Percentages
-LLL_Dumaine-Vowels-Only-Min-500-Percentages
+LLL_Dumaine-Vowels-Only-Min-500-Percentages		LLL_Forester-All-Percentages
+LLL_Forester-All-Percentages-Twofold		LLL_Forester-Emphasis-All-Percentages
+LLL_Forester-Emphasis-All-Percentages-Twofold
 LLL_Jaquenetta-Emphasis-Min-100-Percentages
 LLL_Jaquenetta-Emphasis-Min-100-Percentages-Twofold
 LLL_Jaquenetta-Emphasis-Vowels-Only-All-Percentages
@@ -487,8 +522,6 @@ LLL_Jaquenetta-Emphasis-Vowels-Only-Min-100-Percentages-Twofold
 LLL_Jaquenetta-Min-100-Percentages		LLL_Jaquenetta-Vowels-Only-All-Percentages
 LLL_Jaquenetta-Vowels-Only-Min-100-Percentages
 LLL_Jaquenetta-Vowels-Only-Min-100-Percentages-Twofold
-LLL_Longaville-Emphasis-All-Percentages
-LLL_Longaville-Emphasis-All-Percentages-Twofold
 LLL_Longaville-Emphasis-Vowels-Only-All-Percentages
 LLL_Longaville-Emphasis-Vowels-Only-All-Percentages-Twofold
 LLL_Longaville-Emphasis-Vowels-Only-Min-100-Percentages
@@ -496,8 +529,6 @@ LLL_Longaville-Emphasis-Vowels-Only-Min-100-Percentages-Twofold
 LLL_Longaville-Emphasis-Vowels-Only-Min-250-Percentages
 LLL_Longaville-Emphasis-Vowels-Only-Min-500-Percentages
 LLL_Longaville-Emphasis-Vowels-Only-Min-500-Percentages-Twofold
-LLL_Longaville-Vowels-Only-All-Percentages
-LLL_Longaville-Vowels-Only-All-Percentages-Twofold
 LLL_Marcade-All-Percentages		LLL_Marcade-All-Percentages-Twofold
 LLL_Marcade-Emphasis-All-Percentages
 LLL_Marcade-Emphasis-All-Percentages-Twofold
@@ -522,6 +553,9 @@ LLL_Nathaniel-Vowels-Only-Min-250-Percentages
 LLL_Nathaniel-Vowels-Only-Min-250-Percentages-Twofold
 LLL_Nathaniel-Vowels-Only-Min-500-Percentages
 LLL_Nathaniel-Vowels-Only-Min-500-Percentages-Twofold
+LLL_Rosaline-All-Percentages		LLL_Rosaline-All-Percentages-Twofold
+LLL_Rosaline-Emphasis-All-Percentages
+LLL_Rosaline-Emphasis-All-Percentages-Twofold
 LLL_Rosaline-Emphasis-Min-100-Percentages
 LLL_Rosaline-Emphasis-Min-100-Percentages-Twofold
 LLL_Rosaline-Emphasis-Min-1000-Percentages
@@ -1055,14 +1089,13 @@ LLL_Berowne-Emphasis-Vowels-Only-All-Percentages
 LLL_Berowne-Emphasis-Vowels-Only-All-Percentages-Twofold
 LLL_Berowne-Emphasis-Vowels-Only-Min-2500-Counts
 LLL_Berowne-Emphasis-Vowels-Only-Min-2500-Counts-Twofold
-LLL_Forester-All-Percentages		LLL_Forester-All-Percentages-Twofold
-LLL_Forester-Emphasis-All-Percentages
-LLL_Forester-Emphasis-All-Percentages-Twofold
 LLL_Forester-Emphasis-Vowels-Only-All-Percentages
 LLL_Forester-Emphasis-Vowels-Only-All-Percentages-Twofold
 LLL_Forester-Vowels-Only-All-Percentages
 LLL_Forester-Vowels-Only-All-Percentages-Twofold
 LLL_Longaville-All-Percentages		LLL_Longaville-All-Percentages-Twofold
+LLL_Longaville-Emphasis-All-Percentages
+LLL_Longaville-Emphasis-All-Percentages-Twofold
 LLL_Longaville-Emphasis-Min-100-Percentages
 LLL_Longaville-Emphasis-Min-100-Percentages-Twofold
 LLL_Longaville-Emphasis-Min-250-Percentages
@@ -1072,6 +1105,8 @@ LLL_Longaville-Emphasis-Min-500-Percentages-Twofold
 LLL_Longaville-Min-100-Percentages		LLL_Longaville-Min-100-Percentages-Twofold
 LLL_Longaville-Min-250-Percentages		LLL_Longaville-Min-250-Percentages-Twofold
 LLL_Longaville-Min-500-Percentages		LLL_Longaville-Min-500-Percentages-Twofold
+LLL_Longaville-Vowels-Only-All-Percentages
+LLL_Longaville-Vowels-Only-All-Percentages-Twofold
 LLL_Longaville-Vowels-Only-Min-100-Percentages
 LLL_Longaville-Vowels-Only-Min-100-Percentages-Twofold
 LLL_Longaville-Vowels-Only-Min-250-Percentages
@@ -1089,8 +1124,6 @@ LLL_Nathaniel-Min-100-Percentages		LLL_Nathaniel-Min-100-Percentages-Twofold
 LLL_Nathaniel-Min-250-Percentages		LLL_Nathaniel-Min-250-Percentages-Twofold
 LLL_Nathaniel-Min-500-Percentages		LLL_Nathaniel-Min-500-Percentages-Twofold
 LLL_Rosaline-All-Counts-Twofold		LLL_Rosaline-Emphasis-All-Counts-Twofold
-LLL_Rosaline-Emphasis-All-Percentages
-LLL_Rosaline-Emphasis-All-Percentages-Twofold
 LLL_Rosaline-Emphasis-Min-100-Counts-Twofold
 LLL_Rosaline-Emphasis-Min-1000-Counts
 LLL_Rosaline-Emphasis-Min-1000-Counts-Twofold
