@@ -40,6 +40,7 @@ Research into the classification of characters based on the patterns of phoneme 
 - [Reference](https://hitgub.com/olivercalder/sonic-signatures/tree/master/Reference): Helper scripts and data used by other scripts to classify characters or generate combinations of parameters
 - [Results](https://github.com/olivercalder/sonic-signatures/tree/master/Results): Saved classification results and summaries generated from the count or percentage data in the [Archive](https://github.com/olivercalder/sonic-signatures/tree/master/Archive) using the scripts in [Naive-Bayes](https://github.com/olivercalder/sonic-signatures/tree/master/Naive-Bayes)
 - [Statistics](https://github.com/olivercalder/sonic-signatures/tree/master/Statistics): Scripts to generate statistical information on phoneme vectors, and to be used by other scripts to yield more informative results regarding classifications
+- [Visualization](https://github.com/olivercalder/sonic-signatures/tree/master/Visualization): Interactive visualizations to explore statistical and classification data
 
 ## Preprocessing Details:
 | Program: | Returns: | Writes: | Depends: |
