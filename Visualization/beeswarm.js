@@ -9,6 +9,8 @@ var middle = height / 2;  // of circle graph
 var slowTrans = 1000;  // Transition time for slow transitions, in milliseconds
 var fastTrans = 150;  // Transition time for fast transitions, in milliseconds
 
+var simTicks = 120;  // Number of ticks computed in forceSimulation
+
 var radius = 4;  // Radius of character circles
 var avgRadius = 32;  // Radius of average circles
 
@@ -94,6 +96,71 @@ function colorCircles(optionalClass = "") {
 };
 
 
+function createPopups(selection) {
+    selection.each(function(d) {
+
+        let graph = d3.select("g.graph." + d.phoneme);  // g element containing circles for each circle
+
+        circPopup = graph.append("text")
+            .attr("class", function() { return "id_" + d.identity.replace(/\./g, "-") + ((d.average) ? " average" : "") + " popup"; })  
+                // Need average class to be included in popup in case average circles are redrawn while popup is still in existence
+            .attr("x", function() { return d.x;})
+            .attr("y", function() { let y = parseFloat(d.y);
+                return ((y < middle) ? y - 30 : y + 40); })
+            .style("text-anchor", "middle")
+            .style("font-weight", "bold")
+            //.style("stroke", "white")
+            .style("fill", "black")
+            .style("font-size", "16px")
+            .text(function() { return d.identity + ": " + parseFloat(d.Zscore).toFixed(3); });
+    });
+};
+
+function updatePopups(selection) {
+    selection.each(function(d) {
+        let graph = d3.select("g.graph." + d.phoneme);
+        if (selected.has(d.identity)) {
+            currPopup = currGraph.select(".popup.id_" + d.identity)
+            if (currPopup.length > 0) {
+                currPopup.transition()
+                    .duration(slowTrans)
+                    .attr("x", function() { return d.x; })
+                    .attr("y", function() { return d.y; })
+            } else {
+                graph.append("text")
+                    .attr("class", function() { return "id_" + d.identity.replace(/\./g, "-") + ((d.average) ? " average" : "") + " popup"; })  
+                        // Need average class to be included in popup in case average circles are redrawn while popup is still in existence
+                    .attr("x", function() { return d.x; })
+                    .attr("y", function() { let y = parseFloat(d.y);
+                        return ((y < middle) ? y - 30 : y + 40); })
+                    .style("text-anchor", "middle")
+                    .style("font-weight", "bold")
+                    //.style("stroke", "white")
+                    .style("fill", "black")
+                    .style("font-size", "16px")
+                    .text(function() { return d.identity + ": " + parseFloat(d.Zscore).toFixed(3); });
+            };
+        } else {
+            currGraph.selectAll("text.id_" + d.identity.replace(/\./g, "-") + ".popup").remove();
+        };
+    });
+};
+
+
+function checkIfPersisted(selection) {
+    selection.each(function(d) {
+        return true;
+    });
+}
+
+
+function checkIfSelected(selection) {
+    selection.each(function(d) {
+        return true;
+    });
+};
+
+
 // Click handler that locks circles from being modified by mouseover or mouseout
 function handleClick(d) {
     let circ = d3.select(this);  //circle element triggering event
@@ -116,25 +183,7 @@ function handleMouseOver(d) {
             .duration(fastTrans)
             .attr("r", function() { return (circ.classed("average") ? sizeScale(d.count, d.total) + radius : 2 * radius); })
             .style("stroke", "black")
-            .each(function() {
-                let currentCirc = d3.select(this);
-                let phon = currentCirc.datum()["phoneme"];
-
-                let graph = d3.select(this.parentNode);  // g element containing circles for each circle
-
-                circPopup = graph.append("text")
-                    .attr("class", function() { return "id_" + d.identity.replace(/\./g, "-") + ((d.average) ? " average" : "") + " popup"; })  
-                        // Need average class to be included in popup in case average circles are redrawn while popup is still in existence
-                    .attr("x", function() { return currentCirc.attr("cx");})
-                    .attr("y", function() { let cy = parseFloat(currentCirc.attr("cy"));
-                        return ((cy < middle) ? cy - 30 : cy + 40); })
-                    .style("text-anchor", "middle")
-                    .style("font-weight", "bold")
-                    //.style("stroke", "white")
-                    .style("fill", "black")
-                    .style("font-size", "16px")
-                    .text(function() { return d.identity + ": " + parseFloat(currentCirc.datum()["Zscore"]).toFixed(3); });
-            });
+            .call(createPopups);
     };
 };
 
@@ -306,7 +355,8 @@ function getAvgsData() {
             .force("collision", collisionAvg)
             .stop();
 
-        for (let i = 0; i < 120; i++) { simulationAvg.tick(); };
+        // Performs 120 ticks of calculation
+        for (let i = 0; i < simTicks; i++) { simulationAvg.tick(); };
 
         avgsData[phoneme] = classData;
     });
@@ -361,7 +411,9 @@ function drawAverages() {
             .duration(slowTrans)
             .attr("r", d => sizeScale(d.count, d.total))
             .style("fill", d => getColor(d))
-            .style("stroke", d => getColor(d));
+            .style("stroke", d => getColor(d))
+            .transition()
+            .call(checkIfSelected);
 
         // Modify existing average circles
         avgCircles
@@ -383,7 +435,9 @@ function drawAverages() {
             .attr("cy", d => d.y)
             .attr("fill-opacity", 0.5)
             .style("fill", d => getColor(d))
-            .style("stroke", d => getColor(d));
+            .style("stroke", d => getColor(d))
+            .transition()
+            .call(checkIfSelected);
     });
     // The code after avgCircles.enter() and avgCircles is very similar, but separated so as to avoid race conditions
 
@@ -472,7 +526,7 @@ function initializeSVG(entry) {
         .stop();
 
     // Performs 120 ticks of calculation
-    for (let i = 0; i < 120; i++) { simulation.tick(); };
+    for (let i = 0; i < simTicks; i++) { simulation.tick(); };
 
     // Creates element to contain circles
     var g = d3.select("svg." + phoneme).append("g")
@@ -510,8 +564,9 @@ function initializeSVG(entry) {
         .duration(slowTrans)
         .attr("r", radius)
         .style("fill", d => getColor(d))
-        .style("stroke", d => getColor(d));
-    
+        .style("stroke", d => getColor(d))
+        .transition()
+        .call(checkIfSelected);
 }
 
 
@@ -551,7 +606,7 @@ function updateSVG(entry, scale = xScale) {
         .stop();
 
     // Performs 120 ticks of calculation
-    for (let i = 0; i < 120; i++) { simulation.tick(); };
+    for (let i = 0; i < simTicks; i++) { simulation.tick(); };
 
     // Gets a list of all classifiers
     let classifier_keys = Object.keys(classifiers);
@@ -596,7 +651,9 @@ function updateSVG(entry, scale = xScale) {
         .duration(slowTrans)
         .attr("r", radius)
         .style("fill", d => getColor(d))
-        .style("stroke", d => getColor(d));
+        .style("stroke", d => getColor(d))
+        .transition()
+        .call(checkIfSelected);
 
     // Modify existing circles
     circles
@@ -620,14 +677,14 @@ function updateSVG(entry, scale = xScale) {
         .attr("cx", d => d.x)
         .attr("cy", d => d.y)
         .style("fill", d => getColor(d))
-        .style("stroke", d => getColor(d));
+        .style("stroke", d => getColor(d))
+        .transition()
+        .call(checkIfSelected);
 };
 
 
 // Update svg elements and the circles they contain with new data
-function update(newData) {
-    // newData must be explicitly passed data to avoid race conditions
-
+function update(newData = data) {
     // newData should have the following structure:
     //     newData = [{"phoneme": phoneme, "data": phonData}, ...]
     //     where phonData = [{"Zscore": Zscore, "identity": charName, ...}, ...]
@@ -653,7 +710,8 @@ function update(newData) {
         .each(entry => initializeSVG(entry));
 
     // Update the elements in existing svg elements
-    svgs.each(entry => updateSVG(entry, updateScale(newData)));
+    newScale = updateScale(newData);
+    svgs.each(entry => updateSVG(entry, newScale));
 
     updateAverages();
 };
@@ -693,7 +751,7 @@ function rescaleGraphs(scale = xScale, phon = "") {
             .stop();
 
         // Performs 120 ticks of calculation
-        for (let i = 0; i < 120; i++) { simulation.tick(); };
+        for (let i = 0; i < simTicks; i++) { simulation.tick(); };
 
         d3.select(this).selectAll("circle")
             .transition()
@@ -701,7 +759,8 @@ function rescaleGraphs(scale = xScale, phon = "") {
             .attr("cx", d => d.x)
             .attr("cy", d => d.y)
             .style("fill", d => getColor(d))
-            .style("stroke", d => getColor(d));
+            .style("stroke", d => getColor(d))
+            .call(updatePopups);
 
         avgsData = getAvgsData()[phoneme];
 
@@ -719,7 +778,7 @@ function rescaleGraphs(scale = xScale, phon = "") {
             .stop();
 
         // Performs 120 ticks of calculation
-        for (let i = 0; i < 120; i++) { simulation.tick(); };
+        for (let i = 0; i < simTicks; i++) { simulation.tick(); };
         
         d3.select(this).selectAll("circle.average").data(avgsData)
             .transition()
@@ -727,48 +786,68 @@ function rescaleGraphs(scale = xScale, phon = "") {
             .attr("cx", d => d.x)
             .attr("cy", d => d.y)
             .style("fill", d => getColor(d))
-            .style("stroke", d => getColor(d));
+            .style("stroke", d => getColor(d))
+            .call(updatePopups);
     });
 };
 
 
-//d3.json("../Archive/Vowels-Only-No-Others/percentages_Z-scores.json", function(rawData) { 
-//d3.json("percentages_Z-scores.json", function(rawData) { 
-//       https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/Archive/Vowels-Only-All/percentages_Z-scores.json
-d3.json("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/Archive/Vowels-Only-Min-2500/percentages_Z-scores.json", function(rawData) { 
-    d3.csv("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/Reference/characteristics.csv", function(c) {
+function loadData(ZscorePath, callbackFunction) {
+    //d3.json("../Archive/Vowels-Only-No-Others/percentages_Z-scores.json", function(rawData) { 
+    //d3.json("percentages_Z-scores.json", function(rawData) { 
+    //       https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/Archive/Vowels-Only-All/percentages_Z-scores.json
 
-        data = new Array();
-        characteristics = new Object();
+    let newData = new Array();
+    characteristics = new Object();
 
-        for (let i = 0; i < c.length; i++) {
-            let entry = c[i];
-            characteristics[entry["character"]] = entry;
-        }
+    let done = false
 
-        let characters = Object.keys(rawData);
-        let phonemes = Object.keys(rawData[characters[0]]);
-        for (let i = 0; i < phonemes.length; i++) {
-            phoneme = phonemes[i];
-            let phonData = new Array();
-            data.push({"phoneme": phoneme, "data": phonData});
-            for (let j = 0; j < characters.length; j++) {
-                let charName = characters[j];
-                let Zscore = rawData[charName][phoneme];
-                phonData.push({
-                    "Zscore": parseFloat(Zscore),
-                    "identity": charName,
-                    "role": characteristics[charName]["role"],
-                    "gender": characteristics[charName]["gender"],
-                    "genre": characteristics[charName]["genre"],
-                });
+    d3.json(ZscorePath, function(rawData) { 
+        d3.csv("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/Reference/characteristics.csv", function(c) {
+            for (let i = 0; i < c.length; i++) {
+                let entry = c[i];
+                characteristics[entry["character"]] = entry;
+            }
+
+            let characters = Object.keys(rawData);
+            let phonemes = Object.keys(rawData[characters[0]]);
+            for (let i = 0; i < phonemes.length; i++) {
+                phoneme = phonemes[i];
+                let phonData = new Array();
+                for (let j = 0; j < characters.length; j++) {
+                    let charName = characters[j];
+                    let Zscore = rawData[charName][phoneme];
+                    phonData.push({
+                        "phoneme": phoneme,
+                        "Zscore": parseFloat(Zscore),
+                        "identity": charName,
+                        "role": characteristics[charName]["role"],
+                        "gender": characteristics[charName]["gender"],
+                        "genre": characteristics[charName]["genre"],
+                    });
+                };
+                newData.push({"phoneme": phoneme, "data": phonData});
             };
-        };
-        // This creates data with structure:
-        //      data = [{"phoneme": phoneme, "data": phonData}, ...]
-        //      where phonData = [{"Zscore": Zscore, "identity": charName, ...}, ...]
-        
-        update(data);
+            // This creates data with structure:
+            //      newData = [{"phoneme": phoneme, "data": phonData}, ...]
+            //      where phonData = [{"Zscore": Zscore, "identity": charName, ...}, ...]
+            callbackFunction(newData);
+        });
     });
-});
+};
 
+loadData("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/Archive/Vowels-Only-No-Others/percentages_Z-scores.json", update);
+
+/*
+ * Template for doing other things with new data:
+ *
+ * loadData(path, function(newData) {
+ *     // do thing with newData
+ * }
+ *
+ * Set global data to newData:
+ *
+ * loadData(path, function(newData) {
+ *     data = newData;
+ * }
+ */
