@@ -35,6 +35,7 @@ Research into the classification of characters based on the patterns of phoneme 
 ## Directory Structure:
 - [Analysis](https://hithub.com/olivercalder/sonic-signatures/tree/master/Analysis): Scripts and outputs for the analysis of trends in the results of different classifications
 - [Archive](https://github.com/olivercalder/sonic-signatures/tree/master/Archive): Saved text, phoneme, counts, and percentages data for a variety of combinations of parameters
+- [lib](https://github.com/olivercalder/sonic-signatures/tree/master/lib): Libraries (d3.js and jQuery)
 - [Naive-Bayes](https://github.com/olivercalder/sonic-signatures/tree/master/Naive-Bayes): Scripts used to classify characters using Naive Bayes
 - [Preprocessing](https://github.com/olivercalder/sonic-signatures/tree/master/Preprocessing): Scripts to get character lists and texts from [folgerdigitaltexts.org/api](https://www.folgerdigitaltexts.org/api/) and convert those texts into phonemes, and then count or percentage vectors for each character
 - [Reference](https://hitgub.com/olivercalder/sonic-signatures/tree/master/Reference): Helper scripts and data used by other scripts to classify characters or generate combinations of parameters
