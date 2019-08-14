@@ -3,13 +3,13 @@ var height = 280;  // of circle graph
 var xMargin = 100;  // on either side of circle graph
 var yMargin = 60;  // on either side of circle graph
 var totalWidth = width + (2 * xMargin);  // of each svg element
-var totalHeight = height + (2 * yMargin);  // of each svg element
+var svgHeight = height + (2 * yMargin);  // of each svg element
 var middle = height / 2;  // of circle graph
 
 var slowTrans = 500;  // Transition time for slow transitions, in milliseconds
 var fastTrans = 150;  // Transition time for fast transitions, in milliseconds
 
-var simTicks = 120;  // Number of ticks computed in forceSimulation
+var simTicks = 50;  // Number of ticks computed in forceSimulation
 
 var radius = 4;  // Radius of character circles
 var avgRadius = 32;  // Radius of average circles
@@ -35,24 +35,50 @@ var selected = new Set();
 var persisted = new Set();
 
 
-var visible = new Set();
+var buffer = 1;
+var visible = new Map();
+var startVisible;
+var startIndex;
+var endVisible;
+var endIndex;
 
 
-function populateVisible(newData = data, scale = xScale) {
+// Returns the indices of the first and last SVGs visible on screen, not including the buffer
+//     Excludes buffer so that this can be used to compare current position with buffer indices
+function getVisibleIndices() {
     let winTop = $(window).scrollTop();
     let winBot = winTop + $(window).height();
-    let startIndex = Math.max(0, Math.floor(winTop / totalHeight) - 1);
-    let endIndex = Math.min(data.length, Math.floor(winBot / totalHeight) + 2);
-    let newVisible = new Set();
-    for (let i = startIndex; i <= endIndex; i++) {
-        entry = newData[i];
-        phoneme = entry.phoneme;
-        newVisible.add(phoneme);
-        updateGraph(entry);
+    startVisible = Math.floor(winTop / svgHeight);  // May be < 0
+    endVisible = Math.floor(winBot / svgHeight);  // May be > data.length
+    return [startVisible, endVisible];
+}
+
+
+function checkVisible() {
+    getVisibleIndices();
+    if (startVisible <= startIndex || endVisible >= endIndex) {
+        refreshVisible(data, xScale, false);
     };
-    visible.forEach(function(phon) {
-        if (!newVisible.has(phon)) {
-            d3.selectAll("circle." + phoneme).remove();
+};
+
+
+function refreshVisible(newData = data, scale = xScale, fullRefresh = false) {
+    getVisibleIndices();
+    startIndex = Math.max(0, startVisible - buffer);
+    endIndex = Math.min(newData.length - 1, endVisible + buffer);
+    let newVisible = new Map();
+    for (let i = startIndex; i <= endIndex; i++) {
+        let entry = newData[i];
+        let phoneme = entry.phoneme;
+        newVisible.set(phoneme, entry);
+        let refreshOnscreen = false;
+        if (!visible.has(phoneme) || fullRefresh) {
+            updateGraph(entry, scale, ((i >= startVisible || i <= endVisible) ? false : true));
+        };
+    };
+    visible.forEach(function(entry) {
+        if (!newVisible.has(entry.phoneme)) {
+            d3.selectAll("circle." + entry.phoneme).remove();
         };
     });
     visible = newVisible;
@@ -62,108 +88,9 @@ function populateIfVisible(entry, scale = xScale, animate = true) {
     let phoneme = entry.phoneme;
     let chartData = entry.data;
     if (visible.has(phoneme)) {
-
-        // Re-creates actual d3 axis object
-        let xAxis = d3.axisBottom(scale);
-
-        // Re-calls new axis in existing axis element
-        d3.select("g.axis." + phoneme)
-            .call(xAxis);
-
-        // Creates force to pull circle towards the x coordinate corresponding to its Z-score
-        let xForce = d3.forceX(d => scale(d.Zscore))
-            .strength(1);
-
-        // Creates force to pull each circle towards the horizontal center line
-        let yForce = d3.forceY(middle)
-            .strength(0.1);
-
-        // Creates collision force between each circle
-        let collision = d3.forceCollide()
-            .radius(radius + 1)
-            .strength(0.9)
-            .iterations(10);
-
-        // Initializes a simulation to calculate x and y coordinates of each circle
-        let simulation = d3.forceSimulation(chartData)
-            .force("xForce", xForce)
-            .force("yForce", yForce)
-            .force("collision", collision)
-            .stop();
-
-        // Performs 120 ticks of calculation
-        for (let i = 0; i < simTicks; i++) { simulation.tick(); };
-
-        // Gets a list of all classifiers
-        let classifier_keys = Object.keys(classifiers);
-
-        // Binds data to circles, then creates new ones as needed, deletes old ones, and updates existing ones
-        let circles = d3.select("g.graph." + phoneme).selectAll("circle")
-                .data(chartData, d => d.identity);
-
-    /*    // Remove all popup labels
-        d3.select("g.graph." + phoneme).selectAll(".popup")
-            .remove()
-    */
-        // Remove old circles gracefully
-        circles.exit()
-            .transition()
-            .duration(slowTrans)
-            .attr("r", 0)
-            .attr("fill-opacity", 0)
-            .style("stroke", "white")
-            .remove();
-    
-        // Creates new circles and formats them properly
-        circles.enter().append("circle")
-            .attr("r", 0)
-            .attr("cx", d => d.x)
-            .attr("cy", d => d.y)
-            .on("mouseover", handleMouseOver)
-            .on("mouseout", handleMouseOut)
-            .on("click", handleClick)
-            .attr("class", function(d) { 
-                let classList = new Array();
-                classList.push("id_" + d.identity.replace(/\./g, "-"));
-                classList.push("p_" + d.identity.split("_")[0]);
-                classList.push(phoneme);
-                for (let i = 0; i < classifier_keys.length; i++) {
-                    classList.push(d[classifier_keys[i]]);
-                };
-                return classList.join(" ");
-            })
-            .transition()
-            .duration(slowTrans)
-            .attr("r", d => getRadius(d))
-            .style("fill", d => getColor(d))
-            .style("stroke", d => getStroke(d))
-            .call(updatePopups);
-
-        // Modify existing circles
-        circles
-            .on("mouseover", handleMouseOver)
-            .on("mouseout", handleMouseOut)
-            .on("click", handleClick)
-            .attr("class", function(d) { 
-                let classList = new Array();
-                classList.push("id_" + d.identity.replace(/\./g, "-"));
-                classList.push("p_" + d.identity.split("_")[0]);
-                classList.push(phoneme);
-                for (let i = 0; i < classifier_keys.length; i++) {
-                    classList.push(d[classifier_keys[i]]);
-                };
-                return classList.join(" ");
-            })
-            .transition()
-            .duration(slowTrans)
-            .attr("r", d => getRadius())
-            .attr("cx", d => d.x)
-            .attr("cy", d => d.y)
-            .style("fill", d => getColor(d))
-            .style("stroke", d => getStroke(d))
-            .call(updatePopups);
+        
     }
-}
+};
 
 
 // Checkbox to toggle displaying average circles
@@ -185,9 +112,9 @@ averageToggle.append("label")
 // Draw or hide average circles, depending on whether var averages is true or false
 function updateAverages() {
     if (averages) {
-        drawAverages(); 
+        visible.forEach(value => drawAverages(value));
     } else if (!averages) {
-        hideAverages();
+        visible.forEach(value => hideAverages(value));
     };
 };
 
@@ -279,8 +206,8 @@ function createPopups(selection) {
 
 
 // Function to move popups when graph is rescaled or otherwise modified
-function updatePopups(selection) {
-    selection.each(function(d) {
+function updatePopups(circles) {
+    circles.each(function(d) {
         let graph = d3.select("g.graph." + d.phoneme);
         if (selected.has(d.identity)) {
             currPopup = graph.select(".popup.id_" + d.identity)
@@ -291,7 +218,14 @@ function updatePopups(selection) {
                     .attr("y", function() { return d.y; })
             } else {
                 graph.append("text")
-                    .attr("class", function() { return "id_" + d.identity.replace(/\./g, "-") + ((d.average) ? " average" : "") + " popup"; })  
+                    .attr("class", function() { 
+                        let classList = new Array();
+                        classList.push(d.phoneme);
+                        ((d.average) ? classList.push("average") : true);
+                        classList.push("popup");
+                        classList.push("id_" + d.identity.replace(/\./g, "-"));
+                        return classList.join(" ");
+                    })
                         // Need average class to be included in popup in case average circles are redrawn while popup is still in existence
                     .attr("x", function() { return d.x; })
                     .attr("y", function() { let y = parseFloat(d.y);
@@ -481,87 +415,85 @@ function sizeScale(classCount, totalCount) {
 
 
 // Returns data of averages of each class for each phoneme, used by drawAverages()
-function getAvgsData() {
-    let avgsData = new Object();
+function getAvgsData(entry, scale = xScale) {
+    let phoneme = entry.phoneme;
+    let entryData = entry.data;
 
-    d3.selectAll("g.graph").each(function(entry) {
-        let phoneme = entry.phoneme;
-        let entryData = entry.data;
+    let classSums = new Object();
+    let classCounts = new Object();
+    for (let i = 0; i < entryData.length; i++) {
+        let charClass = entryData[i][classifier];
+        classSums[charClass] = (classSums[charClass] ? classSums[charClass] + entryData[i].Zscore : entryData[i].Zscore);
+        classCounts[charClass] = (classCounts[charClass] ? classCounts[charClass] + 1 : 1);
+    };
 
-        let classSums = new Object();
-        let classCounts = new Object();
-        for (let i = 0; i < entryData.length; i++) {
-            let charClass = entryData[i][classifier];
-            classSums[charClass] = (classSums[charClass] ? classSums[charClass] + entryData[i].Zscore : entryData[i].Zscore);
-            classCounts[charClass] = (classCounts[charClass] ? classCounts[charClass] + 1 : 1);
-        };
+    let classes = Object.keys(classSums);
+    let avgsData = new Array();
 
-        let classes = Object.keys(classSums);
-        let classData = new Array();
+    for (let i = 0; i < classes.length; i++) {
+        avgsData.push({
+            "phoneme": phoneme,
+            "identity": classes[i],
+            "average": true,
+            "count": classCounts[classes[i]],
+            "total": entryData.length,
+            "Zscore": classSums[classes[i]] / classCounts[classes[i]],
+            "role": ((classifier == "role") ? classes[i] : undefined),
+            "gender": ((classifier == "gender") ? classes[i] : undefined),
+            "genre": ((classifier == "genre") ? classes[i] : undefined)
+        })
+    }
 
-        for (let i = 0; i < classes.length; i++) {
-            classData.push({
-                "phoneme": phoneme,
-                "identity": classes[i],
-                "average": true,
-                "count": classCounts[classes[i]],
-                "total": entryData.length,
-                "Zscore": classSums[classes[i]] / classCounts[classes[i]],
-                "role": ((classifier == "role") ? classes[i] : undefined),
-                "gender": ((classifier == "gender") ? classes[i] : undefined),
-                "genre": ((classifier == "genre") ? classes[i] : undefined)
-            })
-        }
+    let xForceAvg = d3.forceX(d => scale(d.Zscore))  // force to pull circle towards its specified x value
+        .strength(1);
+    let yForceAvg = d3.forceY(middle)
+        .strength(0.1);
+    let collisionAvg = d3.forceCollide()  // applied to every node
+        .radius(d => sizeScale(d.count, d.total) + 1)
+        .strength(0.9)
+        .iterations(10);
 
-        let xForceAvg = d3.forceX(d => xScale(d.Zscore))  // force to pull circle towards its specified x value
-            .strength(1);
-        let yForceAvg = d3.forceY(middle)
-            .strength(0.1);
-        let collisionAvg = d3.forceCollide()  // applied to every node
-            .radius(d => sizeScale(d.count, d.total) + 1)
-            .strength(0.9)
-            .iterations(10);
+    let simulationAvg = d3.forceSimulation(avgsData)  // Initializes a simulation with each datum as a node
+        .force("xForce", xForceAvg)
+        .force("yForce", yForceAvg)
+        .force("collision", collisionAvg)
+        .stop();
 
-        let simulationAvg = d3.forceSimulation(classData)  // Initializes a simulation with each datum as a node
-            .force("xForce", xForceAvg)
-            .force("yForce", yForceAvg)
-            .force("collision", collisionAvg)
-            .stop();
-
-        // Performs 120 ticks of calculation
-        for (let i = 0; i < simTicks; i++) { simulationAvg.tick(); };
-
-        avgsData[phoneme] = classData;
-    });
+    // Performs 120 ticks of calculation
+    for (let i = 0; i < simTicks; i++) { simulationAvg.tick(); };
     return avgsData;
     // avgsData is of the form:
-    //     avgsData = {"AA": classData, "AE": classData, ...}
-    //     where classData = [{"identity": <class>, "average": true, "Zscore": <avgZscore>, ...}, ...]
+    //     avgsData = [{"identity: <class>, "average": true, "Zscore": <avgZscore>, ...}, ...]
 };
 
 
-// Draws average circles onto graphs based on the data bound to those graphs
-function drawAverages() {
-    let avgsData = getAvgsData();
+// Draws average circles onto graph corresponding to the given entry
+function drawAverages(entry, scale = xScale, animate = true) {
+    let phoneme = entry.phoneme;
+    let avgsData = getAvgsData(entry, scale);
 
-    d3.selectAll("g.graph").each(function(entry) {
-        let phoneme = entry.phoneme;
-        let classData = avgsData[phoneme];
+//    d3.selectAll("g.graph").each(function(entry) {
+//        let phoneme = entry.phoneme;
+//        let classData = avgsData[phoneme];
 
         // Binds averages data to average circles
-        let avgCircles = d3.select(this).selectAll("circle.average")
-            .data(classData, d => d.identity);
+        let avgCircles = d3.select("g.graph." + phoneme).selectAll("circle.average")
+            .data(avgsData, d => d.identity);
 
-        // Removes all average circle popup labels
-        d3.select(this).selectAll(".average.popup").remove()
+//        // Removes all average circle popup labels
+//        d3.select(this).selectAll(".average.popup").remove()
 
         // Removes old circles gracefully
         avgCircles.exit()
             .transition()
-            .duration(slowTrans)
+            .duration((animate == true) ? slowTrans : 0)
             .attr("fill-opacity", 0.0)
             .style("stroke", "white")
             .attr("r", 0)
+            .each(function(d) {
+                d3.select("text.average.popup." + d.phoneme + ".id_" + d.identity.replace(/\./g, "-"))
+                    .remove();
+            })
             .remove();
 
         // Creates new average circles and format them properly
@@ -580,7 +512,7 @@ function drawAverages() {
             .on("click", handleClick)
             .attr("fill-opacity", 0.5)
             .transition()
-            .duration(slowTrans)
+            .duration((animate == true) ? slowTrans : 0)
             .attr("r", d => getRadius(d))
             .style("fill", d => getColor(d))
             .style("stroke", d => getStroke(d))
@@ -599,7 +531,7 @@ function drawAverages() {
             .on("mouseout", handleMouseOut)
             .on("click", handleClick)
             .transition()
-            .duration(slowTrans)
+            .duration((animate == true) ? slowTrans : 0)
             .attr("r", d => getRadius(d))
             .attr("cx", d => d.x)
             .attr("cy", d => d.y)
@@ -607,29 +539,30 @@ function drawAverages() {
             .style("fill", d => getColor(d))
             .style("stroke", d => getStroke(d))
             .call(updatePopups);
-    });
+//    });
     // The code after avgCircles.enter() and avgCircles is very similar, but separated so as to avoid race conditions
 
     d3.selectAll("circle").filter(d => (d.average ? false : true))  // Make all other non-average circles opacity 0.5
         .transition()
-        .duration(slowTrans)
+        .duration((animate == true) ? slowTrans : 0)
         .attr("fill-opacity", 0.5)
 };
 
 
 // Removes average circles from each graph and returns other circles to opacity 1
-function hideAverages() {
-    d3.selectAll("circle").filter(d => (d.average ? false : true))
+function hideAverages(entry, animate = true) {
+    let phoneme = entry.phoneme;
+    d3.selectAll("circle").filter(d => ((d.average ? false : true) && d.phoneme == phoneme))
         .transition()
-        .duration(slowTrans)
+        .duration((animate == true) ? slowTrans : 0)
         .attr("fill-opacity", 1.0)
 
-    d3.selectAll("text.average.popup")
+    d3.selectAll("text.average.popup." + phoneme)
         .remove()
 
-    d3.selectAll("circle.average")
+    d3.selectAll("circle.average." + phoneme)
         .transition()
-        .duration(slowTrans)
+        .duration((animate == true) ? slowTrans : 0)
         .attr("fill-opacity", 0.0)
         .style("stroke", "white")
         .attr("r", 0)
@@ -676,7 +609,7 @@ function updateGraph(entry, scale = xScale, animate = true) {
         .call(xAxis);
 
     // Binds data to circles, then creates new ones as needed, deletes old ones, and updates existing ones
-    let circles = d3.select("g.graph." + phoneme).selectAll("circle")
+    let circles = d3.select("g.graph." + phoneme).selectAll("circle").filter(d => (d.average) ? false : true)
             .data(chartData, d => d.identity);
 
 /*    // Remove all popup labels
@@ -737,12 +670,14 @@ function updateGraph(entry, scale = xScale, animate = true) {
         })
         .transition()
         .duration((animate) ? slowTrans : 0)
-        .attr("r", d => getRadius())
+        .attr("r", d => getRadius(d))
         .attr("cx", d => d.x)
         .attr("cy", d => d.y)
         .style("fill", d => getColor(d))
         .style("stroke", d => getStroke(d))
         .call(updatePopups);
+
+    updateAverages(entry, scale, animate);
 };
 
 
@@ -757,12 +692,12 @@ function initializeSVG(entry, scale = xScale) {
     let label = d3.select("svg." + phoneme).append("g")
         .attr("class", function() { return phoneme + " label"; })
         .attr("width", xMargin)
-        .attr("height", totalHeight);
+        .attr("height", svgHeight);
 
     // Creates text within the label element
     label.append("text")
         .attr("x", xMargin / 2)
-        .attr("y", totalHeight / 2)
+        .attr("y", svgHeight / 2)
         .attr("class", function() { return phoneme + " label"; })
         .style("text-anchor", "middle")
         .style("fill", "#999999")
@@ -776,18 +711,20 @@ function initializeSVG(entry, scale = xScale) {
         .attr("transform", "translate(" + xMargin + ", 0)")
         .attr("width", width)
         .attr("height", yMargin);
-
+/*
     // Creates actual d3 axis object
     var xAxis = d3.axisBottom(xScale);
-
+*/
     // Creates element to contain the axis, then creates the axis itself
     d3.select("svg." + phoneme).append("g")
         .attr("class", function() { return phoneme + " axis"; })
         .attr("transform", "translate(" + xMargin + "," + (height + (yMargin * 1.5)) + ")")
         .attr("width", width)
         .attr("height", yMargin)
-        .call(xAxis);
 
+    populateIfVisible(entry, scale);
+//        .call(xAxis);
+/*
     // Creates force to pull circle towards the x coordinate corresponding to its Z-score
     var xForce = d3.forceX(d => xScale(d.Zscore))
         .strength(1);
@@ -811,14 +748,14 @@ function initializeSVG(entry, scale = xScale) {
 
     // Performs 120 ticks of calculation
     for (let i = 0; i < simTicks; i++) { simulation.tick(); };
-
+*/
     // Creates element to contain circles
     var g = d3.select("svg." + phoneme).append("g")
         .attr("class", function() { return phoneme + " graph"; })
         .attr("transform", "translate(" + xMargin + "," + yMargin + ")")
         .attr("width", width)
         .attr("height", height);
-
+/*
     // Gets a list of all classifiers
     let classifier_keys = Object.keys(classifiers);
 
@@ -848,6 +785,7 @@ function initializeSVG(entry, scale = xScale) {
         .attr("r", d => getRadius(d))
         .style("fill", d => getColor(d))
         .style("stroke", d => getStroke(d))
+*/
 }
 
 
@@ -857,7 +795,7 @@ function update(newData = data) {
     //     newData = [{"phoneme": phoneme, "data": phonData}, ...]
     //     where phonData = [{"Zscore": Zscore, "identity": charName, ...}, ...]
 
-    newScale = updateScale(newData);
+    let newScale = updateScale(newData);
 
     let ZscoreWindow = d3.select("#ZscoreWindow");
 
@@ -871,19 +809,23 @@ function update(newData = data) {
     // Add svg elements for new data
     svgs.enter().append("svg")
         .attr("width", totalWidth)
-        .attr("height", totalHeight)
+        .attr("height", svgHeight)
         .attr("id", d => "Chart_" + d.phoneme)
         .attr("class", d => d.phoneme)
         // Update the elements in new svg elements
         .each(entry => initializeSVG(entry, newScale));
 
-    // Update the elements in existing svg elements
-    svgs.each(entry => updateGraph(entry, newScale));
+//    // Update the elements in existing svg elements
+//    svgs.each(entry => updateGraph(entry, newScale));
 
-    updateAverages();
+    refreshVisible(newData, newScale);
+    $(window).on("scroll", function() {
+        checkVisible(newData, newScale);
+    });
 };
 
 
+/*
 function rescaleGraphs(scale = xScale, phon = "") {
     d3.selectAll("svg" + ((phon == "") ? "" : "." + phon))
         .filter(d => visible.has(d.phoneme))
@@ -959,6 +901,7 @@ function rescaleGraphs(scale = xScale, phon = "") {
                 .call(updatePopups);
     });
 };
+*/
 
 
 function loadData(ZscorePath, callbackFunction) {
@@ -972,7 +915,8 @@ function loadData(ZscorePath, callbackFunction) {
     let done = false
 
     d3.json(ZscorePath, function(rawData) { 
-        d3.csv("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/Reference/characteristics.csv", function(c) {
+        //d3.csv("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/Reference/characteristics.csv", function(c) {
+        d3.csv("../Reference/characteristics.csv", function(c) {
             for (let i = 0; i < c.length; i++) {
                 let entry = c[i];
                 characteristics[entry["character"]] = entry;
@@ -1005,7 +949,12 @@ function loadData(ZscorePath, callbackFunction) {
     });
 };
 
-loadData("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/Archive/Vowels-Only-No-Others/percentages_Z-scores.json", update);
+//loadData("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/Archive/Vowels-Only-No-Others/percentages_Z-scores.json", function(newData) {
+loadData("../Archive/Vowels-Only-No-Others/percentages_Z-scores.json", function(newData) {
+    data = newData;
+    update(newData);
+});
+
 
 /*
  * Template for doing other things with new data:
