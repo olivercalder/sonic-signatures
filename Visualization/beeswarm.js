@@ -737,39 +737,31 @@ function rescaleGraphs(scale = xScale, phon = "") {
 function loadData(ZscorePath, callbackFunction) {
     let newData = new Array();
     characteristics = new Object();
-
-    let done = false
-
     d3.json(ZscorePath, function(rawData) { 
-        //d3.csv("https://raw.githubusercontent.com/olivercalder/sonic-signatures/master/Reference/characteristics.csv", function(c) {
         d3.csv("../Reference/characteristics.csv", function(c) {
             for (let i = 0; i < c.length; i++) {
                 let entry = c[i];
                 characteristics[entry["character"]] = entry;
-            }
+            };
 
             let characters = Object.keys(rawData);
             let phonemes = Object.keys(rawData[characters[0]]);
-            for (let i = 0; i < phonemes.length; i++) {
-                phoneme = phonemes[i];
+            phonemes.forEach(function(phoneme) {
                 let phonData = new Array();
-                for (let j = 0; j < characters.length; j++) {
-                    let charName = characters[j];
+                characters.forEach(function(charName) {
+                    let charData = new Object();
                     let Zscore = rawData[charName][phoneme];
-                    phonData.push({
-                        "phoneme": phoneme,
-                        "Zscore": parseFloat(Zscore),
-                        "identity": charName,
-                        "role": characteristics[charName]["role"],
-                        "gender": characteristics[charName]["gender"],
-                        "genre": characteristics[charName]["genre"],
-                    });
-                };
+                    charData["phoneme"] = phoneme;
+                    charData["Zscore"] = parseFloat(Zscore);
+                    charData["identity"] = charName;
+                    Object.keys(classifiers).forEach(classifier => charData[classifier] = characteristics[charName][classifier]);
+                    phonData.push(charData);
+                });
                 newData.push({"phoneme": phoneme, "data": phonData});
-            };
+            });
             // This creates data with structure:
-            //      newData = [{"phoneme": phoneme, "data": phonData}, ...]
-            //      where phonData = [{"Zscore": Zscore, "identity": charName, ...}, ...]
+            //     newData = [{"phoneme": phoneme, "data": phonData}, ...]
+            //     where phonData = [{"Zscore": Zscore, "identity": charName, ...}, ...]
             callbackFunction(newData);
         });
     });
