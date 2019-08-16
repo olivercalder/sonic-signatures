@@ -315,13 +315,10 @@ function getZscores(newData) {
     // newData should have the following structure:
     //     newData = [{"phoneme": phoneme, "data": phonData}, ...]
     //     where phonData = [{"Zscore": Zscore, "identity": charName, ...}, ...]
-    Zscores = new Array();
-    for (let i = 0; i < newData.length; i++) {
-        let phonData = newData[i].data;
-        for (let j = 0; j < phonData.length; j++) {
-            Zscores.push(phonData[j].Zscore);
-        };
-    };
+    let Zscores = new Array();
+    newData.forEach(function(entry) {
+        entry["data"].forEach(d => Zscores.push(d.Zscore));
+    });
     return Zscores;
 }
 
@@ -343,34 +340,14 @@ function getArrayMax(arr) {
 }
 
 
-// Returns the minimum Z-score from a given dataset
-function getZscoreMin(newData) {
-    // newData should have the following structure:
-    //     newData = [{"phoneme": phoneme, "data": phonData}, ...]
-    //     where phonData = [{"Zscore": Zscore, "identity": charName, ...}, ...]
-    let Zscores = getZscores(newData);
-    let ZscoreMin = getArrayMin(Zscores);
-    return ZscoreMin;
-}
-
-// Returns the minimum Z-score from a given dataset
-function getZscoreMax(newData) {
-    // newData should have the following structure:
-    //     newData = [{"phoneme": phoneme, "data": phonData}, ...]
-    //     where phonData = [{"Zscore": Zscore, "identity": charName, ...}, ...]
-    let Zscores = getZscores(newData);
-    let ZscoreMax = getArrayMax(Zscores);
-    return ZscoreMax;
-}
-
-
 // Updates xScale according to specified data
 function updateScale(newData = data) {
     // newData should have the following structure:
     //     newData = [{"phoneme": phoneme, "data": phonData}, ...]
     //     where phonData = [{"Zscore": Zscore, "identity": charName, ...}, ...]
-    ZscoreMin = getZscoreMin(newData);
-    ZscoreMax = getZscoreMax(newData);
+    let Zscores = getZscores(newData);
+    let ZscoreMin = getArrayMin(Zscores);
+    let ZscoreMax = getArrayMax(Zscores);
 
     xScale.domain([ZscoreMin, ZscoreMax]);
     return xScale;
