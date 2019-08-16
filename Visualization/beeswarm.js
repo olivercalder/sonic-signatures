@@ -2,7 +2,7 @@ var width = 1000;  // of circle graph
 var height = 280;  // of circle graph
 var xMargin = 100;  // on either side of circle graph
 var yMargin = 60;  // on either side of circle graph
-var totalWidth = width + (2 * xMargin);  // of each svg element
+var svgWidth = width + (2 * xMargin);  // of each svg element
 var svgHeight = height + (2 * yMargin);  // of each svg element
 var middle = height / 2;  // of circle graph
 
@@ -651,12 +651,13 @@ function initializeSVG(entry, scale = xScale) {
         .attr("transform", "translate(" + xMargin + ", 0)")
         .attr("width", width)
         .attr("height", yMargin);
-    // Creates element to contain the axis, then creates the axis itself
+
+    // Creates element to contain the axis
     d3.select("svg." + phoneme).append("g")
         .attr("class", function() { return phoneme + " axis"; })
         .attr("transform", "translate(" + xMargin + "," + (height + (yMargin * 1.5)) + ")")
         .attr("width", width)
-        .attr("height", yMargin);
+        .attr("height", yMargin / 2);
 
     // Creates element to contain circles
     var g = d3.select("svg." + phoneme).append("g")
@@ -686,7 +687,7 @@ function update(newData = data) {
 
     // Add svg elements for new data
     svgs.enter().append("svg")
-        .attr("width", totalWidth)
+        .attr("width", svgWidth)
         .attr("height", svgHeight)
         .attr("id", d => "Chart_" + d.phoneme)
         .attr("class", d => d.phoneme)
