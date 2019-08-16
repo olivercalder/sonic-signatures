@@ -52,7 +52,7 @@ function getVisibleIndices() {
     startVisible = Math.floor(winTop / svgHeight);  // May be < 0
     endVisible = Math.floor(winBot / svgHeight);  // May be > data.length
     return [startVisible, endVisible];
-}
+};
 
 
 // Checks whether window has scrolled enough to require refresh,
@@ -91,7 +91,6 @@ function refreshVisible(newData = data, scale = xScale, fullRefresh = false) {
 };
 
 
-
 // Redraws circles onto graphs from saved data without recalculating
 // Future function for use if simulations are run only on substantive change,
 //     and otherwise merely recalled
@@ -100,7 +99,7 @@ function repopulateVisible(entry, scale = xScale, animate = true) {
     let chartData = entry.data;
     if (visible.has(phoneme)) {
         // recall saved data and rebind it to circles
-    }
+    };
 };
 
 
@@ -152,7 +151,7 @@ function redrawClasses() {
     classifier = newClassifier;
     visible.forEach(entry => updateAverages(entry, xScale, true));
     colorCircles();
-}
+};
 
 
 // Returns radius based on selection status and average vs normal circle
@@ -166,13 +165,13 @@ function getRadius(d) {
         newRadius += radius;
     };
     return newRadius;
-}
+};
 
 
 // Returns the stroke color of a circle, black if selected, otherwise getColor
 function getStroke(d) {
     return (selected.has(d.identity) ? "black" : getColor(d))
-}
+};
 
 
 // Gets the color for a given character's data according to the current classifier
@@ -243,9 +242,8 @@ function selectCircles(d) {
         .transition()
         .duration(fastTrans)
         .attr("r", getRadius(d))
-        //.attr("fill", getColor(d))
         .style("stroke", "black");
-}
+};
 
 
 // For all circles with identity matching that of given d, returns circles to default size and removes labels
@@ -255,9 +253,8 @@ function deselectCircles(d) {
         .transition()
         .duration(fastTrans)
         .attr("r", getRadius(d))
-        //.style("fill", getColor(d))
         .style("stroke", getColor(d));
-}
+};
 
 
 // When new circles are drawn on scroll, this method checks whether they should be enlarged and labeled
@@ -320,7 +317,7 @@ function getZscores(newData) {
         entry["data"].forEach(d => Zscores.push(d.Zscore));
     });
     return Zscores;
-}
+};
 
 
 // Returns the minimum value of an array of numbers
@@ -329,7 +326,7 @@ function getArrayMin(arr) {
         return Math.min(a, b);
     });
     return min;
-}
+};
 
 // Returns the maximum value of an array of numbers
 function getArrayMax(arr) {
@@ -337,7 +334,7 @@ function getArrayMax(arr) {
         return Math.max(a, b);
     });
     return max;
-}
+};
 
 
 // Updates xScale according to specified data
@@ -351,7 +348,7 @@ function updateScale(newData = data) {
 
     xScale.domain([ZscoreMin, ZscoreMax]);
     return xScale;
-}  // Returns xScale so that the scaling can be done by the output of this function, to avoid race conditions
+};  // Returns xScale so that the scaling can be done by the output of this function, to avoid race conditions
 
 
 var sizeScaleHelper = d3.scaleLinear()
@@ -362,7 +359,7 @@ var sizeScaleHelper = d3.scaleLinear()
 function sizeScale(classCount, totalCount) {
     sizeScaleHelper.domain([0, totalCount]);
     return sizeScaleHelper(classCount);
-}
+};
 
 
 // Returns data of averages of each class for each phoneme, used by drawAverages()
@@ -392,8 +389,8 @@ function getAvgsData(entry, scale = xScale) {
             "role": ((classifier == "role") ? classes[i] : undefined),
             "gender": ((classifier == "gender") ? classes[i] : undefined),
             "genre": ((classifier == "genre") ? classes[i] : undefined)
-        })
-    }
+        });
+    };
 
     let xForceAvg = d3.forceX(d => scale(d.Zscore))  // force to pull circle towards its specified x value
         .strength(1);
@@ -501,10 +498,10 @@ function hideAverages(entry, animate = true) {
     d3.selectAll("circle").filter(d => ((d.average ? false : true) && d.phoneme == phoneme))
         .transition()
         .duration((animate == true) ? slowTrans : 0)
-        .attr("fill-opacity", 1.0)
+        .attr("fill-opacity", 1.0);
 
     d3.selectAll("text.average.popup." + phoneme)
-        .remove()
+        .remove();
 
     d3.selectAll("circle.average." + phoneme)
         .transition()
@@ -659,7 +656,7 @@ function initializeSVG(entry, scale = xScale) {
         .attr("class", function() { return phoneme + " axis"; })
         .attr("transform", "translate(" + xMargin + "," + (height + (yMargin * 1.5)) + ")")
         .attr("width", width)
-        .attr("height", yMargin)
+        .attr("height", yMargin);
 
     // Creates element to contain circles
     var g = d3.select("svg." + phoneme).append("g")
