@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="../lib/d3.v4.min.js"></script>
+        <style>
+            body {
+                font-family: sans-serif;
+                font-size: 12px;
+            }
+            .axis path,
+            .axis line {
+                fill: none;
+                stroke: #000000;
+                shape-rendering: crispEdges;
+            }
+            circle {
+                fill: #ffffff;
+                stroke: #ffffff;
+            }
+            .label {
+                text-anchor: middle;
+                font-size: 12px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="controlPanel">
+        </div>
+        <svg id="AveragesWindow">
+        </svg>
+        <svg id="ZscoreWindow">
+        </svg>
+    </body>
+    <script src="barchart.js"></script>
+</html>
