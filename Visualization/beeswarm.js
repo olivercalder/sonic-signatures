@@ -46,11 +46,12 @@ var endIndex;
 
 // Returns the indices of the first and last SVGs visible on screen, not including the buffer
 //     Excludes buffer so that this can be used to compare current position with buffer indices
-function getVisibleIndices() {
+function getVisibleIndices(callbackFunction) {
     let winTop = $(window).scrollTop();
     let winBot = winTop + $(window).height();
-    startVisible = Math.floor(winTop / svgHeight);  // May be < 0
-    endVisible = Math.floor(winBot / svgHeight);  // May be > data.length
+    startVisible = Math.floor(winTop / svgHeight);
+    endVisible = Math.floor(winBot / svgHeight);
+    callbackFunction(startVisible, endVisible);
     return [startVisible, endVisible];
 };
 
@@ -58,36 +59,38 @@ function getVisibleIndices() {
 // Checks whether window has scrolled enough to require refresh,
 //     and if so, calls refreshVisible
 function checkVisible() {
-    getVisibleIndices();
-    if (startVisible - triggerBuffer <= startIndex || endVisible + triggerBuffer >= endIndex) {
-        refreshVisible(data, xScale, false);
-    };
+    getVisibleIndices(function(startVisible, endVisible) {
+        if (startVisible - triggerBuffer <= startIndex || endVisible + triggerBuffer >= endIndex) {
+            refreshVisible(data, xScale, false);
+        };
+    });
 };
 
 
 // Recalculates which graphs are visible and populates visible ones,
 //     removing elements from ones that are no longer visible
 function refreshVisible(newData = data, scale = xScale, fullRefresh = false) {
-    getVisibleIndices();
-    startIndex = Math.max(0, startVisible - renderBuffer);
-    endIndex = Math.min(newData.length - 1, endVisible + renderBuffer);
-    let newVisible = new Map();
-    for (let i = startIndex; i <= endIndex; i++) {
-        let entry = newData[i];
-        let phoneme = entry.phoneme;
-        newVisible.set(phoneme, entry);
-        let refreshOnscreen = false;
-        if (!visible.has(phoneme) || fullRefresh) {
-            updateGraph(entry, scale, ((i >= startVisible || i <= endVisible) ? false : true));
+    getVisibleIndices(function(startVisible, endVisible) {
+        startIndex = Math.max(0, startVisible - renderBuffer);
+        endIndex = Math.min(newData.length - 1, endVisible + renderBuffer);
+        let newVisible = new Map();
+        for (let i = startIndex; i <= endIndex; i++) {
+            let entry = newData[i];
+            let phoneme = entry.phoneme;
+            newVisible.set(phoneme, entry);
+            let refreshOnscreen = false;
+            if (!visible.has(phoneme) || fullRefresh) {
+                updateGraph(entry, scale, ((i >= startVisible || i <= endVisible) ? false : true));
+            };
         };
-    };
-    visible.forEach(function(entry) {
-        if (!newVisible.has(entry.phoneme)) {
-            d3.selectAll("circle." + entry.phoneme).remove();
-            d3.selectAll("text.popup." + entry.phoneme).remove();
-        };
+        visible.forEach(function(entry) {
+            if (!newVisible.has(entry.phoneme)) {
+                d3.selectAll("circle." + entry.phoneme).remove();
+                d3.selectAll("text.popup." + entry.phoneme).remove();
+            };
+        });
+        visible = newVisible;
     });
-    visible = newVisible;
 };
 
 
