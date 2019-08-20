@@ -46,12 +46,12 @@ var endIndex;
 
 // Returns the indices of the first and last SVGs visible on screen, not including the buffer
 //     Excludes buffer so that this can be used to compare current position with buffer indices
-function getVisibleIndices(callbackFunction) {
+function getVisibleIndices(callbackFunction = false) {
     let winTop = $(window).scrollTop();
     let winBot = winTop + $(window).height();
     startVisible = Math.floor(winTop / svgHeight);
     endVisible = Math.floor(winBot / svgHeight);
-    callbackFunction(startVisible, endVisible);
+    if (callbackFunction) { callbackFunction(startVisible, endVisible); };
     return [startVisible, endVisible];
 };
 
