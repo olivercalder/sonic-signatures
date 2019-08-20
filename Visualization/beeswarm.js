@@ -78,7 +78,6 @@ function refreshVisible(newData = data, scale = xScale, fullRefresh = false) {
             let entry = newData[i];
             let phoneme = entry.phoneme;
             newVisible.set(phoneme, entry);
-            let refreshOnscreen = false;
             if (!visible.has(phoneme) || fullRefresh) {
                 updateGraph(entry, scale, ((i >= startVisible || i <= endVisible) ? false : true));
             };
