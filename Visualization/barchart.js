@@ -7,8 +7,12 @@ var yMargin = 60;  // on either side of the bar graph
 var totalWidth = width + (2 * xMargin);  // of graph and margins
 var totalHeight = height + (2 * yMargin);  // of graph and margins
 
+var oldTotalWidth;  // total width before the last change in data or size
+
 var gridWidth;  // total number of charts which fit on a single row
-var gridHeight;  // total number of rows of charts
+var gridHeight; // total number of rows of charts
+
+var oldGridWidth;  // grid width before the last change in data or size
 
 var xBuffer = 20;  // on either side of the row of graphs
 var yBuffer = 20;  // above and below the columns of graphs
@@ -38,6 +42,18 @@ var startIndex;
 var endVisible;
 var endIndex;
 
+
+// Checkbox to toggle displaying average bars
+var averageToggle = d3.select("controlPanel");
+
+averageToggle.append("input")
+    .attr("type", "checkbox")
+    .attr("class", "checkbox")
+    .attr("id", "averageToggle")
+    .on("change", function() {
+        averages = d3.select("#averageToggle").property("checked");
+        visible.forEach(entry => updateAverages(entry, true));
+    });
 
 
 var yScale = d3.scaleLinear()
@@ -107,17 +123,94 @@ function updateScale(newData) {
 };
 
 
-function getXPos(index) {
-    return (index % gridWidth) * totalWidth;
+function getXPos(index, gWidth = gridWidth, tWidth = totalWidth) {
+    return (index % gWidth) * tWidth;
 };
 
 
-function getYPos(index) {
-    return Math.floor(index / gridWidth) * totalHeight;
+function getYPos(index, gWidth = gridWidth, tHeight = totalHeight) {
+    return Math.floor(index / gWidth) * tHeight;
 };
 
 
-function drawChart(entry, index, scale = yScale, xPos = false, yPos = false, svg = d3.select("#ZscoreWindow")) {
+function getIndex(character, d = data) {
+    // d should have the structure:
+    //     data = [{"character": <character>, "data": <barData>, ...}, ...]
+    //     where barData = [{"phoneme": <phoneme>, "Zscore": <Zscore>,  ...}, ...]
+    let index = 0;
+    if (d) {
+        while (d[index]["character"] != character) {
+            index += 1;
+        }
+        if (index == d.length) {
+            index = false;
+        };
+    } else {
+        index = false;
+    };
+    return index;
+};
+
+
+function removeBars(selection, animate = false) {
+    selection.selectAll("rect")
+        .transition()
+        .duration((animate) ? 500 : 0)
+        .attr("y", yScale(0))
+        .attr("height", 0)
+        .remove()
+    selection.selectAll("text")
+        .transition()
+        .duration((animate) ? 500 : 0)
+        .style("font-size", "0px")
+        .remove()
+};
+
+
+function drawBars(selection, animate = false) {
+    selection.append("rect")
+        .attr("class", d => "id_" + d.character.replace(/\./g, "-") + " rect " + d.phoneme)
+        .attr("x", 1)
+        .attr("width", barWidth - 2)
+        .attr("y", yScale(0))
+        .attr("height", 0)
+        .transition()
+        .duration((animate) ? 500 : 0)
+        .attr("y", d => d.Zscore > 0 ? yScale(d.Zscore) : yScale(0))
+        .attr("height", d => Math.abs(yScale(d.Zscore) - yScale(0)));
+    selection.append("text")
+        .attr("class", d => "id_" + d.character.replace(/\./g, "-") + " phoneme label " + d.phoneme)
+        .attr("font-size", "0px")
+        .attr("x", barWidth / 2 + 4)
+        .attr("y", d => (d.Zscore >= 0) ? yScale(d.Zscore) - 5 : yScale(d.Zscore) + 5)
+        .attr("transform", d => "rotate(270," + (barWidth / 2 + 4) + "," + ((d.Zscore >= 0) ? yScale(d.Zscore) - 5 : yScale(d.Zscore) + 5) + ")")
+        .text(d => d.phoneme + ": " + d.Zscore.toFixed(3))
+        .transition()
+        .duration((animate) ? 500 : 0)
+        .style("text-anchor", d => (d.Zscore >= 0) ? "start" : "end")
+        .style("font-size", "10px")
+};
+
+
+function updateBars(selection, animate = false) {
+    selection.select("rect")
+        .transition()
+        .duration((animate) ? 500 : 0)
+        .attr("y", d => d.Zscore > 0 ? yScale(d.Zscore) : yScale(0))
+        .attr("height", d => Math.abs(yScale(d.Zscore) - yScale(0)));
+    selection.select("text")
+        .transition()
+        .duration((animate) ? 500 : 0)
+        .attr("x", barWidth / 2 + 4)
+        .attr("y", d => (d.Zscore >= 0) ? yScale(d.Zscore) - 5 : yScale(d.Zscore) + 5)
+        .attr("transform", d => "rotate(270," + (barWidth / 2 + 4) + "," + ((d.Zscore >= 0) ? yScale(d.Zscore) - 5 : yScale(d.Zscore) + 5) + ")")
+        .style("text-anchor", d => (d.Zscore >= 0) ? "start" : "end")
+        .style("font-size", "10px")
+        .text(d => d.phoneme + ": " + d.Zscore.toFixed(3));
+};
+
+
+function updateChart(entry, index, animate = false, svg = d3.select("#ZscoreWindow", xPos = false, yPos = false)) {
     if (!xPos || !yPos) {
         xPos = getXPos(index);
         yPos = getYPos(index);
@@ -126,72 +219,167 @@ function drawChart(entry, index, scale = yScale, xPos = false, yPos = false, svg
     let character = entry.character;
     let chartData = entry.data;
 
-    // Creates chart element and positions it in primary svg
-    let chart = svg.append("g")
-        .attr("class", "id_" + character.replace(/\./g, "-") + " chart")
-        .attr("transform", "translate(" + xPos + ", " + yPos + ")")
-        .attr("width", totalWidth)
-        .attr("height", totalHeight);
+    // Checks whether chart element already exists
+    let chart = svg.select("g.chart.id_" + character.replace(/\./g, "-"));
+    if (chart.size() == 0) {
+        // Creates chart element and positions it in primary svg
+        let oldIndex = getIndex(character, data);
+        oldIndex = (oldIndex) ? oldIndex : index;
+        let oldXPos = getXPos(oldIndex, oldGridWidth, oldTotalWidth);
+        let oldYPos = getYPos(oldIndex, oldGridWidth, totalHeight);
+        chart = svg.append("g");
+        chart
+            .attr("class", "id_" + character.replace(/\./g, "-") + " chart")
+            .attr("transform", "translate(" + oldXPos + ", " + oldYPos + ")")
+            .attr("width", totalWidth)
+            .attr("height", totalHeight)
+            .transition()
+            .duration(500)
+            .attr("transform", "translate(" + xPos + ", " + yPos + ")");
+    } else {
+        // Modifies the existing chart element
+        chart
+            .attr("width", totalWidth)
+            .attr("height", totalHeight)
+            .transition()
+            .duration(500)
+            .attr("transform", "translate(" + xPos + ", " + yPos + ")");
+    };
 
-    // Creates element to contain character title
-    let label = chart.append("g")
-        .attr("class", "id_" + character.replace(/\./g, "-") + " title")
-        .attr("transform", "translate(" + xMargin + ", 0)")
-        .attr("width", width)
-        .attr("height", height)
+    // Checks whether title element already exists
+    let title = chart.select("g.title");
+    if (title.size() == 0) {
+        // Creates element to contain character title
+        title = chart.append("g")
+            .attr("class", "id_" + character.replace(/\./g, "-") + " title")
+            .attr("transform", "translate(" + xMargin + ", 0)")
+            .attr("width", width)
+            .attr("height", height)
+    } else {
+        // Modifies existing title element
+        title
+            .attr("class", "id_" + character.replace(/\./g, "-") + " title")
+            .attr("width", width)
+            .attr("height", height)
+            .transition()
+            .duration(500)
+            .attr("transform", "translate(" + xMargin + ", 0)")
+    };
 
-    // Writes character name within the label element
-    label.append("text")
-        .attr("x", width / 2)
-        .attr("y", yMargin / 2)
-        .attr("class", "id_" + character.replace(/\./g, "-") + " title")
-        .style("text-anchor", "middle")
-        .style("fill", "black")
-        .style("stroke", "black")
-        .style("font-size", "16px")
-        .text(character);
+    // Checks whether title text already exists
+    titleText = title.select("text");
+    if (titleText.size() == 0) {
+        // Writes character name within the title element
+        titleText = title.append("text")
+            .attr("x", width / 2)
+            .attr("y", yMargin / 2)
+            .attr("class", "id_" + character.replace(/\./g, "-") + " title")
+            .style("text-anchor", "middle")
+            .style("fill", "black")
+            .style("stroke", "black")
+            .style("font-size", "16px")
+            .text(character);
+    } else {
+        // Modifies existing text in the title element
+        titleText
+            .attr("class", "id_" + character.replace(/\./g, "-") + " title")
+            .transition()
+            .duration(500)
+            .attr("x", width / 2)
+            .attr("y", yMargin / 2)
+            .style("text-anchor", "middle")
+            .style("fill", "black")
+            .style("stroke", "black")
+            .style("font-size", "16px")
+            .text(character);
+    };
 
-    let yAxis = d3.axisLeft(scale);
+    let yAxis = d3.axisLeft(yScale);
 
-    // Creates element to contain axis
-    chart.append("g")
-        .attr("class", "id_" + character.replace(/\./g, "-") + " axis")
-        .attr("transform", "translate(" + (xMargin / 2) + ", " + yMargin + ")")
-        .attr("width", xMargin / 2)
-        .attr("height", height)
-        .call(yAxis);
+    // Checks whether axis element already exists
+    let axis = chart.select("g.axis");
+    if (axis.size() == 0) {
+        // Creates element to contain axis
+        axis = chart.append("g")
+            .attr("class", "id_" + character.replace(/\./g, "-") + " axis")
+            .attr("transform", "translate(" + (xMargin) + ", " + yMargin + ")")
+            .attr("width", xMargin / 2)
+            .attr("height", height)
+            .call(yAxis);
+    } else {
+        // Modify existing axis element
+        axis
+            .attr("class", "id_" + character.replace(/\./g, "-") + " axis")
+            .attr("width", xMargin / 2)
+            .attr("height", height)
+            .transition()
+            .duration(500)
+            .attr("transform", "translate(" + (xMargin) + ", " + yMargin + ")")
+            .call(yAxis);
+    };
 
-    // Creates element to contain bars and phoneme labels
-    let graph = chart.append("g")
-        .attr("class", "id_" + character.replace(/\./g, "-") + " graph")
-        .attr("transform", "translate(" + xMargin + ", " + yMargin + ")")
-        .attr("width", width)
-        .attr("height", height);
 
-    // Creates bar containers within graph container and binds data to them
-    let bars = d3.select("g.graph.id_" + character.replace(/\./g, "-")).selectAll("g.bar")
-            .data(entry)
-        .enter().append("g")
-            .attr("class", d => "id_" + character.replace(/\./g, "-") + " bar " + d.phoneme)
-            .attr("transform", (d, i) => "translate(" + (barWidth * i) + ", 0)")
-            .attr("width", barWidth)
+    // Checks whether graph element already exists
+    let graph = chart.select("g.graph");
+    if (graph.size() == 0) {
+        // Creates element to contain bars and phoneme labels
+        graph = chart.append("g")
+            .attr("class", "id_" + character.replace(/\./g, "-") + " graph")
+            .attr("transform", "translate(" + xMargin + ", " + yMargin + ")")
+            .attr("width", width)
             .attr("height", height);
-    
-    // Creates rectangles in bar containers
-    bars.append("rect")
-        .attr("x", 1)
-        .attr("y", d => d.Zscore > 0 ? scale(d.Zscore) : scale(0))
-        .attr("width", barWidth - 1)
-        .attr("height", d => Math.abs(scale(d.Zscore) - scale(0)));
+    } else {
+        // Modifies existing element containing bars and phoneme labels
+        graph
+            .attr("class", "id_" + character.replace(/\./g, "-") + " graph")
+            .attr("width", width)
+            .attr("height", height)
+            .transition()
+            .duration(500)
+            .attr("transform", "translate(" + xMargin + ", " + yMargin + ")")
+    };
 
-    // Creates phoneme label above/below bar
-    bars.append("text")
-        .attr("class", d => "id_" + character.replace(/\./g, "-") + " phoneme label " + d.phoneme)
-        .attr("x", barWidth / 2)
-        .attr("y", d => (d.Zscore >= 0) ? scale(d.Zscore) - 12 : scale(d.Zscore) + 18)
-        .style("text-anchor", "middle")
-        .style("font-size", "10px")
-        .text(d => d.phoneme + ": " + d.Zscore.toFixed(3));
+    // Binds data to bar elements containing rectangles and labels
+    let bars = d3.select("g.graph.id_" + character.replace(/\./g, "-")).selectAll("g.bar")
+            .data(chartData, d => d.phoneme);
+    
+    // Removes unneeded bars
+    bars.exit().call(removeBars, animate);
+
+    // Modifies existing bar elements
+    bars
+        .attr("class", d => "id_" + character.replace(/\./g, "-") + " bar " + d.phoneme)
+        .transition()
+        .duration(500)
+        .attr("width", barWidth)
+        .attr("height", height)
+        .attr("transform", (d, i) => "translate(" + (barWidth * i) + ", 0)")
+        .call(updateBars, animate);
+
+    // Creates new bar elements for new data
+    bars.enter().append("g")
+        .attr("class", d => "id_" + character.replace(/\./g, "-") + " bar " + d.phoneme)
+        .attr("transform", (d, i) => "translate(" + (barWidth * i) + ", 0)")
+        .attr("width", barWidth)
+        .attr("height", height)
+        .call(drawBars, animate);
+};
+
+
+function removeChart(character, d = data) {
+    newIndex = getIndex(character, d);
+    if (newIndex) {
+        newXPos = getXPos(newIndex);
+        newYPos = getYPos(newIndex);
+        d3.select("g.chart.id_" + character.replace(/\./g, "-"))
+            .transition()
+            .duration(500)
+            .attr("transition", "translate(" + newXPos + "," + newYPos + ")")
+            .remove();
+    } else {
+        d3.select("g.chart.id_" + character.replace(/\./g, "-"))
+            .remove();
+    };
 };
 
 
@@ -212,7 +400,7 @@ function getVisibleIndices(callbackFunction = false) {
 function checkVisible() {
     getVisibleIndices(function(startVisible, endVisible) {
         if (startVisible - triggerBuffer <= startIndex || endVisible + triggerBuffer >= endIndex) {
-            refreshVisible(data, yScale, false);
+            refreshVisible(data, false, false);
         };
     });
 };
@@ -220,7 +408,7 @@ function checkVisible() {
 
 // Recalculates which graphs are visible and populates visible ones,
 //     removing those that are no longer visible
-function refreshVisible(newData = data, scale = yScale, fullRefresh = false) {
+function refreshVisible(newData = data, fullRefresh = false, animate = false, callbackFunction = false) {
     getVisibleIndices(function(startVisible, endVisible) {
         startIndex = Math.max(0, startVisible - (renderBuffer * gridWidth));
         endIndex = Math.min(newData.length - 1, endVisible + (renderBuffer * gridWidth));
@@ -230,25 +418,28 @@ function refreshVisible(newData = data, scale = yScale, fullRefresh = false) {
             let character = entry.character;
             newVisible.set(character, entry);
             if (!visible.has(character) || fullRefresh) {
-                drawChart(entry, i, scale)
+                updateChart(entry, i, animate)
             };
         };
         visible.forEach(function(entry) {
             if (!newVisible.has(entry.character)) {
-                d3.select("g.chart.id_" + entry.character.replace(/\./g, "-")).remove()
+                removeChart(entry.character, newData)
             };
         });
         visible = newVisible;
+        if (callbackFunction) { callbackFunction() };
     });
 };
 
 
-function refreshSize(callbackFunction = false) {
+function refreshSize(newData = data, callbackFunction = false) {
     svgWidth = $(window).width();
-    //gridWidth = ((svgWidth - xBuffer) / (totalWidth + xBuffer));
+
+    oldGridWidth = gridWidth;
     gridWidth = Math.floor(svgWidth / totalWidth);
-    gridHeight = Math.floor(data.length / gridWidth) + 1;
-    //svgHeight = (totalHeight + yBuffer) * gridHeight + yBuffer;
+
+    gridHeight = Math.floor(newData.length / gridWidth) + 1;
+    
     svgHeight = totalHeight * gridHeight;
     d3.select("#ZscoreWindow")
         .attr("width", svgWidth)
@@ -264,41 +455,31 @@ function update(newData, sortBy = "name") {
     
     let characters = getCharacters(newData);
     let phonemes = getPhonemes(newData);
+
     width = barWidth * phonemes.length;
+
+    oldTotalWidth = totalWidth;
     totalWidth = width + (2 * xMargin);
+    oldTotalWidth = (oldTotalWidth) ? oldTotalWidth : totalWidth;
 
     let newScale = updateScale(newData);
 
-    /*
-    let ZscoreWindow = d3.select("#ZscoreWindow")
-        .attr("width", 
-
-    // Do not bind data to elements beforehand
-    /*
-    // Bind data to svg elements, pairing by character
-    let charts = ZscoreWindow.selectAll("g")
-        .data(newData, d => d.character);
-        
-    // Remove unneeded svg elements
-    charts.exit().remove();
-
-    // Add g elements for new data
-    charts.enter().append("g")
-        .attr("width", totalWidth)
-        .attr("height", totalHeight)
-        .attr("id", d => "Chart_" + d.character)
-        .attr("class", d => "id_" + d.character.replace(/\./g, "-"))
-        .each(entry => initializeSVG(entry, newScale));
-    */
-
-    refreshSize();
-    $(window).on("resize", function() {
-        refreshSize(refreshVisible);
+    refreshSize(newData, function() {
+        refreshVisible(newData, true, true, function() {
+            data = newData;
+            oldTotalWidth = totalWidth;
+        });
     });
 
-    refreshVisible(newData, newScale);
+    $(window).on("resize", function() {
+        refreshSize(newData, function() {
+            refreshVisible(data, true, false, function() {
+                oldGridWidth = gridWidth;
+            });
+        });
+    });
     $(window).on("scroll", function() {
-        checkVisible(newData, newScale);
+        checkVisible(newData);
     });
 };
 
@@ -329,7 +510,7 @@ function loadData(ZscorePath, callbackFunction) {
                 charData["data"] = barData;
                 newData.push(charData);
             });
-            // This creates data with the structure:
+            // This creates newData with the structure:
             //     newData = [{"character": <character>, "data": <barData>, ...}, ...]
             //     where barData = [{"phoneme": <phoneme>, "Zscore": <Zscore>,  ...}, ...]
             callbackFunction(newData);
@@ -339,7 +520,6 @@ function loadData(ZscorePath, callbackFunction) {
 
 // Initializes call to data files and calls update() on the data
 loadData("../Archive/Vowels-Only-No-Others/percentages_Z-scores.json", function(newData) {
-    data = newData;
     update(newData);
 });
 
