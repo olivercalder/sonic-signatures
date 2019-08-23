@@ -2,8 +2,8 @@ var width;  // of bar graph, set by multiplying barWidth by number of phonemes, 
 var height = 300;  // of bar graph
 var barWidth = 30;  // of individual bars
 
-var xMargin = 60;  // on either side of the bar graph
-var yMargin = 60;  // on either side of the bar graph
+var xMargin = 30;  // on either side of the bar graph
+var yMargin = 30;  // on either side of the bar graph
 var totalWidth = width + (2 * xMargin);  // of graph and margins
 var totalHeight = height + (2 * yMargin);  // of graph and margins
 
@@ -19,6 +19,10 @@ var yBuffer = 20;  // above and below the columns of graphs
 
 var svgHeight;  // of the svg element
 var svgWidth;  // of the svg element
+
+
+var stdDur = 500;  // standard duration of animations
+var longDur = 1000; // longer duration of animations
 
 
 var classifiers = {
@@ -155,13 +159,13 @@ function getIndex(character, d = data) {
 function removeBars(selection, animate = false) {
     selection.selectAll("rect")
         .transition()
-        .duration((animate) ? 500 : 0)
+        .duration((animate) ? stdDur : 0)
         .attr("y", yScale(0))
         .attr("height", 0)
         .remove()
     selection.selectAll("text")
         .transition()
-        .duration((animate) ? 500 : 0)
+        .duration((animate) ? stdDur : 0)
         .style("font-size", "0px")
         .remove()
 };
@@ -175,7 +179,7 @@ function drawBars(selection, animate = false) {
         .attr("y", yScale(0))
         .attr("height", 0)
         .transition()
-        .duration((animate) ? 500 : 0)
+        .duration((animate) ? stdDur : 0)
         .attr("y", d => d.Zscore > 0 ? yScale(d.Zscore) : yScale(0))
         .attr("height", d => Math.abs(yScale(d.Zscore) - yScale(0)));
     selection.append("text")
@@ -186,7 +190,7 @@ function drawBars(selection, animate = false) {
         .attr("transform", d => "rotate(270," + (barWidth / 2 + 4) + "," + ((d.Zscore >= 0) ? yScale(d.Zscore) - 5 : yScale(d.Zscore) + 5) + ")")
         .text(d => d.phoneme + ": " + d.Zscore.toFixed(3))
         .transition()
-        .duration((animate) ? 500 : 0)
+        .duration((animate) ? stdDur : 0)
         .style("text-anchor", d => (d.Zscore >= 0) ? "start" : "end")
         .style("font-size", "10px")
 };
@@ -195,12 +199,12 @@ function drawBars(selection, animate = false) {
 function updateBars(selection, animate = false) {
     selection.select("rect")
         .transition()
-        .duration((animate) ? 500 : 0)
+        .duration((animate) ? stdDur : 0)
         .attr("y", d => d.Zscore > 0 ? yScale(d.Zscore) : yScale(0))
         .attr("height", d => Math.abs(yScale(d.Zscore) - yScale(0)));
     selection.select("text")
         .transition()
-        .duration((animate) ? 500 : 0)
+        .duration((animate) ? stdDur : 0)
         .attr("x", barWidth / 2 + 4)
         .attr("y", d => (d.Zscore >= 0) ? yScale(d.Zscore) - 5 : yScale(d.Zscore) + 5)
         .attr("transform", d => "rotate(270," + (barWidth / 2 + 4) + "," + ((d.Zscore >= 0) ? yScale(d.Zscore) - 5 : yScale(d.Zscore) + 5) + ")")
@@ -234,7 +238,7 @@ function updateChart(entry, index, animate = false, svg = d3.select("#ZscoreWind
             .attr("width", totalWidth)
             .attr("height", totalHeight)
             .transition()
-            .duration(500)
+            .duration(stdDur)
             .attr("transform", "translate(" + xPos + ", " + yPos + ")");
     } else {
         // Modifies the existing chart element
@@ -242,7 +246,7 @@ function updateChart(entry, index, animate = false, svg = d3.select("#ZscoreWind
             .attr("width", totalWidth)
             .attr("height", totalHeight)
             .transition()
-            .duration(500)
+            .duration(stdDur)
             .attr("transform", "translate(" + xPos + ", " + yPos + ")");
     };
 
@@ -262,7 +266,7 @@ function updateChart(entry, index, animate = false, svg = d3.select("#ZscoreWind
             .attr("width", width)
             .attr("height", height)
             .transition()
-            .duration(500)
+            .duration(stdDur)
             .attr("transform", "translate(" + xMargin + ", 0)")
     };
 
@@ -284,7 +288,7 @@ function updateChart(entry, index, animate = false, svg = d3.select("#ZscoreWind
         titleText
             .attr("class", "id_" + character.replace(/\./g, "-") + " title")
             .transition()
-            .duration(500)
+            .duration(stdDur)
             .attr("x", width / 2)
             .attr("y", yMargin / 2)
             .style("text-anchor", "middle")
@@ -313,7 +317,7 @@ function updateChart(entry, index, animate = false, svg = d3.select("#ZscoreWind
             .attr("width", xMargin / 2)
             .attr("height", height)
             .transition()
-            .duration(500)
+            .duration(stdDur)
             .attr("transform", "translate(" + (xMargin) + ", " + yMargin + ")")
             .call(yAxis);
     };
@@ -335,7 +339,7 @@ function updateChart(entry, index, animate = false, svg = d3.select("#ZscoreWind
             .attr("width", width)
             .attr("height", height)
             .transition()
-            .duration(500)
+            .duration(stdDur)
             .attr("transform", "translate(" + xMargin + ", " + yMargin + ")")
     };
 
@@ -350,7 +354,7 @@ function updateChart(entry, index, animate = false, svg = d3.select("#ZscoreWind
     bars
         .attr("class", d => "id_" + character.replace(/\./g, "-") + " bar " + d.phoneme)
         .transition()
-        .duration(500)
+        .duration(stdDur)
         .attr("width", barWidth)
         .attr("height", height)
         .attr("transform", (d, i) => "translate(" + (barWidth * i) + ", 0)")
@@ -367,13 +371,13 @@ function updateChart(entry, index, animate = false, svg = d3.select("#ZscoreWind
 
 
 function removeChart(character, d = data) {
-    newIndex = getIndex(character, d);
-    if (newIndex) {
-        newXPos = getXPos(newIndex);
-        newYPos = getYPos(newIndex);
+    let newIndex = getIndex(character, d);
+    if (newIndex !== false) {
+        let newXPos = getXPos(newIndex);
+        let newYPos = getYPos(newIndex);
         d3.select("g.chart.id_" + character.replace(/\./g, "-"))
             .transition()
-            .duration(500)
+            .duration(stdDur)
             .attr("transition", "translate(" + newXPos + "," + newYPos + ")")
             .remove();
     } else {
@@ -438,7 +442,7 @@ function refreshSize(newData = data, callbackFunction = false) {
     oldGridWidth = gridWidth;
     gridWidth = Math.floor(svgWidth / totalWidth);
 
-    gridHeight = Math.floor(newData.length / gridWidth) + 1;
+    gridHeight = Math.floor((newData.length - 1) / gridWidth) + 1;
     
     svgHeight = totalHeight * gridHeight;
     d3.select("#ZscoreWindow")
@@ -471,12 +475,16 @@ function update(newData, sortBy = "name") {
         });
     });
 
+    var timeout;
     $(window).on("resize", function() {
-        refreshSize(newData, function() {
-            refreshVisible(data, true, false, function() {
-                oldGridWidth = gridWidth;
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            refreshSize(newData, function() {
+                refreshVisible(data, true, false, function() {
+                    oldGridWidth = gridWidth;
+                });
             });
-        });
+        }, 250);
     });
     $(window).on("scroll", function() {
         checkVisible(newData);
