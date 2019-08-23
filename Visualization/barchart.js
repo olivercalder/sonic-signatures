@@ -378,7 +378,7 @@ function removeChart(character, d = data) {
         d3.select("g.chart.id_" + character.replace(/\./g, "-"))
             .transition()
             .duration(stdDur)
-            .attr("transition", "translate(" + newXPos + "," + newYPos + ")")
+            .attr("transform", "translate(" + newXPos + "," + newYPos + ")")
             .remove();
     } else {
         d3.select("g.chart.id_" + character.replace(/\./g, "-"))
