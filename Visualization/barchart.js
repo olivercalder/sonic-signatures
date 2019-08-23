@@ -1,3 +1,5 @@
+var navbarHeight = 62;
+
 var width;  // of bar graph, set by multiplying barWidth by number of phonemes, in update()
 var height = 300;  // of bar graph
 var barWidth = 30;  // of individual bars
@@ -133,7 +135,7 @@ function getXPos(index, gWidth = gridWidth, tWidth = totalWidth) {
 
 
 function getYPos(index, gWidth = gridWidth, tHeight = totalHeight) {
-    return Math.floor(index / gWidth) * tHeight;
+    return Math.floor(index / gWidth) * tHeight + navbarHeight;
 };
 
 
@@ -444,7 +446,7 @@ function refreshSize(newData = data, callbackFunction = false) {
 
     gridHeight = Math.floor((newData.length - 1) / gridWidth) + 1;
     
-    svgHeight = totalHeight * gridHeight;
+    svgHeight = totalHeight * gridHeight + navbarHeight + yBuffer;
     d3.select("#ZscoreWindow")
         .attr("width", svgWidth)
         .attr("height", svgHeight)
