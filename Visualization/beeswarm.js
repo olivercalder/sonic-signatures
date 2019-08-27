@@ -149,8 +149,7 @@ classSelect.selectAll("option")
 // Recolors circles based on the current classifier
 // Also updates average circles according to new classifier
 function redrawClasses() {
-    newClassifier = d3.select("#classSelect").property("value");
-    classifier = newClassifier;
+    classifier = d3.select("#classSelect").property("value");
     visible.forEach(entry => updateAverages(entry, xScale, true));
     colorCircles();
 };
