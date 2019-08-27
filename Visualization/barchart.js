@@ -1,4 +1,4 @@
-var navbarHeight = 62;
+var navbarHeight = 96;
 
 var width;  // of bar graph, set by multiplying barWidth by number of phonemes, in update()
 var height = 300;  // of bar graph
@@ -38,6 +38,7 @@ var data;  // Will be modified by initial d3.json call
     // data is of the form:
     //     newData = [{"character": <character>, "data": <barData>, ...}, ...]
     //     where barData = [{"phoneme": <phoneme>, "Zscore": <Zscore>,  ...}, ...]
+var fullData;  // Full data from the last loadData() call, without sorting or filtering
 var characteristics;
 
 var renderBuffer = 2;  // The number of rows beyond those visible that will be rendered
@@ -50,16 +51,40 @@ var endIndex;
 
 
 // Checkbox to toggle displaying average bars
-var averageToggle = d3.select("controlPanel");
-
-averageToggle.append("input")
-    .attr("type", "checkbox")
-    .attr("class", "checkbox")
-    .attr("id", "averageToggle")
+var averageToggle = d3.select("#averageToggle")
     .on("change", function() {
         averages = d3.select("#averageToggle").property("checked");
         visible.forEach(entry => updateAverages(entry, true));
     });
+
+// Dropdown to select classifier
+var classSelect = d3.select("#classSelect")
+    //.on("change", redrawClasses);
+
+classSelect.selectAll("option")
+        .data(Object.keys(classifiers)).enter()
+    .append("option")
+        .text(d => d);
+
+// Dropdown to select sorting
+var sortSelect = d3.select("#sortSelect")
+    .on("change", updateSorting);
+
+// Dropdown to select characters
+var characterSelect = d3.select("#characterSelect")
+    .on("change", updateLoad);
+
+// Dropdown to select calculation
+var calculationSelect = d3.select("#calculationSelect")
+    .on("change", updateLoad);
+
+// Checkbox to toggle Emphasis
+var emphasisToggle = d3.select("#emphasisToggle")
+    .on("change", updateLoad);
+
+// Checkbox to toggle Vowels-Only
+var vowelsToggle = d3.select("#vowelsToggle")
+    .on("change", updateLoad);
 
 
 var yScale = d3.scaleLinear()
@@ -494,6 +519,10 @@ function update(newData, sortBy = "name") {
 };
 
 
+function updateSorting() {
+}
+
+
 // Loads Z-scores from specified file path, then processes it and executes callback function on the data
 function loadData(ZscorePath, callbackFunction) {
     let newData = new Array();
@@ -523,10 +552,16 @@ function loadData(ZscorePath, callbackFunction) {
             // This creates newData with the structure:
             //     newData = [{"character": <character>, "data": <barData>, ...}, ...]
             //     where barData = [{"phoneme": <phoneme>, "Zscore": <Zscore>,  ...}, ...]
+            fullData = newData;
             callbackFunction(newData);
         });
     });
 };
+
+
+function updateLoad() {
+}
+
 
 // Initializes call to data files and calls update() on the data
 loadData("../Archive/Vowels-Only-No-Others/percentages_Z-scores.json", function(newData) {
