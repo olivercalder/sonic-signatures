@@ -5,7 +5,7 @@ var height = 300;  // of bar graph
 var barWidth = 30;  // of individual bars
 
 var xMargin = 30;  // on either side of the bar graph
-var yMargin = 30;  // on either side of the bar graph
+var yMargin = 60;  // on either side of the bar graph
 var totalWidth = width + (2 * xMargin);  // of graph and margins
 var totalHeight = height + (2 * yMargin);  // of graph and margins
 
@@ -170,7 +170,7 @@ function getIndex(character, d = data) {
     //     where barData = [{"phoneme": <phoneme>, "Zscore": <Zscore>,  ...}, ...]
     let index = 0;
     if (d) {
-        while (d[index]["character"] != character) {
+        while (index < d.length && d[index]["character"] != character) {
             index += 1;
         }
         if (index == d.length) {
@@ -189,12 +189,13 @@ function removeBars(selection, animate = false) {
         .duration((animate) ? stdDur : 0)
         .attr("y", yScale(0))
         .attr("height", 0)
-        .remove()
+        .remove();
     selection.selectAll("text")
         .transition()
         .duration((animate) ? stdDur : 0)
         .style("font-size", "0px")
-        .remove()
+        .remove();
+    selection.remove();
 };
 
 
@@ -380,19 +381,19 @@ function updateChart(entry, index, animate = false, svg = d3.select("#ZscoreWind
     // Modifies existing bar elements
     bars
         .attr("class", d => "id_" + character.replace(/\./g, "-") + " bar " + d.phoneme)
+        .call(updateBars, animate)
         .transition()
         .duration(stdDur)
         .attr("width", barWidth)
         .attr("height", height)
-        .attr("transform", (d, i) => "translate(" + (barWidth * i) + ", 0)")
-        .call(updateBars, animate);
+        .attr("transform", (d, i) => "translate(" + (barWidth * i) + ", 0)");
 
     // Creates new bar elements for new data
     bars.enter().append("g")
         .attr("class", d => "id_" + character.replace(/\./g, "-") + " bar " + d.phoneme)
-        .attr("transform", (d, i) => "translate(" + (barWidth * i) + ", 0)")
         .attr("width", barWidth)
         .attr("height", height)
+        .attr("transform", (d, i) => "translate(" + (barWidth * i) + ", 0)")
         .call(drawBars, animate);
 };
 
@@ -464,7 +465,7 @@ function refreshVisible(newData = data, fullRefresh = false, animate = false, ca
 
 
 function refreshSize(newData = data, callbackFunction = false) {
-    svgWidth = $(window).width();
+    svgWidth = Math.max($(window).width(), totalWidth);
 
     oldGridWidth = gridWidth;
     gridWidth = Math.floor(svgWidth / totalWidth);
@@ -499,6 +500,7 @@ function update(newData, sortBy = "name") {
         refreshVisible(newData, true, true, function() {
             data = newData;
             oldTotalWidth = totalWidth;
+            oldGridWidth = gridWidth;
         });
     });
 
@@ -560,13 +562,53 @@ function loadData(ZscorePath, callbackFunction) {
 
 
 function updateLoad() {
-}
+    let loadString = "../Archive/";
+    let newEmphasis = d3.select("#emphasisToggle").property("checked");
+    loadString = (newEmphasis == true) ? loadString + "Emphasis-" : loadString;
+    let newVowels = d3.select("#vowelsToggle").property("checked");
+    loadString = (newVowels == true) ? loadString + "Vowels-Only-" : loadString;
+    let newCharacters = d3.select("#characterSelect").property("value");
+    switch (newCharacters) {
+        case "No Others":
+            loadString = loadString + "No-Others";
+            break;
+        case ">2500 words":
+            loadString = loadString + "Min-2500";
+            break;
+        case ">1000 words":
+            loadString = loadString + "Min-1000";
+            break;
+        case ">500 words":
+            loadString = loadString + "Min-500";
+            break;
+        case ">250 words":
+            loadString = loadString + "Min-250";
+            break;
+        case ">100 words":
+            loadString = loadString + "Min-100";
+            break;
+        case "All":
+            loadString = loadString + "All";
+    }
+    let newCalculation = d3.select("#calculationSelect").property("value");
+    if (newCalculation == "Counts") {
+        loadString = loadString + "/counts_Z-scores.json";
+    } else if (newCalculation == "Percentages") {
+        loadString = loadString + "/percentages_Z-scores.json";
+    };
+    loadData(loadString, function(newData) { update(newData); });
+};
 
 
+updateLoad();
+
+/*
 // Initializes call to data files and calls update() on the data
 loadData("../Archive/Vowels-Only-No-Others/percentages_Z-scores.json", function(newData) {
     update(newData);
 });
+*/
+
 
 /*
  * Template for doing other things with new data:
