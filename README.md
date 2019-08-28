@@ -35,13 +35,13 @@ Research into the classification of characters based on the patterns of phoneme 
 ## Directory Structure:
 - [Analysis](https://hithub.com/olivercalder/sonic-signatures/tree/master/Analysis): Scripts and outputs for the analysis of trends in the results of different classifications
 - [Archive](https://github.com/olivercalder/sonic-signatures/tree/master/Archive): Saved text, phoneme, counts, and percentages data for a variety of combinations of parameters
-- [lib](https://github.com/olivercalder/sonic-signatures/tree/master/lib): Libraries (d3.js and jQuery)
 - [Naive-Bayes](https://github.com/olivercalder/sonic-signatures/tree/master/Naive-Bayes): Scripts used to classify characters using Naive Bayes
 - [Preprocessing](https://github.com/olivercalder/sonic-signatures/tree/master/Preprocessing): Scripts to get character lists and texts from [folgerdigitaltexts.org/api](https://www.folgerdigitaltexts.org/api/) and convert those texts into phonemes, and then count or percentage vectors for each character
 - [Reference](https://hitgub.com/olivercalder/sonic-signatures/tree/master/Reference): Helper scripts and data used by other scripts to classify characters or generate combinations of parameters
 - [Results](https://github.com/olivercalder/sonic-signatures/tree/master/Results): Saved classification results and summaries generated from the count or percentage data in the [Archive](https://github.com/olivercalder/sonic-signatures/tree/master/Archive) using the scripts in [Naive-Bayes](https://github.com/olivercalder/sonic-signatures/tree/master/Naive-Bayes)
 - [Statistics](https://github.com/olivercalder/sonic-signatures/tree/master/Statistics): Scripts to generate statistical information on phoneme vectors, and to be used by other scripts to yield more informative results regarding classifications
 - [Visualization](https://github.com/olivercalder/sonic-signatures/tree/master/Visualization): Interactive visualizations to explore statistical and classification data
+- [lib](https://github.com/olivercalder/sonic-signatures/tree/master/lib): Libraries (d3v4.js, jQuery, and bootstrap.js)
 
 ## Preprocessing Details:
 | Program: | Returns: | Writes: | Depends: |
