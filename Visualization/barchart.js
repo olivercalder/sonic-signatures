@@ -1,4 +1,4 @@
-var navbarHeight = 96;
+var navbarHeight = 96 + 20;
 
 var width;  // of bar graph, set by multiplying barWidth by number of phonemes, in update()
 var height = 300;  // of bar graph
@@ -77,7 +77,7 @@ function getClassifier() {
 
 function getClasses() {
     let classifier = getClassifier();
-    return classifiers[classifier].sort();
+    return classifiers[classifier];
 }
 
 // Dropdown to select sorting
@@ -99,6 +99,16 @@ var emphasisToggle = d3.select("#emphasisToggle")
 // Checkbox to toggle Vowels-Only
 var vowelsToggle = d3.select("#vowelsToggle")
     .on("change", updateLoad);
+
+function getSearch() {
+    return d3.select("#searchBox").property("value");
+}
+
+var searchBox = d3.select("#searchBox")
+    .on("change", searchFilter);
+
+var searchButton = d3.select("#searchButton")
+    .on("click", searchFilter);
 
 
 var yScale = d3.scaleLinear()
@@ -218,7 +228,7 @@ function updateAvgBars(selection, animate) {
                 .style("fill", "white")
                 .style("fill-opacity", 0)
                 .style("stroke", "black")
-                .style("stroke-width", avgStrokeWidth)
+                .style("stroke-width", 0)
                 .transition()
                 .duration((animate) ? stdDur : 0)
                 .attr("y", function(d) {
@@ -229,7 +239,8 @@ function updateAvgBars(selection, animate) {
                         return yScale(0);
                     }
                 })
-                .attr("height", d => Math.abs(yScale(averagesData[d[getClassifier()]][d.phoneme]) - yScale(0)));
+                .attr("height", d => Math.abs(yScale(averagesData[d[getClassifier()]][d.phoneme]) - yScale(0)))
+                .style("stroke-width", avgStrokeWidth);
         } else {
             avgRect
                 .transition()
@@ -250,6 +261,7 @@ function updateAvgBars(selection, animate) {
             .duration((animate) ? stdDur : 0)
             .attr("y", yScale(0))
             .attr("height", 0)
+            .style("stroke-width", 0)
             .remove();
     }
 
@@ -642,20 +654,32 @@ function sortData(newData) {
     else if (newSort == "Class") {
         let classifier = getClassifier();
         let classes = getClasses();
-        sortedClasses = new Object();
+        sortedClassData = new Object();
         classes.forEach(function(c) {
-            sortedClasses[c] = new Array();
+            sortedClassData[c] = new Array();
         });
         newData.forEach(function(entry) {
             classification = entry[classifier];
-            sortedClasses[classification].push(entry);
+            sortedClassData[classification].push(entry);
         });
         sortedData = new Array();
         classes.forEach(function(c) {
-            sortedData = sortedData.concat(sortDataAlpha(sortedClasses[c]));
+            sortedData = sortedData.concat(sortDataAlpha(sortedClassData[c]));
         });
     }
     return sortedData;
+}
+
+
+function filter(newData) {
+    let search = getSearch();
+    let filteredData = new Array();
+    newData.forEach(function(entry) {
+        if (entry.character.includes(search)) {
+            filteredData.push(entry);
+        }
+    })
+    return filteredData;
 }
 
 
@@ -667,9 +691,11 @@ function update(newData = data) {
     //     newData = [{"character": <character>, "data": <barData>, ...}, ...]
     //     where barData = [{"phoneme": <phoneme>, "Zscore": <Zscore>,  ...}, ...]
 
-    let sortedData = sortData(newData);
+    averagesData = getAvgsData(fullData);
 
-    averagesData = getAvgsData(sortedData);
+    let filteredData = filter(newData);
+
+    let sortedData = sortData(filteredData);
 
     let phonemes = getPhonemes(sortedData);
 
@@ -693,7 +719,7 @@ function update(newData = data) {
     $(window).on("resize", function() {
         clearTimeout(timeout);
         timeout = setTimeout(function() {
-            refreshSize(newData, function() {
+            refreshSize(data, function() {
                 refreshVisible(data, true, false, function() {
                     oldGridWidth = gridWidth;
                 });
@@ -703,6 +729,11 @@ function update(newData = data) {
     $(window).on("scroll", function() {
         checkVisible(data);
     });
+}
+
+
+function searchFilter() {
+    update(fullData);
 }
 
 
