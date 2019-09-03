@@ -1,4 +1,4 @@
-var navbarHeight = 96 + 20;
+var navbarHeight;
 
 var width;  // of bar graph, set by multiplying barWidth by number of phonemes, in update()
 var height = 300;  // of bar graph
@@ -75,6 +75,7 @@ function getClassifier() {
     return d3.select("#classSelect").property("value");
 }
 
+// Returns the available classes for the current classifier
 function getClasses() {
     let classifier = getClassifier();
     return classifiers[classifier];
@@ -100,22 +101,27 @@ var emphasisToggle = d3.select("#emphasisToggle")
 var vowelsToggle = d3.select("#vowelsToggle")
     .on("change", updateLoad);
 
+// Returns the current value of the search box
 function getSearch() {
     return d3.select("#searchBox").property("value");
 }
 
+// Search box for user to enter search
 var searchBox = d3.select("#searchBox")
     .on("change", searchFilter);
 
+// Search button to sumbit search
 var searchButton = d3.select("#searchButton")
     .on("click", searchFilter);
 
 
+// Scales height of bar charts
 var yScale = d3.scaleLinear()
     .range([height - 10, 10])
     // .domain() must be set independently
 
 
+// Returns the color corresponding to the class of the given datum
 function getColor(d) {
     let classifier = getClassifier();
     let classification = d[classifier];
@@ -124,6 +130,7 @@ function getColor(d) {
 }
 
 
+// Returns an array of all the characters in the data set
 function getCharacters(newData) {
     // newData should have the following structure:
     //     newData = [{"character": <character>, "data": <barData>, ...}, ...]
@@ -134,6 +141,7 @@ function getCharacters(newData) {
 }
 
 
+// Returns an array of all the phonemes in the data set
 function getPhonemes(newData) {
     // newData should have the following structure:
     //     newData = [{"character": <character>, "data": <barData>, ...}, ...]
@@ -144,6 +152,7 @@ function getPhonemes(newData) {
 }
 
 
+// Returns an array of all the Z-scores in the given data set
 function getZscores(newData) {
     // newData should have the following structure:
     //     newData = [{"character": <character>, "data": <barData>, ...}, ...]
@@ -156,6 +165,7 @@ function getZscores(newData) {
 }
 
 
+// Returns the minimum value of an array of numbers
 function getArrayMin(arr) {
     let min = arr.reduce(function(a, b) {
         return Math.min(a, b);
@@ -164,6 +174,7 @@ function getArrayMin(arr) {
 }
 
 
+// Returns the maximum value of an array of numbers
 function getArrayMax(arr) {
     let max = arr.reduce(function(a, b) {
         return Math.max(a, b);
@@ -186,16 +197,21 @@ function updateScale(newData) {
 }
 
 
+// Calculates the x position of the upper left corner of a chart given its index
+//     and total width, along with the grid width
 function getXPos(index, gWidth = gridWidth, tWidth = totalWidth) {
     return (index % gWidth) * tWidth;
 }
 
 
+// Calculates the y position of the upper left corner of a chart given its index
+//     and total width, along with the grid width
 function getYPos(index, gWidth = gridWidth, tHeight = totalHeight) {
     return Math.floor(index / gWidth) * tHeight + navbarHeight;
 }
 
 
+// Returns the index of the specified character in the data set
 function getIndex(character, d = data) {
     // d should have the structure:
     //     data = [{"character": <character>, "data": <barData>, ...}, ...]
@@ -215,6 +231,8 @@ function getIndex(character, d = data) {
 }
 
 
+// If the averages toggle is checked, either draws or updates the average rects
+//     overlay on the given bar selection, otherwise removes the average rects
 function updateAvgBars(selection, animate) {
     if (d3.select("#averageToggle").property("checked")) {
         avgRect = selection.select("rect.average");
@@ -264,10 +282,11 @@ function updateAvgBars(selection, animate) {
             .style("stroke-width", 0)
             .remove();
     }
-
 }
 
 
+// Animates the removal of the rectangle(s) and text from the given bar
+//     selection, then removes the g elements themselves
 function removeBars(selection, animate = false, dur = stdDur) {
     selection.selectAll("rect")
         .transition()
@@ -287,6 +306,7 @@ function removeBars(selection, animate = false, dur = stdDur) {
 }
 
 
+// Draws rectangles and text in the given selection of bars
 function drawBars(selection, animate = false) {
     selection.append("rect")
         .attr("class", d => d.phoneme + " id_" + d.character.replace(/\./g, "-"))
@@ -315,6 +335,7 @@ function drawBars(selection, animate = false) {
 }
 
 
+// Updates the existing rectangles and texts in the given selection of bars
 function updateBars(selection, animate = false) {
     let charID = ""
     if (selection.size() > 0) {
@@ -340,6 +361,9 @@ function updateBars(selection, animate = false) {
 }
 
 
+// Fully updates the chart of the given entry, placing it according to its index
+//     (or given x and y positions) on the ZscoreWindow svg or the specified svg,
+//     and updates the title, axis, and graph appropriately
 function updateChart(entry, index, animate = false, svg = d3.select("#ZscoreWindow"), xPos = false, yPos = false) {
     if (!xPos || !yPos) {
         xPos = getXPos(index);
@@ -496,7 +520,13 @@ function updateChart(entry, index, animate = false, svg = d3.select("#ZscoreWind
 }
 
 
-// Animates the removal of a chart, first by shrinking the 
+// Animates the removal of a chart, called when a chart is no longer going to
+//     be visible.
+// If the chart has a new index (the character is still in the new data
+//     set), animates the chart moving to the new index, then removes it.
+// If the chart does not have a new index after the update (the character
+//     is not part of the new data set), the bars are shrunk and then
+//     the chart is removed.
 function removeChart(character, d = data) {
     let newIndex = getIndex(character, d);
     if (newIndex !== false) {
@@ -571,6 +601,7 @@ function refreshVisible(newData = data, fullRefresh = false, animate = false, ca
 // Uses current dimensions of the window to calculate the grid size,
 //     and then resizes the svg and calls the callback function
 function refreshSize(newData = data, callbackFunction = false) {
+    navbarHeight = $("nav.navbar").height() + 20;
     svgWidth = Math.max($(window).width(), totalWidth);
 
     oldGridWidth = gridWidth;
@@ -671,6 +702,8 @@ function sortData(newData) {
 }
 
 
+// Returns a subset of all characters whose names contain the current search
+//     string, from the given complete data set
 function filter(newData) {
     let search = getSearch();
     let filteredData = new Array();
@@ -732,6 +765,8 @@ function update(newData = data) {
 }
 
 
+// Triggered by a search confirmation, calls update on the fullData dataset,
+//     thus filter is not compounded upon existing filter
 function searchFilter() {
     update(fullData);
 }
