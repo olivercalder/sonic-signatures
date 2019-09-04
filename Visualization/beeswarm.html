@@ -47,25 +47,25 @@
                 
                 <div class="btn-toolbar" role="toolbar">
                     <div class="btn-group mr-2 my-1" id="visControls" role="group">
-                        <button type="button" class="btn btn-secondary mr-1">
-                            Show Averages <input type="checkbox" id="averageToggle" autocomplete="on">
+                        <button type="button" class="btn btn-secondary mr-1" id="averageToggleButton" onclick="event.stopPropagation()">
+                            Show Averages <input type="checkbox" id="averageToggle" onclick="event.stopPropagation()" autocomplete="on">
                         </button>
-                        <button type="button" class="btn btn-secondary mr-1">
+                        <button type="button" class="btn btn-secondary mr-1" id="classSelectButton">
                             Classifier: 
                             <select class="select" id="classSelect">
                             </select>
                         </button>
-                        <button type="button" class="btn btn-secondary mr-1">
+                        <button type="button" class="btn btn-secondary mr-1" id="sortSelectButton">
                             Sort by: 
                             <select class="select" id="sortSelect">
                                 <option>Play</option>
                                 <option>Class</option>
                             </select>
                         </button>
-                        <button type="button" class="btn btn-secondary">
-                            <input class="" type="" id="searchBox" placeholder="Character or Play Code"> <!-- class was "form-control", type was "search"-->
+                        <button type="button" class="btn btn-secondary" id="searchBoxButton">
+                            <input class="" type="" id="searchBox" placeholder="Character or Play Code">
                         </button>
-                        <button type="button" class="btn btn-success" id="searchButton">Search</button> <!-- type was "submit"-->
+                        <button type="button" class="btn btn-success" id="searchButton">Search</button>
                     </div>
                     <div class="btn-group mr-2 my-1" id="chartControls" role="group">
                         <div class="dropdown mr-1">
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                     <div class="btn-group mr-2 my-1" id="modelControls" role="group">
-                        <button class="btn btn-secondary mr-1">
+                        <button class="btn btn-secondary mr-1" id="characterSelectButton">
                             Characters: 
                             <select class="select" id="characterSelect">
                                 <option>No Others</option>
@@ -90,18 +90,18 @@
                                 <option>All</option>
                             </select>
                         </button>
-                        <button class="btn btn-secondary mr-1">
+                        <button class="btn btn-secondary mr-1" id="calculationSelectButton">
                             Calculation: 
                             <select class="select" id="calculationSelect">
                                 <option>Counts</option>
                                 <option selected="selected">Percentages</option>
                             </select>
                         </button>
-                        <button class="btn btn-secondary mr-1">
-                            Preserve Emphasis <input type="checkbox" id="emphasisToggle" autocomplete="on">
+                        <button class="btn btn-secondary mr-1" id="emphasisToggleButton" onclick="event.stopPropagation()">
+                            Preserve Emphasis <input type="checkbox" id="emphasisToggle" onclick="event.stopPropagation()" autocomplete="on">
                         </button>
-                        <button class="btn btn-secondary mr-1">
-                            Vowels Only <input type="checkbox" id="vowelsToggle" checked autocomplete="on">
+                        <button class="btn btn-secondary mr-1" id="vowelsToggleButton" onclick="event.stopPropagation()">
+                            Vowels Only <input type="checkbox" id="vowelsToggle" onclick="event.stopPropagation()" checked autocomplete="on">
                         </button>
                     </div>
                 </div>

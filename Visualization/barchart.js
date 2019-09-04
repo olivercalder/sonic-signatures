@@ -57,11 +57,18 @@ var endVisible;
 var endIndex;
 
 
-// Checkbox to toggle displaying average bars
+// Makes changes to the averages checkbox cause visualization to update
 var averageToggle = d3.select("#averageToggle")
     .on("change", update);
 
-// Dropdown to select classifier
+// Makes clicks on button container act as though they were clicks on the inner input element
+var averageToggleButton = d3.select("#averageToggleButton")
+    .on("click", function() {
+        $("#averageToggle").click();
+    });
+
+
+// Makes changes to the classifier dropdown cause visualization to update
 var classSelect = d3.select("#classSelect")
     .on("change", update);
 
@@ -69,6 +76,7 @@ classSelect.selectAll("option")
         .data(Object.keys(classifiers)).enter()
     .append("option")
         .text(d => d);
+
 
 // Returns the currently selected classifier
 function getClassifier() {
@@ -81,25 +89,42 @@ function getClasses() {
     return classifiers[classifier];
 }
 
-// Dropdown to select sorting
+
+// Makes changes to the select sort dropdown cause visualization to update
 var sortSelect = d3.select("#sortSelect")
     .on("change", update);
 
-// Dropdown to select characters
+
+// Makes changes to the select characters dropdown cause visualization to update load
 var characterSelect = d3.select("#characterSelect")
     .on("change", updateLoad);
 
-// Dropdown to select calculation
+// Makes changes to the select calculation dropdown cause visualization to update load
 var calculationSelect = d3.select("#calculationSelect")
     .on("change", updateLoad);
 
-// Checkbox to toggle Emphasis
+
+// Makes changes to the emphasis checkbox cause visualization to update load
 var emphasisToggle = d3.select("#emphasisToggle")
     .on("change", updateLoad);
 
-// Checkbox to toggle Vowels-Only
+// Makes clicks on button container act as though they were clicks on the inner input element
+var emphasisToggleButton = d3.select("#emphasisToggleButton")
+    .on("click", function() {
+        $("#emphasisToggle").click();
+    });
+
+
+// Makes changes to the vowels chackbox cause visualization to update load
 var vowelsToggle = d3.select("#vowelsToggle")
     .on("change", updateLoad);
+
+// Makes clicks on button container act as though they were clicks on the inner input element
+var vowelsToggleButton = d3.select("#vowelsToggleButton")
+    .on("click", function() {
+        $("#vowelsToggle").click();
+    });
+
 
 // Returns the current value of the search box
 function getSearch() {
