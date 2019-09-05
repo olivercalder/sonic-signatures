@@ -6,7 +6,7 @@ var barWidth = 30;  // of individual bars
 
 var xMargin = 30;  // on either side of the bar graph
 var yMargin = 60;  // on either side of the bar graph
-var totalWidth = width + (2 * xMargin);  // of graph and margins
+var totalWidth;  // of graph and margins, set by adding width to 2*xMargin, in update()
 var totalHeight = height + (2 * yMargin);  // of graph and margins
 
 var oldTotalWidth;  // total width before the last change in data or size
