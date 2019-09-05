@@ -45,8 +45,8 @@ var data;  // Will be modified by initial d3.json call
 var fullData;  // Full data from the last loadData() call, without sorting or filtering
 var characteristics;  // Classes of each character for each classifier
 var averagesData;  // Average Z-score for each phoneme for each class
-    // averageData of the form:
-    //     averageData = {<phon1>: {<class1>: Zscore, <class2>: Zscore, ...}, <phon2>: {...}, ... }
+    // averagesData of the form:
+    //     averagesData = {<class1>: {<phon1>: <avg1>, <phon2>: <avg2>, ... }, <class2>: { ... }, ... }
 
 var renderBuffer = 2;  // The number of rows beyond those visible that will be rendered
 var triggerBuffer = 1; // The number of rows beyond those visible that will trigger the next render
