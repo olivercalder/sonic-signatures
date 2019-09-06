@@ -679,13 +679,13 @@ function getAvgsData(sortedData = data) {
 }
 
 
-// Sorts the given data array and returns it
+// Sorts the given data array by character name and returns it
 function sortDataAlpha(dataArr) {
     // dataArr should have the following structure:
     //     dataArr = [{"character": <character>, "data": <barData>, ...}, ...]
     //     where barData = [{"phoneme": <phoneme>, "Zscore": <Zscore>,  ...}, ...]
     sortedArr = dataArr.sort(function(a, b) {
-        if (a.character < b.character) {
+        if (a.character. < b.character) {
             return -1;
         } else if (a.character > b.character) {
             return 1;
@@ -697,7 +697,29 @@ function sortDataAlpha(dataArr) {
 }
 
 
-// Sorts data by either name or class
+// Sorts the given data array by character name and returns it
+function sortDataName(dataArr) {
+    // dataArr should have the following structure:
+    //     dataArr = [{"character": <character>, "data": <barData>, ...}, ...]
+    //     where barData = [{"phoneme": <phoneme>, "Zscore": <Zscore>,  ...}, ...]
+    sortedArr = dataArr.sort(function(a, b) {
+        aChar = a.character;
+        aName = aChar.slice(aChar.indexOf("_") + 1);
+        bChar = b.character;
+        bName = bChar.slice(bChar.indexOf("_") + 1);
+        if (aName. < bName) {
+            return -1;
+        } else if (aName > bName) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    return sortedArr;
+}
+
+
+// Sorts data by either alphabetically, by name, or class
 function sortData(newData) {
     // newData should have the following structure:
     //     newData = [{"character": <character>, "data": <barData>, ...}, ...]
@@ -706,8 +728,9 @@ function sortData(newData) {
     let sortedData;
     if (newSort == "Play" || newSort == "Character") {
         sortedData = sortDataAlpha(newData);
-    }
-    else if (newSort == "Class") {
+    } else if (newSort == "Name") {
+        sortedData = sortDataName(newData);
+    } else if (newSort == "Class") {
         let classifier = getClassifier();
         let classes = getClasses();
         sortedClassData = new Object();
