@@ -685,7 +685,7 @@ function sortDataAlpha(dataArr) {
     //     dataArr = [{"character": <character>, "data": <barData>, ...}, ...]
     //     where barData = [{"phoneme": <phoneme>, "Zscore": <Zscore>,  ...}, ...]
     sortedArr = dataArr.sort(function(a, b) {
-        if (a.character. < b.character) {
+        if (a.character < b.character) {
             return -1;
         } else if (a.character > b.character) {
             return 1;
@@ -707,7 +707,7 @@ function sortDataName(dataArr) {
         aName = aChar.slice(aChar.indexOf("_") + 1);
         bChar = b.character;
         bName = bChar.slice(bChar.indexOf("_") + 1);
-        if (aName. < bName) {
+        if (aName < bName) {
             return -1;
         } else if (aName > bName) {
             return 1;
