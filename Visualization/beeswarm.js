@@ -8,8 +8,8 @@ var barWidth = 30;  // of individual bars
 var barchartWidth;  // of barchart graph
 var barchartHeight = 300;  // of barchart graph
 
-var xMargin = 80;  // on either side of the bar graph
-var yMargin = 60;  // on either side of the bar graph
+var xMargin = 100;  // on either side of the beeswarm graph element
+var yMargin = 60;  // above and below the beeswarm graph element
 var totalWidth;  // of graph and margins, set by adding width + 2*xMargin, in update()
 var totalHeight;  // of graph and margins, set by height + 2*yMargin, in update()
 
@@ -21,8 +21,7 @@ var gridHeight; // total number of rows of beeswarm charts
 
 var oldGridWidth;  // grid width before the last change in data or size
 
-var xBuffer = 20;  // on either side of the row of graphs
-var yBuffer = 20;  // above and below the columns of graphs
+var yBuffer = 20;  // above the top row and below the bottom row
 
 var svgHeight;  // of the svg element
 var svgWidth;  // of the svg element
@@ -1097,7 +1096,7 @@ function refreshVisible(newData = data, fullRefresh = false, animate = false, ca
 // Uses current dimensions of the window to calculate the grid size,
 //     and then resizes the svg and calls the callback function
 function refreshSize(newData = data, callbackFunction = false) {
-    navbarHeight = $("nav.navbar").height() + 20;
+    navbarHeight = $("nav.navbar").height() + yBuffer;
     svgWidth = Math.max($(window).width(), totalWidth);
 
     oldGridWidth = gridWidth;
