@@ -641,7 +641,7 @@ function getAvgsData(entry) {
     let collisionAvg = d3.forceCollide()  // applied to every node
         .radius(d => sizeScale(d.count, d.total) + 1)
         .strength(0.9)
-        .iterations(10);
+        //.iterations(10);
 
     let simulationAvg = d3.forceSimulation(avgsData)  // Initializes a simulation with each datum as a node
         .force("xForce", xForceAvg)
