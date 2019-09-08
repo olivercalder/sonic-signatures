@@ -52,6 +52,7 @@ Research into the classification of characters based on the patterns of phoneme 
 
 ## Naive-Bayes Details:
 | Program: | Description: |
+|----------|--------------|
 | `classification.py` | Uses a counts or percentages file to perform hold-one-out classification on each character phoneme vector, constructing a results dictionary containing each character's name, actual class and predicted class. |
 | `evaluation.py` | Uses a results dictionary to generate confusion matrices and various other statistics about the success of the classification. |
 | `generate_evaluations.py` | Uses count and percentage files stored in the Archive to run `classification.py` and `evaluation.py` on every combination of options, saving the results to Results or the specified directory. |
