@@ -303,7 +303,7 @@ function deselectCircles(circ) {
         .transition()
         .duration(shortDur)
         .attr("r", d => getRadius(d))
-        .attr("fill-opacity", getOpacity(d))
+        .attr("fill-opacity", d => getOpacity(d))
         .style("stroke", getColor(d));
 }
 
