@@ -182,7 +182,7 @@ function getOpacity(d) {
         opacity = 0.5;
     }
     let search = getSearch();
-    if (search) {
+    if (search && !selected.has(d.identity)) {
         let filter = getFilter();
         if (filter == "Name") {
             if (!d.identity.includes(search)) {
