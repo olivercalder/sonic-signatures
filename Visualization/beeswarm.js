@@ -285,25 +285,25 @@ function updatePopups(circles) {
 
 
 // Enlarges and labels all circles with identity matching that of given circ
-function selectCircles(circ) {
-    d3.selectAll("circle.id_" + circ.identity.replace(/\./g, "-"))  // all circle elements for the same character
+function selectCircles(d) {
+    d3.selectAll("circle.id_" + d.identity.replace(/\./g, "-"))  // all circle elements for the same character
         .call(updatePopups)
         .transition()
         .duration(shortDur)
-        .attr("r", d => getRadius(d))
-        .attr("fill-opacity", d => getOpacity(d))
+        .attr("r", getRadius(d))
+        .attr("fill-opacity", getOpacity(d))
         .style("stroke", "black");
 }
 
 
 // For all circles with identity matching that of given d, returns circles to default size and removes labels
-function deselectCircles(circ) {
-    d3.selectAll("circle.id_" + circ.identity.replace(/\./g, "-"))  // all circle elements for the same character
+function deselectCircles(d) {
+    d3.selectAll("circle.id_" + d.identity.replace(/\./g, "-"))  // all circle elements for the same character
         .call(updatePopups)
         .transition()
         .duration(shortDur)
-        .attr("r", d => getRadius(d))
-        .attr("fill-opacity", d => getOpacity(d))
+        .attr("r", getRadius(d))
+        .attr("fill-opacity", getOpacity(d))
         .style("stroke", getColor(d));
 }
 
