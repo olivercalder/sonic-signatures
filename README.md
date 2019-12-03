@@ -41,6 +41,7 @@ Research into the classification of characters based on the patterns of phoneme 
 - [Reference](https://github.com/olivercalder/sonic-signatures#reference-details): Helper scripts and data used by other scripts to classify characters or generate combinations of parameters
 - [Results](https://github.com/olivercalder/sonic-signatures/tree/master/Results): Saved classification results and summaries generated from the count or percentage data in the [Archive](https://github.com/olivercalder/sonic-signatures/tree/master/Archive) using the scripts in [Naive-Bayes](https://github.com/olivercalder/sonic-signatures#naive-bayes-details)
 - [Statistics](https://github.com/olivercalder/sonic-signatures#statistics-details): Scripts to generate statistical information (including [Z-scores](https://github.com/olivercalder/sonic-signatures/blob/master/Statistics/z_scores.py)) on phoneme vectors, and to be used by other scripts to yield more informative results regarding classifications
+- [Summary](https://github.com/olivercalder/sonic-signatures/tree/master/Summary): Prose summaries of compiled results
 - [Visualization](https://github.com/olivercalder/sonic-signatures#visualization-details): Interactive visualizations to explore statistical and classification data
 - [lib](https://github.com/olivercalder/sonic-signatures/tree/master/lib): Libraries (d3v4.js, jQuery, and bootstrap.js)
 
