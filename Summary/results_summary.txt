@@ -1,0 +1,102 @@
+﻿Naive Bayes Results Summary Post-Summer 2019
+3 December 2019
+
+The success of the Naive Bayes results from this summer can be considered in a few different ways. Firstly, all classification must be contextualized to the quality of the characteristics data upon which they are based. The classifications by role is in this sense far more arbitrary than that by gender or genre, and we see similar patterns of accuracy for gender and genre, whereas somewhat different patterns exist for role. Overall, the inclusion of Emphasis results in a small increase in accuracy (2-3%), Vowels-Only results in a notable decrease in accuracy (4-8%), and Percentages results in a sizeable decrease in accuracy in gender and role (5-11%) and a slight decrease in accuracy in genre (1-2%). In summary, we see a greater accuracy in those models which retain as much data as possible—including total word count, rather than normalized percentage—thus allowing for greater over-fitting.
+
+With this in mind, we can explore a few models which performed particularly well. For gender and genre, the leading model was Emphasis-Min-2500-Counts, which yielded both overall and weighted accuracies which were quite high. This maximizes the amount of information preserved, and decreased the number of data points, allowing for maximum overfitting. For role, there is greater complexity: while emphasis on average produced a few percentage point increase, this did not hold for the All-Counts models, which performed best without emphasis and yielded the greatest overall accuracy by a large margin. In this case, word count, coupled with the incredibly high percentage of others (~95%), meant that the model could predict “other” for the vast majority of low-word-count characters and predict “protag” for some high-word-count characters, and achieve accuracy in the 90%s. For role, weighted accuracy was highest when throwing out all others, so the Emphasis-No-Others-Counts and Emphasis-No-Others-Percentages models performed best. These once again promote the greatest overfitting, which is not particularly useful in the long run.
+
+Thus, if the goal is to minimize overfitting while retaining as much accuracy as possible, I believe the most representative models would be those without Emphasis or Vowels-Only, and which restrict somewhat the minimum word count to a point where using percentages results in a well-normalized set of vectors (ie. word count cannot be deduced simply by the level of deviation across the different phonemes). These models, such as Min-250-Percentages, did not perform best in any of the classifications, but I nonetheless think that they most fairly carry out the goal of classifying based on the relative occurrence of phonemes, rather than by other incidental factors such as word count.
+
+
+                                Option Analysis
+
+Condensed Summary:
+- Emphasis:
+    - Increases accuracy
+- Vowels-Only:
+    - Decreases accuracy
+- Percentages:
+    - Decreases accuracy
+- Character filters:
+    - Min-2500 usually best (except dramatically worst for role)
+    - Min-1000 fairly good for all
+    - No-Others best for weighted role classification
+
+
+Options Summary:
+
+Gender:
+- Emphasis:
+    - Increases accuracy by 3%
+- Vowels Only:
+    - Decreases accuracy by 1-5%
+- Percentages:
+    - Decreases overall accuracy by 8%
+    - Decreases F1 and MCC by 3-4%
+    - Increases average accuracy by 1%
+- Character filter:
+    - Min-2500 most accurate
+    - All had lowest average, F1, and MCC
+    - Min-1000 had lowest overall
+    - No-Others was not best
+
+Genre:
+- Emphasis:
+    - Increases accuracy 2%
+- Vowels Only:
+    - Decreases accuracy 5-8%
+- Percentages:
+    - Decreased accuracy 1-2%
+- Character filter:
+    - Min-2500 most accurate
+    - Min-1000 and Min-250 fine as well
+    - All by far the worst
+    - No-Others just behind Min-1000 and Min-250
+
+Role:
+- Emphasis:
+    - Increased accuracy by 2%
+- Vowels Only:
+    - Decreased accuracy by 4%
+- Percentages:
+    - Decreased accuracy by 6-11%
+    - Average accuracy unchanged
+- Twofold:
+    - Increases overall accuracy 9%
+    - Decreases weighted accuracies 0-4%
+- Character filters:
+    - Min-2500 by far worst
+    - No-Others by far best (except overall)
+    - All best overall
+
+
+
+Best models:
+
+
+Gender:
+
+Overall:                        Option Combination  Overall    Average    F1 Score     MCC
+                   Emphasis-Vowels-Only-All-Counts   87.51%     61.25%     62.49%     25.38%
+
+Weighted:                       Option Combination  Overall    Average    F1 Score     MCC
+                          Emphasis-Min-2500-Counts   80.49%     76.89%     71.53%     45.67%
+
+
+Genre:
+
+All:                            Option Combination  Overall    Average    F1 Score     MCC
+                     Emphasis-Min-2500-Percentages   71.95%     72.27%     73.21%     58.96%
+                          Emphasis-Min-2500-Counts   70.73%     71.23%     71.62%     56.65%
+
+
+Role:
+
+Overall:                        Option Combination  Overall    Average    F1 Score     MCC
+                                All-Counts-Twofold   91.92%     47.02%     44.43%     29.76%
+                                        All-Counts   90.29%     51.21%     44.92%     31.44%
+
+Weighted:                       Option Combination  Overall    Average    F1 Score     MCC
+                         Emphasis-No-Others-Counts   55.17%     55.53%     56.21%     33.04%
+                    Emphasis-No-Others-Percentages   55.17%     55.64%     55.87%     32.86%
+        Emphasis-Vowels-Only-No-Others-Percentages   54.02%     54.58%     56.34%     32.57%
