@@ -284,7 +284,7 @@ def main():
                     matched = False
                     while not matched:
                         match = input('Please enter name of match exactly as it appears above: ')
-                        if match not in eos_chars:
+                        if match not in eos_characteristics and code+'_'+match not in eos_characteristics:
                             choice = input("'{}' not found in EoS characters. Try again? [y/n/s/q] ".format(match)).lower()[0]
                             if choice == 'q':
                                 quit_procedure(man_pair_filename, man_pairings, unknowns_filename, unknowns, characteristics_filename, characteristics)

@@ -206,6 +206,7 @@ def main():
                         for offset in [0,1]:
                             if eos_divs[n-offset].find('span', class_='speaker') != None:
                                 possible = code + '_' + eos_divs[n-offset].find('span', class_='speaker').get('title')
+                                possible = possible.lstrip().rstrip()
                                 if possible in eos_characteristics:  # The speaker is in EoS characters
                                     eos_char_code = possible
                                     print(char_code, '::', eos_char_code)
