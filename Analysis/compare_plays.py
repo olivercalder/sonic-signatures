@@ -18,7 +18,7 @@ Arguments:
     -lj filename.json   Loads vectors from given json file
     -a                  Loads vectors from all combinations of options in
                             Archive and averages results
-    -c class_id         Specifies the class (role, gender, genre, social class) to predict
+    -c class_id         Specifies the class (role, gender, genre, status) to predict
     -s                  Silent: Do not print output
     -wt                 Writes output to text file
     -wc                 Writes output to csv file
