@@ -1,0 +1,940 @@
+                         Summary: status_All-Combos_TNK                         
+
+
+                      Overall accuracy = 27.85%                                 
+                      Average accuracy = 23.11%                                 
+
+                      Average F1 score = 23.11%                                 
+                           Average MCC = 11.56%                                 
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    5     |    6     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |    47    |    47    |    19    |    2     |    2     |    5     |    4     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |    15    |    83    |    19    |    18    |    4     |    18    |    11    |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |    3     |    15    |    4     |    4     |    4     |    13    |    0     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |    10    |    11    |    2     |    10    |    2     |    7     |    5     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |    0     |    50    |    17    |    12    |    20    |    5     |    0     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |    10    |    62    |    6     |    19    |    18    |    18    |    5     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |    0     |    12    |    0     |    2     |    13    |    16    |    6     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+                         Total samples = 675                                    
+
+                      Total actual "0" = 126                                    
+                   Total predicted "0" = 85                                     
+                      Total actual "1" = 168                                    
+                   Total predicted "1" = 280                                    
+                      Total actual "2" = 43                                     
+                   Total predicted "2" = 67                                     
+                      Total actual "3" = 47                                     
+                   Total predicted "3" = 67                                     
+                      Total actual "5" = 104                                    
+                   Total predicted "5" = 63                                     
+                      Total actual "6" = 138                                    
+                   Total predicted "6" = 82                                     
+                      Total actual "p" = 49                                     
+                   Total predicted "p" = 31                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    5     |    6     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |  6.96%   |  6.96%   |  2.81%   |  0.30%   |  0.30%   |  0.74%   |  0.59%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |  2.22%   |  12.30%  |  2.81%   |  2.67%   |  0.59%   |  2.67%   |  1.63%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |  0.44%   |  2.22%   |  0.59%   |  0.59%   |  0.59%   |  1.93%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |  1.48%   |  1.63%   |  0.30%   |  1.48%   |  0.30%   |  1.04%   |  0.74%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |  0.00%   |  7.41%   |  2.52%   |  1.78%   |  2.96%   |  0.74%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |  1.48%   |  9.19%   |  0.89%   |  2.81%   |  2.67%   |  2.67%   |  0.74%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |  0.00%   |  1.78%   |  0.00%   |  0.30%   |  1.93%   |  2.37%   |  0.89%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+                    Percent actual "0" = 18.67%                                 
+                 Percent predicted "0" = 12.59%                                 
+                    Percent actual "1" = 24.89%                                 
+                 Percent predicted "1" = 41.48%                                 
+                    Percent actual "2" = 6.37%                                  
+                 Percent predicted "2" = 9.93%                                  
+                    Percent actual "3" = 6.96%                                  
+                 Percent predicted "3" = 9.93%                                  
+                    Percent actual "5" = 15.41%                                 
+                 Percent predicted "5" = 9.33%                                  
+                    Percent actual "6" = 20.44%                                 
+                 Percent predicted "6" = 12.15%                                 
+                    Percent actual "p" = 7.26%                                  
+                 Percent predicted "p" = 4.59%                                  
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    5     |    6     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |  37.30%  |  37.30%  |  15.08%  |  1.59%   |  1.59%   |  3.97%   |  3.17%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |  8.93%   |  49.40%  |  11.31%  |  10.71%  |  2.38%   |  10.71%  |  6.55%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |  6.98%   |  34.88%  |  9.30%   |  9.30%   |  9.30%   |  30.23%  |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |  21.28%  |  23.40%  |  4.26%   |  21.28%  |  4.26%   |  14.89%  |  10.64%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |  0.00%   |  48.08%  |  16.35%  |  11.54%  |  19.23%  |  4.81%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |  7.25%   |  44.93%  |  4.35%   |  13.77%  |  13.04%  |  13.04%  |  3.62%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |  0.00%   |  24.49%  |  0.00%   |  4.08%   |  26.53%  |  32.65%  |  12.24%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+         Percent correct of actual "0" = 37.30%                                 
+         Percent correct of actual "1" = 49.40%                                 
+         Percent correct of actual "2" = 9.30%                                  
+         Percent correct of actual "3" = 21.28%                                 
+         Percent correct of actual "5" = 19.23%                                 
+         Percent correct of actual "6" = 13.04%                                 
+         Percent correct of actual "p" = 12.24%                                 
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    5     |    6     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |  55.29%  |  16.79%  |  28.36%  |  2.99%   |  3.17%   |  6.10%   |  12.90%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |  17.65%  |  29.64%  |  28.36%  |  26.87%  |  6.35%   |  21.95%  |  35.48%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |  3.53%   |  5.36%   |  5.97%   |  5.97%   |  6.35%   |  15.85%  |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |  11.76%  |  3.93%   |  2.99%   |  14.93%  |  3.17%   |  8.54%   |  16.13%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |  0.00%   |  17.86%  |  25.37%  |  17.91%  |  31.75%  |  6.10%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |  11.76%  |  22.14%  |  8.96%   |  28.36%  |  28.57%  |  21.95%  |  16.13%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |  0.00%   |  4.29%   |  0.00%   |  2.99%   |  20.63%  |  19.51%  |  19.35%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+      Percent correct of predicted "0" = 55.29%                                 
+      Percent correct of predicted "1" = 29.64%                                 
+      Percent correct of predicted "2" = 5.97%                                  
+      Percent correct of predicted "3" = 14.93%                                 
+      Percent correct of predicted "5" = 31.75%                                 
+      Percent correct of predicted "6" = 21.95%                                 
+      Percent correct of predicted "p" = 19.35%                                 
+
+
+                                   F1 Scores:                                   
+                      F1 score for "0" = 44.55%                                 
+                      F1 score for "1" = 37.05%                                 
+                      F1 score for "2" = 7.27%                                  
+                      F1 score for "3" = 17.54%                                 
+                      F1 score for "5" = 23.95%                                 
+                      F1 score for "6" = 16.36%                                 
+                      F1 score for "p" = 15.00%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+                     MCC score for "0" = 35.68%                                 
+                     MCC score for "1" = 9.26%                                  
+                     MCC score for "2" = -0.54%                                 
+                     MCC score for "3" = 10.38%                                 
+                     MCC score for "5" = 14.52%                                 
+                     MCC score for "6" = 1.39%                                  
+                     MCC score for "p" = 10.23%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                          Actual "0" Average Z-Scores:                          
+
+
+                          Actual "1" Average Z-Scores:                          
+
+
+                          Actual "2" Average Z-Scores:                          
+
+
+                          Actual "3" Average Z-Scores:                          
+
+
+                          Actual "5" Average Z-Scores:                          
+
+
+                          Actual "6" Average Z-Scores:                          
+
+
+                          Actual "p" Average Z-Scores:                          
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                        Predicted "0" Average Z-Scores:                         
+
+
+                        Predicted "1" Average Z-Scores:                         
+
+
+                        Predicted "2" Average Z-Scores:                         
+
+
+                        Predicted "3" Average Z-Scores:                         
+
+
+                        Predicted "5" Average Z-Scores:                         
+
+
+                        Predicted "6" Average Z-Scores:                         
+
+
+                        Predicted "p" Average Z-Scores:                         
+
+
+
+
+
+                                  Characters:                                   
+
+
+                          Actual "0" Predicted as "0":                          
+
+TNK_Hippolyta-All-Percentages		TNK_Hippolyta-Emphasis-All-Percentages
+TNK_Hippolyta-Emphasis-Min-100-Percentages
+TNK_Hippolyta-Emphasis-Min-250-Percentages		TNK_QUEENS.1-All-Counts
+TNK_QUEENS.1-Emphasis-All-Counts		TNK_QUEENS.1-Emphasis-Min-100-Counts
+TNK_QUEENS.1-Emphasis-Min-250-Counts
+TNK_QUEENS.1-Emphasis-Min-250-Percentages
+TNK_QUEENS.1-Emphasis-Min-500-Counts
+TNK_QUEENS.1-Emphasis-Min-500-Percentages
+TNK_QUEENS.1-Emphasis-Vowels-Only-All-Counts
+TNK_QUEENS.1-Emphasis-Vowels-Only-All-Percentages
+TNK_QUEENS.1-Emphasis-Vowels-Only-Min-100-Counts
+TNK_QUEENS.1-Emphasis-Vowels-Only-Min-250-Counts
+TNK_QUEENS.1-Emphasis-Vowels-Only-Min-250-Percentages
+TNK_QUEENS.1-Emphasis-Vowels-Only-Min-500-Counts
+TNK_QUEENS.1-Emphasis-Vowels-Only-Min-500-Percentages
+TNK_QUEENS.1-Min-100-Counts		TNK_QUEENS.1-Min-250-Counts
+TNK_QUEENS.1-Min-250-Percentages		TNK_QUEENS.1-Min-500-Counts
+TNK_QUEENS.1-Min-500-Percentages		TNK_QUEENS.1-Vowels-Only-Min-100-Counts
+TNK_QUEENS.1-Vowels-Only-Min-250-Counts
+TNK_QUEENS.1-Vowels-Only-Min-250-Percentages
+TNK_QUEENS.1-Vowels-Only-Min-500-Counts
+TNK_QUEENS.1-Vowels-Only-Min-500-Percentages		TNK_QUEENS.2-All-Percentages
+TNK_QUEENS.2-Emphasis-All-Percentages
+TNK_QUEENS.2-Emphasis-Min-250-Percentages
+TNK_QUEENS.2-Emphasis-Vowels-Only-All-Percentages
+TNK_QUEENS.2-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_QUEENS.2-Emphasis-Vowels-Only-Min-250-Percentages
+TNK_QUEENS.2-Min-250-Percentages		TNK_Theseus-All-Percentages
+TNK_Theseus-Emphasis-All-Percentages
+TNK_Theseus-Emphasis-Vowels-Only-All-Percentages
+TNK_Theseus-Emphasis-Vowels-Only-Min-1000-Counts
+TNK_Theseus-Emphasis-Vowels-Only-Min-250-Percentages
+TNK_Theseus-Emphasis-Vowels-Only-Min-500-Percentages
+TNK_Theseus-Emphasis-Vowels-Only-No-Others-Counts
+TNK_Theseus-Emphasis-Vowels-Only-No-Others-Percentages
+TNK_Theseus-Vowels-Only-All-Percentages
+TNK_Theseus-Vowels-Only-Min-1000-Percentages
+TNK_Theseus-Vowels-Only-No-Others-Counts
+TNK_Theseus-Vowels-Only-No-Others-Percentages
+
+
+                          Actual "0" Predicted as "1":                          
+
+TNK_Hippolyta-Emphasis-Min-250-Counts		TNK_Hippolyta-Emphasis-Min-500-Counts
+TNK_Hippolyta-Emphasis-Vowels-Only-All-Counts
+TNK_Hippolyta-Emphasis-Vowels-Only-Min-100-Counts
+TNK_Hippolyta-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_Hippolyta-Emphasis-Vowels-Only-Min-250-Counts
+TNK_Hippolyta-Emphasis-Vowels-Only-Min-250-Percentages
+TNK_Hippolyta-Emphasis-Vowels-Only-Min-500-Counts
+TNK_Hippolyta-Vowels-Only-Min-100-Percentages		TNK_QUEENS.2-All-Counts
+TNK_QUEENS.2-Emphasis-All-Counts		TNK_QUEENS.2-Emphasis-Min-100-Counts
+TNK_QUEENS.2-Emphasis-Min-250-Counts
+TNK_QUEENS.2-Emphasis-Vowels-Only-All-Counts
+TNK_QUEENS.2-Emphasis-Vowels-Only-Min-100-Counts
+TNK_QUEENS.2-Emphasis-Vowels-Only-Min-250-Counts		TNK_QUEENS.2-Min-100-Counts
+TNK_QUEENS.2-Min-250-Counts		TNK_QUEENS.2-Vowels-Only-Min-100-Counts
+TNK_QUEENS.2-Vowels-Only-Min-250-Counts		TNK_QUEENS.3-All-Counts
+TNK_QUEENS.3-All-Percentages		TNK_QUEENS.3-Emphasis-All-Counts
+TNK_QUEENS.3-Emphasis-All-Percentages		TNK_QUEENS.3-Emphasis-Min-100-Counts
+TNK_QUEENS.3-Emphasis-Min-100-Percentages
+TNK_QUEENS.3-Emphasis-Min-250-Counts
+TNK_QUEENS.3-Emphasis-Min-250-Percentages
+TNK_QUEENS.3-Emphasis-Vowels-Only-All-Counts
+TNK_QUEENS.3-Emphasis-Vowels-Only-Min-100-Counts
+TNK_QUEENS.3-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_QUEENS.3-Emphasis-Vowels-Only-Min-250-Counts
+TNK_QUEENS.3-Emphasis-Vowels-Only-Min-250-Percentages
+TNK_QUEENS.3-Min-100-Counts		TNK_QUEENS.3-Min-100-Percentages
+TNK_QUEENS.3-Min-250-Counts		TNK_QUEENS.3-Min-250-Percentages
+TNK_QUEENS.3-Vowels-Only-All-Counts		TNK_QUEENS.3-Vowels-Only-Min-100-Counts
+TNK_QUEENS.3-Vowels-Only-Min-250-Counts
+TNK_QUEENS.3-Vowels-Only-Min-250-Percentages
+TNK_Theseus-Emphasis-No-Others-Counts
+TNK_Theseus-Emphasis-No-Others-Percentages
+TNK_Theseus-Emphasis-Vowels-Only-Min-250-Counts
+TNK_Theseus-Emphasis-Vowels-Only-Min-500-Counts		TNK_Theseus-No-Others-Counts
+TNK_Theseus-No-Others-Percentages
+
+
+                          Actual "0" Predicted as "2":                          
+
+TNK_Hippolyta-All-Counts		TNK_Hippolyta-Emphasis-All-Counts
+TNK_Hippolyta-Emphasis-Min-100-Counts
+TNK_Hippolyta-Emphasis-Min-500-Percentages
+TNK_Hippolyta-Emphasis-Vowels-Only-All-Percentages
+TNK_Hippolyta-Emphasis-Vowels-Only-Min-500-Percentages
+TNK_Hippolyta-Min-100-Counts		TNK_Hippolyta-Min-100-Percentages
+TNK_Hippolyta-Min-250-Counts		TNK_Hippolyta-Min-250-Percentages
+TNK_Hippolyta-Min-500-Counts		TNK_Hippolyta-Min-500-Percentages
+TNK_Hippolyta-Vowels-Only-All-Counts
+TNK_Hippolyta-Vowels-Only-All-Percentages
+TNK_Hippolyta-Vowels-Only-Min-100-Counts
+TNK_Hippolyta-Vowels-Only-Min-250-Counts
+TNK_Hippolyta-Vowels-Only-Min-250-Percentages
+TNK_Hippolyta-Vowels-Only-Min-500-Counts
+TNK_Theseus-Emphasis-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "0" Predicted as "3":                          
+
+TNK_Theseus-Emphasis-Min-100-Percentages
+TNK_Theseus-Emphasis-Vowels-Only-Min-1000-Percentages
+
+
+                          Actual "0" Predicted as "5":                          
+
+TNK_QUEENS.3-Emphasis-Vowels-Only-All-Percentages
+TNK_QUEENS.3-Vowels-Only-All-Percentages
+
+
+                          Actual "0" Predicted as "6":                          
+
+TNK_Hippolyta-Vowels-Only-Min-500-Percentages
+TNK_QUEENS.1-Vowels-Only-All-Counts		TNK_QUEENS.2-Vowels-Only-All-Counts
+TNK_Theseus-Min-250-Percentages		TNK_Theseus-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "0" Predicted as "p":                          
+
+TNK_QUEENS.1-All-Percentages		TNK_QUEENS.1-Emphasis-All-Percentages
+TNK_QUEENS.1-Vowels-Only-All-Percentages
+TNK_QUEENS.2-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "1" Predicted as "0":                          
+
+TNK_Arcite-All-Percentages		TNK_Arcite-Emphasis-All-Percentages
+TNK_Arcite-Emphasis-Vowels-Only-All-Percentages		TNK_Emilia-All-Percentages
+TNK_Emilia-Emphasis-All-Percentages
+TNK_Emilia-Emphasis-Vowels-Only-All-Percentages		TNK_Palamon-All-Percentages
+TNK_Palamon-Emphasis-All-Percentages		TNK_Palamon-Emphasis-Min-100-Percentages
+TNK_Palamon-Emphasis-Min-250-Percentages
+TNK_Palamon-Emphasis-Min-500-Percentages
+TNK_Palamon-Emphasis-Vowels-Only-All-Percentages
+TNK_Palamon-Emphasis-Vowels-Only-Min-500-Percentages
+TNK_Palamon-Min-100-Percentages		TNK_Palamon-Min-250-Percentages
+
+
+                          Actual "1" Predicted as "1":                          
+
+TNK_Arcite-Emphasis-Min-100-Counts		TNK_Arcite-Emphasis-Min-1000-Counts
+TNK_Arcite-Emphasis-Min-1000-Percentages		TNK_Arcite-Emphasis-Min-250-Counts
+TNK_Arcite-Emphasis-Min-2500-Counts		TNK_Arcite-Emphasis-Min-2500-Percentages
+TNK_Arcite-Emphasis-Min-500-Counts
+TNK_Arcite-Emphasis-Vowels-Only-Min-100-Counts
+TNK_Arcite-Emphasis-Vowels-Only-Min-1000-Counts
+TNK_Arcite-Emphasis-Vowels-Only-Min-1000-Percentages
+TNK_Arcite-Emphasis-Vowels-Only-Min-250-Counts
+TNK_Arcite-Emphasis-Vowels-Only-Min-2500-Counts
+TNK_Arcite-Emphasis-Vowels-Only-Min-2500-Percentages
+TNK_Arcite-Emphasis-Vowels-Only-Min-500-Counts
+TNK_Arcite-Emphasis-Vowels-Only-Min-500-Percentages
+TNK_Arcite-Min-1000-Counts		TNK_Arcite-Min-1000-Percentages
+TNK_Arcite-Vowels-Only-Min-1000-Counts		TNK_Arcite-Vowels-Only-Min-2500-Counts
+TNK_Emilia-All-Counts		TNK_Emilia-Emphasis-All-Counts
+TNK_Emilia-Emphasis-Min-100-Counts		TNK_Emilia-Emphasis-Min-1000-Counts
+TNK_Emilia-Emphasis-Min-1000-Percentages		TNK_Emilia-Emphasis-Min-250-Counts
+TNK_Emilia-Emphasis-Min-250-Percentages		TNK_Emilia-Emphasis-Min-2500-Counts
+TNK_Emilia-Emphasis-Min-500-Counts		TNK_Emilia-Emphasis-Min-500-Percentages
+TNK_Emilia-Emphasis-Vowels-Only-All-Counts
+TNK_Emilia-Emphasis-Vowels-Only-Min-100-Counts
+TNK_Emilia-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_Emilia-Emphasis-Vowels-Only-Min-1000-Counts
+TNK_Emilia-Emphasis-Vowels-Only-Min-1000-Percentages
+TNK_Emilia-Emphasis-Vowels-Only-Min-250-Counts
+TNK_Emilia-Emphasis-Vowels-Only-Min-250-Percentages
+TNK_Emilia-Emphasis-Vowels-Only-Min-2500-Counts
+TNK_Emilia-Emphasis-Vowels-Only-Min-500-Counts
+TNK_Emilia-Emphasis-Vowels-Only-Min-500-Percentages		TNK_Emilia-Min-100-Counts
+TNK_Emilia-Min-1000-Counts		TNK_Emilia-Min-250-Counts
+TNK_Emilia-Min-2500-Counts		TNK_Emilia-Min-500-Counts
+TNK_Emilia-Vowels-Only-All-Counts		TNK_Emilia-Vowels-Only-All-Percentages
+TNK_Emilia-Vowels-Only-Min-100-Counts
+TNK_Emilia-Vowels-Only-Min-100-Percentages
+TNK_Emilia-Vowels-Only-Min-1000-Counts		TNK_Emilia-Vowels-Only-Min-250-Counts
+TNK_Emilia-Vowels-Only-Min-250-Percentages
+TNK_Emilia-Vowels-Only-Min-2500-Counts		TNK_Emilia-Vowels-Only-Min-500-Counts
+TNK_Emilia-Vowels-Only-Min-500-Percentages		TNK_Palamon-All-Counts
+TNK_Palamon-Emphasis-All-Counts		TNK_Palamon-Emphasis-Min-100-Counts
+TNK_Palamon-Emphasis-Min-1000-Counts
+TNK_Palamon-Emphasis-Min-1000-Percentages		TNK_Palamon-Emphasis-Min-250-Counts
+TNK_Palamon-Emphasis-Min-2500-Counts
+TNK_Palamon-Emphasis-Min-2500-Percentages		TNK_Palamon-Emphasis-Min-500-Counts
+TNK_Palamon-Emphasis-Vowels-Only-All-Counts
+TNK_Palamon-Emphasis-Vowels-Only-Min-100-Counts
+TNK_Palamon-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_Palamon-Emphasis-Vowels-Only-Min-1000-Counts
+TNK_Palamon-Emphasis-Vowels-Only-Min-1000-Percentages
+TNK_Palamon-Emphasis-Vowels-Only-Min-250-Counts
+TNK_Palamon-Emphasis-Vowels-Only-Min-2500-Counts
+TNK_Palamon-Emphasis-Vowels-Only-Min-2500-Percentages
+TNK_Palamon-Emphasis-Vowels-Only-Min-500-Counts		TNK_Palamon-Min-100-Counts
+TNK_Palamon-Min-1000-Counts		TNK_Palamon-Min-1000-Percentages
+TNK_Palamon-Min-250-Counts		TNK_Palamon-Min-2500-Counts
+TNK_Palamon-Min-500-Counts		TNK_Palamon-Vowels-Only-All-Percentages
+TNK_Palamon-Vowels-Only-Min-2500-Counts
+TNK_Palamon-Vowels-Only-Min-2500-Percentages
+TNK_Pirithous-Vowels-Only-Min-250-Counts
+TNK_Pirithous-Vowels-Only-Min-500-Counts
+
+
+                          Actual "1" Predicted as "2":                          
+
+TNK_Arcite-All-Counts		TNK_Arcite-Emphasis-All-Counts
+TNK_Arcite-Emphasis-Min-250-Percentages
+TNK_Arcite-Emphasis-Min-500-Percentages		TNK_Arcite-Min-100-Counts
+TNK_Arcite-Min-250-Counts		TNK_Arcite-Min-250-Percentages
+TNK_Arcite-Min-2500-Counts		TNK_Arcite-Min-2500-Percentages
+TNK_Arcite-Min-500-Counts		TNK_Arcite-Min-500-Percentages
+TNK_Emilia-Emphasis-Min-100-Percentages
+TNK_Emilia-Emphasis-Min-2500-Percentages
+TNK_Emilia-Emphasis-Vowels-Only-Min-2500-Percentages
+TNK_Emilia-Min-100-Percentages		TNK_Emilia-Min-2500-Percentages
+TNK_Emilia-Vowels-Only-Min-2500-Percentages		TNK_Palamon-Min-2500-Percentages
+TNK_Pirithous-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "1" Predicted as "3":                          
+
+TNK_Arcite-Emphasis-Min-100-Percentages
+TNK_Arcite-Emphasis-Vowels-Only-All-Counts
+TNK_Arcite-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_Arcite-Emphasis-Vowels-Only-Min-250-Percentages
+TNK_Arcite-Min-100-Percentages		TNK_Arcite-Vowels-Only-All-Counts
+TNK_Arcite-Vowels-Only-All-Percentages		TNK_Arcite-Vowels-Only-Min-100-Counts
+TNK_Arcite-Vowels-Only-Min-100-Percentages
+TNK_Arcite-Vowels-Only-Min-1000-Percentages
+TNK_Arcite-Vowels-Only-Min-250-Counts
+TNK_Arcite-Vowels-Only-Min-250-Percentages
+TNK_Arcite-Vowels-Only-Min-2500-Percentages
+TNK_Arcite-Vowels-Only-Min-500-Counts
+TNK_Arcite-Vowels-Only-Min-500-Percentages
+TNK_Palamon-Emphasis-Vowels-Only-Min-250-Percentages
+TNK_Palamon-Vowels-Only-Min-100-Percentages		TNK_Pirithous-All-Percentages
+
+
+                          Actual "1" Predicted as "5":                          
+
+TNK_Palamon-Vowels-Only-Min-250-Percentages
+TNK_Pirithous-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_Pirithous-Emphasis-Vowels-Only-Min-250-Percentages
+TNK_Pirithous-Vowels-Only-All-Percentages
+
+
+                          Actual "1" Predicted as "6":                          
+
+TNK_Palamon-Vowels-Only-All-Counts		TNK_Palamon-Vowels-Only-Min-100-Counts
+TNK_Palamon-Vowels-Only-Min-1000-Counts
+TNK_Palamon-Vowels-Only-Min-1000-Percentages
+TNK_Palamon-Vowels-Only-Min-250-Counts		TNK_Palamon-Vowels-Only-Min-500-Counts
+TNK_Palamon-Vowels-Only-Min-500-Percentages		TNK_Pirithous-All-Counts
+TNK_Pirithous-Emphasis-All-Counts		TNK_Pirithous-Emphasis-All-Percentages
+TNK_Pirithous-Emphasis-Min-100-Counts
+TNK_Pirithous-Emphasis-Min-100-Percentages
+TNK_Pirithous-Emphasis-Min-250-Percentages
+TNK_Pirithous-Emphasis-Vowels-Only-All-Counts
+TNK_Pirithous-Emphasis-Vowels-Only-Min-100-Counts
+TNK_Pirithous-Min-100-Percentages		TNK_Pirithous-Vowels-Only-All-Counts
+TNK_Pirithous-Vowels-Only-Min-100-Counts
+
+
+                          Actual "1" Predicted as "p":                          
+
+TNK_Emilia-Min-1000-Percentages		TNK_Emilia-Min-250-Percentages
+TNK_Emilia-Min-500-Percentages		TNK_Emilia-Vowels-Only-Min-1000-Percentages
+TNK_Palamon-Min-500-Percentages		TNK_Pirithous-Emphasis-Min-500-Percentages
+TNK_Pirithous-Emphasis-Vowels-Only-All-Percentages
+TNK_Pirithous-Emphasis-Vowels-Only-Min-250-Counts
+TNK_Pirithous-Emphasis-Vowels-Only-Min-500-Counts
+TNK_Pirithous-Emphasis-Vowels-Only-Min-500-Percentages
+TNK_Pirithous-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "2" Predicted as "0":                          
+
+TNK_KNIGHTS.PALAMON-Emphasis-Vowels-Only-All-Percentages
+TNK_KNIGHTS.PALAMON.0.1-Emphasis-All-Percentages
+TNK_KNIGHTS.PALAMON.0.1-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "2" Predicted as "1":                          
+
+TNK_ATTENDANTS.1-Emphasis-Vowels-Only-All-Counts
+TNK_ATTENDANTS.1-Emphasis-Vowels-Only-All-Percentages
+TNK_ATTENDANTS.1-Vowels-Only-All-Counts
+TNK_ATTENDANTS.1-Vowels-Only-All-Percentages
+TNK_KNIGHTS.PALAMON-Emphasis-Vowels-Only-All-Counts
+TNK_KNIGHTS.PALAMON-Vowels-Only-All-Counts
+TNK_KNIGHTS.PALAMON.0.1-Emphasis-All-Counts
+TNK_KNIGHTS.PALAMON.0.1-Emphasis-Vowels-Only-All-Counts
+TNK_KNIGHTS.PALAMON.0.2-Emphasis-All-Counts
+TNK_KNIGHTS.PALAMON.0.2-Emphasis-Vowels-Only-All-Counts
+TNK_KNIGHTS.PALAMON.0.3-Emphasis-All-Counts
+TNK_KNIGHTS.PALAMON.0.3-Emphasis-Vowels-Only-All-Counts
+TNK_KNIGHTS.PALAMON.0.3-Vowels-Only-All-Counts		TNK_Valerius-All-Counts
+TNK_Valerius-Vowels-Only-All-Counts
+
+
+                          Actual "2" Predicted as "2":                          
+
+TNK_KNIGHTS.PALAMON.0.1-All-Percentages		TNK_Woman-All-Percentages
+TNK_Woman-Emphasis-All-Percentages
+TNK_Woman-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "2" Predicted as "3":                          
+
+TNK_KNIGHTS.PALAMON-Vowels-Only-All-Percentages
+TNK_KNIGHTS.PALAMON.0.1-Vowels-Only-All-Percentages
+TNK_KNIGHTS.PALAMON.0.3-Emphasis-Vowels-Only-All-Percentages
+TNK_Woman-Vowels-Only-All-Percentages
+
+
+                          Actual "2" Predicted as "5":                          
+
+TNK_KNIGHTS.PALAMON-All-Percentages
+TNK_KNIGHTS.PALAMON-Emphasis-All-Percentages
+TNK_KNIGHTS.PALAMON.0.2-Vowels-Only-All-Percentages
+TNK_KNIGHTS.PALAMON.0.3-Vowels-Only-All-Percentages
+
+
+                          Actual "2" Predicted as "6":                          
+
+TNK_ATTENDANTS.1-All-Counts		TNK_ATTENDANTS.1-Emphasis-All-Counts
+TNK_KNIGHTS.PALAMON-All-Counts		TNK_KNIGHTS.PALAMON-Emphasis-All-Counts
+TNK_KNIGHTS.PALAMON.0.1-All-Counts
+TNK_KNIGHTS.PALAMON.0.1-Vowels-Only-All-Counts
+TNK_KNIGHTS.PALAMON.0.2-All-Counts
+TNK_KNIGHTS.PALAMON.0.2-Vowels-Only-All-Counts
+TNK_KNIGHTS.PALAMON.0.3-All-Counts		TNK_Woman-All-Counts
+TNK_Woman-Emphasis-All-Counts		TNK_Woman-Emphasis-Vowels-Only-All-Counts
+TNK_Woman-Vowels-Only-All-Counts
+
+
+                          Actual "2" Predicted as "p":                          
+
+
+
+
+                          Actual "3" Predicted as "0":                          
+
+TNK_Doctor-All-Percentages		TNK_Doctor-Emphasis-All-Percentages
+TNK_Doctor-Emphasis-Vowels-Only-All-Percentages
+TNK_Doctor-Emphasis-Vowels-Only-Min-100-Counts
+TNK_Doctor-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_Doctor-Emphasis-Vowels-Only-Min-250-Counts
+TNK_Doctor-Emphasis-Vowels-Only-Min-250-Percentages
+TNK_Doctor-Emphasis-Vowels-Only-Min-500-Counts
+TNK_Doctor-Emphasis-Vowels-Only-Min-500-Percentages
+TNK_Schoolmaster-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "3" Predicted as "1":                          
+
+TNK_Herald-All-Counts		TNK_Herald-Emphasis-All-Counts
+TNK_Schoolmaster-Emphasis-Min-250-Counts
+TNK_Schoolmaster-Emphasis-Min-500-Counts
+TNK_Schoolmaster-Emphasis-Min-500-Percentages		TNK_Schoolmaster-Min-250-Counts
+TNK_Schoolmaster-Min-250-Percentages		TNK_Schoolmaster-Min-500-Counts
+TNK_Schoolmaster-Min-500-Percentages
+TNK_Schoolmaster-Vowels-Only-Min-250-Counts
+TNK_Schoolmaster-Vowels-Only-Min-500-Counts
+
+
+                          Actual "3" Predicted as "2":                          
+
+TNK_Herald-Emphasis-All-Percentages
+TNK_Schoolmaster-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "3" Predicted as "3":                          
+
+TNK_Doctor-All-Counts		TNK_Doctor-Emphasis-All-Counts
+TNK_Doctor-Emphasis-Min-100-Counts		TNK_Doctor-Emphasis-Min-250-Counts
+TNK_Doctor-Emphasis-Min-500-Counts		TNK_Doctor-Min-100-Counts
+TNK_Doctor-Min-250-Counts		TNK_Doctor-Min-500-Counts
+TNK_Doctor-Vowels-Only-All-Percentages
+TNK_Doctor-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "3" Predicted as "5":                          
+
+TNK_Herald-All-Percentages		TNK_Herald-Vowels-Only-All-Percentages
+
+
+                          Actual "3" Predicted as "6":                          
+
+TNK_Doctor-Min-250-Percentages		TNK_Doctor-Vowels-Only-Min-250-Percentages
+TNK_Herald-Emphasis-Vowels-Only-All-Counts		TNK_Herald-Vowels-Only-All-Counts
+TNK_Schoolmaster-All-Counts		TNK_Schoolmaster-Min-100-Counts
+TNK_Schoolmaster-Min-100-Percentages
+
+
+                          Actual "3" Predicted as "p":                          
+
+TNK_Schoolmaster-Emphasis-Min-250-Percentages
+TNK_Schoolmaster-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_Schoolmaster-Emphasis-Vowels-Only-Min-250-Percentages
+TNK_Schoolmaster-Vowels-Only-Min-100-Percentages
+TNK_Schoolmaster-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "5" Predicted as "0":                          
+
+
+
+
+                          Actual "5" Predicted as "1":                          
+
+TNK_Daughter-All-Counts		TNK_Daughter-All-Percentages
+TNK_Daughter-Emphasis-All-Counts		TNK_Daughter-Emphasis-All-Percentages
+TNK_Daughter-Emphasis-Min-100-Counts
+TNK_Daughter-Emphasis-Min-100-Percentages
+TNK_Daughter-Emphasis-Min-1000-Counts
+TNK_Daughter-Emphasis-Min-1000-Percentages
+TNK_Daughter-Emphasis-Min-250-Counts
+TNK_Daughter-Emphasis-Min-250-Percentages
+TNK_Daughter-Emphasis-Min-2500-Counts
+TNK_Daughter-Emphasis-Min-2500-Percentages
+TNK_Daughter-Emphasis-Min-500-Counts
+TNK_Daughter-Emphasis-Min-500-Percentages
+TNK_Daughter-Emphasis-Vowels-Only-All-Counts
+TNK_Daughter-Emphasis-Vowels-Only-All-Percentages
+TNK_Daughter-Emphasis-Vowels-Only-Min-100-Counts
+TNK_Daughter-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_Daughter-Emphasis-Vowels-Only-Min-1000-Counts
+TNK_Daughter-Emphasis-Vowels-Only-Min-1000-Percentages
+TNK_Daughter-Emphasis-Vowels-Only-Min-250-Counts
+TNK_Daughter-Emphasis-Vowels-Only-Min-250-Percentages
+TNK_Daughter-Emphasis-Vowels-Only-Min-2500-Counts
+TNK_Daughter-Emphasis-Vowels-Only-Min-2500-Percentages
+TNK_Daughter-Emphasis-Vowels-Only-Min-500-Counts
+TNK_Daughter-Emphasis-Vowels-Only-Min-500-Percentages
+TNK_Daughter-Min-100-Counts		TNK_Daughter-Min-100-Percentages
+TNK_Daughter-Min-1000-Counts		TNK_Daughter-Min-1000-Percentages
+TNK_Daughter-Min-250-Counts		TNK_Daughter-Min-250-Percentages
+TNK_Daughter-Min-2500-Counts		TNK_Daughter-Min-2500-Percentages
+TNK_Daughter-Min-500-Counts		TNK_Daughter-Vowels-Only-All-Counts
+TNK_Daughter-Vowels-Only-All-Percentages
+TNK_Daughter-Vowels-Only-Min-100-Counts
+TNK_Daughter-Vowels-Only-Min-100-Percentages
+TNK_Daughter-Vowels-Only-Min-1000-Counts
+TNK_Daughter-Vowels-Only-Min-250-Counts
+TNK_Daughter-Vowels-Only-Min-250-Percentages
+TNK_Daughter-Vowels-Only-Min-2500-Counts
+TNK_Daughter-Vowels-Only-Min-2500-Percentages
+TNK_Daughter-Vowels-Only-Min-500-Counts
+TNK_Jailer-Emphasis-Vowels-Only-Min-100-Counts
+TNK_Jailer-Emphasis-Vowels-Only-Min-250-Counts
+TNK_Jailer-Emphasis-Vowels-Only-Min-500-Counts
+TNK_Wooer-Emphasis-Vowels-Only-Min-250-Counts
+TNK_Wooer-Emphasis-Vowels-Only-Min-500-Counts
+
+
+                          Actual "5" Predicted as "2":                          
+
+TNK_Daughter-Min-500-Percentages
+TNK_Daughter-Vowels-Only-Min-1000-Percentages
+TNK_Daughter-Vowels-Only-Min-500-Percentages		TNK_Jailer-All-Percentages
+TNK_Jailer-Emphasis-All-Percentages
+TNK_Jailer-Emphasis-Vowels-Only-All-Percentages
+TNK_Jailer-Emphasis-Vowels-Only-Min-100-Percentages		TNK_Wooer-All-Percentages
+TNK_Wooer-Emphasis-All-Percentages		TNK_Wooer-Emphasis-Vowels-Only-All-Counts
+TNK_Wooer-Emphasis-Vowels-Only-Min-100-Counts
+TNK_Wooer-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_Wooer-Vowels-Only-All-Counts		TNK_Wooer-Vowels-Only-Min-100-Counts
+TNK_Wooer-Vowels-Only-Min-250-Counts		TNK_Wooer-Vowels-Only-Min-500-Counts
+TNK_Wooer-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "5" Predicted as "3":                          
+
+TNK_Jailer-Emphasis-Min-500-Counts
+TNK_Jailer-Emphasis-Vowels-Only-Min-500-Percentages		TNK_Jailer-Min-500-Counts
+TNK_Jailer-Vowels-Only-All-Percentages		TNK_Jailer-Vowels-Only-Min-250-Counts
+TNK_Jailer-Vowels-Only-Min-500-Counts
+TNK_Jailer-Vowels-Only-Min-500-Percentages
+TNK_Wooer-Emphasis-Vowels-Only-All-Percentages
+TNK_Wooer-Emphasis-Vowels-Only-Min-250-Percentages
+TNK_Wooer-Vowels-Only-All-Percentages
+TNK_Wooer-Vowels-Only-Min-100-Percentages
+TNK_Wooer-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "5" Predicted as "5":                          
+
+TNK_Jailer-Emphasis-All-Counts		TNK_Jailer-Emphasis-Min-100-Counts
+TNK_Jailer-Emphasis-Min-250-Counts		TNK_Jailer-Emphasis-Min-250-Percentages
+TNK_Jailer-Emphasis-Min-500-Percentages		TNK_Wooer-All-Counts
+TNK_Wooer-Emphasis-All-Counts		TNK_Wooer-Emphasis-Min-100-Counts
+TNK_Wooer-Emphasis-Min-100-Percentages		TNK_Wooer-Emphasis-Min-250-Counts
+TNK_Wooer-Emphasis-Min-250-Percentages		TNK_Wooer-Emphasis-Min-500-Counts
+TNK_Wooer-Emphasis-Min-500-Percentages
+TNK_Wooer-Emphasis-Vowels-Only-Min-500-Percentages		TNK_Wooer-Min-100-Counts
+TNK_Wooer-Min-100-Percentages		TNK_Wooer-Min-250-Counts
+TNK_Wooer-Min-250-Percentages		TNK_Wooer-Min-500-Counts
+TNK_Wooer-Min-500-Percentages
+
+
+                          Actual "5" Predicted as "6":                          
+
+TNK_Jailer-Emphasis-Vowels-Only-All-Counts		TNK_Jailer-Min-250-Percentages
+TNK_Jailer-Vowels-Only-All-Counts		TNK_Jailer-Vowels-Only-Min-100-Counts
+TNK_Jailer-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "5" Predicted as "p":                          
+
+
+
+
+                          Actual "6" Predicted as "0":                          
+
+TNK_FRIENDS.2-Emphasis-Vowels-Only-All-Percentages
+TNK_MESSENGERS.X.1-Emphasis-Min-250-Percentages
+TNK_MESSENGERS.X.1-Emphasis-Vowels-Only-All-Percentages
+TNK_MESSENGERS.X.1-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_MESSENGERS.X.1-Emphasis-Vowels-Only-Min-250-Percentages
+TNK_MESSENGERS.X.1-Vowels-Only-Min-250-Percentages
+TNK_OTHERS-Emphasis-All-Percentages
+TNK_OTHERS-Emphasis-Vowels-Only-All-Percentages		TNK_Servant-All-Percentages
+TNK_Servant-Emphasis-All-Percentages
+
+
+                          Actual "6" Predicted as "1":                          
+
+TNK_Brother-All-Counts		TNK_Brother-Emphasis-All-Counts
+TNK_Brother-Emphasis-Vowels-Only-All-Counts
+TNK_Brother-Vowels-Only-All-Counts
+TNK_COUNTRYMEN.0.1-Emphasis-Vowels-Only-Min-100-Counts
+TNK_COUNTRYMEN.0.1-Min-100-Counts		TNK_COUNTRYMEN.0.1-Vowels-Only-All-Counts
+TNK_COUNTRYMEN.0.1-Vowels-Only-Min-100-Counts
+TNK_COUNTRYMEN.0.2-Emphasis-Min-100-Counts
+TNK_COUNTRYMEN.0.2-Emphasis-Vowels-Only-All-Counts
+TNK_COUNTRYMEN.0.2-Emphasis-Vowels-Only-Min-100-Counts
+TNK_COUNTRYMEN.0.2-Min-100-Counts		TNK_COUNTRYMEN.0.2-Vowels-Only-All-Counts
+TNK_COUNTRYMEN.0.2-Vowels-Only-Min-100-Counts		TNK_COUNTRYMEN.0.4-All-Counts
+TNK_COUNTRYMEN.0.4-Emphasis-All-Counts
+TNK_COUNTRYMEN.0.4-Emphasis-Min-100-Counts
+TNK_COUNTRYMEN.0.4-Emphasis-Vowels-Only-All-Counts
+TNK_COUNTRYMEN.0.4-Emphasis-Vowels-Only-All-Percentages
+TNK_COUNTRYMEN.0.4-Emphasis-Vowels-Only-Min-100-Counts
+TNK_COUNTRYMEN.0.4-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_COUNTRYMEN.0.4-Min-100-Counts		TNK_COUNTRYMEN.0.4-Vowels-Only-All-Counts
+TNK_COUNTRYMEN.0.4-Vowels-Only-Min-100-Counts		TNK_COUNTRYWOMEN.0.1-All-Counts
+TNK_COUNTRYWOMEN.0.1-Vowels-Only-All-Counts		TNK_FRIENDS.1-All-Counts
+TNK_FRIENDS.1-All-Percentages		TNK_FRIENDS.1-Emphasis-All-Counts
+TNK_FRIENDS.1-Emphasis-All-Percentages		TNK_FRIENDS.1-Emphasis-Min-100-Counts
+TNK_FRIENDS.1-Emphasis-Vowels-Only-Min-100-Counts
+TNK_FRIENDS.1-Min-100-Counts		TNK_FRIENDS.1-Vowels-Only-All-Counts
+TNK_FRIENDS.1-Vowels-Only-Min-100-Counts		TNK_MESSENGERS.X.1-All-Counts
+TNK_MESSENGERS.X.1-All-Percentages		TNK_MESSENGERS.X.1-Emphasis-All-Counts
+TNK_MESSENGERS.X.1-Emphasis-All-Percentages
+TNK_MESSENGERS.X.1-Emphasis-Min-100-Counts
+TNK_MESSENGERS.X.1-Emphasis-Min-100-Percentages
+TNK_MESSENGERS.X.1-Emphasis-Min-250-Counts
+TNK_MESSENGERS.X.1-Emphasis-Vowels-Only-All-Counts
+TNK_MESSENGERS.X.1-Emphasis-Vowels-Only-Min-100-Counts
+TNK_MESSENGERS.X.1-Emphasis-Vowels-Only-Min-250-Counts
+TNK_MESSENGERS.X.1-Min-100-Counts		TNK_MESSENGERS.X.1-Min-250-Counts
+TNK_MESSENGERS.X.1-Min-250-Percentages
+TNK_MESSENGERS.X.1-Vowels-Only-All-Counts
+TNK_MESSENGERS.X.1-Vowels-Only-Min-100-Counts
+TNK_MESSENGERS.X.1-Vowels-Only-Min-250-Counts		TNK_MESSENGERS.X.2-All-Counts
+TNK_MESSENGERS.X.2-Emphasis-All-Counts
+TNK_MESSENGERS.X.2-Emphasis-Vowels-Only-All-Counts
+TNK_MESSENGERS.X.2-Vowels-Only-All-Counts		TNK_OTHERS-All-Counts
+TNK_OTHERS-Emphasis-All-Counts		TNK_OTHERS-Emphasis-Vowels-Only-All-Counts
+TNK_OTHERS-Vowels-Only-All-Counts		TNK_Servant-All-Counts
+TNK_Servant-Emphasis-Vowels-Only-All-Percentages
+TNK_Servant-Vowels-Only-All-Counts
+
+
+                          Actual "6" Predicted as "2":                          
+
+TNK_COUNTRYMEN.0.1-Emphasis-Min-100-Counts
+TNK_COUNTRYMEN.0.1-Vowels-Only-Min-100-Percentages
+TNK_FRIENDS.1-Emphasis-Vowels-Only-All-Counts
+TNK_FRIENDS.2-Vowels-Only-All-Percentages
+TNK_Taborer-Emphasis-Vowels-Only-All-Percentages
+TNK_Taborer-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "3":                          
+
+TNK_Brother-Emphasis-Vowels-Only-All-Percentages
+TNK_COUNTRYMEN.0.1-All-Percentages
+TNK_COUNTRYMEN.0.1-Emphasis-All-Percentages
+TNK_COUNTRYMEN.0.1-Emphasis-Min-100-Percentages
+TNK_COUNTRYMEN.0.1-Emphasis-Vowels-Only-All-Percentages
+TNK_COUNTRYMEN.0.1-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_COUNTRYMEN.0.1-Min-100-Percentages
+TNK_COUNTRYMEN.0.2-Emphasis-Vowels-Only-All-Percentages
+TNK_COUNTRYMEN.0.3-Vowels-Only-All-Percentages
+TNK_COUNTRYMEN.0.5-All-Percentages
+TNK_COUNTRYMEN.0.5-Emphasis-All-Percentages
+TNK_COUNTRYMEN.0.5-Emphasis-Vowels-Only-All-Percentages
+TNK_COUNTRYWOMEN.0.1-All-Percentages
+TNK_COUNTRYWOMEN.0.1-Emphasis-All-Percentages
+TNK_COUNTRYWOMEN.0.1-Emphasis-Vowels-Only-All-Percentages
+TNK_FRIENDS.1-Emphasis-Vowels-Only-All-Percentages
+TNK_MESSENGERS.X.1-Vowels-Only-All-Percentages		TNK_Taborer-All-Percentages
+TNK_Taborer-Emphasis-All-Percentages
+
+
+                          Actual "6" Predicted as "5":                          
+
+TNK_Brother-All-Percentages		TNK_Brother-Emphasis-All-Percentages
+TNK_COUNTRYMEN.0.3-All-Counts		TNK_COUNTRYMEN.0.3-Emphasis-All-Counts
+TNK_COUNTRYMEN.0.3-Emphasis-Min-100-Counts
+TNK_COUNTRYMEN.0.3-Emphasis-Min-100-Percentages
+TNK_COUNTRYMEN.0.3-Min-100-Counts		TNK_COUNTRYMEN.0.3-Min-100-Percentages
+TNK_COUNTRYMEN.0.4-All-Percentages
+TNK_COUNTRYMEN.0.4-Emphasis-All-Percentages
+TNK_COUNTRYMEN.0.4-Emphasis-Min-100-Percentages
+TNK_FRIENDS.1-Min-100-Percentages
+TNK_FRIENDS.1-Vowels-Only-Min-100-Percentages
+TNK_MESSENGERS.X.2-Emphasis-Vowels-Only-All-Percentages
+TNK_MESSENGERS.X.2-Vowels-Only-All-Percentages		TNK_OTHERS-All-Percentages
+TNK_OTHERS-Vowels-Only-All-Percentages
+TNK_Servant-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "6":                          
+
+TNK_COUNTRYMEN.0.1-All-Counts		TNK_COUNTRYMEN.0.1-Emphasis-All-Counts
+TNK_COUNTRYMEN.0.1-Emphasis-Vowels-Only-All-Counts
+TNK_COUNTRYMEN.0.5-All-Counts		TNK_COUNTRYMEN.0.5-Emphasis-All-Counts
+TNK_COUNTRYMEN.0.5-Emphasis-Vowels-Only-All-Counts
+TNK_COUNTRYMEN.0.5-Vowels-Only-All-Counts
+TNK_COUNTRYWOMEN.0.1-Emphasis-All-Counts
+TNK_COUNTRYWOMEN.0.1-Emphasis-Vowels-Only-All-Counts
+TNK_MESSENGERS.X.3-All-Counts		TNK_MESSENGERS.X.3-Emphasis-All-Counts
+TNK_MESSENGERS.X.3-Emphasis-Vowels-Only-All-Counts
+TNK_MESSENGERS.X.3-Vowels-Only-All-Counts
+TNK_Servant-Emphasis-Vowels-Only-All-Counts		TNK_Taborer-All-Counts
+TNK_Taborer-Emphasis-All-Counts		TNK_Taborer-Emphasis-Vowels-Only-All-Counts
+TNK_Taborer-Vowels-Only-All-Counts
+
+
+                          Actual "6" Predicted as "p":                          
+
+TNK_COUNTRYMEN.0.2-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_COUNTRYMEN.0.2-Vowels-Only-Min-100-Percentages
+TNK_COUNTRYMEN.0.4-Min-100-Percentages		TNK_MESSENGERS.X.2-All-Percentages
+TNK_MESSENGERS.X.2-Emphasis-All-Percentages
+
+
+                          Actual "p" Predicted as "0":                          
+
+
+
+
+                          Actual "p" Predicted as "1":                          
+
+TNK_Boy-Emphasis-Min-100-Counts		TNK_Boy-Emphasis-Vowels-Only-All-Counts
+TNK_Boy-Emphasis-Vowels-Only-Min-100-Counts		TNK_Boy-Min-100-Counts
+TNK_Boy-Vowels-Only-All-Counts		TNK_Boy-Vowels-Only-Min-100-Counts
+TNK_Epilogue-Vowels-Only-Min-100-Counts		TNK_Prologue-All-Percentages
+TNK_Prologue-Emphasis-All-Percentages		TNK_Prologue-Emphasis-Min-250-Counts
+TNK_Prologue-Min-250-Counts		TNK_Prologue-Vowels-Only-Min-250-Counts
+
+
+                          Actual "p" Predicted as "2":                          
+
+
+
+
+                          Actual "p" Predicted as "3":                          
+
+TNK_Epilogue-All-Counts		TNK_Epilogue-Min-100-Counts
+
+
+                          Actual "p" Predicted as "5":                          
+
+TNK_Boy-Vowels-Only-All-Percentages		TNK_Epilogue-All-Percentages
+TNK_Epilogue-Emphasis-All-Counts		TNK_Epilogue-Emphasis-All-Percentages
+TNK_Epilogue-Emphasis-Min-100-Counts
+TNK_Epilogue-Emphasis-Min-100-Percentages
+TNK_Epilogue-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_Epilogue-Vowels-Only-All-Percentages
+TNK_Prologue-Emphasis-Min-100-Percentages
+TNK_Prologue-Emphasis-Min-250-Percentages
+TNK_Prologue-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_Prologue-Emphasis-Vowels-Only-Min-250-Percentages
+TNK_Prologue-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "p" Predicted as "6":                          
+
+TNK_Boy-Emphasis-All-Percentages		TNK_Epilogue-Emphasis-Vowels-Only-All-Counts
+TNK_Epilogue-Emphasis-Vowels-Only-All-Percentages
+TNK_Epilogue-Emphasis-Vowels-Only-Min-100-Counts
+TNK_Epilogue-Vowels-Only-All-Counts		TNK_Prologue-All-Counts
+TNK_Prologue-Emphasis-All-Counts		TNK_Prologue-Emphasis-Min-100-Counts
+TNK_Prologue-Emphasis-Vowels-Only-All-Counts
+TNK_Prologue-Emphasis-Vowels-Only-All-Percentages
+TNK_Prologue-Emphasis-Vowels-Only-Min-100-Counts
+TNK_Prologue-Emphasis-Vowels-Only-Min-250-Counts		TNK_Prologue-Min-100-Counts
+TNK_Prologue-Min-100-Percentages		TNK_Prologue-Vowels-Only-All-Counts
+TNK_Prologue-Vowels-Only-Min-100-Counts
+
+
+                          Actual "p" Predicted as "p":                          
+
+TNK_Boy-Emphasis-All-Counts		TNK_Boy-Emphasis-Min-100-Percentages
+TNK_Boy-Emphasis-Vowels-Only-All-Percentages
+TNK_Boy-Emphasis-Vowels-Only-Min-100-Percentages
+TNK_Boy-Vowels-Only-Min-100-Percentages		TNK_Prologue-Min-250-Percentages
+
+

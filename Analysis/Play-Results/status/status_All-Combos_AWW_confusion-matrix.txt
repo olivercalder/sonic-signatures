@@ -1,0 +1,747 @@
+                         Summary: status_All-Combos_AWW                         
+
+
+                      Overall accuracy = 18.48%                                 
+                      Average accuracy = 29.01%                                 
+
+                      Average F1 score = 21.55%                                 
+                           Average MCC = 11.25%                                 
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+           |    0     |    1     |    2     |    4     |    6     |    p     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     0     |    48    |    0     |    0     |    0     |    0     |    0     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     1     |    18    |    20    |    40    |    56    |    33    |    10    |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |    0     |    2     |    5     |    4     |    5     |    0     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |    9     |    8     |    55    |    1     |    18    |    9     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |    2     |    3     |    1     |    33    |    12    |    1     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     p     |    3     |    13    |    75    |    9     |    12    |    9     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+                         Total samples = 514                                    
+
+                      Total actual "0" = 48                                     
+                   Total predicted "0" = 80                                     
+                      Total actual "1" = 177                                    
+                   Total predicted "1" = 46                                     
+                      Total actual "2" = 16                                     
+                   Total predicted "2" = 176                                    
+                      Total actual "4" = 100                                    
+                   Total predicted "4" = 103                                    
+                      Total actual "6" = 52                                     
+                   Total predicted "6" = 80                                     
+                      Total actual "p" = 121                                    
+                   Total predicted "p" = 29                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+           |    0     |    1     |    2     |    4     |    6     |    p     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     0     |  9.34%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     1     |  3.50%   |  3.89%   |  7.78%   |  10.89%  |  6.42%   |  1.95%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |  0.00%   |  0.39%   |  0.97%   |  0.78%   |  0.97%   |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |  1.75%   |  1.56%   |  10.70%  |  0.19%   |  3.50%   |  1.75%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |  0.39%   |  0.58%   |  0.19%   |  6.42%   |  2.33%   |  0.19%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     p     |  0.58%   |  2.53%   |  14.59%  |  1.75%   |  2.33%   |  1.75%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+                    Percent actual "0" = 9.34%                                  
+                 Percent predicted "0" = 15.56%                                 
+                    Percent actual "1" = 34.44%                                 
+                 Percent predicted "1" = 8.95%                                  
+                    Percent actual "2" = 3.11%                                  
+                 Percent predicted "2" = 34.24%                                 
+                    Percent actual "4" = 19.46%                                 
+                 Percent predicted "4" = 20.04%                                 
+                    Percent actual "6" = 10.12%                                 
+                 Percent predicted "6" = 15.56%                                 
+                    Percent actual "p" = 23.54%                                 
+                 Percent predicted "p" = 5.64%                                  
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+           |    0     |    1     |    2     |    4     |    6     |    p     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     0     | 100.00%  |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     1     |  10.17%  |  11.30%  |  22.60%  |  31.64%  |  18.64%  |  5.65%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |  0.00%   |  12.50%  |  31.25%  |  25.00%  |  31.25%  |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |  9.00%   |  8.00%   |  55.00%  |  1.00%   |  18.00%  |  9.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |  3.85%   |  5.77%   |  1.92%   |  63.46%  |  23.08%  |  1.92%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     p     |  2.48%   |  10.74%  |  61.98%  |  7.44%   |  9.92%   |  7.44%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+         Percent correct of actual "0" = 100.00%                                
+         Percent correct of actual "1" = 11.30%                                 
+         Percent correct of actual "2" = 31.25%                                 
+         Percent correct of actual "4" = 1.00%                                  
+         Percent correct of actual "6" = 23.08%                                 
+         Percent correct of actual "p" = 7.44%                                  
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+           |    0     |    1     |    2     |    4     |    6     |    p     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     0     |  60.00%  |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     1     |  22.50%  |  43.48%  |  22.73%  |  54.37%  |  41.25%  |  34.48%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |  0.00%   |  4.35%   |  2.84%   |  3.88%   |  6.25%   |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |  11.25%  |  17.39%  |  31.25%  |  0.97%   |  22.50%  |  31.03%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |  2.50%   |  6.52%   |  0.57%   |  32.04%  |  15.00%  |  3.45%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     p     |  3.75%   |  28.26%  |  42.61%  |  8.74%   |  15.00%  |  31.03%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+      Percent correct of predicted "0" = 60.00%                                 
+      Percent correct of predicted "1" = 43.48%                                 
+      Percent correct of predicted "2" = 2.84%                                  
+      Percent correct of predicted "4" = 0.97%                                  
+      Percent correct of predicted "6" = 15.00%                                 
+      Percent correct of predicted "p" = 31.03%                                 
+
+
+                                   F1 Scores:                                   
+                      F1 score for "0" = 75.00%                                 
+                      F1 score for "1" = 17.94%                                 
+                      F1 score for "2" = 5.21%                                  
+                      F1 score for "4" = 0.99%                                  
+                      F1 score for "6" = 18.18%                                 
+                      F1 score for "p" = 12.00%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+                     MCC score for "0" = 74.75%                                 
+                     MCC score for "1" = 5.97%                                  
+                     MCC score for "2" = -1.13%                                 
+                     MCC score for "4" = -23.38%                                
+                     MCC score for "6" = 6.95%                                  
+                     MCC score for "p" = 4.32%                                  
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                          Actual "0" Average Z-Scores:                          
+
+
+                          Actual "1" Average Z-Scores:                          
+
+
+                          Actual "2" Average Z-Scores:                          
+
+
+                          Actual "4" Average Z-Scores:                          
+
+
+                          Actual "6" Average Z-Scores:                          
+
+
+                          Actual "p" Average Z-Scores:                          
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                        Predicted "0" Average Z-Scores:                         
+
+
+                        Predicted "1" Average Z-Scores:                         
+
+
+                        Predicted "2" Average Z-Scores:                         
+
+
+                        Predicted "4" Average Z-Scores:                         
+
+
+                        Predicted "6" Average Z-Scores:                         
+
+
+                        Predicted "p" Average Z-Scores:                         
+
+
+
+
+
+                                  Characters:                                   
+
+
+                          Actual "0" Predicted as "0":                          
+
+AWW_King-All-Counts		AWW_King-All-Percentages		AWW_King-Emphasis-All-Counts
+AWW_King-Emphasis-All-Percentages		AWW_King-Emphasis-Min-100-Counts
+AWW_King-Emphasis-Min-100-Percentages		AWW_King-Emphasis-Min-1000-Counts
+AWW_King-Emphasis-Min-1000-Percentages		AWW_King-Emphasis-Min-250-Counts
+AWW_King-Emphasis-Min-250-Percentages		AWW_King-Emphasis-Min-2500-Counts
+AWW_King-Emphasis-Min-2500-Percentages		AWW_King-Emphasis-Min-500-Counts
+AWW_King-Emphasis-Min-500-Percentages
+AWW_King-Emphasis-Vowels-Only-All-Counts
+AWW_King-Emphasis-Vowels-Only-All-Percentages
+AWW_King-Emphasis-Vowels-Only-Min-100-Counts
+AWW_King-Emphasis-Vowels-Only-Min-100-Percentages
+AWW_King-Emphasis-Vowels-Only-Min-1000-Counts
+AWW_King-Emphasis-Vowels-Only-Min-1000-Percentages
+AWW_King-Emphasis-Vowels-Only-Min-250-Counts
+AWW_King-Emphasis-Vowels-Only-Min-250-Percentages
+AWW_King-Emphasis-Vowels-Only-Min-2500-Counts
+AWW_King-Emphasis-Vowels-Only-Min-2500-Percentages
+AWW_King-Emphasis-Vowels-Only-Min-500-Counts
+AWW_King-Emphasis-Vowels-Only-Min-500-Percentages		AWW_King-Min-100-Counts
+AWW_King-Min-100-Percentages		AWW_King-Min-1000-Counts
+AWW_King-Min-1000-Percentages		AWW_King-Min-250-Counts
+AWW_King-Min-250-Percentages		AWW_King-Min-2500-Counts
+AWW_King-Min-2500-Percentages		AWW_King-Min-500-Counts
+AWW_King-Min-500-Percentages		AWW_King-Vowels-Only-All-Counts
+AWW_King-Vowels-Only-All-Percentages		AWW_King-Vowels-Only-Min-100-Counts
+AWW_King-Vowels-Only-Min-100-Percentages		AWW_King-Vowels-Only-Min-1000-Counts
+AWW_King-Vowels-Only-Min-1000-Percentages		AWW_King-Vowels-Only-Min-250-Counts
+AWW_King-Vowels-Only-Min-250-Percentages		AWW_King-Vowels-Only-Min-2500-Counts
+AWW_King-Vowels-Only-Min-2500-Percentages		AWW_King-Vowels-Only-Min-500-Counts
+AWW_King-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "0" Predicted as "1":                          
+
+
+
+
+                          Actual "0" Predicted as "2":                          
+
+
+
+
+                          Actual "0" Predicted as "4":                          
+
+
+
+
+                          Actual "0" Predicted as "6":                          
+
+
+
+
+                          Actual "0" Predicted as "p":                          
+
+
+
+
+                          Actual "1" Predicted as "0":                          
+
+AWW_Countess-All-Percentages		AWW_Countess-Emphasis-All-Percentages
+AWW_Countess-Emphasis-Vowels-Only-All-Percentages		AWW_Duke-All-Percentages
+AWW_Duke-Emphasis-All-Percentages
+AWW_Duke-Emphasis-Vowels-Only-All-Percentages
+AWW_Duke-Emphasis-Vowels-Only-Min-100-Counts
+AWW_Duke-Vowels-Only-All-Percentages
+AWW_LORDS.DUMAINE.1-Emphasis-All-Percentages
+AWW_LORDS.DUMAINE.1-Emphasis-Vowels-Only-All-Percentages
+AWW_LORDS.DUMAINE.1-Emphasis-Vowels-Only-Min-100-Percentages
+AWW_LORDS.DUMAINE.1-Emphasis-Vowels-Only-Min-1000-Counts
+AWW_LORDS.DUMAINE.1-Emphasis-Vowels-Only-Min-250-Percentages
+AWW_LORDS.DUMAINE.2-Emphasis-All-Percentages
+AWW_LORDS.DUMAINE.2-Emphasis-Vowels-Only-All-Percentages
+AWW_LORDS.DUMAINE.2-Emphasis-Vowels-Only-Min-250-Percentages
+AWW_LORDS.DUMAINE.2-Vowels-Only-All-Percentages
+AWW_LORDS.DUMAINE.2-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "1" Predicted as "1":                          
+
+AWW_Bertram-All-Percentages		AWW_Bertram-Emphasis-All-Percentages
+AWW_Bertram-Emphasis-Vowels-Only-All-Percentages
+AWW_Bertram-Emphasis-Vowels-Only-Min-1000-Counts
+AWW_Bertram-Emphasis-Vowels-Only-Min-250-Counts
+AWW_Bertram-Emphasis-Vowels-Only-Min-500-Counts
+AWW_Bertram-Emphasis-Vowels-Only-No-Others-Counts
+AWW_Bertram-Emphasis-Vowels-Only-No-Others-Percentages
+AWW_Bertram-Vowels-Only-All-Percentages		AWW_Duke-Vowels-Only-Min-100-Counts
+AWW_LORDS.COURT.4-All-Counts		AWW_LORDS.COURT.4-Emphasis-All-Counts
+AWW_LORDS.COURT.4-Emphasis-Vowels-Only-All-Counts
+AWW_LORDS.COURT.4-Emphasis-Vowels-Only-All-Percentages
+AWW_LORDS.COURT.4-Vowels-Only-All-Counts		AWW_LORDS.DUMAINE.1-All-Percentages
+AWW_Lafew-All-Percentages		AWW_Lafew-Emphasis-All-Percentages
+AWW_Lafew-Emphasis-Vowels-Only-All-Percentages
+AWW_Lafew-Vowels-Only-All-Percentages
+
+
+                          Actual "1" Predicted as "2":                          
+
+AWW_Bertram-Emphasis-All-Counts		AWW_Bertram-Emphasis-Min-100-Counts
+AWW_Bertram-Emphasis-Min-1000-Counts
+AWW_Bertram-Emphasis-Min-1000-Percentages		AWW_Bertram-Emphasis-Min-250-Counts
+AWW_Bertram-Emphasis-Min-250-Percentages		AWW_Bertram-Emphasis-Min-500-Counts
+AWW_Bertram-Emphasis-Min-500-Percentages
+AWW_Bertram-Emphasis-No-Others-Counts
+AWW_Bertram-Emphasis-No-Others-Percentages
+AWW_Bertram-Emphasis-Vowels-Only-All-Counts
+AWW_Bertram-Emphasis-Vowels-Only-Min-100-Counts
+AWW_Bertram-Emphasis-Vowels-Only-Min-1000-Percentages
+AWW_Bertram-Emphasis-Vowels-Only-Min-250-Percentages
+AWW_Bertram-Emphasis-Vowels-Only-Min-500-Percentages
+AWW_Bertram-Min-1000-Counts		AWW_Bertram-Min-1000-Percentages
+AWW_Bertram-No-Others-Counts		AWW_Bertram-No-Others-Percentages
+AWW_Bertram-Vowels-Only-All-Counts		AWW_Bertram-Vowels-Only-Min-100-Counts
+AWW_Bertram-Vowels-Only-Min-1000-Counts
+AWW_Bertram-Vowels-Only-Min-1000-Percentages
+AWW_Bertram-Vowels-Only-Min-250-Counts
+AWW_Bertram-Vowels-Only-Min-250-Percentages
+AWW_Bertram-Vowels-Only-Min-500-Counts
+AWW_Bertram-Vowels-Only-No-Others-Counts
+AWW_Countess-Emphasis-Min-100-Percentages
+AWW_Countess-Emphasis-Min-1000-Counts
+AWW_Countess-Emphasis-Vowels-Only-Min-100-Counts
+AWW_Countess-Emphasis-Vowels-Only-Min-1000-Counts
+AWW_Countess-Min-100-Percentages		AWW_Countess-Vowels-Only-All-Percentages
+AWW_LORDS.DUMAINE.2-Vowels-Only-Min-100-Percentages
+AWW_Lafew-Emphasis-Min-1000-Counts		AWW_Lafew-Emphasis-Min-1000-Percentages
+AWW_Lafew-Emphasis-Min-500-Counts		AWW_Lafew-Min-1000-Counts
+AWW_Lafew-Min-1000-Percentages		AWW_Lafew-Min-500-Counts
+
+
+                          Actual "1" Predicted as "4":                          
+
+AWW_ATTENDANTS.KING.0.1-All-Percentages
+AWW_ATTENDANTS.KING.0.1-Emphasis-All-Percentages
+AWW_ATTENDANTS.KING.0.1-Emphasis-Vowels-Only-All-Percentages
+AWW_ATTENDANTS.KING.0.1-Vowels-Only-All-Percentages
+AWW_Duke-Emphasis-Vowels-Only-Min-100-Percentages
+AWW_LORDS.COURT.1-Vowels-Only-All-Percentages
+AWW_LORDS.COURT.3-Vowels-Only-All-Percentages		AWW_LORDS.DUMAINE.1-All-Counts
+AWW_LORDS.DUMAINE.1-Emphasis-All-Counts
+AWW_LORDS.DUMAINE.1-Emphasis-Min-100-Counts
+AWW_LORDS.DUMAINE.1-Emphasis-Min-100-Percentages
+AWW_LORDS.DUMAINE.1-Emphasis-Min-1000-Counts
+AWW_LORDS.DUMAINE.1-Emphasis-Min-1000-Percentages
+AWW_LORDS.DUMAINE.1-Emphasis-Min-250-Counts
+AWW_LORDS.DUMAINE.1-Emphasis-Min-250-Percentages
+AWW_LORDS.DUMAINE.1-Emphasis-Min-500-Counts
+AWW_LORDS.DUMAINE.1-Emphasis-Min-500-Percentages
+AWW_LORDS.DUMAINE.1-Emphasis-Vowels-Only-All-Counts
+AWW_LORDS.DUMAINE.1-Emphasis-Vowels-Only-Min-100-Counts
+AWW_LORDS.DUMAINE.1-Emphasis-Vowels-Only-Min-1000-Percentages
+AWW_LORDS.DUMAINE.1-Emphasis-Vowels-Only-Min-250-Counts
+AWW_LORDS.DUMAINE.1-Emphasis-Vowels-Only-Min-500-Counts
+AWW_LORDS.DUMAINE.1-Emphasis-Vowels-Only-Min-500-Percentages
+AWW_LORDS.DUMAINE.1-Min-100-Counts		AWW_LORDS.DUMAINE.1-Min-100-Percentages
+AWW_LORDS.DUMAINE.1-Min-1000-Counts		AWW_LORDS.DUMAINE.1-Min-1000-Percentages
+AWW_LORDS.DUMAINE.1-Min-250-Counts		AWW_LORDS.DUMAINE.1-Min-250-Percentages
+AWW_LORDS.DUMAINE.1-Min-500-Counts		AWW_LORDS.DUMAINE.1-Min-500-Percentages
+AWW_LORDS.DUMAINE.1-Vowels-Only-All-Counts
+AWW_LORDS.DUMAINE.1-Vowels-Only-Min-100-Counts
+AWW_LORDS.DUMAINE.1-Vowels-Only-Min-1000-Counts
+AWW_LORDS.DUMAINE.1-Vowels-Only-Min-1000-Percentages
+AWW_LORDS.DUMAINE.1-Vowels-Only-Min-250-Counts
+AWW_LORDS.DUMAINE.1-Vowels-Only-Min-250-Percentages
+AWW_LORDS.DUMAINE.1-Vowels-Only-Min-500-Counts
+AWW_LORDS.DUMAINE.1-Vowels-Only-Min-500-Percentages
+AWW_LORDS.DUMAINE.2-Emphasis-All-Counts
+AWW_LORDS.DUMAINE.2-Emphasis-Min-100-Counts
+AWW_LORDS.DUMAINE.2-Emphasis-Min-100-Percentages
+AWW_LORDS.DUMAINE.2-Emphasis-Min-250-Counts
+AWW_LORDS.DUMAINE.2-Emphasis-Min-500-Counts
+AWW_LORDS.DUMAINE.2-Emphasis-Vowels-Only-All-Counts
+AWW_LORDS.DUMAINE.2-Emphasis-Vowels-Only-Min-100-Counts
+AWW_LORDS.DUMAINE.2-Emphasis-Vowels-Only-Min-100-Percentages
+AWW_LORDS.DUMAINE.2-Emphasis-Vowels-Only-Min-250-Counts
+AWW_LORDS.DUMAINE.2-Emphasis-Vowels-Only-Min-500-Counts
+AWW_LORDS.DUMAINE.2-Emphasis-Vowels-Only-Min-500-Percentages
+AWW_LORDS.DUMAINE.2-Min-100-Percentages
+AWW_LORDS.DUMAINE.2-Vowels-Only-All-Counts
+AWW_LORDS.DUMAINE.2-Vowels-Only-Min-100-Counts
+AWW_LORDS.DUMAINE.2-Vowels-Only-Min-250-Counts
+AWW_LORDS.DUMAINE.2-Vowels-Only-Min-500-Counts
+AWW_LORDS.DUMAINE.2-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "1" Predicted as "6":                          
+
+AWW_ATTENDANTS.KING.0.1-All-Counts
+AWW_ATTENDANTS.KING.0.1-Emphasis-All-Counts
+AWW_ATTENDANTS.KING.0.1-Emphasis-Vowels-Only-All-Counts
+AWW_ATTENDANTS.KING.0.1-Vowels-Only-All-Counts
+AWW_ATTENDANTS.KING.0.2-All-Counts
+AWW_ATTENDANTS.KING.0.2-Emphasis-All-Counts
+AWW_ATTENDANTS.KING.0.2-Emphasis-Vowels-Only-All-Counts
+AWW_ATTENDANTS.KING.0.2-Vowels-Only-All-Counts
+AWW_Duke-Emphasis-Vowels-Only-All-Counts		AWW_Duke-Vowels-Only-All-Counts
+AWW_LORDS.COURT.1-All-Counts		AWW_LORDS.COURT.1-Emphasis-All-Counts
+AWW_LORDS.COURT.1-Emphasis-Vowels-Only-All-Counts
+AWW_LORDS.COURT.1-Emphasis-Vowels-Only-All-Percentages
+AWW_LORDS.COURT.1-Vowels-Only-All-Counts		AWW_LORDS.COURT.2-All-Counts
+AWW_LORDS.COURT.2-Emphasis-All-Counts
+AWW_LORDS.COURT.2-Emphasis-Vowels-Only-All-Counts
+AWW_LORDS.COURT.2-Emphasis-Vowels-Only-All-Percentages
+AWW_LORDS.COURT.2-Vowels-Only-All-Counts		AWW_LORDS.COURT.3-All-Counts
+AWW_LORDS.COURT.3-Emphasis-All-Counts
+AWW_LORDS.COURT.3-Emphasis-Vowels-Only-All-Counts
+AWW_LORDS.COURT.3-Emphasis-Vowels-Only-All-Percentages
+AWW_LORDS.COURT.3-Vowels-Only-All-Counts
+AWW_LORDS.COURT.4-Vowels-Only-All-Percentages
+AWW_Lafew-Emphasis-Min-100-Counts
+AWW_Lafew-Emphasis-Vowels-Only-Min-100-Counts
+AWW_Lafew-Emphasis-Vowels-Only-Min-100-Percentages		AWW_Lafew-Min-250-Counts
+AWW_Lafew-Min-250-Percentages		AWW_Lafew-Min-500-Percentages
+AWW_Lafew-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "1" Predicted as "p":                          
+
+AWW_ATTENDANTS.KING.0.2-Emphasis-Vowels-Only-All-Percentages
+AWW_Bertram-Vowels-Only-No-Others-Percentages
+AWW_LORDS.COURT.1-All-Percentages		AWW_LORDS.COURT.1-Emphasis-All-Percentages
+AWW_LORDS.COURT.2-All-Percentages		AWW_LORDS.COURT.2-Emphasis-All-Percentages
+AWW_LORDS.COURT.3-All-Percentages		AWW_LORDS.COURT.3-Emphasis-All-Percentages
+AWW_LORDS.COURT.4-All-Percentages		AWW_LORDS.COURT.4-Emphasis-All-Percentages
+
+
+                          Actual "2" Predicted as "0":                          
+
+
+
+
+                          Actual "2" Predicted as "1":                          
+
+AWW_GENTLEMEN.1-All-Percentages		AWW_GENTLEMEN.1-Emphasis-All-Percentages
+
+
+                          Actual "2" Predicted as "2":                          
+
+AWW_GENTLEMEN.1-All-Counts		AWW_GENTLEMEN.1-Emphasis-All-Counts
+AWW_GENTLEMEN.1-Emphasis-Vowels-Only-All-Percentages
+AWW_GENTLEMEN.1-Vowels-Only-All-Counts
+AWW_GENTLEMEN.1-Vowels-Only-All-Percentages
+
+
+                          Actual "2" Predicted as "4":                          
+
+AWW_GENTLEMEN.2-All-Percentages		AWW_GENTLEMEN.2-Emphasis-All-Percentages
+AWW_GENTLEMEN.2-Emphasis-Vowels-Only-All-Percentages
+AWW_GENTLEMEN.2-Vowels-Only-All-Percentages
+
+
+                          Actual "2" Predicted as "6":                          
+
+AWW_GENTLEMEN.1-Emphasis-Vowels-Only-All-Counts		AWW_GENTLEMEN.2-All-Counts
+AWW_GENTLEMEN.2-Emphasis-All-Counts
+AWW_GENTLEMEN.2-Emphasis-Vowels-Only-All-Counts
+AWW_GENTLEMEN.2-Vowels-Only-All-Counts
+
+
+                          Actual "2" Predicted as "p":                          
+
+
+
+
+                          Actual "4" Predicted as "0":                          
+
+AWW_Mariana-All-Percentages		AWW_Mariana-Emphasis-All-Percentages
+AWW_Mariana-Emphasis-Min-100-Percentages		AWW_Parolles-All-Percentages
+AWW_Parolles-Emphasis-All-Percentages
+AWW_Parolles-Emphasis-Vowels-Only-All-Percentages
+AWW_Parolles-Vowels-Only-All-Percentages		AWW_Steward-Emphasis-All-Percentages
+AWW_Steward-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "4" Predicted as "1":                          
+
+AWW_Diana-All-Percentages		AWW_Diana-Emphasis-All-Percentages
+AWW_Diana-Emphasis-Vowels-Only-All-Percentages
+AWW_Diana-Vowels-Only-All-Percentages		AWW_Mariana-Min-100-Counts
+AWW_Mariana-Vowels-Only-Min-100-Counts		AWW_Steward-All-Percentages
+AWW_Steward-Vowels-Only-Min-250-Counts
+
+
+                          Actual "4" Predicted as "2":                          
+
+AWW_Diana-Min-1000-Counts		AWW_Diana-Min-1000-Percentages
+AWW_Diana-Vowels-Only-All-Counts		AWW_Diana-Vowels-Only-Min-100-Counts
+AWW_Diana-Vowels-Only-Min-1000-Counts
+AWW_Diana-Vowels-Only-Min-1000-Percentages
+AWW_Diana-Vowels-Only-Min-250-Counts
+AWW_Diana-Vowels-Only-Min-250-Percentages
+AWW_Diana-Vowels-Only-Min-500-Counts
+AWW_Mariana-Emphasis-Vowels-Only-Min-100-Percentages
+AWW_Mariana-Vowels-Only-Min-100-Percentages		AWW_Parolles-All-Counts
+AWW_Parolles-Emphasis-All-Counts		AWW_Parolles-Emphasis-Min-100-Counts
+AWW_Parolles-Emphasis-Min-100-Percentages
+AWW_Parolles-Emphasis-Min-1000-Counts
+AWW_Parolles-Emphasis-Min-1000-Percentages
+AWW_Parolles-Emphasis-Min-250-Counts
+AWW_Parolles-Emphasis-Min-250-Percentages
+AWW_Parolles-Emphasis-Min-2500-Counts
+AWW_Parolles-Emphasis-Min-2500-Percentages
+AWW_Parolles-Emphasis-Min-500-Counts
+AWW_Parolles-Emphasis-Min-500-Percentages
+AWW_Parolles-Emphasis-Vowels-Only-All-Counts
+AWW_Parolles-Emphasis-Vowels-Only-Min-100-Counts
+AWW_Parolles-Emphasis-Vowels-Only-Min-100-Percentages
+AWW_Parolles-Emphasis-Vowels-Only-Min-1000-Percentages
+AWW_Parolles-Emphasis-Vowels-Only-Min-250-Percentages
+AWW_Parolles-Emphasis-Vowels-Only-Min-2500-Counts
+AWW_Parolles-Emphasis-Vowels-Only-Min-2500-Percentages
+AWW_Parolles-Emphasis-Vowels-Only-Min-500-Counts
+AWW_Parolles-Emphasis-Vowels-Only-Min-500-Percentages
+AWW_Parolles-Min-100-Counts		AWW_Parolles-Min-100-Percentages
+AWW_Parolles-Min-1000-Counts		AWW_Parolles-Min-1000-Percentages
+AWW_Parolles-Min-250-Counts		AWW_Parolles-Min-250-Percentages
+AWW_Parolles-Min-2500-Counts		AWW_Parolles-Min-2500-Percentages
+AWW_Parolles-Min-500-Counts		AWW_Parolles-Min-500-Percentages
+AWW_Parolles-Vowels-Only-All-Counts		AWW_Parolles-Vowels-Only-Min-100-Counts
+AWW_Parolles-Vowels-Only-Min-1000-Counts
+AWW_Parolles-Vowels-Only-Min-1000-Percentages
+AWW_Parolles-Vowels-Only-Min-250-Counts
+AWW_Parolles-Vowels-Only-Min-250-Percentages
+AWW_Parolles-Vowels-Only-Min-2500-Counts
+AWW_Parolles-Vowels-Only-Min-2500-Percentages
+AWW_Parolles-Vowels-Only-Min-500-Counts
+AWW_Parolles-Vowels-Only-Min-500-Percentages
+AWW_Steward-Emphasis-Vowels-Only-Min-100-Counts
+AWW_Steward-Emphasis-Vowels-Only-Min-250-Counts		AWW_Widow-All-Percentages
+
+
+                          Actual "4" Predicted as "4":                          
+
+AWW_Widow-Min-100-Percentages
+
+
+                          Actual "4" Predicted as "6":                          
+
+AWW_Diana-Emphasis-Vowels-Only-Min-1000-Counts
+AWW_Diana-Emphasis-Vowels-Only-Min-500-Counts
+AWW_Diana-Emphasis-Vowels-Only-Min-500-Percentages
+AWW_Diana-Vowels-Only-Min-500-Percentages		AWW_Mariana-Vowels-Only-All-Counts
+AWW_Steward-Vowels-Only-All-Counts		AWW_Steward-Vowels-Only-Min-100-Counts
+AWW_Widow-All-Counts		AWW_Widow-Emphasis-All-Percentages
+AWW_Widow-Emphasis-Vowels-Only-All-Counts
+AWW_Widow-Emphasis-Vowels-Only-All-Percentages		AWW_Widow-Min-100-Counts
+AWW_Widow-Min-250-Counts		AWW_Widow-Min-250-Percentages
+AWW_Widow-Vowels-Only-All-Counts		AWW_Widow-Vowels-Only-Min-100-Counts
+AWW_Widow-Vowels-Only-Min-250-Counts
+AWW_Widow-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "4" Predicted as "p":                          
+
+AWW_Mariana-All-Counts		AWW_Mariana-Emphasis-All-Counts
+AWW_Mariana-Emphasis-Min-100-Counts
+AWW_Mariana-Emphasis-Vowels-Only-All-Counts
+AWW_Mariana-Emphasis-Vowels-Only-Min-100-Counts
+AWW_Mariana-Min-100-Percentages
+AWW_Parolles-Emphasis-Vowels-Only-Min-1000-Counts
+AWW_Parolles-Emphasis-Vowels-Only-Min-250-Counts
+AWW_Widow-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "0":                          
+
+AWW_SOLDIERS.Interpreter-Emphasis-All-Percentages
+AWW_SOLDIERS.Interpreter-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "1":                          
+
+AWW_SOLDIERS-Emphasis-Vowels-Only-All-Counts
+AWW_SOLDIERS.0.1-Emphasis-Vowels-Only-All-Counts
+AWW_SOLDIERS.0.1-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "2":                          
+
+AWW_SOLDIERS.Interpreter-All-Percentages
+
+
+                          Actual "6" Predicted as "4":                          
+
+AWW_SOLDIERS-Emphasis-All-Counts		AWW_SOLDIERS.0.1-Emphasis-All-Counts
+AWW_SOLDIERS.Interpreter-All-Counts
+AWW_SOLDIERS.Interpreter-Emphasis-All-Counts
+AWW_SOLDIERS.Interpreter-Emphasis-Min-100-Counts
+AWW_SOLDIERS.Interpreter-Emphasis-Min-100-Percentages
+AWW_SOLDIERS.Interpreter-Emphasis-Min-250-Counts
+AWW_SOLDIERS.Interpreter-Emphasis-Min-250-Percentages
+AWW_SOLDIERS.Interpreter-Emphasis-Min-500-Counts
+AWW_SOLDIERS.Interpreter-Emphasis-Min-500-Percentages
+AWW_SOLDIERS.Interpreter-Emphasis-Vowels-Only-All-Counts
+AWW_SOLDIERS.Interpreter-Emphasis-Vowels-Only-Min-100-Counts
+AWW_SOLDIERS.Interpreter-Emphasis-Vowels-Only-Min-100-Percentages
+AWW_SOLDIERS.Interpreter-Emphasis-Vowels-Only-Min-250-Counts
+AWW_SOLDIERS.Interpreter-Emphasis-Vowels-Only-Min-250-Percentages
+AWW_SOLDIERS.Interpreter-Emphasis-Vowels-Only-Min-500-Percentages
+AWW_SOLDIERS.Interpreter-Min-100-Counts
+AWW_SOLDIERS.Interpreter-Min-100-Percentages
+AWW_SOLDIERS.Interpreter-Min-250-Counts
+AWW_SOLDIERS.Interpreter-Min-250-Percentages
+AWW_SOLDIERS.Interpreter-Min-500-Counts
+AWW_SOLDIERS.Interpreter-Min-500-Percentages
+AWW_SOLDIERS.Interpreter-Vowels-Only-All-Counts
+AWW_SOLDIERS.Interpreter-Vowels-Only-Min-100-Counts
+AWW_SOLDIERS.Interpreter-Vowels-Only-Min-100-Percentages
+AWW_SOLDIERS.Interpreter-Vowels-Only-Min-250-Counts
+AWW_SOLDIERS.Interpreter-Vowels-Only-Min-250-Percentages
+AWW_SOLDIERS.Interpreter-Vowels-Only-Min-500-Counts
+AWW_SOLDIERS.Interpreter-Vowels-Only-Min-500-Percentages
+AWW_Servant-All-Percentages		AWW_Servant-Emphasis-All-Percentages
+AWW_Servant-Emphasis-Vowels-Only-All-Percentages
+AWW_Servant-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "6":                          
+
+AWW_Page-All-Counts		AWW_Page-Emphasis-All-Counts
+AWW_Page-Emphasis-Vowels-Only-All-Counts		AWW_Page-Vowels-Only-All-Counts
+AWW_SOLDIERS-All-Counts		AWW_SOLDIERS-Vowels-Only-All-Counts
+AWW_SOLDIERS.0.1-All-Counts		AWW_SOLDIERS.0.1-Vowels-Only-All-Counts
+AWW_Servant-All-Counts		AWW_Servant-Emphasis-All-Counts
+AWW_Servant-Emphasis-Vowels-Only-All-Counts
+AWW_Servant-Vowels-Only-All-Counts
+
+
+                          Actual "6" Predicted as "p":                          
+
+AWW_SOLDIERS-Vowels-Only-All-Percentages
+
+
+                          Actual "p" Predicted as "0":                          
+
+AWW_Epilogue-Emphasis-Vowels-Only-All-Percentages
+AWW_Helen-Emphasis-All-Percentages
+AWW_Helen-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "p" Predicted as "1":                          
+
+AWW_Epilogue-Emphasis-Vowels-Only-All-Counts		AWW_Fool-Min-1000-Counts
+AWW_Fool-Min-1000-Percentages		AWW_Fool-No-Others-Percentages
+AWW_GENTLEMEN.3-All-Percentages		AWW_GENTLEMEN.3-Emphasis-All-Percentages
+AWW_Helen-All-Percentages		AWW_Helen-Emphasis-No-Others-Counts
+AWW_Helen-Emphasis-No-Others-Percentages
+AWW_Helen-Emphasis-Vowels-Only-Min-100-Percentages
+AWW_Helen-Emphasis-Vowels-Only-No-Others-Counts
+AWW_Helen-Emphasis-Vowels-Only-No-Others-Percentages
+AWW_Helen-Vowels-Only-All-Percentages
+
+
+                          Actual "p" Predicted as "2":                          
+
+AWW_Fool-All-Counts		AWW_Fool-All-Percentages		AWW_Fool-Emphasis-All-Counts
+AWW_Fool-Emphasis-All-Percentages		AWW_Fool-Emphasis-Min-100-Percentages
+AWW_Fool-Emphasis-Vowels-Only-All-Percentages		AWW_Fool-Min-100-Counts
+AWW_Fool-Min-100-Percentages		AWW_Fool-Min-250-Counts
+AWW_Fool-Min-250-Percentages		AWW_Fool-Min-500-Counts
+AWW_Fool-Min-500-Percentages		AWW_Fool-No-Others-Counts
+AWW_Fool-Vowels-Only-All-Counts		AWW_Fool-Vowels-Only-All-Percentages
+AWW_Fool-Vowels-Only-Min-100-Counts		AWW_Fool-Vowels-Only-Min-100-Percentages
+AWW_Fool-Vowels-Only-Min-250-Percentages		AWW_GENTLEMEN.3-All-Counts
+AWW_GENTLEMEN.3-Emphasis-Min-100-Percentages
+AWW_GENTLEMEN.3-Emphasis-Vowels-Only-All-Percentages
+AWW_GENTLEMEN.3-Emphasis-Vowels-Only-Min-100-Counts
+AWW_GENTLEMEN.3-Emphasis-Vowels-Only-Min-100-Percentages
+AWW_GENTLEMEN.3-Min-100-Counts		AWW_GENTLEMEN.3-Min-100-Percentages
+AWW_GENTLEMEN.3-Vowels-Only-All-Counts
+AWW_GENTLEMEN.3-Vowels-Only-All-Percentages
+AWW_GENTLEMEN.3-Vowels-Only-Min-100-Counts
+AWW_GENTLEMEN.3-Vowels-Only-Min-100-Percentages		AWW_Helen-All-Counts
+AWW_Helen-Emphasis-All-Counts		AWW_Helen-Emphasis-Min-100-Counts
+AWW_Helen-Emphasis-Min-100-Percentages		AWW_Helen-Emphasis-Min-1000-Counts
+AWW_Helen-Emphasis-Min-1000-Percentages		AWW_Helen-Emphasis-Min-250-Counts
+AWW_Helen-Emphasis-Min-250-Percentages		AWW_Helen-Emphasis-Min-2500-Counts
+AWW_Helen-Emphasis-Min-2500-Percentages		AWW_Helen-Emphasis-Min-500-Counts
+AWW_Helen-Emphasis-Min-500-Percentages
+AWW_Helen-Emphasis-Vowels-Only-All-Counts
+AWW_Helen-Emphasis-Vowels-Only-Min-100-Counts
+AWW_Helen-Emphasis-Vowels-Only-Min-1000-Counts
+AWW_Helen-Emphasis-Vowels-Only-Min-1000-Percentages
+AWW_Helen-Emphasis-Vowels-Only-Min-250-Counts
+AWW_Helen-Emphasis-Vowels-Only-Min-250-Percentages
+AWW_Helen-Emphasis-Vowels-Only-Min-2500-Counts
+AWW_Helen-Emphasis-Vowels-Only-Min-2500-Percentages
+AWW_Helen-Emphasis-Vowels-Only-Min-500-Counts
+AWW_Helen-Emphasis-Vowels-Only-Min-500-Percentages		AWW_Helen-Min-100-Counts
+AWW_Helen-Min-100-Percentages		AWW_Helen-Min-1000-Counts
+AWW_Helen-Min-1000-Percentages		AWW_Helen-Min-250-Counts
+AWW_Helen-Min-250-Percentages		AWW_Helen-Min-2500-Counts
+AWW_Helen-Min-2500-Percentages		AWW_Helen-Min-500-Counts
+AWW_Helen-Min-500-Percentages		AWW_Helen-No-Others-Counts
+AWW_Helen-No-Others-Percentages		AWW_Helen-Vowels-Only-All-Counts
+AWW_Helen-Vowels-Only-Min-100-Counts		AWW_Helen-Vowels-Only-Min-1000-Counts
+AWW_Helen-Vowels-Only-Min-1000-Percentages
+AWW_Helen-Vowels-Only-Min-250-Counts
+AWW_Helen-Vowels-Only-Min-250-Percentages
+AWW_Helen-Vowels-Only-Min-2500-Counts
+AWW_Helen-Vowels-Only-Min-2500-Percentages
+AWW_Helen-Vowels-Only-Min-500-Counts
+AWW_Helen-Vowels-Only-Min-500-Percentages
+AWW_Helen-Vowels-Only-No-Others-Counts
+AWW_Helen-Vowels-Only-No-Others-Percentages
+
+
+                          Actual "p" Predicted as "4":                          
+
+AWW_Epilogue-All-Counts		AWW_Epilogue-All-Percentages
+AWW_Epilogue-Emphasis-All-Counts		AWW_Epilogue-Emphasis-All-Percentages
+AWW_Fool-Vowels-Only-Min-1000-Counts
+AWW_Fool-Vowels-Only-Min-1000-Percentages		AWW_Fool-Vowels-Only-Min-250-Counts
+AWW_Fool-Vowels-Only-Min-500-Counts		AWW_Fool-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "p" Predicted as "6":                          
+
+AWW_Epilogue-Vowels-Only-All-Counts		AWW_Fool-Emphasis-Min-100-Counts
+AWW_Fool-Emphasis-Min-250-Percentages
+AWW_Fool-Emphasis-Vowels-Only-All-Counts
+AWW_Fool-Emphasis-Vowels-Only-Min-100-Counts
+AWW_Fool-Emphasis-Vowels-Only-Min-100-Percentages
+AWW_Fool-Emphasis-Vowels-Only-Min-250-Counts
+AWW_Fool-Emphasis-Vowels-Only-Min-250-Percentages
+AWW_Fool-Emphasis-Vowels-Only-Min-500-Counts
+AWW_Fool-Emphasis-Vowels-Only-Min-500-Percentages
+AWW_Fool-Vowels-Only-No-Others-Counts
+AWW_Fool-Vowels-Only-No-Others-Percentages
+
+
+                          Actual "p" Predicted as "p":                          
+
+AWW_Fool-Emphasis-Min-1000-Counts		AWW_Fool-Emphasis-Min-1000-Percentages
+AWW_Fool-Emphasis-Min-250-Counts		AWW_Fool-Emphasis-Min-500-Counts
+AWW_Fool-Emphasis-Min-500-Percentages		AWW_Fool-Emphasis-No-Others-Counts
+AWW_Fool-Emphasis-Vowels-Only-Min-1000-Counts
+AWW_Fool-Emphasis-Vowels-Only-Min-1000-Percentages
+AWW_Fool-Emphasis-Vowels-Only-No-Others-Counts
+
+

@@ -1,0 +1,924 @@
+                         Summary: status_All-Combos_Tim                         
+
+
+                      Overall accuracy = 26.03%                                 
+                      Average accuracy = 21.97%                                 
+
+                      Average F1 score = 19.73%                                 
+                           Average MCC = 6.32%                                  
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+           |    1     |    2     |    3     |    4     |    6     |    p     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     1     |    70    |    20    |    21    |    7     |    33    |    7     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |    91    |    12    |    11    |    9     |    18    |    7     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     3     |    8     |    15    |    2     |    13    |    2     |    0     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |    1     |    7     |    0     |    4     |    4     |    0     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |   122    |    32    |    19    |    18    |    87    |    15    |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     p     |    50    |    3     |    2     |    1     |    1     |    14    |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+                         Total samples = 726                                    
+
+                      Total actual "1" = 158                                    
+                   Total predicted "1" = 342                                    
+                      Total actual "2" = 148                                    
+                   Total predicted "2" = 89                                     
+                      Total actual "3" = 40                                     
+                   Total predicted "3" = 55                                     
+                      Total actual "4" = 16                                     
+                   Total predicted "4" = 52                                     
+                      Total actual "6" = 293                                    
+                   Total predicted "6" = 145                                    
+                      Total actual "p" = 71                                     
+                   Total predicted "p" = 43                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+           |    1     |    2     |    3     |    4     |    6     |    p     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     1     |  9.64%   |  2.75%   |  2.89%   |  0.96%   |  4.55%   |  0.96%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |  12.53%  |  1.65%   |  1.52%   |  1.24%   |  2.48%   |  0.96%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     3     |  1.10%   |  2.07%   |  0.28%   |  1.79%   |  0.28%   |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |  0.14%   |  0.96%   |  0.00%   |  0.55%   |  0.55%   |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |  16.80%  |  4.41%   |  2.62%   |  2.48%   |  11.98%  |  2.07%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     p     |  6.89%   |  0.41%   |  0.28%   |  0.14%   |  0.14%   |  1.93%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+                    Percent actual "1" = 21.76%                                 
+                 Percent predicted "1" = 47.11%                                 
+                    Percent actual "2" = 20.39%                                 
+                 Percent predicted "2" = 12.26%                                 
+                    Percent actual "3" = 5.51%                                  
+                 Percent predicted "3" = 7.58%                                  
+                    Percent actual "4" = 2.20%                                  
+                 Percent predicted "4" = 7.16%                                  
+                    Percent actual "6" = 40.36%                                 
+                 Percent predicted "6" = 19.97%                                 
+                    Percent actual "p" = 9.78%                                  
+                 Percent predicted "p" = 5.92%                                  
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+           |    1     |    2     |    3     |    4     |    6     |    p     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     1     |  44.30%  |  12.66%  |  13.29%  |  4.43%   |  20.89%  |  4.43%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |  61.49%  |  8.11%   |  7.43%   |  6.08%   |  12.16%  |  4.73%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     3     |  20.00%  |  37.50%  |  5.00%   |  32.50%  |  5.00%   |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |  6.25%   |  43.75%  |  0.00%   |  25.00%  |  25.00%  |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |  41.64%  |  10.92%  |  6.48%   |  6.14%   |  29.69%  |  5.12%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     p     |  70.42%  |  4.23%   |  2.82%   |  1.41%   |  1.41%   |  19.72%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+         Percent correct of actual "1" = 44.30%                                 
+         Percent correct of actual "2" = 8.11%                                  
+         Percent correct of actual "3" = 5.00%                                  
+         Percent correct of actual "4" = 25.00%                                 
+         Percent correct of actual "6" = 29.69%                                 
+         Percent correct of actual "p" = 19.72%                                 
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+           |    1     |    2     |    3     |    4     |    6     |    p     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     1     |  20.47%  |  22.47%  |  38.18%  |  13.46%  |  22.76%  |  16.28%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |  26.61%  |  13.48%  |  20.00%  |  17.31%  |  12.41%  |  16.28%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     3     |  2.34%   |  16.85%  |  3.64%   |  25.00%  |  1.38%   |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |  0.29%   |  7.87%   |  0.00%   |  7.69%   |  2.76%   |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |  35.67%  |  35.96%  |  34.55%  |  34.62%  |  60.00%  |  34.88%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     p     |  14.62%  |  3.37%   |  3.64%   |  1.92%   |  0.69%   |  32.56%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+      Percent correct of predicted "1" = 20.47%                                 
+      Percent correct of predicted "2" = 13.48%                                 
+      Percent correct of predicted "3" = 3.64%                                  
+      Percent correct of predicted "4" = 7.69%                                  
+      Percent correct of predicted "6" = 60.00%                                 
+      Percent correct of predicted "p" = 32.56%                                 
+
+
+                                   F1 Scores:                                   
+                      F1 score for "1" = 28.00%                                 
+                      F1 score for "2" = 10.13%                                 
+                      F1 score for "3" = 4.21%                                  
+                      F1 score for "4" = 11.76%                                 
+                      F1 score for "6" = 39.73%                                 
+                      F1 score for "p" = 24.56%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+                     MCC score for "1" = -2.96%                                 
+                     MCC score for "2" = -6.40%                                 
+                     MCC score for "3" = -2.35%                                 
+                     MCC score for "4" = 10.38%                                 
+                     MCC score for "6" = 20.00%                                 
+                     MCC score for "p" = 19.24%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                          Actual "1" Average Z-Scores:                          
+
+
+                          Actual "2" Average Z-Scores:                          
+
+
+                          Actual "3" Average Z-Scores:                          
+
+
+                          Actual "4" Average Z-Scores:                          
+
+
+                          Actual "6" Average Z-Scores:                          
+
+
+                          Actual "p" Average Z-Scores:                          
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                        Predicted "1" Average Z-Scores:                         
+
+
+                        Predicted "2" Average Z-Scores:                         
+
+
+                        Predicted "3" Average Z-Scores:                         
+
+
+                        Predicted "4" Average Z-Scores:                         
+
+
+                        Predicted "6" Average Z-Scores:                         
+
+
+                        Predicted "p" Average Z-Scores:                         
+
+
+
+
+
+                                  Characters:                                   
+
+
+                          Actual "1" Predicted as "1":                          
+
+Tim_Apemantus-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_FRIENDS.0-All-Counts		Tim_FRIENDS.0-All-Percentages
+Tim_FRIENDS.0-Emphasis-All-Counts		Tim_FRIENDS.0-Emphasis-All-Percentages
+Tim_FRIENDS.0-Emphasis-Vowels-Only-All-Counts
+Tim_FRIENDS.0-Vowels-Only-All-Counts		Tim_FRIENDS.0.1-All-Percentages
+Tim_FRIENDS.0.1-Emphasis-All-Percentages
+Tim_FRIENDS.0.1-Vowels-Only-All-Counts
+Tim_FRIENDS.0.1-Vowels-Only-Min-100-Counts
+Tim_FRIENDS.0.2-Emphasis-Vowels-Only-All-Counts
+Tim_FRIENDS.0.2-Emphasis-Vowels-Only-All-Percentages
+Tim_FRIENDS.0.2-Emphasis-Vowels-Only-Min-100-Counts
+Tim_FRIENDS.0.2-Vowels-Only-All-Counts
+Tim_FRIENDS.0.2-Vowels-Only-All-Percentages
+Tim_FRIENDS.0.2-Vowels-Only-Min-100-Counts
+Tim_FRIENDS.0.2-Vowels-Only-Min-100-Percentages
+Tim_FRIENDS.0.4-Vowels-Only-All-Counts		Tim_FRIENDS.Lucius-All-Percentages
+Tim_FRIENDS.Lucius-Emphasis-All-Percentages
+Tim_FRIENDS.Lucius-Emphasis-Vowels-Only-All-Counts
+Tim_FRIENDS.Lucius-Emphasis-Vowels-Only-Min-100-Counts
+Tim_FRIENDS.Lucius-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_FRIENDS.Lucius-Emphasis-Vowels-Only-Min-250-Counts
+Tim_FRIENDS.Lucius-Emphasis-Vowels-Only-Min-250-Percentages
+Tim_FRIENDS.Lucius-Vowels-Only-All-Counts
+Tim_FRIENDS.Lucius-Vowels-Only-Min-100-Counts
+Tim_FRIENDS.Lucius-Vowels-Only-Min-100-Percentages
+Tim_FRIENDS.Lucius-Vowels-Only-Min-250-Counts		Tim_FRIENDS.Lucullus-All-Counts
+Tim_FRIENDS.Lucullus-All-Percentages		Tim_FRIENDS.Lucullus-Emphasis-All-Counts
+Tim_FRIENDS.Lucullus-Emphasis-All-Percentages
+Tim_FRIENDS.Lucullus-Emphasis-Min-100-Counts
+Tim_FRIENDS.Lucullus-Emphasis-Min-100-Percentages
+Tim_FRIENDS.Lucullus-Emphasis-Min-250-Counts
+Tim_FRIENDS.Lucullus-Emphasis-Min-250-Percentages
+Tim_FRIENDS.Lucullus-Emphasis-Vowels-Only-All-Counts
+Tim_FRIENDS.Lucullus-Emphasis-Vowels-Only-Min-100-Counts
+Tim_FRIENDS.Lucullus-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_FRIENDS.Lucullus-Emphasis-Vowels-Only-Min-250-Counts
+Tim_FRIENDS.Lucullus-Min-100-Counts		Tim_FRIENDS.Lucullus-Min-100-Percentages
+Tim_FRIENDS.Lucullus-Min-250-Counts		Tim_FRIENDS.Lucullus-Min-250-Percentages
+Tim_FRIENDS.Lucullus-Vowels-Only-All-Counts
+Tim_FRIENDS.Lucullus-Vowels-Only-Min-100-Counts
+Tim_FRIENDS.Lucullus-Vowels-Only-Min-250-Counts
+Tim_FRIENDS.Sempronius-All-Percentages
+Tim_FRIENDS.Sempronius-Vowels-Only-All-Percentages
+Tim_LADIES-Emphasis-Vowels-Only-All-Counts
+Tim_LADIES.0.1-Emphasis-Vowels-Only-All-Counts
+Tim_LORDS-Emphasis-Vowels-Only-All-Counts		Tim_LORDS-Vowels-Only-All-Counts
+Tim_LORDS.0.1-Emphasis-Vowels-Only-All-Counts
+Tim_LORDS.0.1-Emphasis-Vowels-Only-Min-100-Counts
+Tim_LORDS.0.1-Vowels-Only-Min-100-Counts		Tim_LORDS.0.2-All-Counts
+Tim_LORDS.0.2-Emphasis-All-Counts		Tim_LORDS.0.2-Emphasis-Min-100-Counts
+Tim_LORDS.0.2-Emphasis-Vowels-Only-All-Counts
+Tim_LORDS.0.2-Emphasis-Vowels-Only-Min-100-Counts
+Tim_LORDS.0.2-Min-100-Counts		Tim_LORDS.0.2-Vowels-Only-All-Counts
+Tim_LORDS.0.2-Vowels-Only-Min-100-Counts		Tim_LORDS.0.3-All-Counts
+Tim_LORDS.0.3-Emphasis-All-Counts
+Tim_LORDS.0.3-Emphasis-Vowels-Only-All-Counts
+Tim_LORDS.0.3-Vowels-Only-All-Counts
+
+
+                          Actual "1" Predicted as "2":                          
+
+Tim_FRIENDS.0.2-All-Percentages		Tim_FRIENDS.0.2-Emphasis-All-Counts
+Tim_FRIENDS.0.2-Emphasis-All-Percentages
+Tim_FRIENDS.0.2-Emphasis-Min-100-Counts		Tim_FRIENDS.0.3-All-Counts
+Tim_FRIENDS.0.3-Vowels-Only-All-Counts		Tim_FRIENDS.Lucius-All-Counts
+Tim_FRIENDS.Lucius-Emphasis-All-Counts
+Tim_FRIENDS.Lucius-Emphasis-Min-100-Counts
+Tim_FRIENDS.Lucius-Emphasis-Min-250-Counts		Tim_FRIENDS.Lucius-Min-100-Counts
+Tim_FRIENDS.Lucius-Min-250-Counts		Tim_FRIENDS.Sempronius-Emphasis-All-Counts
+Tim_FRIENDS.Sempronius-Emphasis-Min-100-Counts
+Tim_FRIENDS.Sempronius-Vowels-Only-All-Counts
+Tim_FRIENDS.Sempronius-Vowels-Only-Min-100-Counts
+Tim_LADIES.0.1-All-Percentages		Tim_LADIES.0.1-Emphasis-All-Percentages
+Tim_LORDS.0.1-Emphasis-All-Counts		Tim_LORDS.0.1-Emphasis-Min-100-Counts
+
+
+                          Actual "1" Predicted as "3":                          
+
+Tim_FRIENDS.0.1-All-Counts		Tim_FRIENDS.0.1-Emphasis-Min-100-Counts
+Tim_FRIENDS.0.1-Min-100-Counts		Tim_FRIENDS.0.1-Min-100-Percentages
+Tim_FRIENDS.Lucius-Emphasis-Min-100-Percentages
+Tim_FRIENDS.Lucius-Emphasis-Min-250-Percentages
+Tim_FRIENDS.Lucius-Min-100-Percentages		Tim_FRIENDS.Lucius-Min-250-Percentages
+Tim_FRIENDS.Lucius-Vowels-Only-Min-250-Percentages
+Tim_FRIENDS.Sempronius-All-Counts
+Tim_FRIENDS.Sempronius-Emphasis-All-Percentages
+Tim_FRIENDS.Sempronius-Emphasis-Min-100-Percentages
+Tim_FRIENDS.Sempronius-Min-100-Counts
+Tim_FRIENDS.Sempronius-Min-100-Percentages
+Tim_FRIENDS.Sempronius-Vowels-Only-Min-100-Percentages
+Tim_FRIENDS.Ventidius-All-Percentages
+Tim_FRIENDS.Ventidius-Emphasis-All-Percentages		Tim_LORDS.0.1-All-Percentages
+Tim_LORDS.0.1-Vowels-Only-All-Percentages		Tim_LORDS.0.3-All-Percentages
+Tim_LORDS.0.3-Emphasis-All-Percentages
+
+
+                          Actual "1" Predicted as "4":                          
+
+Tim_FRIENDS.0.2-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_FRIENDS.0.3-Emphasis-All-Percentages
+Tim_FRIENDS.0.3-Emphasis-Vowels-Only-All-Percentages
+Tim_LORDS.0.2-All-Percentages		Tim_LORDS.0.2-Emphasis-All-Percentages
+Tim_LORDS.0.2-Emphasis-Vowels-Only-All-Percentages
+Tim_LORDS.0.2-Vowels-Only-All-Percentages
+
+
+                          Actual "1" Predicted as "6":                          
+
+Tim_Apemantus-Emphasis-Vowels-Only-Min-1000-Counts
+Tim_Apemantus-Emphasis-Vowels-Only-Min-1000-Percentages
+Tim_Apemantus-Vowels-Only-Min-1000-Percentages
+Tim_FRIENDS.0.1-Emphasis-All-Counts
+Tim_FRIENDS.0.1-Emphasis-Min-100-Percentages
+Tim_FRIENDS.0.1-Emphasis-Vowels-Only-All-Counts
+Tim_FRIENDS.0.1-Emphasis-Vowels-Only-Min-100-Counts
+Tim_FRIENDS.0.4-All-Counts		Tim_FRIENDS.0.4-All-Percentages
+Tim_FRIENDS.0.4-Emphasis-All-Counts		Tim_FRIENDS.0.4-Emphasis-All-Percentages
+Tim_FRIENDS.0.4-Emphasis-Vowels-Only-All-Counts
+Tim_FRIENDS.0.4-Emphasis-Vowels-Only-All-Percentages
+Tim_FRIENDS.Sempronius-Emphasis-Vowels-Only-All-Counts
+Tim_FRIENDS.Sempronius-Emphasis-Vowels-Only-All-Percentages
+Tim_FRIENDS.Sempronius-Emphasis-Vowels-Only-Min-100-Counts
+Tim_FRIENDS.Sempronius-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_FRIENDS.Ventidius-All-Counts		Tim_FRIENDS.Ventidius-Emphasis-All-Counts
+Tim_FRIENDS.Ventidius-Emphasis-Vowels-Only-All-Counts
+Tim_FRIENDS.Ventidius-Emphasis-Vowels-Only-All-Percentages
+Tim_FRIENDS.Ventidius-Vowels-Only-All-Counts
+Tim_FRIENDS.Ventidius-Vowels-Only-All-Percentages		Tim_LADIES-All-Counts
+Tim_LADIES-Emphasis-All-Counts		Tim_LADIES-Vowels-Only-All-Counts
+Tim_LADIES.0.1-All-Counts		Tim_LADIES.0.1-Emphasis-All-Counts
+Tim_LADIES.0.1-Vowels-Only-All-Counts
+Tim_LADIES.0.1-Vowels-Only-All-Percentages		Tim_LORDS-All-Counts
+Tim_LORDS-Emphasis-All-Counts		Tim_LORDS.0.1-Vowels-Only-All-Counts
+
+
+                          Actual "1" Predicted as "p":                          
+
+Tim_LORDS.0.1-Emphasis-Vowels-Only-All-Percentages
+Tim_LORDS.0.2-Emphasis-Min-100-Percentages
+Tim_LORDS.0.2-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_LORDS.0.2-Min-100-Percentages
+Tim_LORDS.0.2-Vowels-Only-Min-100-Percentages
+Tim_LORDS.0.3-Emphasis-Vowels-Only-All-Percentages
+Tim_LORDS.0.3-Vowels-Only-All-Percentages
+
+
+                          Actual "2" Predicted as "1":                          
+
+Tim_Alcibiades-All-Counts		Tim_Alcibiades-All-Percentages
+Tim_Alcibiades-Emphasis-All-Counts		Tim_Alcibiades-Emphasis-Min-100-Counts
+Tim_Alcibiades-Emphasis-Min-100-Percentages
+Tim_Alcibiades-Emphasis-Min-1000-Counts
+Tim_Alcibiades-Emphasis-Min-1000-Percentages
+Tim_Alcibiades-Emphasis-Min-250-Counts
+Tim_Alcibiades-Emphasis-Min-250-Percentages
+Tim_Alcibiades-Emphasis-Min-500-Counts
+Tim_Alcibiades-Emphasis-Min-500-Percentages
+Tim_Alcibiades-Emphasis-Vowels-Only-All-Counts
+Tim_Alcibiades-Emphasis-Vowels-Only-Min-100-Counts
+Tim_Alcibiades-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_Alcibiades-Emphasis-Vowels-Only-Min-1000-Counts
+Tim_Alcibiades-Emphasis-Vowels-Only-Min-1000-Percentages
+Tim_Alcibiades-Emphasis-Vowels-Only-Min-250-Counts
+Tim_Alcibiades-Emphasis-Vowels-Only-Min-250-Percentages
+Tim_Alcibiades-Emphasis-Vowels-Only-Min-500-Counts
+Tim_Alcibiades-Emphasis-Vowels-Only-Min-500-Percentages
+Tim_Alcibiades-Min-100-Counts		Tim_Alcibiades-Min-100-Percentages
+Tim_Alcibiades-Min-1000-Counts		Tim_Alcibiades-Min-1000-Percentages
+Tim_Alcibiades-Min-250-Counts		Tim_Alcibiades-Min-250-Percentages
+Tim_Alcibiades-Min-500-Counts		Tim_Alcibiades-Min-500-Percentages
+Tim_Alcibiades-Vowels-Only-All-Counts
+Tim_Alcibiades-Vowels-Only-All-Percentages
+Tim_Alcibiades-Vowels-Only-Min-100-Counts
+Tim_Alcibiades-Vowels-Only-Min-100-Percentages
+Tim_Alcibiades-Vowels-Only-Min-1000-Counts
+Tim_Alcibiades-Vowels-Only-Min-250-Counts
+Tim_Alcibiades-Vowels-Only-Min-250-Percentages
+Tim_Alcibiades-Vowels-Only-Min-500-Counts
+Tim_Alcibiades-Vowels-Only-Min-500-Percentages		Tim_OldMan-All-Counts
+Tim_OldMan-All-Percentages		Tim_OldMan-Emphasis-All-Counts
+Tim_OldMan-Emphasis-All-Percentages		Tim_OldMan-Emphasis-Min-100-Counts
+Tim_OldMan-Emphasis-Min-100-Percentages
+Tim_OldMan-Emphasis-Vowels-Only-All-Counts
+Tim_OldMan-Emphasis-Vowels-Only-All-Percentages
+Tim_OldMan-Emphasis-Vowels-Only-Min-100-Counts
+Tim_OldMan-Emphasis-Vowels-Only-Min-100-Percentages		Tim_OldMan-Min-100-Counts
+Tim_OldMan-Min-100-Percentages		Tim_OldMan-Vowels-Only-All-Counts
+Tim_OldMan-Vowels-Only-Min-100-Counts
+Tim_OldMan-Vowels-Only-Min-100-Percentages		Tim_SENATORS.0.2-All-Percentages
+Tim_SENATORS.0.2-Emphasis-All-Percentages
+Tim_SENATORS.0.2-Emphasis-Vowels-Only-All-Percentages
+Tim_SENATORS.0.3-All-Counts		Tim_SENATORS.0.3-Emphasis-All-Counts
+Tim_SENATORS.0.3-Emphasis-Vowels-Only-All-Counts
+Tim_SENATORS.0.3-Vowels-Only-All-Counts		Tim_SENATORS.3-Emphasis-All-Counts
+Tim_SENATORS.3-Emphasis-Vowels-Only-All-Counts		Tim_SENATORS.4-All-Counts
+Tim_SENATORS.4-Emphasis-All-Counts		Tim_SENATORS.X-All-Percentages
+Tim_SENATORS.X-Emphasis-All-Percentages
+Tim_SENATORS.X-Emphasis-Vowels-Only-All-Percentages
+Tim_SENATORS.X-Emphasis-Vowels-Only-Min-250-Counts
+Tim_SENATORS.X-Vowels-Only-All-Counts
+Tim_SENATORS.X-Vowels-Only-All-Percentages
+Tim_SENATORS.X-Vowels-Only-Min-100-Counts
+Tim_SENATORS.X-Vowels-Only-Min-100-Percentages
+Tim_SENATORS.X-Vowels-Only-Min-250-Counts
+Tim_SENATORS.X-Vowels-Only-Min-250-Percentages		Tim_STRANGERS.1-All-Counts
+Tim_STRANGERS.1-All-Percentages		Tim_STRANGERS.1-Emphasis-All-Counts
+Tim_STRANGERS.1-Emphasis-All-Percentages
+Tim_STRANGERS.1-Emphasis-Min-100-Counts
+Tim_STRANGERS.1-Emphasis-Vowels-Only-All-Counts
+Tim_STRANGERS.1-Emphasis-Vowels-Only-Min-100-Counts
+Tim_STRANGERS.1-Min-100-Counts		Tim_STRANGERS.1-Vowels-Only-All-Counts
+Tim_STRANGERS.1-Vowels-Only-All-Percentages
+Tim_STRANGERS.1-Vowels-Only-Min-100-Counts		Tim_STRANGERS.2-All-Counts
+Tim_STRANGERS.2-Emphasis-Vowels-Only-All-Counts
+Tim_STRANGERS.2-Vowels-Only-All-Counts		Tim_STRANGERS.3-All-Counts
+Tim_STRANGERS.3-Emphasis-All-Counts
+Tim_STRANGERS.3-Emphasis-Vowels-Only-All-Counts
+Tim_STRANGERS.3-Vowels-Only-All-Counts
+
+
+                          Actual "2" Predicted as "2":                          
+
+Tim_SENATORS.0.1-Emphasis-Min-100-Percentages
+Tim_SENATORS.0.1-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_SENATORS.X-All-Counts		Tim_SENATORS.X-Emphasis-All-Counts
+Tim_SENATORS.X-Emphasis-Min-100-Counts		Tim_SENATORS.X-Emphasis-Min-250-Counts
+Tim_SENATORS.X-Min-100-Counts		Tim_SENATORS.X-Min-250-Counts
+Tim_STRANGERS.2-All-Percentages		Tim_STRANGERS.2-Emphasis-All-Counts
+Tim_STRANGERS.2-Emphasis-All-Percentages
+Tim_STRANGERS.2-Vowels-Only-All-Percentages
+
+
+                          Actual "2" Predicted as "3":                          
+
+Tim_SENATORS.0.1-Min-100-Percentages
+Tim_SENATORS.0.1-Vowels-Only-All-Percentages
+Tim_SENATORS.3-Vowels-Only-All-Percentages
+Tim_SENATORS.X-Emphasis-Min-100-Percentages
+Tim_SENATORS.X-Emphasis-Min-250-Percentages
+Tim_SENATORS.X-Min-100-Percentages		Tim_SENATORS.X-Min-250-Percentages
+Tim_STRANGERS.1-Emphasis-Min-100-Percentages
+Tim_STRANGERS.1-Min-100-Percentages		Tim_STRANGERS.3-All-Percentages
+Tim_STRANGERS.3-Emphasis-All-Percentages
+
+
+                          Actual "2" Predicted as "4":                          
+
+Tim_SENATORS.0.1-Emphasis-All-Counts		Tim_SENATORS.0.1-Emphasis-Min-100-Counts
+Tim_SENATORS.0.1-Emphasis-Vowels-Only-All-Counts
+Tim_SENATORS.0.1-Emphasis-Vowels-Only-Min-100-Counts
+Tim_SENATORS.0.1-Min-100-Counts		Tim_SENATORS.0.1-Vowels-Only-Min-100-Counts
+Tim_SENATORS.0.1-Vowels-Only-Min-100-Percentages
+Tim_SENATORS.0.2-Emphasis-All-Counts
+Tim_SENATORS.0.2-Emphasis-Vowels-Only-All-Counts
+
+
+                          Actual "2" Predicted as "6":                          
+
+Tim_Alcibiades-Vowels-Only-Min-1000-Percentages
+Tim_OldMan-Vowels-Only-All-Percentages		Tim_SENATORS.0.1-All-Counts
+Tim_SENATORS.0.1-Vowels-Only-All-Counts		Tim_SENATORS.0.2-All-Counts
+Tim_SENATORS.0.2-Vowels-Only-All-Counts		Tim_SENATORS.3-All-Counts
+Tim_SENATORS.3-All-Percentages		Tim_SENATORS.3-Emphasis-All-Percentages
+Tim_SENATORS.3-Vowels-Only-All-Counts
+Tim_SENATORS.4-Emphasis-Vowels-Only-All-Counts
+Tim_SENATORS.4-Emphasis-Vowels-Only-All-Percentages
+Tim_SENATORS.4-Vowels-Only-All-Counts
+Tim_SENATORS.4-Vowels-Only-All-Percentages
+Tim_SENATORS.X-Emphasis-Vowels-Only-All-Counts
+Tim_SENATORS.X-Emphasis-Vowels-Only-Min-100-Counts
+Tim_SENATORS.X-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_SENATORS.X-Emphasis-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "2" Predicted as "p":                          
+
+Tim_SENATORS.0.2-Vowels-Only-All-Percentages		Tim_SENATORS.0.3-All-Percentages
+Tim_SENATORS.0.3-Emphasis-All-Percentages
+Tim_SENATORS.1-Emphasis-All-Percentages
+Tim_STRANGERS.1-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_STRANGERS.1-Vowels-Only-Min-100-Percentages
+Tim_STRANGERS.2-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "3" Predicted as "1":                          
+
+Tim_Flavius-Emphasis-Min-500-Counts		Tim_Flavius-Emphasis-Min-500-Percentages
+Tim_Flavius-Emphasis-Vowels-Only-Min-100-Counts
+Tim_Flavius-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_Flavius-Emphasis-Vowels-Only-Min-250-Counts
+Tim_Flavius-Emphasis-Vowels-Only-Min-250-Percentages
+Tim_Flavius-Emphasis-Vowels-Only-Min-500-Percentages
+Tim_Flavius-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "3" Predicted as "2":                          
+
+Tim_Flavius-All-Percentages		Tim_Flavius-Emphasis-All-Counts
+Tim_Flavius-Emphasis-All-Percentages		Tim_Flavius-Emphasis-Min-100-Counts
+Tim_Flavius-Emphasis-Vowels-Only-All-Counts
+Tim_Flavius-Emphasis-Vowels-Only-All-Percentages
+Tim_Flavius-Emphasis-Vowels-Only-Min-1000-Counts
+Tim_Flavius-Emphasis-Vowels-Only-Min-1000-Percentages
+Tim_Flavius-Min-500-Percentages		Tim_Flavius-Vowels-Only-All-Counts
+Tim_Flavius-Vowels-Only-All-Percentages
+Tim_Flavius-Vowels-Only-Min-100-Counts
+Tim_Flavius-Vowels-Only-Min-1000-Counts
+Tim_Flavius-Vowels-Only-Min-250-Counts		Tim_Flavius-Vowels-Only-Min-500-Counts
+
+
+                          Actual "3" Predicted as "3":                          
+
+Tim_Flavius-Emphasis-Min-100-Percentages		Tim_Flavius-Min-100-Percentages
+
+
+                          Actual "3" Predicted as "4":                          
+
+Tim_Flavius-All-Counts		Tim_Flavius-Emphasis-Min-1000-Counts
+Tim_Flavius-Emphasis-Min-1000-Percentages		Tim_Flavius-Emphasis-Min-250-Counts
+Tim_Flavius-Emphasis-Min-250-Percentages		Tim_Flavius-Min-100-Counts
+Tim_Flavius-Min-1000-Counts		Tim_Flavius-Min-1000-Percentages
+Tim_Flavius-Min-250-Counts		Tim_Flavius-Min-250-Percentages
+Tim_Flavius-Min-500-Counts		Tim_Flavius-Vowels-Only-Min-1000-Percentages
+Tim_Flavius-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "3" Predicted as "6":                          
+
+Tim_Flavius-Emphasis-Vowels-Only-Min-500-Counts
+Tim_Flavius-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "3" Predicted as "p":                          
+
+
+
+
+                          Actual "4" Predicted as "1":                          
+
+Tim_Jeweler-Emphasis-Vowels-Only-All-Counts
+
+
+                          Actual "4" Predicted as "2":                          
+
+Tim_Jeweler-All-Counts		Tim_Jeweler-All-Percentages
+Tim_Jeweler-Emphasis-All-Counts		Tim_Jeweler-Emphasis-All-Percentages
+Tim_Jeweler-Emphasis-Vowels-Only-All-Percentages
+Tim_Jeweler-Vowels-Only-All-Counts		Tim_Jeweler-Vowels-Only-All-Percentages
+
+
+                          Actual "4" Predicted as "3":                          
+
+
+
+
+                          Actual "4" Predicted as "4":                          
+
+Tim_Merchant-All-Percentages		Tim_Merchant-Emphasis-All-Percentages
+Tim_Merchant-Emphasis-Vowels-Only-All-Percentages
+Tim_Merchant-Vowels-Only-All-Percentages
+
+
+                          Actual "4" Predicted as "6":                          
+
+Tim_Merchant-All-Counts		Tim_Merchant-Emphasis-All-Counts
+Tim_Merchant-Emphasis-Vowels-Only-All-Counts
+Tim_Merchant-Vowels-Only-All-Counts
+
+
+                          Actual "4" Predicted as "p":                          
+
+
+
+
+                          Actual "6" Predicted as "1":                          
+
+Tim_ATTENDANTS.TIMON.0.1-Emphasis-All-Counts
+Tim_ATTENDANTS.TIMON.0.1-Emphasis-Vowels-Only-All-Counts
+Tim_ATTENDANTS.TIMON.0.1-Vowels-Only-All-Counts		Tim_BANDITS.1-All-Counts
+Tim_BANDITS.1-Emphasis-All-Counts		Tim_BANDITS.1-Emphasis-Min-100-Counts
+Tim_BANDITS.1-Emphasis-Vowels-Only-All-Counts
+Tim_BANDITS.1-Emphasis-Vowels-Only-Min-100-Counts
+Tim_BANDITS.1-Min-100-Counts		Tim_BANDITS.1-Vowels-Only-All-Counts
+Tim_BANDITS.1-Vowels-Only-Min-100-Counts		Tim_BANDITS.2-Emphasis-All-Counts
+Tim_BANDITS.2-Emphasis-Vowels-Only-All-Counts
+Tim_BANDITS.2-Vowels-Only-All-Counts
+Tim_BANDITS.3-Emphasis-Vowels-Only-All-Counts
+Tim_BANDITS.3-Vowels-Only-All-Counts		Tim_Cupid-All-Counts
+Tim_Cupid-Emphasis-All-Counts		Tim_Fool-Emphasis-Vowels-Only-Min-100-Counts
+Tim_Fool-Min-100-Counts		Tim_Fool-No-Others-Counts
+Tim_Fool-Vowels-Only-All-Percentages		Tim_Fool-Vowels-Only-Min-100-Counts
+Tim_Fool-Vowels-Only-No-Others-Counts		Tim_MESSENGERS.X.1-Emphasis-All-Counts
+Tim_MESSENGERS.X.1-Emphasis-Vowels-Only-All-Counts
+Tim_MESSENGERS.X.2-All-Counts		Tim_MESSENGERS.X.2-Emphasis-All-Counts
+Tim_MESSENGERS.X.2-Emphasis-Vowels-Only-All-Counts
+Tim_MESSENGERS.X.2-Emphasis-Vowels-Only-All-Percentages
+Tim_MESSENGERS.X.2-Vowels-Only-All-Counts		Tim_MESSENGERS.X.3-All-Counts
+Tim_MESSENGERS.X.3-Emphasis-All-Counts
+Tim_MESSENGERS.X.3-Emphasis-Vowels-Only-All-Counts
+Tim_MESSENGERS.X.3-Vowels-Only-All-Counts		Tim_Phrynia-All-Counts
+Tim_Phrynia-Emphasis-All-Counts		Tim_Phrynia-Emphasis-Vowels-Only-All-Counts
+Tim_Phrynia-Vowels-Only-All-Counts
+Tim_SERVANTS.Caphis-Vowels-Only-Min-100-Counts
+Tim_SERVANTS.Caphis-Vowels-Only-Min-100-Percentages
+Tim_SERVANTS.Hortensius-All-Counts
+Tim_SERVANTS.Hortensius-Emphasis-All-Counts
+Tim_SERVANTS.LUCIUS.1-All-Percentages
+Tim_SERVANTS.LUCIUS.1-Emphasis-Min-100-Counts
+Tim_SERVANTS.LUCIUS.1-Emphasis-Vowels-Only-Min-100-Counts
+Tim_SERVANTS.LUCIUS.1-Min-100-Counts
+Tim_SERVANTS.LUCIUS.1-Min-100-Percentages
+Tim_SERVANTS.LUCIUS.1-Vowels-Only-All-Counts
+Tim_SERVANTS.LUCIUS.1-Vowels-Only-All-Percentages
+Tim_SERVANTS.LUCIUS.1-Vowels-Only-Min-100-Counts
+Tim_SERVANTS.LUCIUS.1-Vowels-Only-Min-100-Percentages
+Tim_SERVANTS.LUCULLUS.1-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.LUCULLUS.1-Vowels-Only-All-Counts		Tim_SERVANTS.Page-All-Counts
+Tim_SERVANTS.Page-Emphasis-All-Counts
+Tim_SERVANTS.Page-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.Page-Vowels-Only-All-Counts
+Tim_SERVANTS.Philotus-Emphasis-All-Counts
+Tim_SERVANTS.TIMON.0.1-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.0.2-All-Counts		Tim_SERVANTS.TIMON.0.2-Emphasis-All-Counts
+Tim_SERVANTS.TIMON.0.2-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.0.2-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.0.3-All-Counts
+Tim_SERVANTS.TIMON.0.3-Vowels-Only-All-Counts		Tim_SERVANTS.TIMON.1-All-Counts
+Tim_SERVANTS.TIMON.1-All-Percentages		Tim_SERVANTS.TIMON.1-Emphasis-All-Counts
+Tim_SERVANTS.TIMON.1-Emphasis-All-Percentages
+Tim_SERVANTS.TIMON.1-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.1-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.2-Emphasis-All-Counts
+Tim_SERVANTS.TIMON.2-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.3-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.Flaminius-Emphasis-Vowels-Only-Min-100-Counts
+Tim_SERVANTS.TIMON.Flaminius-Min-100-Counts
+Tim_SERVANTS.TIMON.Flaminius-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.Flaminius-Vowels-Only-Min-100-Counts
+Tim_SERVANTS.TIMON.Servilius-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.Servilius-Emphasis-Vowels-Only-Min-100-Counts
+Tim_SERVANTS.TIMON.Servilius-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_SERVANTS.TIMON.Servilius-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.Servilius-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.Servilius-Vowels-Only-Min-100-Counts
+Tim_SERVANTS.TIMON.Servilius-Vowels-Only-Min-100-Percentages
+Tim_SERVANTS.TIMON.X.1-All-Counts		Tim_SERVANTS.TIMON.X.1-Emphasis-All-Counts
+Tim_SERVANTS.TIMON.X.1-Emphasis-All-Percentages
+Tim_SERVANTS.TIMON.X.1-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.X.1-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.X.1-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.X.2-Emphasis-All-Counts
+Tim_SERVANTS.TIMON.X.2-Emphasis-Min-100-Counts
+Tim_SERVANTS.TIMON.X.2-Emphasis-Min-100-Percentages
+Tim_SERVANTS.TIMON.X.2-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.X.2-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.X.2-Emphasis-Vowels-Only-Min-100-Counts
+Tim_SERVANTS.TIMON.X.2-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_SERVANTS.TIMON.X.2-Min-100-Counts
+Tim_SERVANTS.TIMON.X.2-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.X.2-Vowels-Only-Min-100-Counts
+Tim_SERVANTS.VARRO.1-Emphasis-Min-100-Counts
+Tim_SERVANTS.VARRO.1-Emphasis-Vowels-Only-Min-100-Counts
+Tim_SERVANTS.VARRO.1-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_SERVANTS.VARRO.1-Min-100-Counts		Tim_SERVANTS.VARRO.1-Min-100-Percentages
+Tim_SERVANTS.VARRO.1-Vowels-Only-All-Counts
+Tim_SERVANTS.VARRO.1-Vowels-Only-All-Percentages
+Tim_SERVANTS.VARRO.1-Vowels-Only-Min-100-Counts		Tim_SOLDIERS.1-All-Counts
+Tim_SOLDIERS.1-Emphasis-All-Counts		Tim_SOLDIERS.1-Emphasis-Min-100-Counts
+Tim_SOLDIERS.1-Emphasis-Vowels-Only-All-Counts
+Tim_SOLDIERS.1-Emphasis-Vowels-Only-Min-100-Counts
+Tim_SOLDIERS.1-Min-100-Counts		Tim_SOLDIERS.1-Vowels-Only-All-Counts
+Tim_SOLDIERS.1-Vowels-Only-Min-100-Counts		Tim_Timandra-Emphasis-All-Counts
+Tim_Timandra-Emphasis-All-Percentages
+Tim_Timandra-Emphasis-Vowels-Only-All-Counts
+Tim_Timandra-Vowels-Only-All-Counts
+
+
+                          Actual "6" Predicted as "2":                          
+
+Tim_BANDITS.1-Emphasis-Min-100-Percentages
+Tim_BANDITS.1-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_BANDITS.1-Min-100-Percentages		Tim_BANDITS.2-All-Counts
+Tim_BANDITS.3-All-Counts		Tim_BANDITS.3-Emphasis-All-Counts
+Tim_Cupid-Emphasis-Vowels-Only-All-Counts		Tim_Fool-All-Counts
+Tim_Fool-All-Percentages		Tim_Fool-Emphasis-All-Counts
+Tim_Fool-Emphasis-Min-100-Counts		Tim_Fool-Emphasis-No-Others-Counts
+Tim_Fool-Emphasis-No-Others-Percentages
+Tim_Fool-Emphasis-Vowels-Only-No-Others-Counts
+Tim_SERVANTS.Caphis-All-Percentages		Tim_SERVANTS.Hortensius-All-Percentages
+Tim_SERVANTS.Hortensius-Emphasis-All-Percentages
+Tim_SERVANTS.TIMON.Flaminius-All-Counts
+Tim_SERVANTS.TIMON.Flaminius-All-Percentages
+Tim_SERVANTS.TIMON.Flaminius-Emphasis-All-Counts
+Tim_SERVANTS.TIMON.Flaminius-Emphasis-All-Percentages
+Tim_SERVANTS.TIMON.Flaminius-Emphasis-Min-100-Counts
+Tim_SERVANTS.TIMON.Flaminius-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.Lucilius-All-Counts
+Tim_SERVANTS.TIMON.Lucilius-All-Percentages
+Tim_SERVANTS.TIMON.Lucilius-Emphasis-All-Counts
+Tim_SERVANTS.TIMON.Servilius-All-Counts
+Tim_SERVANTS.TIMON.Servilius-All-Percentages
+Tim_SERVANTS.TIMON.Servilius-Emphasis-All-Counts
+Tim_SERVANTS.TIMON.Servilius-Emphasis-Min-100-Counts
+Tim_SOLDIERS.1-Emphasis-Min-100-Percentages
+Tim_SOLDIERS.1-Emphasis-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "6" Predicted as "3":                          
+
+Tim_BANDITS.1-Vowels-Only-All-Percentages		Tim_BANDITS.3-All-Percentages
+Tim_BANDITS.3-Emphasis-All-Percentages
+Tim_BANDITS.3-Emphasis-Vowels-Only-All-Percentages
+Tim_Fool-Emphasis-Vowels-Only-No-Others-Percentages
+Tim_Fool-Min-100-Percentages		Tim_Fool-Vowels-Only-Min-100-Percentages
+Tim_Fool-Vowels-Only-No-Others-Percentages
+Tim_SERVANTS.Hortensius-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.0.3-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.1-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.Flaminius-Emphasis-Min-100-Percentages
+Tim_SERVANTS.TIMON.Flaminius-Min-100-Percentages
+Tim_SERVANTS.TIMON.Flaminius-Vowels-Only-Min-100-Percentages
+Tim_SERVANTS.TIMON.Servilius-Emphasis-Min-100-Percentages
+Tim_SERVANTS.TIMON.Servilius-Min-100-Counts
+Tim_SERVANTS.TIMON.Servilius-Min-100-Percentages
+Tim_SERVANTS.VARRO.2-All-Percentages
+Tim_SERVANTS.VARRO.2-Emphasis-All-Percentages
+
+
+                          Actual "6" Predicted as "4":                          
+
+Tim_MESSENGERS.X.2-All-Percentages
+Tim_MESSENGERS.X.2-Emphasis-All-Percentages
+Tim_MESSENGERS.X.3-All-Percentages
+Tim_MESSENGERS.X.3-Emphasis-All-Percentages
+Tim_SERVANTS.Caphis-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.Caphis-Min-100-Counts
+Tim_SERVANTS.Caphis-Vowels-Only-All-Percentages
+Tim_SERVANTS.ISIDORE.1-All-Percentages
+Tim_SERVANTS.ISIDORE.1-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.0.2-All-Percentages
+Tim_SERVANTS.TIMON.0.2-Emphasis-All-Percentages
+Tim_SERVANTS.TIMON.2-All-Percentages
+Tim_SERVANTS.TIMON.2-Emphasis-All-Percentages
+Tim_SERVANTS.TIMON.2-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.2-Vowels-Only-All-Percentages
+Tim_SERVANTS.VARRO.1-Emphasis-Vowels-Only-All-Percentages
+Tim_Timandra-All-Percentages		Tim_Timandra-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "6":                          
+
+Tim_ATTENDANTS.TIMON.0.1-All-Counts		Tim_Cupid-Vowels-Only-All-Counts
+Tim_Fool-Vowels-Only-All-Counts		Tim_MESSENGERS.X.1-All-Counts
+Tim_MESSENGERS.X.1-All-Percentages
+Tim_MESSENGERS.X.1-Emphasis-All-Percentages
+Tim_MESSENGERS.X.1-Vowels-Only-All-Counts
+Tim_MESSENGERS.X.1-Vowels-Only-All-Percentages		Tim_SERVANTS.Caphis-All-Counts
+Tim_SERVANTS.Caphis-Emphasis-All-Counts
+Tim_SERVANTS.Caphis-Emphasis-All-Percentages
+Tim_SERVANTS.Caphis-Emphasis-Min-100-Counts
+Tim_SERVANTS.Caphis-Emphasis-Min-100-Percentages
+Tim_SERVANTS.Caphis-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.Caphis-Emphasis-Vowels-Only-Min-100-Counts
+Tim_SERVANTS.Caphis-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_SERVANTS.Caphis-Min-100-Percentages
+Tim_SERVANTS.Caphis-Vowels-Only-All-Counts
+Tim_SERVANTS.Hortensius-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.Hortensius-Vowels-Only-All-Counts
+Tim_SERVANTS.ISIDORE.1-All-Counts		Tim_SERVANTS.ISIDORE.1-Emphasis-All-Counts
+Tim_SERVANTS.ISIDORE.1-Emphasis-All-Percentages
+Tim_SERVANTS.ISIDORE.1-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.ISIDORE.1-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.ISIDORE.1-Vowels-Only-All-Counts
+Tim_SERVANTS.LUCIUS.1-All-Counts		Tim_SERVANTS.LUCIUS.1-Emphasis-All-Counts
+Tim_SERVANTS.LUCIUS.1-Emphasis-All-Percentages
+Tim_SERVANTS.LUCIUS.1-Emphasis-Min-100-Percentages
+Tim_SERVANTS.LUCIUS.1-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.LUCIUS.1-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.LUCIUS.1-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_SERVANTS.LUCULLUS.1-All-Counts
+Tim_SERVANTS.LUCULLUS.1-Emphasis-All-Counts		Tim_SERVANTS.Philotus-All-Counts
+Tim_SERVANTS.Philotus-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.Philotus-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.Philotus-Vowels-Only-All-Counts
+Tim_SERVANTS.Philotus-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.0.1-All-Counts		Tim_SERVANTS.TIMON.0.1-Emphasis-All-Counts
+Tim_SERVANTS.TIMON.0.1-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.0.1-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.0.3-Emphasis-All-Counts
+Tim_SERVANTS.TIMON.0.3-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.1-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.2-All-Counts		Tim_SERVANTS.TIMON.2-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.3-All-Counts		Tim_SERVANTS.TIMON.3-All-Percentages
+Tim_SERVANTS.TIMON.3-Emphasis-All-Counts
+Tim_SERVANTS.TIMON.3-Emphasis-All-Percentages
+Tim_SERVANTS.TIMON.3-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.3-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.3-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.Flaminius-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.Flaminius-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.Flaminius-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_SERVANTS.TIMON.Lucilius-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.Lucilius-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.Lucilius-Vowels-Only-All-Counts
+Tim_SERVANTS.TIMON.Lucilius-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.Servilius-Emphasis-All-Percentages
+Tim_SERVANTS.TIMON.Servilius-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.X.1-All-Percentages		Tim_SERVANTS.TIMON.X.2-All-Percentages
+Tim_SERVANTS.TIMON.X.2-Emphasis-All-Percentages		Tim_SERVANTS.Titus-All-Counts
+Tim_SERVANTS.Titus-All-Percentages		Tim_SERVANTS.Titus-Emphasis-All-Counts
+Tim_SERVANTS.Titus-Emphasis-All-Percentages
+Tim_SERVANTS.Titus-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.Titus-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.Titus-Vowels-Only-All-Counts		Tim_SERVANTS.VARRO.1-All-Counts
+Tim_SERVANTS.VARRO.1-All-Percentages		Tim_SERVANTS.VARRO.1-Emphasis-All-Counts
+Tim_SERVANTS.VARRO.1-Emphasis-All-Percentages
+Tim_SERVANTS.VARRO.1-Emphasis-Min-100-Percentages
+Tim_SERVANTS.VARRO.1-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.VARRO.2-All-Counts		Tim_SERVANTS.VARRO.2-Emphasis-All-Counts
+Tim_SERVANTS.VARRO.2-Emphasis-Vowels-Only-All-Counts
+Tim_SERVANTS.VARRO.2-Vowels-Only-All-Counts
+Tim_SERVANTS.VARRO.2-Vowels-Only-All-Percentages		Tim_Timandra-All-Counts
+
+
+                          Actual "6" Predicted as "p":                          
+
+Tim_Cupid-Emphasis-Vowels-Only-All-Percentages
+Tim_MESSENGERS.X.1-Emphasis-Vowels-Only-All-Percentages
+Tim_Phrynia-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.Philotus-All-Percentages
+Tim_SERVANTS.Philotus-Emphasis-All-Percentages
+Tim_SERVANTS.TIMON.0.1-All-Percentages
+Tim_SERVANTS.TIMON.0.1-Emphasis-All-Percentages
+Tim_SERVANTS.TIMON.0.1-Emphasis-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.0.2-Vowels-Only-All-Percentages
+Tim_SERVANTS.TIMON.0.3-All-Percentages
+Tim_SERVANTS.TIMON.0.3-Emphasis-All-Percentages
+Tim_SERVANTS.TIMON.Lucilius-Emphasis-All-Percentages
+Tim_SERVANTS.Titus-Vowels-Only-All-Percentages
+Tim_SERVANTS.VARRO.2-Emphasis-Vowels-Only-All-Percentages
+Tim_Timandra-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "p" Predicted as "1":                          
+
+Tim_Painter-All-Counts		Tim_Painter-Emphasis-All-Counts
+Tim_Painter-Emphasis-Min-100-Counts		Tim_Painter-Emphasis-Min-250-Counts
+Tim_Painter-Emphasis-Min-250-Percentages
+Tim_Painter-Emphasis-Vowels-Only-All-Counts
+Tim_Painter-Emphasis-Vowels-Only-All-Percentages
+Tim_Painter-Emphasis-Vowels-Only-Min-100-Counts
+Tim_Painter-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_Painter-Min-100-Counts		Tim_Painter-Min-250-Counts
+Tim_Painter-Vowels-Only-All-Counts		Tim_Painter-Vowels-Only-All-Percentages
+Tim_Painter-Vowels-Only-Min-100-Counts		Tim_Painter-Vowels-Only-Min-250-Counts
+Tim_Poet-Emphasis-Min-250-Counts		Tim_Poet-Emphasis-Min-250-Percentages
+Tim_Poet-Emphasis-Min-500-Counts		Tim_Poet-Emphasis-Min-500-Percentages
+Tim_Poet-Emphasis-Vowels-Only-Min-100-Counts
+Tim_Poet-Emphasis-Vowels-Only-Min-250-Counts
+Tim_Poet-Emphasis-Vowels-Only-Min-500-Counts		Tim_Poet-Min-500-Counts
+Tim_Poet-Min-500-Percentages		Tim_Timon-Emphasis-All-Counts
+Tim_Timon-Emphasis-Min-100-Counts		Tim_Timon-Emphasis-Min-1000-Counts
+Tim_Timon-Emphasis-Min-1000-Percentages		Tim_Timon-Emphasis-Min-250-Counts
+Tim_Timon-Emphasis-Min-2500-Counts		Tim_Timon-Emphasis-Min-2500-Percentages
+Tim_Timon-Emphasis-Min-500-Counts		Tim_Timon-Emphasis-Min-500-Percentages
+Tim_Timon-Emphasis-No-Others-Counts		Tim_Timon-Emphasis-No-Others-Percentages
+Tim_Timon-Emphasis-Vowels-Only-All-Counts
+Tim_Timon-Emphasis-Vowels-Only-Min-100-Counts
+Tim_Timon-Emphasis-Vowels-Only-Min-100-Percentages
+Tim_Timon-Emphasis-Vowels-Only-Min-1000-Counts
+Tim_Timon-Emphasis-Vowels-Only-Min-1000-Percentages
+Tim_Timon-Emphasis-Vowels-Only-Min-250-Counts
+Tim_Timon-Emphasis-Vowels-Only-Min-250-Percentages
+Tim_Timon-Emphasis-Vowels-Only-Min-2500-Counts
+Tim_Timon-Emphasis-Vowels-Only-Min-2500-Percentages
+Tim_Timon-Emphasis-Vowels-Only-Min-500-Counts
+Tim_Timon-Emphasis-Vowels-Only-Min-500-Percentages
+Tim_Timon-Emphasis-Vowels-Only-No-Others-Counts
+Tim_Timon-Emphasis-Vowels-Only-No-Others-Percentages
+Tim_Timon-Min-2500-Counts		Tim_Timon-No-Others-Counts
+
+
+                          Actual "p" Predicted as "2":                          
+
+Tim_Painter-Emphasis-Min-100-Percentages
+Tim_Poet-Emphasis-Vowels-Only-All-Counts
+Tim_Poet-Emphasis-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "p" Predicted as "3":                          
+
+Tim_Poet-Emphasis-Min-100-Percentages
+Tim_Poet-Emphasis-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "p" Predicted as "4":                          
+
+Tim_Poet-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "p" Predicted as "6":                          
+
+Tim_Poet-Vowels-Only-All-Counts
+
+
+                          Actual "p" Predicted as "p":                          
+
+Tim_Painter-Emphasis-Vowels-Only-Min-250-Counts
+Tim_Painter-Emphasis-Vowels-Only-Min-250-Percentages
+Tim_Painter-Min-100-Percentages		Tim_Painter-Min-250-Percentages
+Tim_Painter-Vowels-Only-Min-100-Percentages
+Tim_Painter-Vowels-Only-Min-250-Percentages		Tim_Poet-All-Counts
+Tim_Poet-Emphasis-All-Counts		Tim_Poet-Emphasis-Min-100-Counts
+Tim_Poet-Emphasis-Vowels-Only-Min-500-Percentages		Tim_Poet-Min-100-Counts
+Tim_Poet-Min-100-Percentages		Tim_Poet-Min-250-Counts
+Tim_Poet-Min-250-Percentages
+
+

@@ -1,0 +1,986 @@
+                         Summary: status_All-Combos_Cor                         
+
+
+                      Overall accuracy = 32.65%                                 
+                      Average accuracy = 27.43%                                 
+
+                      Average F1 score = 26.67%                                 
+                           Average MCC = 14.17%                                 
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+           |    1     |    2     |    3     |    4     |    5     |    6     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     1     |    95    |    37    |    15    |    49    |    6     |    43    |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |    21    |    3     |    2     |    10    |    0     |    17    |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     3     |    0     |    0     |    4     |    0     |    3     |    14    |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |    15    |    15    |    26    |    50    |    1     |    14    |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     5     |    39    |    7     |    10    |    15    |    41    |    41    |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |    28    |    16    |    24    |    36    |    20    |    61    |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+                         Total samples = 778                                    
+
+                      Total actual "1" = 245                                    
+                   Total predicted "1" = 198                                    
+                      Total actual "2" = 53                                     
+                   Total predicted "2" = 78                                     
+                      Total actual "3" = 21                                     
+                   Total predicted "3" = 81                                     
+                      Total actual "4" = 121                                    
+                   Total predicted "4" = 160                                    
+                      Total actual "5" = 153                                    
+                   Total predicted "5" = 71                                     
+                      Total actual "6" = 185                                    
+                   Total predicted "6" = 190                                    
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+           |    1     |    2     |    3     |    4     |    5     |    6     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     1     |  12.21%  |  4.76%   |  1.93%   |  6.30%   |  0.77%   |  5.53%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |  2.70%   |  0.39%   |  0.26%   |  1.29%   |  0.00%   |  2.19%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     3     |  0.00%   |  0.00%   |  0.51%   |  0.00%   |  0.39%   |  1.80%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |  1.93%   |  1.93%   |  3.34%   |  6.43%   |  0.13%   |  1.80%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     5     |  5.01%   |  0.90%   |  1.29%   |  1.93%   |  5.27%   |  5.27%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |  3.60%   |  2.06%   |  3.08%   |  4.63%   |  2.57%   |  7.84%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+                    Percent actual "1" = 31.49%                                 
+                 Percent predicted "1" = 25.45%                                 
+                    Percent actual "2" = 6.81%                                  
+                 Percent predicted "2" = 10.03%                                 
+                    Percent actual "3" = 2.70%                                  
+                 Percent predicted "3" = 10.41%                                 
+                    Percent actual "4" = 15.55%                                 
+                 Percent predicted "4" = 20.57%                                 
+                    Percent actual "5" = 19.67%                                 
+                 Percent predicted "5" = 9.13%                                  
+                    Percent actual "6" = 23.78%                                 
+                 Percent predicted "6" = 24.42%                                 
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+           |    1     |    2     |    3     |    4     |    5     |    6     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     1     |  38.78%  |  15.10%  |  6.12%   |  20.00%  |  2.45%   |  17.55%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |  39.62%  |  5.66%   |  3.77%   |  18.87%  |  0.00%   |  32.08%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     3     |  0.00%   |  0.00%   |  19.05%  |  0.00%   |  14.29%  |  66.67%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |  12.40%  |  12.40%  |  21.49%  |  41.32%  |  0.83%   |  11.57%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     5     |  25.49%  |  4.58%   |  6.54%   |  9.80%   |  26.80%  |  26.80%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |  15.14%  |  8.65%   |  12.97%  |  19.46%  |  10.81%  |  32.97%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+         Percent correct of actual "1" = 38.78%                                 
+         Percent correct of actual "2" = 5.66%                                  
+         Percent correct of actual "3" = 19.05%                                 
+         Percent correct of actual "4" = 41.32%                                 
+         Percent correct of actual "5" = 26.80%                                 
+         Percent correct of actual "6" = 32.97%                                 
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+           |    1     |    2     |    3     |    4     |    5     |    6     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     1     |  47.98%  |  47.44%  |  18.52%  |  30.63%  |  8.45%   |  22.63%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |  10.61%  |  3.85%   |  2.47%   |  6.25%   |  0.00%   |  8.95%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     3     |  0.00%   |  0.00%   |  4.94%   |  0.00%   |  4.23%   |  7.37%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |  7.58%   |  19.23%  |  32.10%  |  31.25%  |  1.41%   |  7.37%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     5     |  19.70%  |  8.97%   |  12.35%  |  9.38%   |  57.75%  |  21.58%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |  14.14%  |  20.51%  |  29.63%  |  22.50%  |  28.17%  |  32.11%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+      Percent correct of predicted "1" = 47.98%                                 
+      Percent correct of predicted "2" = 3.85%                                  
+      Percent correct of predicted "3" = 4.94%                                  
+      Percent correct of predicted "4" = 31.25%                                 
+      Percent correct of predicted "5" = 57.75%                                 
+      Percent correct of predicted "6" = 32.11%                                 
+
+
+                                   F1 Scores:                                   
+                      F1 score for "1" = 42.89%                                 
+                      F1 score for "2" = 4.58%                                  
+                      F1 score for "3" = 7.84%                                  
+                      F1 score for "4" = 35.59%                                 
+                      F1 score for "5" = 36.61%                                 
+                      F1 score for "6" = 32.53%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+                     MCC score for "1" = 20.74%                                 
+                     MCC score for "2" = -3.93%                                 
+                     MCC score for "3" = 4.71%                                  
+                     MCC score for "4" = 22.04%                                 
+                     MCC score for "5" = 30.36%                                 
+                     MCC score for "6" = 11.12%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                          Actual "1" Average Z-Scores:                          
+
+
+                          Actual "2" Average Z-Scores:                          
+
+
+                          Actual "3" Average Z-Scores:                          
+
+
+                          Actual "4" Average Z-Scores:                          
+
+
+                          Actual "5" Average Z-Scores:                          
+
+
+                          Actual "6" Average Z-Scores:                          
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                        Predicted "1" Average Z-Scores:                         
+
+
+                        Predicted "2" Average Z-Scores:                         
+
+
+                        Predicted "3" Average Z-Scores:                         
+
+
+                        Predicted "4" Average Z-Scores:                         
+
+
+                        Predicted "5" Average Z-Scores:                         
+
+
+                        Predicted "6" Average Z-Scores:                         
+
+
+
+
+
+                                  Characters:                                   
+
+
+                          Actual "1" Predicted as "1":                          
+
+Cor_Aufidius-All-Counts		Cor_Aufidius-All-Percentages
+Cor_Aufidius-Emphasis-All-Counts		Cor_Aufidius-Emphasis-Min-100-Counts
+Cor_Aufidius-Emphasis-Min-1000-Counts
+Cor_Aufidius-Emphasis-Min-1000-Percentages
+Cor_Aufidius-Emphasis-Min-250-Counts
+Cor_Aufidius-Emphasis-Min-250-Percentages
+Cor_Aufidius-Emphasis-Min-500-Counts
+Cor_Aufidius-Emphasis-Min-500-Percentages
+Cor_Aufidius-Emphasis-Vowels-Only-All-Counts
+Cor_Aufidius-Emphasis-Vowels-Only-Min-100-Counts
+Cor_Aufidius-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_Aufidius-Emphasis-Vowels-Only-Min-1000-Counts
+Cor_Aufidius-Emphasis-Vowels-Only-Min-1000-Percentages
+Cor_Aufidius-Emphasis-Vowels-Only-Min-250-Counts
+Cor_Aufidius-Emphasis-Vowels-Only-Min-250-Percentages
+Cor_Aufidius-Emphasis-Vowels-Only-Min-500-Counts
+Cor_Aufidius-Emphasis-Vowels-Only-Min-500-Percentages
+Cor_Aufidius-Min-100-Counts		Cor_Aufidius-Min-1000-Counts
+Cor_Aufidius-Min-1000-Percentages		Cor_Aufidius-Min-250-Counts
+Cor_Aufidius-Min-250-Percentages		Cor_Aufidius-Min-500-Counts
+Cor_Aufidius-Min-500-Percentages		Cor_Aufidius-Vowels-Only-All-Counts
+Cor_Aufidius-Vowels-Only-All-Percentages
+Cor_Aufidius-Vowels-Only-Min-100-Counts
+Cor_Aufidius-Vowels-Only-Min-100-Percentages
+Cor_Aufidius-Vowels-Only-Min-1000-Counts
+Cor_Aufidius-Vowels-Only-Min-250-Counts
+Cor_Aufidius-Vowels-Only-Min-250-Percentages
+Cor_Aufidius-Vowels-Only-Min-500-Counts		Cor_Cominius-All-Percentages
+Cor_Cominius-Emphasis-All-Counts		Cor_Cominius-Emphasis-Min-100-Counts
+Cor_Cominius-Emphasis-Min-1000-Counts
+Cor_Cominius-Emphasis-Min-1000-Percentages
+Cor_Cominius-Emphasis-Min-250-Counts
+Cor_Cominius-Emphasis-Min-250-Percentages
+Cor_Cominius-Emphasis-Min-500-Counts
+Cor_Cominius-Emphasis-Min-500-Percentages
+Cor_Cominius-Emphasis-Vowels-Only-Min-100-Counts
+Cor_Cominius-Emphasis-Vowels-Only-Min-1000-Counts
+Cor_Cominius-Emphasis-Vowels-Only-Min-250-Counts
+Cor_Cominius-Emphasis-Vowels-Only-Min-250-Percentages
+Cor_Cominius-Emphasis-Vowels-Only-Min-500-Counts		Cor_Cominius-Min-100-Counts
+Cor_Cominius-Min-1000-Counts		Cor_Cominius-Min-250-Counts
+Cor_Cominius-Min-250-Percentages		Cor_Cominius-Min-500-Counts
+Cor_Cominius-Min-500-Percentages		Cor_Coriolanus-All-Counts
+Cor_Coriolanus-Emphasis-All-Counts		Cor_Coriolanus-Emphasis-Min-100-Counts
+Cor_Coriolanus-Emphasis-Min-1000-Counts
+Cor_Coriolanus-Emphasis-Min-1000-Percentages
+Cor_Coriolanus-Emphasis-Min-250-Counts		Cor_Coriolanus-Emphasis-Min-500-Counts
+Cor_Coriolanus-Emphasis-Min-500-Percentages
+Cor_Coriolanus-Emphasis-Vowels-Only-All-Counts
+Cor_Coriolanus-Emphasis-Vowels-Only-Min-1000-Counts
+Cor_Coriolanus-Emphasis-Vowels-Only-Min-1000-Percentages
+Cor_Coriolanus-Emphasis-Vowels-Only-Min-2500-Counts
+Cor_Coriolanus-Emphasis-Vowels-Only-Min-2500-Percentages
+Cor_Coriolanus-Emphasis-Vowels-Only-Min-500-Counts
+Cor_Coriolanus-Emphasis-Vowels-Only-No-Others-Counts
+Cor_Coriolanus-Min-100-Counts		Cor_Coriolanus-Min-1000-Counts
+Cor_Coriolanus-Min-1000-Percentages		Cor_Coriolanus-Min-250-Counts
+Cor_Coriolanus-Min-500-Counts		Cor_Coriolanus-Vowels-Only-All-Percentages
+Cor_Coriolanus-Vowels-Only-Min-1000-Counts
+Cor_Coriolanus-Vowels-Only-Min-2500-Counts
+Cor_Coriolanus-Vowels-Only-No-Others-Counts
+Cor_LORDS.VOLSCIAN.0.1-Emphasis-Vowels-Only-All-Counts
+Cor_LORDS.VOLSCIAN.0.1-Emphasis-Vowels-Only-Min-100-Counts
+Cor_LORDS.VOLSCIAN.0.1-Min-100-Counts
+Cor_LORDS.VOLSCIAN.0.1-Vowels-Only-All-Counts
+Cor_LORDS.VOLSCIAN.0.1-Vowels-Only-Min-100-Counts
+Cor_Valeria-Emphasis-Vowels-Only-All-Counts
+Cor_Valeria-Emphasis-Vowels-Only-Min-100-Counts
+Cor_Valeria-Emphasis-Vowels-Only-Min-250-Counts
+Cor_Valeria-Vowels-Only-All-Counts		Cor_Valeria-Vowels-Only-All-Percentages
+Cor_Valeria-Vowels-Only-Min-100-Counts		Cor_Valeria-Vowels-Only-Min-250-Counts
+Cor_YoungMartius-All-Counts		Cor_YoungMartius-Emphasis-All-Counts
+Cor_YoungMartius-Emphasis-Vowels-Only-All-Counts
+Cor_YoungMartius-Emphasis-Vowels-Only-All-Percentages
+Cor_YoungMartius-Vowels-Only-All-Counts
+
+
+                          Actual "1" Predicted as "2":                          
+
+Cor_Aufidius-Emphasis-Min-100-Percentages		Cor_Aufidius-Min-100-Percentages
+Cor_Aufidius-Vowels-Only-Min-500-Percentages
+Cor_Cominius-Emphasis-Min-100-Percentages
+Cor_Cominius-Emphasis-Vowels-Only-All-Counts
+Cor_Cominius-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_Cominius-Min-100-Percentages		Cor_Cominius-Vowels-Only-All-Percentages
+Cor_Cominius-Vowels-Only-Min-100-Percentages
+Cor_Cominius-Vowels-Only-Min-250-Percentages
+Cor_Coriolanus-Emphasis-Min-100-Percentages
+Cor_Coriolanus-Emphasis-Min-250-Percentages
+Cor_Coriolanus-Emphasis-No-Others-Percentages
+Cor_Coriolanus-Emphasis-Vowels-Only-Min-500-Percentages
+Cor_Coriolanus-Emphasis-Vowels-Only-No-Others-Percentages
+Cor_Coriolanus-Min-250-Percentages		Cor_Coriolanus-Min-500-Percentages
+Cor_Coriolanus-Vowels-Only-Min-1000-Percentages
+Cor_Coriolanus-Vowels-Only-Min-2500-Percentages
+Cor_Coriolanus-Vowels-Only-Min-500-Counts		Cor_Menenius-All-Percentages
+Cor_Menenius-Emphasis-Min-2500-Counts
+Cor_Menenius-Emphasis-Min-2500-Percentages
+Cor_Menenius-Emphasis-Vowels-Only-Min-250-Percentages
+Cor_Menenius-Emphasis-Vowels-Only-Min-2500-Counts
+Cor_Menenius-Emphasis-Vowels-Only-Min-2500-Percentages
+Cor_Menenius-Min-2500-Counts		Cor_Menenius-Min-2500-Percentages
+Cor_Menenius-Vowels-Only-All-Percentages		Cor_Virgilia-All-Counts
+Cor_Virgilia-All-Percentages		Cor_Virgilia-Emphasis-All-Percentages
+Cor_Virgilia-Emphasis-Min-100-Counts
+Cor_Virgilia-Emphasis-Vowels-Only-Min-100-Counts		Cor_Virgilia-Min-100-Counts
+Cor_Virgilia-Vowels-Only-All-Counts		Cor_Virgilia-Vowels-Only-Min-100-Counts
+
+
+                          Actual "1" Predicted as "3":                          
+
+Cor_Coriolanus-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_Coriolanus-Min-100-Percentages		Cor_Coriolanus-Vowels-Only-All-Counts
+Cor_Coriolanus-Vowels-Only-Min-100-Percentages
+Cor_LORDS.VOLSCIAN.0.1-All-Percentages
+Cor_LORDS.VOLSCIAN.0.1-Emphasis-All-Percentages
+Cor_LORDS.VOLSCIAN.0.2-All-Percentages
+Cor_LORDS.VOLSCIAN.0.2-Emphasis-All-Percentages
+Cor_Menenius-Emphasis-Min-1000-Percentages
+Cor_Menenius-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_Menenius-Emphasis-Vowels-Only-Min-1000-Counts
+Cor_Menenius-Emphasis-Vowels-Only-Min-1000-Percentages
+Cor_Menenius-Vowels-Only-Min-2500-Counts
+Cor_Menenius-Vowels-Only-Min-2500-Percentages		Cor_NOBLES.0.1-All-Percentages
+
+
+                          Actual "1" Predicted as "4":                          
+
+Cor_Cominius-Min-1000-Percentages		Cor_Cominius-Vowels-Only-All-Counts
+Cor_Cominius-Vowels-Only-Min-100-Counts
+Cor_Cominius-Vowels-Only-Min-1000-Counts
+Cor_Cominius-Vowels-Only-Min-1000-Percentages
+Cor_Cominius-Vowels-Only-Min-250-Counts
+Cor_Cominius-Vowels-Only-Min-500-Counts
+Cor_Cominius-Vowels-Only-Min-500-Percentages		Cor_Menenius-All-Counts
+Cor_Menenius-Emphasis-All-Counts		Cor_Menenius-Emphasis-Min-100-Counts
+Cor_Menenius-Emphasis-Min-100-Percentages
+Cor_Menenius-Emphasis-Min-1000-Counts		Cor_Menenius-Emphasis-Min-250-Counts
+Cor_Menenius-Emphasis-Min-250-Percentages
+Cor_Menenius-Emphasis-Min-500-Counts
+Cor_Menenius-Emphasis-Min-500-Percentages
+Cor_Menenius-Emphasis-Vowels-Only-All-Counts
+Cor_Menenius-Emphasis-Vowels-Only-Min-100-Counts
+Cor_Menenius-Emphasis-Vowels-Only-Min-250-Counts
+Cor_Menenius-Emphasis-Vowels-Only-Min-500-Counts
+Cor_Menenius-Emphasis-Vowels-Only-Min-500-Percentages
+Cor_Menenius-Min-100-Counts		Cor_Menenius-Min-100-Percentages
+Cor_Menenius-Min-1000-Counts		Cor_Menenius-Min-1000-Percentages
+Cor_Menenius-Min-250-Counts		Cor_Menenius-Min-250-Percentages
+Cor_Menenius-Min-500-Counts		Cor_Menenius-Min-500-Percentages
+Cor_Menenius-Vowels-Only-All-Counts		Cor_Menenius-Vowels-Only-Min-100-Counts
+Cor_Menenius-Vowels-Only-Min-100-Percentages
+Cor_Menenius-Vowels-Only-Min-1000-Counts
+Cor_Menenius-Vowels-Only-Min-1000-Percentages
+Cor_Menenius-Vowels-Only-Min-250-Counts
+Cor_Menenius-Vowels-Only-Min-250-Percentages
+Cor_Menenius-Vowels-Only-Min-500-Counts
+Cor_Menenius-Vowels-Only-Min-500-Percentages		Cor_Valeria-All-Counts
+Cor_Valeria-Emphasis-All-Counts		Cor_Valeria-Emphasis-Min-100-Counts
+Cor_Valeria-Emphasis-Min-100-Percentages		Cor_Valeria-Emphasis-Min-250-Counts
+Cor_Valeria-Emphasis-Min-250-Percentages		Cor_Valeria-Min-100-Counts
+Cor_Valeria-Min-100-Percentages		Cor_Valeria-Min-250-Counts
+Cor_Valeria-Min-250-Percentages
+
+
+                          Actual "1" Predicted as "5":                          
+
+Cor_LORDS.VOLSCIAN.0.2-Vowels-Only-All-Percentages
+Cor_NOBLES.0.1-Emphasis-All-Percentages
+Cor_Virgilia-Vowels-Only-Min-100-Percentages		Cor_Volumnia-All-Counts
+Cor_Volumnia-Min-100-Percentages
+Cor_Volumnia-Vowels-Only-Min-1000-Percentages
+
+
+                          Actual "1" Predicted as "6":                          
+
+Cor_Aufidius-Vowels-Only-Min-1000-Percentages		Cor_Cominius-All-Counts
+Cor_Coriolanus-Emphasis-Vowels-Only-Min-100-Counts
+Cor_Coriolanus-Emphasis-Vowels-Only-Min-250-Counts
+Cor_Coriolanus-Emphasis-Vowels-Only-Min-250-Percentages
+Cor_Coriolanus-Vowels-Only-Min-100-Counts
+Cor_Coriolanus-Vowels-Only-Min-250-Counts
+Cor_Coriolanus-Vowels-Only-Min-250-Percentages
+Cor_Coriolanus-Vowels-Only-Min-500-Percentages		Cor_LORDS.VOLSCIAN-All-Counts
+Cor_LORDS.VOLSCIAN-All-Percentages		Cor_LORDS.VOLSCIAN-Emphasis-All-Counts
+Cor_LORDS.VOLSCIAN-Emphasis-All-Percentages
+Cor_LORDS.VOLSCIAN-Emphasis-Vowels-Only-All-Counts
+Cor_LORDS.VOLSCIAN-Vowels-Only-All-Counts		Cor_LORDS.VOLSCIAN.0.1-All-Counts
+Cor_LORDS.VOLSCIAN.0.1-Emphasis-All-Counts
+Cor_LORDS.VOLSCIAN.0.1-Emphasis-Min-100-Counts
+Cor_LORDS.VOLSCIAN.0.1-Emphasis-Min-100-Percentages
+Cor_LORDS.VOLSCIAN.0.1-Min-100-Percentages		Cor_LORDS.VOLSCIAN.0.2-All-Counts
+Cor_LORDS.VOLSCIAN.0.2-Emphasis-All-Counts
+Cor_LORDS.VOLSCIAN.0.2-Emphasis-Vowels-Only-All-Counts
+Cor_LORDS.VOLSCIAN.0.2-Vowels-Only-All-Counts
+Cor_LORDS.VOLSCIAN.0.3-All-Counts		Cor_LORDS.VOLSCIAN.0.3-All-Percentages
+Cor_LORDS.VOLSCIAN.0.3-Emphasis-All-Counts
+Cor_LORDS.VOLSCIAN.0.3-Emphasis-All-Percentages
+Cor_LORDS.VOLSCIAN.0.3-Emphasis-Vowels-Only-All-Counts
+Cor_LORDS.VOLSCIAN.0.3-Emphasis-Vowels-Only-All-Percentages
+Cor_LORDS.VOLSCIAN.0.3-Vowels-Only-All-Counts
+Cor_LORDS.VOLSCIAN.0.3-Vowels-Only-All-Percentages		Cor_NOBLES.0.1-All-Counts
+Cor_NOBLES.0.1-Emphasis-All-Counts
+Cor_NOBLES.0.1-Emphasis-Vowels-Only-All-Counts
+Cor_NOBLES.0.1-Vowels-Only-All-Counts		Cor_Virgilia-Emphasis-All-Counts
+Cor_Virgilia-Emphasis-Min-100-Percentages
+Cor_Virgilia-Emphasis-Vowels-Only-All-Counts
+Cor_Virgilia-Emphasis-Vowels-Only-All-Percentages
+Cor_Virgilia-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_Virgilia-Min-100-Percentages		Cor_Virgilia-Vowels-Only-All-Percentages
+
+
+                          Actual "2" Predicted as "1":                          
+
+Cor_Gentlewoman-All-Counts		Cor_Gentlewoman-Emphasis-All-Counts
+Cor_Gentlewoman-Emphasis-Vowels-Only-All-Counts
+Cor_Gentlewoman-Vowels-Only-All-Counts
+Cor_Lartius-Emphasis-Min-100-Percentages
+Cor_Lartius-Emphasis-Vowels-Only-Min-250-Counts
+Cor_SENATORS.ROMAN.0.1-Emphasis-All-Counts
+Cor_SENATORS.ROMAN.0.1-Emphasis-Min-100-Counts
+Cor_SENATORS.ROMAN.0.1-Emphasis-Min-250-Counts
+Cor_SENATORS.ROMAN.0.1-Emphasis-Vowels-Only-All-Counts
+Cor_SENATORS.ROMAN.0.1-Emphasis-Vowels-Only-Min-100-Counts
+Cor_SENATORS.ROMAN.0.1-Emphasis-Vowels-Only-Min-250-Counts
+Cor_SENATORS.ROMAN.0.1-Min-100-Counts		Cor_SENATORS.ROMAN.0.1-Min-250-Counts
+Cor_SENATORS.ROMAN.0.1-Vowels-Only-Min-100-Counts
+Cor_SENATORS.ROMAN.0.1-Vowels-Only-Min-250-Counts
+Cor_SENATORS.ROMAN.0.2-Emphasis-Vowels-Only-All-Counts
+Cor_SENATORS.ROMAN.0.2-Vowels-Only-All-Counts
+Cor_SENATORS.VOLSCIAN.0.2-Emphasis-All-Counts
+Cor_SENATORS.VOLSCIAN.0.2-Emphasis-Vowels-Only-All-Counts
+Cor_SENATORS.VOLSCIAN.0.2-Vowels-Only-All-Counts
+
+
+                          Actual "2" Predicted as "2":                          
+
+Cor_SENATORS.ROMAN.0.1-All-Percentages
+Cor_SENATORS.ROMAN.0.1-Emphasis-All-Percentages
+Cor_SENATORS.ROMAN.0.1-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "2" Predicted as "3":                          
+
+Cor_SENATORS.ROMAN-Emphasis-Vowels-Only-All-Percentages
+Cor_SENATORS.ROMAN-Vowels-Only-All-Percentages
+
+
+                          Actual "2" Predicted as "4":                          
+
+Cor_Gentlewoman-All-Percentages		Cor_Gentlewoman-Emphasis-All-Percentages
+Cor_Gentlewoman-Emphasis-Vowels-Only-All-Percentages
+Cor_Gentlewoman-Vowels-Only-All-Percentages
+Cor_Lartius-Emphasis-Vowels-Only-All-Percentages
+Cor_Lartius-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_SENATORS.ROMAN.0.1-Min-100-Percentages
+Cor_SENATORS.ROMAN.0.2-All-Percentages
+Cor_SENATORS.ROMAN.0.2-Emphasis-All-Percentages
+Cor_SENATORS.VOLSCIAN.0.1-Min-100-Percentages
+
+
+                          Actual "2" Predicted as "5":                          
+
+
+
+
+                          Actual "2" Predicted as "6":                          
+
+Cor_Lartius-All-Counts		Cor_Lartius-All-Percentages
+Cor_Lartius-Emphasis-All-Counts		Cor_Lartius-Emphasis-All-Percentages
+Cor_Lartius-Emphasis-Vowels-Only-All-Counts
+Cor_Lartius-Vowels-Only-All-Counts		Cor_SENATORS.ROMAN-All-Counts
+Cor_SENATORS.ROMAN-Emphasis-All-Counts
+Cor_SENATORS.ROMAN-Emphasis-Vowels-Only-All-Counts
+Cor_SENATORS.ROMAN-Vowels-Only-All-Counts		Cor_SENATORS.ROMAN.0.1-All-Counts
+Cor_SENATORS.ROMAN.0.1-Vowels-Only-All-Counts
+Cor_SENATORS.ROMAN.0.2-All-Counts		Cor_SENATORS.ROMAN.0.2-Emphasis-All-Counts
+Cor_SENATORS.VOLSCIAN.0.1-All-Counts
+Cor_SENATORS.VOLSCIAN.0.1-Vowels-Only-All-Counts
+Cor_SENATORS.VOLSCIAN.0.2-All-Counts
+
+
+                          Actual "3" Predicted as "1":                          
+
+
+
+
+                          Actual "3" Predicted as "2":                          
+
+
+
+
+                          Actual "3" Predicted as "3":                          
+
+Cor_SOLDIERS.VOLSCIAN.Lieutenant-All-Counts
+Cor_SOLDIERS.VOLSCIAN.Lieutenant-All-Percentages
+Cor_SOLDIERS.VOLSCIAN.Lieutenant-Emphasis-All-Counts
+Cor_SOLDIERS.VOLSCIAN.Lieutenant-Emphasis-All-Percentages
+
+
+                          Actual "3" Predicted as "4":                          
+
+
+
+
+                          Actual "3" Predicted as "5":                          
+
+Cor_Herald-All-Percentages		Cor_Herald-Emphasis-All-Percentages
+Cor_Herald-Vowels-Only-All-Percentages
+
+
+                          Actual "3" Predicted as "6":                          
+
+Cor_Herald-All-Counts		Cor_Herald-Emphasis-All-Counts
+Cor_Herald-Emphasis-Vowels-Only-All-Counts		Cor_Herald-Vowels-Only-All-Counts
+Cor_SOLDIERS.ROMAN.Lieutenant-All-Counts
+Cor_SOLDIERS.ROMAN.Lieutenant-Emphasis-All-Counts
+Cor_SOLDIERS.ROMAN.Lieutenant-Emphasis-All-Percentages
+Cor_SOLDIERS.ROMAN.Lieutenant-Emphasis-Vowels-Only-All-Counts
+Cor_SOLDIERS.ROMAN.Lieutenant-Emphasis-Vowels-Only-All-Percentages
+Cor_SOLDIERS.ROMAN.Lieutenant-Vowels-Only-All-Counts
+Cor_SOLDIERS.VOLSCIAN.Lieutenant-Emphasis-Vowels-Only-All-Counts
+Cor_SOLDIERS.VOLSCIAN.Lieutenant-Emphasis-Vowels-Only-All-Percentages
+Cor_SOLDIERS.VOLSCIAN.Lieutenant-Vowels-Only-All-Counts
+Cor_SOLDIERS.VOLSCIAN.Lieutenant-Vowels-Only-All-Percentages
+
+
+                          Actual "4" Predicted as "1":                          
+
+Cor_AEDILES.X.2-All-Counts		Cor_AEDILES.X.2-Emphasis-All-Counts
+Cor_AEDILES.X.3-All-Counts		Cor_AEDILES.X.3-Emphasis-All-Counts
+Cor_AEDILES.X.3-Emphasis-Vowels-Only-All-Counts
+Cor_AEDILES.X.3-Vowels-Only-All-Counts
+Cor_CITIZENS.ANTIUM.1-Vowels-Only-All-Counts
+Cor_OFFICERS.1-Emphasis-Min-100-Counts
+Cor_OFFICERS.1-Emphasis-Min-100-Percentages
+Cor_OFFICERS.1-Emphasis-Vowels-Only-Min-100-Counts
+Cor_OFFICERS.1-Min-100-Counts		Cor_OFFICERS.1-Vowels-Only-Min-100-Counts
+Cor_OFFICERS.2-All-Counts		Cor_OFFICERS.2-Min-100-Counts
+Cor_TRIBUNES.Brutus-No-Others-Percentages
+
+
+                          Actual "4" Predicted as "2":                          
+
+Cor_AEDILES.X.2-All-Percentages
+Cor_AEDILES.X.2-Emphasis-Vowels-Only-All-Counts
+Cor_AEDILES.X.2-Vowels-Only-All-Percentages		Cor_OFFICERS.1-All-Percentages
+Cor_OFFICERS.1-Emphasis-All-Percentages
+Cor_OFFICERS.2-Emphasis-Vowels-Only-All-Counts
+Cor_OFFICERS.2-Emphasis-Vowels-Only-Min-100-Counts
+Cor_OFFICERS.2-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_OFFICERS.2-Vowels-Only-All-Counts
+Cor_OFFICERS.2-Vowels-Only-Min-100-Counts
+Cor_OFFICERS.2-Vowels-Only-Min-100-Percentages
+Cor_TRIBUNES.Brutus-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_TRIBUNES.Brutus-Vowels-Only-Min-100-Percentages
+Cor_TRIBUNES.Sicinius-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_TRIBUNES.Sicinius-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "4" Predicted as "3":                          
+
+Cor_AEDILES-All-Percentages		Cor_AEDILES-Emphasis-All-Percentages
+Cor_AEDILES-Emphasis-Vowels-Only-All-Percentages
+Cor_AEDILES-Vowels-Only-All-Percentages		Cor_CITIZENS.ANTIUM.1-All-Percentages
+Cor_CITIZENS.ANTIUM.1-Emphasis-All-Percentages
+Cor_OFFICERS.1-Emphasis-Vowels-Only-All-Percentages
+Cor_OFFICERS.1-Vowels-Only-All-Percentages
+Cor_TRIBUNES.Brutus-Emphasis-Min-1000-Counts
+Cor_TRIBUNES.Brutus-Emphasis-Min-1000-Percentages
+Cor_TRIBUNES.Brutus-Min-1000-Percentages		Cor_TRIBUNES.Sicinius-All-Counts
+Cor_TRIBUNES.Sicinius-Emphasis-All-Counts
+Cor_TRIBUNES.Sicinius-Emphasis-Min-100-Counts
+Cor_TRIBUNES.Sicinius-Emphasis-Min-100-Percentages
+Cor_TRIBUNES.Sicinius-Emphasis-Min-1000-Counts
+Cor_TRIBUNES.Sicinius-Emphasis-Min-1000-Percentages
+Cor_TRIBUNES.Sicinius-Emphasis-Min-250-Counts
+Cor_TRIBUNES.Sicinius-Emphasis-Min-250-Percentages
+Cor_TRIBUNES.Sicinius-Emphasis-Min-500-Counts
+Cor_TRIBUNES.Sicinius-Emphasis-Min-500-Percentages
+Cor_TRIBUNES.Sicinius-Min-100-Percentages
+Cor_TRIBUNES.Sicinius-Min-1000-Counts
+Cor_TRIBUNES.Sicinius-Min-1000-Percentages
+Cor_TRIBUNES.Sicinius-Min-250-Counts
+Cor_TRIBUNES.Sicinius-Min-250-Percentages
+
+
+                          Actual "4" Predicted as "4":                          
+
+Cor_AEDILES.X.2-Emphasis-All-Percentages		Cor_AEDILES.X.3-All-Percentages
+Cor_AEDILES.X.3-Emphasis-All-Percentages
+Cor_AEDILES.X.3-Emphasis-Vowels-Only-All-Percentages
+Cor_AEDILES.X.3-Vowels-Only-All-Percentages
+Cor_CITIZENS.ANTIUM.1-Emphasis-Vowels-Only-All-Percentages
+Cor_CITIZENS.ANTIUM.1-Vowels-Only-All-Percentages
+Cor_OFFICERS.1-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_OFFICERS.1-Vowels-Only-Min-100-Percentages		Cor_TRIBUNES.Brutus-All-Counts
+Cor_TRIBUNES.Brutus-Emphasis-All-Counts
+Cor_TRIBUNES.Brutus-Emphasis-Min-100-Counts
+Cor_TRIBUNES.Brutus-Emphasis-Min-100-Percentages
+Cor_TRIBUNES.Brutus-Emphasis-Min-250-Counts
+Cor_TRIBUNES.Brutus-Emphasis-Min-500-Counts
+Cor_TRIBUNES.Brutus-Emphasis-Min-500-Percentages
+Cor_TRIBUNES.Brutus-Emphasis-Vowels-Only-All-Counts
+Cor_TRIBUNES.Brutus-Emphasis-Vowels-Only-Min-100-Counts
+Cor_TRIBUNES.Brutus-Emphasis-Vowels-Only-Min-1000-Counts
+Cor_TRIBUNES.Brutus-Emphasis-Vowels-Only-Min-1000-Percentages
+Cor_TRIBUNES.Brutus-Emphasis-Vowels-Only-Min-250-Counts
+Cor_TRIBUNES.Brutus-Emphasis-Vowels-Only-Min-500-Counts
+Cor_TRIBUNES.Brutus-Emphasis-Vowels-Only-Min-500-Percentages
+Cor_TRIBUNES.Brutus-Min-100-Counts		Cor_TRIBUNES.Brutus-Min-100-Percentages
+Cor_TRIBUNES.Brutus-Min-1000-Counts		Cor_TRIBUNES.Brutus-Min-250-Counts
+Cor_TRIBUNES.Brutus-Min-500-Counts		Cor_TRIBUNES.Brutus-Min-500-Percentages
+Cor_TRIBUNES.Brutus-Vowels-Only-All-Counts
+Cor_TRIBUNES.Brutus-Vowels-Only-Min-100-Counts
+Cor_TRIBUNES.Brutus-Vowels-Only-Min-1000-Counts
+Cor_TRIBUNES.Brutus-Vowels-Only-Min-1000-Percentages
+Cor_TRIBUNES.Brutus-Vowels-Only-Min-250-Counts
+Cor_TRIBUNES.Brutus-Vowels-Only-Min-500-Counts
+Cor_TRIBUNES.Brutus-Vowels-Only-Min-500-Percentages
+Cor_TRIBUNES.Brutus-Vowels-Only-No-Others-Counts
+Cor_TRIBUNES.Brutus-Vowels-Only-No-Others-Percentages
+Cor_TRIBUNES.Sicinius-Emphasis-Vowels-Only-All-Counts
+Cor_TRIBUNES.Sicinius-Emphasis-Vowels-Only-Min-100-Counts
+Cor_TRIBUNES.Sicinius-Min-100-Counts		Cor_TRIBUNES.Sicinius-Min-500-Counts
+Cor_TRIBUNES.Sicinius-Min-500-Percentages
+Cor_TRIBUNES.Sicinius-Vowels-Only-All-Counts
+Cor_TRIBUNES.Sicinius-Vowels-Only-Min-100-Counts
+Cor_TRIBUNES.Sicinius-Vowels-Only-Min-1000-Counts
+Cor_TRIBUNES.Sicinius-Vowels-Only-Min-1000-Percentages
+Cor_TRIBUNES.Sicinius-Vowels-Only-Min-250-Counts
+Cor_TRIBUNES.Sicinius-Vowels-Only-Min-500-Counts
+Cor_TRIBUNES.Sicinius-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "4" Predicted as "5":                          
+
+Cor_OFFICERS.2-Vowels-Only-All-Percentages
+
+
+                          Actual "4" Predicted as "6":                          
+
+Cor_AEDILES-All-Counts		Cor_AEDILES-Emphasis-All-Counts
+Cor_AEDILES-Emphasis-Vowels-Only-All-Counts
+Cor_AEDILES-Vowels-Only-All-Counts		Cor_AEDILES.X.2-Vowels-Only-All-Counts
+Cor_CITIZENS.ANTIUM.1-All-Counts		Cor_CITIZENS.ANTIUM.1-Emphasis-All-Counts
+Cor_CITIZENS.ANTIUM.1-Emphasis-Vowels-Only-All-Counts
+Cor_OFFICERS.1-All-Counts		Cor_OFFICERS.1-Emphasis-All-Counts
+Cor_OFFICERS.1-Emphasis-Vowels-Only-All-Counts
+Cor_OFFICERS.1-Vowels-Only-All-Counts
+Cor_TRIBUNES.Brutus-Emphasis-Min-250-Percentages
+Cor_TRIBUNES.Brutus-Min-250-Percentages
+
+
+                          Actual "5" Predicted as "1":                          
+
+Cor_CITIZENS.ROMAN-Vowels-Only-Min-100-Counts
+Cor_CITIZENS.ROMAN.0.3-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN.0.3-Vowels-Only-Min-100-Counts
+Cor_CITIZENS.ROMAN.1-All-Counts		Cor_CITIZENS.ROMAN.1-All-Percentages
+Cor_CITIZENS.ROMAN.1-Emphasis-All-Counts
+Cor_CITIZENS.ROMAN.1-Emphasis-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN.1-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN.1-Vowels-Only-All-Percentages
+Cor_CITIZENS.ROMAN.2-Emphasis-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN.2-Emphasis-Vowels-Only-Min-100-Counts
+Cor_CITIZENS.ROMAN.2-Vowels-Only-Min-100-Counts
+Cor_CITIZENS.ROMAN.4-Emphasis-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN.5-All-Counts		Cor_CITIZENS.ROMAN.5-Emphasis-All-Counts
+Cor_CITIZENS.ROMAN.5-Emphasis-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN.5-Vowels-Only-All-Counts		Cor_CITIZENS.ROMAN.6-All-Counts
+Cor_CITIZENS.ROMAN.6-Emphasis-All-Counts
+Cor_CITIZENS.ROMAN.6-Emphasis-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN.7-All-Counts		Cor_CITIZENS.ROMAN.7-Emphasis-All-Counts
+Cor_CITIZENS.ROMAN.7-Emphasis-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN.7-Vowels-Only-All-Counts		Cor_CITIZENS.ROMAN.8-All-Counts
+Cor_CITIZENS.ROMAN.8-Emphasis-All-Counts
+Cor_CITIZENS.ROMAN.8-Emphasis-Vowels-Only-All-Counts
+Cor_CITIZENS.VOLSCIAN-Emphasis-Vowels-Only-All-Counts
+Cor_CITIZENS.VOLSCIAN-Emphasis-Vowels-Only-All-Percentages
+Cor_CITIZENS.VOLSCIAN-Vowels-Only-All-Counts
+Cor_CONSPIRATORS-Emphasis-Vowels-Only-All-Counts
+Cor_CONSPIRATORS-Vowels-Only-All-Counts
+Cor_CONSPIRATORS.0.1-Emphasis-Vowels-Only-All-Counts
+Cor_CONSPIRATORS.0.1-Vowels-Only-All-Counts
+Cor_CONSPIRATORS.0.3-Vowels-Only-All-Counts		Cor_SENATORS.VOLSCIAN-All-Counts
+Cor_SENATORS.VOLSCIAN-Emphasis-All-Counts
+Cor_SENATORS.VOLSCIAN-Emphasis-Vowels-Only-All-Counts
+Cor_SENATORS.VOLSCIAN-Vowels-Only-All-Counts
+
+
+                          Actual "5" Predicted as "2":                          
+
+Cor_CITIZENS.ROMAN.2-All-Percentages
+Cor_CITIZENS.ROMAN.2-Emphasis-All-Percentages
+Cor_CITIZENS.ROMAN.2-Emphasis-Min-100-Percentages
+Cor_CITIZENS.ROMAN.2-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_CONSPIRATORS.0.2-All-Percentages
+Cor_CONSPIRATORS.0.2-Emphasis-All-Percentages
+Cor_CONSPIRATORS.0.2-Vowels-Only-All-Counts
+
+
+                          Actual "5" Predicted as "3":                          
+
+Cor_CITIZENS.ROMAN-All-Percentages
+Cor_CITIZENS.ROMAN-Emphasis-All-Percentages
+Cor_CITIZENS.ROMAN.0.1-Vowels-Only-All-Percentages
+Cor_CITIZENS.ROMAN.2-All-Counts		Cor_CITIZENS.ROMAN.2-Emphasis-All-Counts
+Cor_CITIZENS.ROMAN.2-Emphasis-Min-100-Counts
+Cor_CITIZENS.ROMAN.2-Emphasis-Vowels-Only-All-Percentages
+Cor_CITIZENS.ROMAN.2-Min-100-Counts		Cor_CITIZENS.ROMAN.4-All-Percentages
+Cor_CITIZENS.ROMAN.4-Emphasis-All-Percentages
+
+
+                          Actual "5" Predicted as "4":                          
+
+Cor_CITIZENS.ROMAN-Vowels-Only-Min-100-Percentages
+Cor_CITIZENS.ROMAN.0.1-Min-100-Percentages
+Cor_CITIZENS.ROMAN.0.1-Min-250-Percentages
+Cor_CITIZENS.ROMAN.0.1-Vowels-Only-Min-100-Percentages
+Cor_CITIZENS.ROMAN.0.1-Vowels-Only-Min-250-Percentages
+Cor_CITIZENS.ROMAN.0.2-Vowels-Only-Min-100-Percentages
+Cor_CITIZENS.ROMAN.0.2-Vowels-Only-Min-250-Percentages
+Cor_CITIZENS.ROMAN.0.3-Emphasis-All-Percentages
+Cor_CITIZENS.ROMAN.2-Min-100-Percentages
+Cor_CITIZENS.ROMAN.3-Emphasis-Min-100-Percentages
+Cor_CITIZENS.ROMAN.3-Min-100-Percentages		Cor_CITIZENS.ROMAN.4-All-Counts
+Cor_CITIZENS.ROMAN.4-Emphasis-All-Counts
+Cor_CONSPIRATORS.0.3-Emphasis-Vowels-Only-All-Percentages
+Cor_CONSPIRATORS.0.3-Vowels-Only-All-Percentages
+
+
+                          Actual "5" Predicted as "5":                          
+
+Cor_CITIZENS.ROMAN-All-Counts		Cor_CITIZENS.ROMAN-Emphasis-All-Counts
+Cor_CITIZENS.ROMAN-Emphasis-Min-100-Counts
+Cor_CITIZENS.ROMAN-Emphasis-Min-100-Percentages
+Cor_CITIZENS.ROMAN-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_CITIZENS.ROMAN-Min-100-Counts		Cor_CITIZENS.ROMAN-Min-100-Percentages
+Cor_CITIZENS.ROMAN.0.1-All-Counts		Cor_CITIZENS.ROMAN.0.1-Emphasis-All-Counts
+Cor_CITIZENS.ROMAN.0.1-Emphasis-Min-100-Counts
+Cor_CITIZENS.ROMAN.0.1-Emphasis-Min-100-Percentages
+Cor_CITIZENS.ROMAN.0.1-Min-100-Counts		Cor_CITIZENS.ROMAN.0.1-Min-250-Counts
+Cor_CITIZENS.ROMAN.0.2-All-Counts		Cor_CITIZENS.ROMAN.0.2-Emphasis-All-Counts
+Cor_CITIZENS.ROMAN.0.2-Emphasis-Min-100-Counts
+Cor_CITIZENS.ROMAN.0.2-Emphasis-Min-100-Percentages
+Cor_CITIZENS.ROMAN.0.2-Emphasis-Min-250-Counts
+Cor_CITIZENS.ROMAN.0.2-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_CITIZENS.ROMAN.0.2-Min-100-Counts
+Cor_CITIZENS.ROMAN.0.2-Min-100-Percentages		Cor_CITIZENS.ROMAN.0.3-All-Counts
+Cor_CITIZENS.ROMAN.0.3-Emphasis-All-Counts
+Cor_CITIZENS.ROMAN.0.3-Emphasis-Min-100-Counts
+Cor_CITIZENS.ROMAN.0.3-Emphasis-Min-100-Percentages
+Cor_CITIZENS.ROMAN.0.3-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_CITIZENS.ROMAN.0.3-Min-100-Counts
+Cor_CITIZENS.ROMAN.0.3-Min-100-Percentages		Cor_CITIZENS.ROMAN.3-All-Counts
+Cor_CITIZENS.ROMAN.3-Min-100-Counts		Cor_CITIZENS.ROMAN.3-Min-250-Counts
+Cor_CITIZENS.ROMAN.3-Min-250-Percentages		Cor_CITIZENS.ROMAN.6-All-Percentages
+Cor_CITIZENS.ROMAN.6-Emphasis-All-Percentages
+Cor_CITIZENS.ROMAN.6-Emphasis-Vowels-Only-All-Percentages
+Cor_CITIZENS.ROMAN.7-Emphasis-All-Percentages
+Cor_CITIZENS.ROMAN.7-Emphasis-Vowels-Only-All-Percentages
+Cor_CITIZENS.ROMAN.8-All-Percentages
+Cor_CITIZENS.ROMAN.8-Emphasis-All-Percentages
+Cor_CITIZENS.ROMAN.8-Emphasis-Vowels-Only-All-Percentages
+Cor_CONSPIRATORS.0.2-Vowels-Only-All-Percentages
+
+
+                          Actual "5" Predicted as "6":                          
+
+Cor_CITIZENS.ROMAN-Emphasis-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN-Emphasis-Vowels-Only-Min-100-Counts
+Cor_CITIZENS.ROMAN-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN.0.2-Emphasis-Min-250-Percentages
+Cor_CITIZENS.ROMAN.0.2-Emphasis-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN.0.2-Emphasis-Vowels-Only-Min-100-Counts
+Cor_CITIZENS.ROMAN.0.2-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN.0.3-Emphasis-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN.0.3-Emphasis-Vowels-Only-Min-100-Counts
+Cor_CITIZENS.ROMAN.2-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN.4-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN.5-Emphasis-All-Percentages
+Cor_CITIZENS.ROMAN.5-Emphasis-Vowels-Only-All-Percentages
+Cor_CITIZENS.ROMAN.6-Vowels-Only-All-Counts
+Cor_CITIZENS.ROMAN.8-Vowels-Only-All-Counts		Cor_CITIZENS.VOLSCIAN-All-Counts
+Cor_CITIZENS.VOLSCIAN-All-Percentages
+Cor_CITIZENS.VOLSCIAN-Emphasis-All-Counts
+Cor_CITIZENS.VOLSCIAN-Emphasis-All-Percentages		Cor_CONSPIRATORS-All-Counts
+Cor_CONSPIRATORS-Emphasis-All-Counts
+Cor_CONSPIRATORS-Emphasis-All-Percentages		Cor_CONSPIRATORS.0.1-All-Counts
+Cor_CONSPIRATORS.0.1-All-Percentages		Cor_CONSPIRATORS.0.1-Emphasis-All-Counts
+Cor_CONSPIRATORS.0.1-Emphasis-All-Percentages		Cor_CONSPIRATORS.0.2-All-Counts
+Cor_CONSPIRATORS.0.2-Emphasis-All-Counts
+Cor_CONSPIRATORS.0.2-Emphasis-Vowels-Only-All-Counts
+Cor_CONSPIRATORS.0.3-All-Counts		Cor_CONSPIRATORS.0.3-All-Percentages
+Cor_CONSPIRATORS.0.3-Emphasis-All-Counts
+Cor_CONSPIRATORS.0.3-Emphasis-All-Percentages
+Cor_CONSPIRATORS.0.3-Emphasis-Vowels-Only-All-Counts
+Cor_SOLDIERS.ROMAN-All-Counts		Cor_SOLDIERS.ROMAN-All-Percentages
+Cor_SOLDIERS.ROMAN-Emphasis-All-Counts
+Cor_SOLDIERS.ROMAN-Emphasis-All-Percentages
+Cor_SOLDIERS.ROMAN-Emphasis-Vowels-Only-All-Counts
+Cor_SOLDIERS.ROMAN-Emphasis-Vowels-Only-All-Percentages
+Cor_SOLDIERS.ROMAN-Vowels-Only-All-Counts
+
+
+                          Actual "6" Predicted as "1":                          
+
+Cor_Adrian-Emphasis-Vowels-Only-All-Counts
+Cor_Adrian-Emphasis-Vowels-Only-Min-100-Counts
+Cor_Adrian-Vowels-Only-All-Counts		Cor_Adrian-Vowels-Only-Min-100-Counts
+Cor_MESSENGERS.TRIBUNES.1-All-Counts		Cor_MESSENGERS.TRIBUNES.1-Min-100-Counts
+Cor_MESSENGERS.TRIBUNES.1-Vowels-Only-All-Counts
+Cor_MESSENGERS.TRIBUNES.2-Min-100-Counts
+Cor_MESSENGERS.TRIBUNES.2-Vowels-Only-Min-100-Counts
+Cor_MESSENGERS.X.1-All-Counts		Cor_MESSENGERS.X.1-Vowels-Only-All-Counts
+Cor_MESSENGERS.X.2-All-Counts		Cor_MESSENGERS.X.2-Emphasis-All-Counts
+Cor_MESSENGERS.X.2-Emphasis-Vowels-Only-All-Counts
+Cor_MESSENGERS.X.2-Vowels-Only-All-Counts		Cor_MESSENGERS.X.3-All-Counts
+Cor_MESSENGERS.X.3-Emphasis-All-Counts
+Cor_MESSENGERS.X.3-Emphasis-Vowels-Only-All-Counts
+Cor_MESSENGERS.X.4-All-Counts		Cor_MESSENGERS.X.4-Emphasis-All-Counts
+Cor_MESSENGERS.X.4-Emphasis-Vowels-Only-All-Counts
+Cor_Nicanor-Vowels-Only-Min-100-Counts
+Cor_SERVANTS.1-Emphasis-Vowels-Only-Min-100-Counts
+Cor_SERVANTS.3-Emphasis-All-Percentages
+Cor_SERVANTS.3-Emphasis-Vowels-Only-Min-250-Counts
+Cor_SERVANTS.3-Vowels-Only-Min-250-Counts
+Cor_SOLDIERS.VOLSCIAN.0.1-All-Counts
+Cor_SOLDIERS.VOLSCIAN.0.1-Vowels-Only-All-Counts
+
+
+                          Actual "6" Predicted as "2":                          
+
+Cor_Adrian-All-Percentages		Cor_Adrian-Emphasis-All-Percentages
+Cor_Adrian-Min-100-Counts		Cor_MESSENGERS.TRIBUNES.2-All-Percentages
+Cor_MESSENGERS.X.4-Vowels-Only-All-Percentages
+Cor_Nicanor-Emphasis-All-Percentages		Cor_Nicanor-Vowels-Only-All-Counts
+Cor_SERVANTS.1-Emphasis-All-Percentages
+Cor_SERVANTS.1-Emphasis-Vowels-Only-All-Percentages
+Cor_SERVANTS.1-Vowels-Only-All-Percentages
+Cor_SERVANTS.2-Emphasis-Vowels-Only-All-Percentages
+Cor_SERVANTS.2-Vowels-Only-All-Counts
+Cor_SERVANTS.2-Vowels-Only-Min-100-Counts
+Cor_SERVANTS.2-Vowels-Only-Min-250-Counts		Cor_SERVANTS.3-All-Percentages
+Cor_SERVANTS.3-Vowels-Only-Min-100-Counts
+
+
+                          Actual "6" Predicted as "3":                          
+
+Cor_Adrian-All-Counts		Cor_Adrian-Emphasis-All-Counts
+Cor_Adrian-Emphasis-Min-100-Percentages		Cor_Adrian-Min-100-Percentages
+Cor_MESSENGERS.X.1-Emphasis-Vowels-Only-All-Percentages
+Cor_Nicanor-Emphasis-Vowels-Only-All-Percentages		Cor_SERVANTS.2-All-Counts
+Cor_SERVANTS.2-Min-100-Counts		Cor_SERVANTS.2-Min-250-Counts
+Cor_SERVANTS.2-Min-250-Percentages		Cor_SERVANTS.3-All-Counts
+Cor_SERVANTS.3-Emphasis-All-Counts		Cor_SERVANTS.3-Emphasis-Min-100-Counts
+Cor_SERVANTS.3-Emphasis-Min-250-Counts		Cor_SERVANTS.3-Min-100-Counts
+Cor_SERVANTS.3-Min-250-Counts		Cor_SOLDIERS.ROMAN.0.1-All-Percentages
+Cor_SOLDIERS.ROMAN.0.1-Emphasis-All-Percentages
+Cor_SOLDIERS.ROMAN.0.1-Emphasis-Vowels-Only-All-Percentages
+Cor_SOLDIERS.VOLSCIAN.0.1-Emphasis-Vowels-Only-All-Percentages
+Cor_SOLDIERS.VOLSCIAN.0.1-Vowels-Only-All-Percentages
+Cor_WATCHMEN.1-All-Percentages		Cor_WATCHMEN.1-Emphasis-All-Percentages
+Cor_WATCHMEN.2-All-Counts
+
+
+                          Actual "6" Predicted as "4":                          
+
+Cor_Adrian-Emphasis-Min-100-Counts
+Cor_MESSENGERS.TRIBUNES.1-Emphasis-All-Percentages
+Cor_MESSENGERS.TRIBUNES.1-Emphasis-Vowels-Only-All-Percentages
+Cor_MESSENGERS.TRIBUNES.2-Emphasis-All-Counts
+Cor_MESSENGERS.TRIBUNES.2-Emphasis-All-Percentages
+Cor_MESSENGERS.TRIBUNES.2-Emphasis-Min-100-Counts
+Cor_MESSENGERS.TRIBUNES.2-Emphasis-Min-100-Percentages
+Cor_MESSENGERS.TRIBUNES.2-Emphasis-Vowels-Only-All-Counts
+Cor_MESSENGERS.TRIBUNES.2-Emphasis-Vowels-Only-All-Percentages
+Cor_MESSENGERS.TRIBUNES.2-Emphasis-Vowels-Only-Min-100-Counts
+Cor_MESSENGERS.TRIBUNES.2-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_MESSENGERS.TRIBUNES.2-Min-100-Percentages
+Cor_MESSENGERS.TRIBUNES.2-Vowels-Only-Min-100-Percentages
+Cor_SERVANTS.1-Emphasis-Min-100-Percentages
+Cor_SERVANTS.1-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_SOLDIERS.ROMAN.0.3-Vowels-Only-All-Percentages
+Cor_SOLDIERS.VOLSCIAN.0.1-Emphasis-All-Percentages		Cor_WATCHMEN.1-All-Counts
+Cor_WATCHMEN.1-Emphasis-All-Counts		Cor_WATCHMEN.1-Emphasis-Min-100-Counts
+Cor_WATCHMEN.1-Emphasis-Min-100-Percentages
+Cor_WATCHMEN.1-Emphasis-Min-250-Counts
+Cor_WATCHMEN.1-Emphasis-Min-250-Percentages
+Cor_WATCHMEN.1-Emphasis-Vowels-Only-Min-100-Counts
+Cor_WATCHMEN.1-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_WATCHMEN.1-Emphasis-Vowels-Only-Min-250-Counts
+Cor_WATCHMEN.1-Emphasis-Vowels-Only-Min-250-Percentages
+Cor_WATCHMEN.1-Min-100-Counts		Cor_WATCHMEN.1-Min-100-Percentages
+Cor_WATCHMEN.1-Min-250-Counts		Cor_WATCHMEN.1-Min-250-Percentages
+Cor_WATCHMEN.1-Vowels-Only-Min-100-Counts
+Cor_WATCHMEN.1-Vowels-Only-Min-100-Percentages
+Cor_WATCHMEN.1-Vowels-Only-Min-250-Counts
+Cor_WATCHMEN.1-Vowels-Only-Min-250-Percentages
+Cor_WATCHMEN.2-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "5":                          
+
+Cor_MESSENGERS.TRIBUNES.2-Vowels-Only-All-Percentages
+Cor_MESSENGERS.X.2-All-Percentages
+Cor_MESSENGERS.X.2-Vowels-Only-All-Percentages
+Cor_Nicanor-Vowels-Only-All-Percentages
+Cor_SERVANTS.2-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_SERVANTS.2-Vowels-Only-All-Percentages
+Cor_SERVANTS.2-Vowels-Only-Min-100-Percentages
+Cor_SERVANTS.2-Vowels-Only-Min-250-Percentages
+Cor_SERVANTS.3-Emphasis-Min-100-Percentages
+Cor_SERVANTS.3-Emphasis-Vowels-Only-All-Counts
+Cor_SERVANTS.3-Emphasis-Vowels-Only-Min-100-Counts
+Cor_SERVANTS.3-Emphasis-Vowels-Only-Min-100-Percentages
+Cor_SERVANTS.3-Emphasis-Vowels-Only-Min-250-Percentages
+Cor_SERVANTS.3-Min-100-Percentages		Cor_SERVANTS.3-Vowels-Only-All-Percentages
+Cor_SOLDIERS.ROMAN.0.1-All-Counts
+Cor_SOLDIERS.ROMAN.0.1-Vowels-Only-All-Percentages
+Cor_WATCHMEN.2-All-Percentages		Cor_WATCHMEN.2-Emphasis-All-Percentages
+Cor_WATCHMEN.2-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "6":                          
+
+Cor_MESSENGERS.TRIBUNES.1-Emphasis-All-Counts
+Cor_MESSENGERS.TRIBUNES.1-Emphasis-Vowels-Only-All-Counts
+Cor_MESSENGERS.TRIBUNES.2-All-Counts
+Cor_MESSENGERS.TRIBUNES.2-Vowels-Only-All-Counts
+Cor_MESSENGERS.X.1-Emphasis-All-Counts
+Cor_MESSENGERS.X.1-Emphasis-Vowels-Only-All-Counts
+Cor_MESSENGERS.X.3-Emphasis-Vowels-Only-All-Percentages
+Cor_MESSENGERS.X.3-Vowels-Only-All-Counts
+Cor_MESSENGERS.X.3-Vowels-Only-All-Percentages
+Cor_MESSENGERS.X.4-Vowels-Only-All-Counts		Cor_SERVANTS.1-All-Counts
+Cor_SERVANTS.1-Emphasis-All-Counts		Cor_SERVANTS.1-Emphasis-Min-100-Counts
+Cor_SERVANTS.1-Emphasis-Vowels-Only-All-Counts		Cor_SERVANTS.1-Min-100-Counts
+Cor_SERVANTS.1-Min-100-Percentages		Cor_SERVANTS.1-Vowels-Only-All-Counts
+Cor_SERVANTS.1-Vowels-Only-Min-100-Counts
+Cor_SERVANTS.1-Vowels-Only-Min-100-Percentages		Cor_SERVANTS.2-All-Percentages
+Cor_SERVANTS.2-Emphasis-All-Counts		Cor_SERVANTS.2-Emphasis-All-Percentages
+Cor_SERVANTS.2-Emphasis-Min-100-Counts
+Cor_SERVANTS.2-Emphasis-Min-100-Percentages
+Cor_SERVANTS.2-Emphasis-Min-250-Counts
+Cor_SERVANTS.2-Emphasis-Min-250-Percentages
+Cor_SERVANTS.2-Emphasis-Vowels-Only-All-Counts
+Cor_SERVANTS.2-Emphasis-Vowels-Only-Min-100-Counts
+Cor_SERVANTS.2-Emphasis-Vowels-Only-Min-250-Counts
+Cor_SERVANTS.2-Emphasis-Vowels-Only-Min-250-Percentages
+Cor_SERVANTS.2-Min-100-Percentages
+Cor_SERVANTS.3-Emphasis-Min-250-Percentages
+Cor_SERVANTS.3-Min-250-Percentages		Cor_SERVANTS.3-Vowels-Only-All-Counts
+Cor_SERVANTS.3-Vowels-Only-Min-250-Percentages
+Cor_SOLDIERS.ROMAN.0.1-Emphasis-All-Counts
+Cor_SOLDIERS.ROMAN.0.1-Emphasis-Vowels-Only-All-Counts
+Cor_SOLDIERS.ROMAN.0.1-Vowels-Only-All-Counts
+Cor_SOLDIERS.ROMAN.0.2-All-Counts		Cor_SOLDIERS.ROMAN.0.2-All-Percentages
+Cor_SOLDIERS.ROMAN.0.2-Emphasis-All-Counts
+Cor_SOLDIERS.ROMAN.0.2-Emphasis-All-Percentages
+Cor_SOLDIERS.ROMAN.0.2-Emphasis-Vowels-Only-All-Counts
+Cor_SOLDIERS.ROMAN.0.2-Emphasis-Vowels-Only-All-Percentages
+Cor_SOLDIERS.ROMAN.0.2-Vowels-Only-All-Counts
+Cor_SOLDIERS.ROMAN.0.2-Vowels-Only-All-Percentages
+Cor_SOLDIERS.ROMAN.0.3-All-Counts		Cor_SOLDIERS.ROMAN.0.3-All-Percentages
+Cor_SOLDIERS.ROMAN.0.3-Emphasis-All-Counts
+Cor_SOLDIERS.ROMAN.0.3-Emphasis-All-Percentages
+Cor_SOLDIERS.ROMAN.0.3-Emphasis-Vowels-Only-All-Counts
+Cor_SOLDIERS.ROMAN.0.3-Emphasis-Vowels-Only-All-Percentages
+Cor_SOLDIERS.ROMAN.0.3-Vowels-Only-All-Counts
+Cor_SOLDIERS.VOLSCIAN.0.1-Emphasis-All-Counts
+Cor_SOLDIERS.VOLSCIAN.0.1-Emphasis-Vowels-Only-All-Counts
+Cor_WATCHMEN.1-Emphasis-Vowels-Only-All-Counts
+Cor_WATCHMEN.1-Emphasis-Vowels-Only-All-Percentages
+Cor_WATCHMEN.1-Vowels-Only-All-Counts		Cor_WATCHMEN.2-Emphasis-All-Counts
+Cor_WATCHMEN.2-Emphasis-Vowels-Only-All-Counts
+Cor_WATCHMEN.2-Vowels-Only-All-Counts
+
+

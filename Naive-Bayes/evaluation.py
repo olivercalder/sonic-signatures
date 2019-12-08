@@ -472,7 +472,10 @@ class ConfusionMatrix:
             sums[phoneme] = 0
             for char in class_characters:
                 sums[phoneme] += self.z_scores[char][phoneme]
-            means[phoneme] = sums[phoneme] / len(class_characters)
+            if len(class_characters) > 0:
+                means[phoneme] = sums[phoneme] / len(class_characters)
+            else:
+                means[phoneme] = 'N/A'
         class_z_scores = means
         return class_z_scores
 
@@ -549,7 +552,10 @@ class ConfusionMatrix:
                     if len(line) >= 80:
                         lines.append(line)
                         line = ''
-                    line += '{:>3}: {:5.2f}  '.format(phoneme, class_z_scores[phoneme])
+                    if type(class_z_scores[phoneme]) == type('a'):
+                        line += '{:>3}: {:<5}  '.format(phoneme, class_z_scores[phoneme])
+                    else:
+                        line += '{:>3}: {:5.2f}  '.format(phoneme, class_z_scores[phoneme])
                 if line:
                     lines.append(line)
                 lines.append('\n')
@@ -564,7 +570,10 @@ class ConfusionMatrix:
                     if len(line) >= 80:
                         lines.append(line)
                         line = ''
-                    line += '{:>3}: {:5.2f}  '.format(phoneme, class_z_scores[phoneme])
+                    if type(class_z_scores[phoneme]) == type('a'):
+                        line += '{:>3}: {:<5}  '.format(phoneme, class_z_scores[phoneme])
+                    else:
+                        line += '{:>3}: {:5.2f}  '.format(phoneme, class_z_scores[phoneme])
                 if line:
                     lines.append(line)
                 lines.append('\n')

@@ -1,0 +1,762 @@
+                         Summary: status_All-Combos_Wiv                         
+
+
+                      Overall accuracy = 26.73%                                 
+                      Average accuracy = 36.87%                                 
+
+                      Average F1 score = 24.02%                                 
+                           Average MCC = 12.15%                                 
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+           |    2     |    3     |    4     |    5     |    6     |    7     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |    54    |    18    |    3     |    32    |    31    |    0     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     3     |    55    |    52    |    37    |    82    |    33    |    11    |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |    8     |    28    |    3     |    1     |    0     |    0     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     5     |    3     |    14    |    0     |    0     |    11    |    0     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |    9     |    8     |    1     |    5     |    31    |    2     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     7     |    0     |    0     |    0     |    0     |    0     |    3     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+                         Total samples = 535                                    
+
+                      Total actual "2" = 138                                    
+                   Total predicted "2" = 129                                    
+                      Total actual "3" = 270                                    
+                   Total predicted "3" = 120                                    
+                      Total actual "4" = 40                                     
+                   Total predicted "4" = 44                                     
+                      Total actual "5" = 28                                     
+                   Total predicted "5" = 120                                    
+                      Total actual "6" = 56                                     
+                   Total predicted "6" = 106                                    
+                      Total actual "7" = 3                                      
+                   Total predicted "7" = 16                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+           |    2     |    3     |    4     |    5     |    6     |    7     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |  10.09%  |  3.36%   |  0.56%   |  5.98%   |  5.79%   |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     3     |  10.28%  |  9.72%   |  6.92%   |  15.33%  |  6.17%   |  2.06%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |  1.50%   |  5.23%   |  0.56%   |  0.19%   |  0.00%   |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     5     |  0.56%   |  2.62%   |  0.00%   |  0.00%   |  2.06%   |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |  1.68%   |  1.50%   |  0.19%   |  0.93%   |  5.79%   |  0.37%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     7     |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.56%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+                    Percent actual "2" = 25.79%                                 
+                 Percent predicted "2" = 24.11%                                 
+                    Percent actual "3" = 50.47%                                 
+                 Percent predicted "3" = 22.43%                                 
+                    Percent actual "4" = 7.48%                                  
+                 Percent predicted "4" = 8.22%                                  
+                    Percent actual "5" = 5.23%                                  
+                 Percent predicted "5" = 22.43%                                 
+                    Percent actual "6" = 10.47%                                 
+                 Percent predicted "6" = 19.81%                                 
+                    Percent actual "7" = 0.56%                                  
+                 Percent predicted "7" = 2.99%                                  
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+           |    2     |    3     |    4     |    5     |    6     |    7     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |  39.13%  |  13.04%  |  2.17%   |  23.19%  |  22.46%  |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     3     |  20.37%  |  19.26%  |  13.70%  |  30.37%  |  12.22%  |  4.07%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |  20.00%  |  70.00%  |  7.50%   |  2.50%   |  0.00%   |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     5     |  10.71%  |  50.00%  |  0.00%   |  0.00%   |  39.29%  |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |  16.07%  |  14.29%  |  1.79%   |  8.93%   |  55.36%  |  3.57%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     7     |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   | 100.00%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+         Percent correct of actual "2" = 39.13%                                 
+         Percent correct of actual "3" = 19.26%                                 
+         Percent correct of actual "4" = 7.50%                                  
+         Percent correct of actual "5" = 0.00%                                  
+         Percent correct of actual "6" = 55.36%                                 
+         Percent correct of actual "7" = 100.00%                                
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+           |    2     |    3     |    4     |    5     |    6     |    7     |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     2     |  41.86%  |  15.00%  |  6.82%   |  26.67%  |  29.25%  |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     3     |  42.64%  |  43.33%  |  84.09%  |  68.33%  |  31.13%  |  68.75%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     4     |  6.20%   |  23.33%  |  6.82%   |  0.83%   |  0.00%   |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     5     |  2.33%   |  11.67%  |  0.00%   |  0.00%   |  10.38%  |  0.00%   |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     6     |  6.98%   |  6.67%   |  2.27%   |  4.17%   |  29.25%  |  12.50%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+     7     |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  18.75%  |  
+ ——————————|——————————|——————————|——————————|——————————|——————————|——————————|  
+
+
+      Percent correct of predicted "2" = 41.86%                                 
+      Percent correct of predicted "3" = 43.33%                                 
+      Percent correct of predicted "4" = 6.82%                                  
+      Percent correct of predicted "5" = 0.00%                                  
+      Percent correct of predicted "6" = 29.25%                                 
+      Percent correct of predicted "7" = 18.75%                                 
+
+
+                                   F1 Scores:                                   
+                      F1 score for "2" = 40.45%                                 
+                      F1 score for "3" = 26.67%                                 
+                      F1 score for "4" = 7.14%                                  
+                      F1 score for "5" = 0.00%                                  
+                      F1 score for "6" = 38.27%                                 
+                      F1 score for "7" = 31.58%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+                     MCC score for "2" = 20.70%                                 
+                     MCC score for "3" = -7.67%                                 
+                     MCC score for "4" = -0.75%                                 
+                     MCC score for "5" = -12.64%                                
+                     MCC score for "6" = 30.49%                                 
+                     MCC score for "7" = 42.77%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                          Actual "2" Average Z-Scores:                          
+
+
+                          Actual "3" Average Z-Scores:                          
+
+
+                          Actual "4" Average Z-Scores:                          
+
+
+                          Actual "5" Average Z-Scores:                          
+
+
+                          Actual "6" Average Z-Scores:                          
+
+
+                          Actual "7" Average Z-Scores:                          
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                        Predicted "2" Average Z-Scores:                         
+
+
+                        Predicted "3" Average Z-Scores:                         
+
+
+                        Predicted "4" Average Z-Scores:                         
+
+
+                        Predicted "5" Average Z-Scores:                         
+
+
+                        Predicted "6" Average Z-Scores:                         
+
+
+                        Predicted "7" Average Z-Scores:                         
+
+
+
+
+
+                                  Characters:                                   
+
+
+                          Actual "2" Predicted as "2":                          
+
+Wiv_Falstaff-All-Counts		Wiv_Falstaff-Emphasis-All-Counts
+Wiv_Falstaff-Emphasis-Min-100-Counts		Wiv_Falstaff-Emphasis-Min-1000-Counts
+Wiv_Falstaff-Emphasis-Min-1000-Percentages
+Wiv_Falstaff-Emphasis-Min-250-Counts
+Wiv_Falstaff-Emphasis-Min-250-Percentages
+Wiv_Falstaff-Emphasis-Min-2500-Counts
+Wiv_Falstaff-Emphasis-Min-2500-Percentages
+Wiv_Falstaff-Emphasis-Min-500-Counts
+Wiv_Falstaff-Emphasis-Min-500-Percentages
+Wiv_Falstaff-Emphasis-No-Others-Counts
+Wiv_Falstaff-Emphasis-No-Others-Percentages
+Wiv_Falstaff-Emphasis-Vowels-Only-Min-1000-Counts
+Wiv_Falstaff-Emphasis-Vowels-Only-Min-1000-Percentages
+Wiv_Falstaff-Emphasis-Vowels-Only-Min-250-Counts
+Wiv_Falstaff-Emphasis-Vowels-Only-Min-2500-Counts
+Wiv_Falstaff-Emphasis-Vowels-Only-Min-2500-Percentages
+Wiv_Falstaff-Emphasis-Vowels-Only-Min-500-Counts
+Wiv_Falstaff-Emphasis-Vowels-Only-Min-500-Percentages
+Wiv_Falstaff-Emphasis-Vowels-Only-No-Others-Counts
+Wiv_Falstaff-Emphasis-Vowels-Only-No-Others-Percentages
+Wiv_Falstaff-Min-100-Counts		Wiv_Falstaff-Min-250-Counts
+Wiv_Falstaff-Min-250-Percentages		Wiv_Falstaff-Min-2500-Counts
+Wiv_Falstaff-Min-2500-Percentages		Wiv_Falstaff-No-Others-Counts
+Wiv_Falstaff-No-Others-Percentages		Wiv_Falstaff-Vowels-Only-All-Counts
+Wiv_Falstaff-Vowels-Only-Min-100-Counts
+Wiv_Falstaff-Vowels-Only-Min-250-Counts
+Wiv_Falstaff-Vowels-Only-Min-2500-Counts
+Wiv_Falstaff-Vowels-Only-Min-2500-Percentages
+Wiv_Falstaff-Vowels-Only-No-Others-Counts
+Wiv_Falstaff-Vowels-Only-No-Others-Percentages		Wiv_Fenton-All-Counts
+Wiv_Fenton-Emphasis-All-Counts		Wiv_Fenton-Emphasis-Min-100-Counts
+Wiv_Fenton-Emphasis-Min-100-Percentages		Wiv_Fenton-Emphasis-Min-250-Counts
+Wiv_Fenton-Emphasis-Min-500-Counts		Wiv_Fenton-Emphasis-Min-500-Percentages
+Wiv_Fenton-Emphasis-Vowels-Only-Min-500-Percentages		Wiv_Fenton-Min-100-Counts
+Wiv_Fenton-Min-250-Counts		Wiv_Shallow-All-Percentages
+Wiv_Shallow-Emphasis-All-Percentages		Wiv_Slender-All-Counts
+Wiv_Slender-Min-1000-Counts		Wiv_Slender-Min-1000-Percentages
+Wiv_Slender-Vowels-Only-All-Counts		Wiv_Slender-Vowels-Only-Min-100-Counts
+Wiv_Slender-Vowels-Only-Min-250-Counts
+
+
+                          Actual "2" Predicted as "3":                          
+
+Wiv_Falstaff-Emphasis-Vowels-Only-Min-250-Percentages
+Wiv_Falstaff-Vowels-Only-Min-250-Percentages
+Wiv_Fenton-Emphasis-Min-250-Percentages
+Wiv_Fenton-Emphasis-Vowels-Only-Min-100-Percentages
+Wiv_Fenton-Emphasis-Vowels-Only-Min-250-Percentages
+Wiv_Fenton-Min-250-Percentages		Wiv_Fenton-Vowels-Only-Min-250-Percentages
+Wiv_Shallow-All-Counts		Wiv_Shallow-Emphasis-All-Counts
+Wiv_Shallow-Emphasis-Min-100-Counts		Wiv_Shallow-Emphasis-Min-250-Counts
+Wiv_Shallow-Emphasis-Min-500-Counts		Wiv_Shallow-Emphasis-Min-500-Percentages
+Wiv_Shallow-Min-100-Counts		Wiv_Shallow-Min-250-Counts
+Wiv_Shallow-Min-500-Counts		Wiv_Shallow-Vowels-Only-All-Percentages
+Wiv_Slender-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "2" Predicted as "4":                          
+
+Wiv_Shallow-Emphasis-Min-100-Percentages
+Wiv_Shallow-Emphasis-Min-250-Percentages		Wiv_Shallow-Min-250-Percentages
+
+
+                          Actual "2" Predicted as "5":                          
+
+Wiv_Falstaff-Min-100-Percentages		Wiv_Falstaff-Min-1000-Counts
+Wiv_Falstaff-Min-1000-Percentages		Wiv_Fenton-Min-100-Percentages
+Wiv_Fenton-Min-500-Counts		Wiv_Fenton-Min-500-Percentages
+Wiv_Fenton-Vowels-Only-All-Counts		Wiv_Fenton-Vowels-Only-Min-100-Counts
+Wiv_Fenton-Vowels-Only-Min-100-Percentages
+Wiv_Fenton-Vowels-Only-Min-250-Counts		Wiv_Fenton-Vowels-Only-Min-500-Counts
+Wiv_Fenton-Vowels-Only-Min-500-Percentages
+Wiv_Shallow-Emphasis-Vowels-Only-All-Counts
+Wiv_Shallow-Emphasis-Vowels-Only-Min-100-Counts
+Wiv_Shallow-Emphasis-Vowels-Only-Min-100-Percentages
+Wiv_Shallow-Emphasis-Vowels-Only-Min-250-Counts
+Wiv_Shallow-Emphasis-Vowels-Only-Min-250-Percentages
+Wiv_Shallow-Emphasis-Vowels-Only-Min-500-Counts
+Wiv_Shallow-Emphasis-Vowels-Only-Min-500-Percentages
+Wiv_Shallow-Vowels-Only-Min-100-Counts		Wiv_Shallow-Vowels-Only-Min-250-Counts
+Wiv_Shallow-Vowels-Only-Min-250-Percentages
+Wiv_Shallow-Vowels-Only-Min-500-Counts
+Wiv_Shallow-Vowels-Only-Min-500-Percentages
+Wiv_Slender-Emphasis-Min-1000-Counts
+Wiv_Slender-Emphasis-Min-1000-Percentages
+Wiv_Slender-Emphasis-Vowels-Only-All-Counts
+Wiv_Slender-Emphasis-Vowels-Only-Min-1000-Counts
+Wiv_Slender-Emphasis-Vowels-Only-Min-1000-Percentages
+Wiv_Slender-Emphasis-Vowels-Only-Min-250-Percentages
+Wiv_Slender-Vowels-Only-Min-1000-Counts
+Wiv_Slender-Vowels-Only-Min-1000-Percentages
+
+
+                          Actual "2" Predicted as "6":                          
+
+Wiv_Falstaff-Min-500-Counts		Wiv_Falstaff-Min-500-Percentages
+Wiv_Falstaff-Vowels-Only-Min-1000-Counts
+Wiv_Falstaff-Vowels-Only-Min-1000-Percentages
+Wiv_Falstaff-Vowels-Only-Min-500-Counts
+Wiv_Falstaff-Vowels-Only-Min-500-Percentages		Wiv_Shallow-Min-100-Percentages
+Wiv_Shallow-Min-500-Percentages		Wiv_Shallow-Vowels-Only-All-Counts
+Wiv_Shallow-Vowels-Only-Min-100-Percentages		Wiv_Slender-Emphasis-All-Counts
+Wiv_Slender-Emphasis-Min-100-Counts		Wiv_Slender-Emphasis-Min-100-Percentages
+Wiv_Slender-Emphasis-Min-250-Counts		Wiv_Slender-Emphasis-Min-250-Percentages
+Wiv_Slender-Emphasis-Min-500-Counts		Wiv_Slender-Emphasis-Min-500-Percentages
+Wiv_Slender-Emphasis-Vowels-Only-Min-100-Counts
+Wiv_Slender-Emphasis-Vowels-Only-Min-100-Percentages
+Wiv_Slender-Emphasis-Vowels-Only-Min-250-Counts
+Wiv_Slender-Emphasis-Vowels-Only-Min-500-Counts
+Wiv_Slender-Emphasis-Vowels-Only-Min-500-Percentages
+Wiv_Slender-Min-100-Counts		Wiv_Slender-Min-100-Percentages
+Wiv_Slender-Min-250-Counts		Wiv_Slender-Min-250-Percentages
+Wiv_Slender-Min-500-Counts		Wiv_Slender-Min-500-Percentages
+Wiv_Slender-Vowels-Only-Min-100-Percentages
+Wiv_Slender-Vowels-Only-Min-500-Counts
+Wiv_Slender-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "2" Predicted as "7":                          
+
+
+
+
+                          Actual "3" Predicted as "2":                          
+
+Wiv_DoctorCaius-Vowels-Only-All-Percentages		Wiv_HughEvans-All-Percentages
+Wiv_HughEvans-Emphasis-All-Percentages		Wiv_MasterFord-All-Percentages
+Wiv_MasterFord-Emphasis-Min-250-Percentages
+Wiv_MasterFord-Emphasis-Min-2500-Counts
+Wiv_MasterFord-Emphasis-Min-2500-Percentages
+Wiv_MasterFord-Emphasis-Vowels-Only-All-Counts
+Wiv_MasterFord-Emphasis-Vowels-Only-Min-1000-Counts
+Wiv_MasterFord-Emphasis-Vowels-Only-Min-1000-Percentages
+Wiv_MasterFord-Emphasis-Vowels-Only-Min-250-Percentages
+Wiv_MasterFord-Emphasis-Vowels-Only-Min-2500-Counts
+Wiv_MasterFord-Emphasis-Vowels-Only-Min-2500-Percentages
+Wiv_MasterFord-Emphasis-Vowels-Only-Min-500-Counts
+Wiv_MasterFord-Emphasis-Vowels-Only-Min-500-Percentages
+Wiv_MasterFord-Min-2500-Counts		Wiv_MasterFord-Min-2500-Percentages
+Wiv_MasterFord-Vowels-Only-All-Counts
+Wiv_MasterFord-Vowels-Only-Min-100-Counts
+Wiv_MasterFord-Vowels-Only-Min-2500-Counts
+Wiv_MasterFord-Vowels-Only-Min-2500-Percentages
+Wiv_MistressFord-Emphasis-Min-1000-Counts
+Wiv_MistressFord-Emphasis-Min-1000-Percentages
+Wiv_MistressFord-Emphasis-Min-250-Counts
+Wiv_MistressFord-Emphasis-Min-500-Counts
+Wiv_MistressFord-Emphasis-Min-500-Percentages
+Wiv_MistressFord-Emphasis-Vowels-Only-All-Counts
+Wiv_MistressFord-Emphasis-Vowels-Only-Min-1000-Counts
+Wiv_MistressFord-Emphasis-Vowels-Only-Min-1000-Percentages
+Wiv_MistressFord-Emphasis-Vowels-Only-Min-250-Counts
+Wiv_MistressFord-Emphasis-Vowels-Only-Min-500-Counts
+Wiv_MistressFord-Emphasis-Vowels-Only-Min-500-Percentages
+Wiv_MistressFord-Min-1000-Counts		Wiv_MistressFord-Min-1000-Percentages
+Wiv_MistressFord-Min-250-Counts		Wiv_MistressFord-Min-500-Counts
+Wiv_MistressFord-Min-500-Percentages		Wiv_MistressFord-Vowels-Only-All-Counts
+Wiv_MistressFord-Vowels-Only-Min-100-Counts
+Wiv_MistressFord-Vowels-Only-Min-1000-Counts
+Wiv_MistressFord-Vowels-Only-Min-1000-Percentages
+Wiv_MistressFord-Vowels-Only-Min-250-Counts
+Wiv_MistressFord-Vowels-Only-Min-500-Counts
+Wiv_MistressFord-Vowels-Only-Min-500-Percentages
+Wiv_MistressPage-Emphasis-Min-2500-Counts
+Wiv_MistressPage-Emphasis-Min-2500-Percentages
+Wiv_MistressPage-Emphasis-No-Others-Counts		Wiv_MistressPage-Min-2500-Counts
+Wiv_MistressPage-Min-2500-Percentages		Wiv_MistressPage-No-Others-Counts
+Wiv_MistressPage-Vowels-Only-All-Counts
+Wiv_MistressPage-Vowels-Only-Min-100-Counts
+Wiv_MistressPage-Vowels-Only-Min-2500-Counts
+Wiv_MistressPage-Vowels-Only-Min-2500-Percentages
+Wiv_MistressPage-Vowels-Only-Min-500-Counts
+
+
+                          Actual "3" Predicted as "3":                          
+
+Wiv_AnnePage-Emphasis-Vowels-Only-All-Percentages
+Wiv_AnnePage-Vowels-Only-All-Percentages		Wiv_DoctorCaius-All-Percentages
+Wiv_Host-Emphasis-Vowels-Only-All-Percentages
+Wiv_Host-Emphasis-Vowels-Only-Min-250-Percentages
+Wiv_HughEvans-Emphasis-Min-100-Percentages
+Wiv_HughEvans-Emphasis-Vowels-Only-Min-100-Percentages
+Wiv_HughEvans-Emphasis-Vowels-Only-Min-500-Percentages
+Wiv_HughEvans-Min-100-Percentages
+Wiv_HughEvans-Vowels-Only-Min-100-Percentages		Wiv_MasterFord-All-Counts
+Wiv_MasterFord-Emphasis-All-Counts		Wiv_MasterFord-Emphasis-Min-100-Counts
+Wiv_MasterFord-Emphasis-Min-100-Percentages
+Wiv_MasterFord-Emphasis-Min-1000-Counts
+Wiv_MasterFord-Emphasis-Min-1000-Percentages
+Wiv_MasterFord-Emphasis-Min-250-Counts		Wiv_MasterFord-Emphasis-Min-500-Counts
+Wiv_MasterFord-Emphasis-Min-500-Percentages
+Wiv_MasterFord-Emphasis-Vowels-Only-Min-100-Counts
+Wiv_MasterFord-Emphasis-Vowels-Only-Min-100-Percentages
+Wiv_MasterFord-Emphasis-Vowels-Only-Min-250-Counts
+Wiv_MasterFord-Min-100-Counts		Wiv_MasterFord-Min-100-Percentages
+Wiv_MasterFord-Min-1000-Counts		Wiv_MasterFord-Min-1000-Percentages
+Wiv_MasterFord-Min-250-Counts		Wiv_MasterFord-Min-500-Counts
+Wiv_MasterPage-Emphasis-Min-100-Counts		Wiv_MasterPage-Emphasis-Min-250-Counts
+Wiv_MasterPage-Emphasis-Min-250-Percentages
+Wiv_MasterPage-Emphasis-Min-500-Counts
+Wiv_MasterPage-Emphasis-Min-500-Percentages		Wiv_MasterPage-Min-100-Counts
+Wiv_MasterPage-Min-1000-Counts		Wiv_MasterPage-Min-250-Counts
+Wiv_MasterPage-Min-500-Counts		Wiv_MasterPage-Min-500-Percentages
+Wiv_MistressPage-Emphasis-Min-250-Counts
+Wiv_MistressPage-Emphasis-Min-500-Counts
+Wiv_MistressPage-Emphasis-Min-500-Percentages
+Wiv_MistressPage-Emphasis-Vowels-Only-Min-100-Percentages
+Wiv_MistressPage-Emphasis-Vowels-Only-Min-250-Percentages
+Wiv_MistressPage-Emphasis-Vowels-Only-Min-500-Percentages
+Wiv_MistressPage-Min-250-Counts		Wiv_MistressPage-Min-500-Counts
+Wiv_MistressPage-Min-500-Percentages
+Wiv_MistressPage-Vowels-Only-Min-100-Percentages
+Wiv_MistressPage-Vowels-Only-Min-250-Counts
+Wiv_MistressPage-Vowels-Only-Min-250-Percentages
+Wiv_MistressPage-Vowels-Only-Min-500-Percentages
+Wiv_WilliamPage-Emphasis-All-Percentages
+
+
+                          Actual "3" Predicted as "4":                          
+
+Wiv_DoctorCaius-Emphasis-Min-250-Percentages		Wiv_DoctorCaius-Min-250-Counts
+Wiv_DoctorCaius-Min-250-Percentages		Wiv_HughEvans-All-Counts
+Wiv_HughEvans-Emphasis-All-Counts		Wiv_HughEvans-Emphasis-Min-100-Counts
+Wiv_HughEvans-Emphasis-Min-1000-Counts
+Wiv_HughEvans-Emphasis-Min-1000-Percentages
+Wiv_HughEvans-Emphasis-Min-250-Counts
+Wiv_HughEvans-Emphasis-Min-250-Percentages
+Wiv_HughEvans-Emphasis-Min-500-Counts
+Wiv_HughEvans-Emphasis-Min-500-Percentages
+Wiv_HughEvans-Emphasis-Vowels-Only-All-Counts
+Wiv_HughEvans-Emphasis-Vowels-Only-Min-100-Counts
+Wiv_HughEvans-Emphasis-Vowels-Only-Min-1000-Counts
+Wiv_HughEvans-Emphasis-Vowels-Only-Min-1000-Percentages
+Wiv_HughEvans-Emphasis-Vowels-Only-Min-250-Counts
+Wiv_HughEvans-Emphasis-Vowels-Only-Min-500-Counts
+Wiv_HughEvans-Min-100-Counts		Wiv_HughEvans-Min-1000-Counts
+Wiv_HughEvans-Min-1000-Percentages		Wiv_HughEvans-Min-250-Counts
+Wiv_HughEvans-Min-250-Percentages		Wiv_HughEvans-Min-500-Counts
+Wiv_HughEvans-Min-500-Percentages		Wiv_MasterPage-Min-250-Percentages
+Wiv_MistressFord-Emphasis-Min-250-Percentages
+Wiv_MistressFord-Min-250-Percentages		Wiv_MistressPage-All-Counts
+Wiv_MistressPage-Emphasis-Min-100-Percentages
+Wiv_MistressPage-Emphasis-Min-1000-Percentages
+Wiv_MistressPage-Emphasis-Min-250-Percentages		Wiv_MistressPage-Min-100-Counts
+Wiv_MistressPage-Min-100-Percentages		Wiv_MistressPage-Min-1000-Counts
+Wiv_MistressPage-Min-1000-Percentages		Wiv_MistressPage-Min-250-Percentages
+
+
+                          Actual "3" Predicted as "5":                          
+
+Wiv_AnnePage-All-Percentages		Wiv_DoctorCaius-Emphasis-Vowels-Only-All-Counts
+Wiv_DoctorCaius-Emphasis-Vowels-Only-Min-100-Counts
+Wiv_DoctorCaius-Emphasis-Vowels-Only-Min-100-Percentages
+Wiv_DoctorCaius-Emphasis-Vowels-Only-Min-250-Counts
+Wiv_DoctorCaius-Emphasis-Vowels-Only-Min-250-Percentages
+Wiv_DoctorCaius-Emphasis-Vowels-Only-Min-500-Counts
+Wiv_DoctorCaius-Emphasis-Vowels-Only-Min-500-Percentages
+Wiv_DoctorCaius-Vowels-Only-All-Counts
+Wiv_DoctorCaius-Vowels-Only-Min-100-Counts
+Wiv_DoctorCaius-Vowels-Only-Min-250-Counts
+Wiv_DoctorCaius-Vowels-Only-Min-250-Percentages
+Wiv_DoctorCaius-Vowels-Only-Min-500-Counts
+Wiv_DoctorCaius-Vowels-Only-Min-500-Percentages		Wiv_Host-All-Counts
+Wiv_Host-Emphasis-All-Counts		Wiv_Host-Emphasis-Min-100-Counts
+Wiv_Host-Emphasis-Min-100-Percentages		Wiv_Host-Emphasis-Min-250-Counts
+Wiv_Host-Emphasis-Min-250-Percentages		Wiv_Host-Emphasis-Min-500-Counts
+Wiv_Host-Emphasis-Min-500-Percentages
+Wiv_Host-Emphasis-Vowels-Only-All-Counts
+Wiv_Host-Emphasis-Vowels-Only-Min-100-Counts
+Wiv_Host-Emphasis-Vowels-Only-Min-500-Counts
+Wiv_Host-Emphasis-Vowels-Only-Min-500-Percentages		Wiv_Host-Min-100-Counts
+Wiv_Host-Min-100-Percentages		Wiv_Host-Min-250-Counts
+Wiv_Host-Min-250-Percentages		Wiv_Host-Min-500-Counts
+Wiv_Host-Min-500-Percentages		Wiv_Host-Vowels-Only-All-Counts
+Wiv_Host-Vowels-Only-Min-100-Counts		Wiv_Host-Vowels-Only-Min-100-Percentages
+Wiv_Host-Vowels-Only-Min-250-Counts		Wiv_Host-Vowels-Only-Min-250-Percentages
+Wiv_Host-Vowels-Only-Min-500-Counts		Wiv_Host-Vowels-Only-Min-500-Percentages
+Wiv_MasterFord-Vowels-Only-Min-1000-Counts
+Wiv_MasterFord-Vowels-Only-Min-1000-Percentages
+Wiv_MasterFord-Vowels-Only-Min-250-Counts
+Wiv_MasterFord-Vowels-Only-Min-500-Counts		Wiv_MasterPage-All-Counts
+Wiv_MasterPage-Emphasis-All-Counts
+Wiv_MasterPage-Emphasis-Min-100-Percentages
+Wiv_MasterPage-Emphasis-Min-1000-Counts
+Wiv_MasterPage-Emphasis-Min-1000-Percentages
+Wiv_MasterPage-Emphasis-Vowels-Only-Min-1000-Counts
+Wiv_MasterPage-Emphasis-Vowels-Only-Min-1000-Percentages
+Wiv_MasterPage-Emphasis-Vowels-Only-Min-500-Counts
+Wiv_MasterPage-Emphasis-Vowels-Only-Min-500-Percentages
+Wiv_MasterPage-Min-100-Percentages		Wiv_MasterPage-Min-1000-Percentages
+Wiv_MasterPage-Vowels-Only-All-Counts
+Wiv_MasterPage-Vowels-Only-Min-100-Counts
+Wiv_MasterPage-Vowels-Only-Min-1000-Counts
+Wiv_MasterPage-Vowels-Only-Min-1000-Percentages
+Wiv_MasterPage-Vowels-Only-Min-250-Counts
+Wiv_MasterPage-Vowels-Only-Min-250-Percentages
+Wiv_MasterPage-Vowels-Only-Min-500-Counts
+Wiv_MasterPage-Vowels-Only-Min-500-Percentages		Wiv_MistressFord-All-Counts
+Wiv_MistressFord-Emphasis-All-Counts		Wiv_MistressFord-Emphasis-Min-100-Counts
+Wiv_MistressFord-Emphasis-Min-100-Percentages
+Wiv_MistressFord-Emphasis-Vowels-Only-Min-100-Counts
+Wiv_MistressFord-Emphasis-Vowels-Only-Min-100-Percentages
+Wiv_MistressFord-Emphasis-Vowels-Only-Min-250-Percentages
+Wiv_MistressFord-Min-100-Counts		Wiv_MistressFord-Min-100-Percentages
+Wiv_MistressFord-Vowels-Only-Min-100-Percentages
+Wiv_MistressFord-Vowels-Only-Min-250-Percentages
+Wiv_MistressPage-Emphasis-All-Counts		Wiv_MistressPage-Emphasis-Min-100-Counts
+Wiv_MistressPage-Emphasis-Min-1000-Counts
+Wiv_MistressPage-Emphasis-Vowels-Only-All-Counts
+Wiv_MistressPage-Emphasis-Vowels-Only-Min-100-Counts
+Wiv_MistressPage-Emphasis-Vowels-Only-Min-1000-Counts
+Wiv_MistressPage-Emphasis-Vowels-Only-Min-250-Counts
+Wiv_MistressPage-Emphasis-Vowels-Only-Min-500-Counts
+Wiv_MistressPage-No-Others-Percentages
+
+
+                          Actual "3" Predicted as "6":                          
+
+Wiv_AnnePage-All-Counts		Wiv_AnnePage-Emphasis-All-Counts
+Wiv_AnnePage-Emphasis-All-Percentages		Wiv_AnnePage-Emphasis-Min-100-Counts
+Wiv_AnnePage-Emphasis-Min-100-Percentages
+Wiv_AnnePage-Emphasis-Vowels-Only-All-Counts
+Wiv_AnnePage-Emphasis-Vowels-Only-Min-100-Counts
+Wiv_AnnePage-Emphasis-Vowels-Only-Min-100-Percentages
+Wiv_AnnePage-Min-100-Counts		Wiv_AnnePage-Min-100-Percentages
+Wiv_AnnePage-Vowels-Only-All-Counts		Wiv_AnnePage-Vowels-Only-Min-100-Counts
+Wiv_DoctorCaius-All-Counts		Wiv_DoctorCaius-Emphasis-All-Counts
+Wiv_DoctorCaius-Emphasis-All-Percentages
+Wiv_DoctorCaius-Emphasis-Min-100-Counts
+Wiv_DoctorCaius-Emphasis-Min-100-Percentages
+Wiv_DoctorCaius-Emphasis-Min-250-Counts
+Wiv_DoctorCaius-Emphasis-Min-500-Counts
+Wiv_DoctorCaius-Emphasis-Min-500-Percentages
+Wiv_DoctorCaius-Emphasis-Vowels-Only-All-Percentages
+Wiv_DoctorCaius-Min-100-Counts		Wiv_DoctorCaius-Min-100-Percentages
+Wiv_DoctorCaius-Min-500-Counts		Wiv_DoctorCaius-Min-500-Percentages
+Wiv_DoctorCaius-Vowels-Only-Min-100-Percentages
+Wiv_MasterFord-Min-250-Percentages		Wiv_MasterFord-Min-500-Percentages
+Wiv_MasterFord-Vowels-Only-Min-100-Percentages
+Wiv_MasterFord-Vowels-Only-Min-250-Percentages
+Wiv_MasterFord-Vowels-Only-Min-500-Percentages		Wiv_WilliamPage-All-Counts
+Wiv_WilliamPage-Vowels-Only-All-Counts
+
+
+                          Actual "3" Predicted as "7":                          
+
+Wiv_AnnePage-Vowels-Only-Min-100-Percentages
+Wiv_Host-Vowels-Only-All-Percentages		Wiv_Pistol-All-Counts
+Wiv_Pistol-Emphasis-All-Counts		Wiv_Pistol-Min-100-Counts
+Wiv_Pistol-Min-100-Percentages		Wiv_Pistol-Min-250-Counts
+Wiv_Pistol-Min-250-Percentages		Wiv_Pistol-Vowels-Only-All-Counts
+Wiv_Pistol-Vowels-Only-Min-100-Counts
+Wiv_Pistol-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "4" Predicted as "2":                          
+
+Wiv_MistressQuickly-All-Percentages
+Wiv_MistressQuickly-Emphasis-All-Percentages
+Wiv_MistressQuickly-Emphasis-Min-100-Percentages
+Wiv_MistressQuickly-Emphasis-Vowels-Only-All-Percentages
+Wiv_MistressQuickly-Emphasis-Vowels-Only-Min-100-Percentages
+Wiv_MistressQuickly-Min-100-Percentages
+Wiv_MistressQuickly-Vowels-Only-All-Percentages
+Wiv_MistressQuickly-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "4" Predicted as "3":                          
+
+Wiv_MistressQuickly-All-Counts		Wiv_MistressQuickly-Emphasis-All-Counts
+Wiv_MistressQuickly-Emphasis-Min-100-Counts
+Wiv_MistressQuickly-Emphasis-Min-1000-Counts
+Wiv_MistressQuickly-Emphasis-Min-1000-Percentages
+Wiv_MistressQuickly-Emphasis-Min-250-Counts
+Wiv_MistressQuickly-Emphasis-Min-500-Counts
+Wiv_MistressQuickly-Emphasis-Min-500-Percentages
+Wiv_MistressQuickly-Emphasis-Vowels-Only-All-Counts
+Wiv_MistressQuickly-Emphasis-Vowels-Only-Min-100-Counts
+Wiv_MistressQuickly-Emphasis-Vowels-Only-Min-1000-Counts
+Wiv_MistressQuickly-Emphasis-Vowels-Only-Min-1000-Percentages
+Wiv_MistressQuickly-Emphasis-Vowels-Only-Min-250-Counts
+Wiv_MistressQuickly-Emphasis-Vowels-Only-Min-250-Percentages
+Wiv_MistressQuickly-Emphasis-Vowels-Only-Min-500-Percentages
+Wiv_MistressQuickly-Min-100-Counts		Wiv_MistressQuickly-Min-1000-Counts
+Wiv_MistressQuickly-Min-1000-Percentages		Wiv_MistressQuickly-Min-250-Counts
+Wiv_MistressQuickly-Min-500-Counts		Wiv_MistressQuickly-Min-500-Percentages
+Wiv_MistressQuickly-Vowels-Only-All-Counts
+Wiv_MistressQuickly-Vowels-Only-Min-100-Counts
+Wiv_MistressQuickly-Vowels-Only-Min-1000-Counts
+Wiv_MistressQuickly-Vowels-Only-Min-1000-Percentages
+Wiv_MistressQuickly-Vowels-Only-Min-250-Counts
+Wiv_MistressQuickly-Vowels-Only-Min-250-Percentages
+Wiv_MistressQuickly-Vowels-Only-Min-500-Counts
+
+
+                          Actual "4" Predicted as "4":                          
+
+Wiv_MistressQuickly-Emphasis-Min-250-Percentages
+Wiv_MistressQuickly-Min-250-Percentages
+Wiv_MistressQuickly-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "4" Predicted as "5":                          
+
+Wiv_MistressQuickly-Emphasis-Vowels-Only-Min-500-Counts
+
+
+                          Actual "4" Predicted as "6":                          
+
+
+
+
+                          Actual "4" Predicted as "7":                          
+
+
+
+
+                          Actual "5" Predicted as "2":                          
+
+Wiv_Bardolph-All-Percentages		Wiv_Bardolph-Vowels-Only-All-Percentages
+Wiv_Bardolph-Vowels-Only-Min-100-Counts
+
+
+                          Actual "5" Predicted as "3":                          
+
+Wiv_Bardolph-Emphasis-Vowels-Only-All-Percentages
+Wiv_Bardolph-Vowels-Only-Min-100-Percentages		Wiv_Nym-All-Counts
+Wiv_Nym-Emphasis-All-Counts		Wiv_Nym-Emphasis-Min-100-Counts
+Wiv_Nym-Emphasis-Min-100-Percentages		Wiv_Nym-Emphasis-Vowels-Only-All-Counts
+Wiv_Nym-Emphasis-Vowels-Only-Min-100-Counts
+Wiv_Nym-Emphasis-Vowels-Only-Min-100-Percentages		Wiv_Nym-Min-100-Counts
+Wiv_Nym-Min-100-Percentages		Wiv_Nym-Vowels-Only-All-Counts
+Wiv_Nym-Vowels-Only-Min-100-Counts		Wiv_Nym-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "5" Predicted as "4":                          
+
+
+
+
+                          Actual "5" Predicted as "5":                          
+
+
+
+
+                          Actual "5" Predicted as "6":                          
+
+Wiv_Bardolph-All-Counts		Wiv_Bardolph-Emphasis-All-Counts
+Wiv_Bardolph-Emphasis-All-Percentages		Wiv_Bardolph-Emphasis-Min-100-Counts
+Wiv_Bardolph-Emphasis-Min-100-Percentages
+Wiv_Bardolph-Emphasis-Vowels-Only-All-Counts
+Wiv_Bardolph-Emphasis-Vowels-Only-Min-100-Counts
+Wiv_Bardolph-Emphasis-Vowels-Only-Min-100-Percentages
+Wiv_Bardolph-Min-100-Counts		Wiv_Bardolph-Min-100-Percentages
+Wiv_Bardolph-Vowels-Only-All-Counts
+
+
+                          Actual "5" Predicted as "7":                          
+
+
+
+
+                          Actual "6" Predicted as "2":                          
+
+Wiv_John-Emphasis-Vowels-Only-All-Percentages
+Wiv_Robin-Emphasis-Min-100-Percentages
+Wiv_Robin-Emphasis-Vowels-Only-All-Counts
+Wiv_Robin-Emphasis-Vowels-Only-All-Percentages
+Wiv_Robin-Emphasis-Vowels-Only-Min-100-Counts
+Wiv_Robin-Vowels-Only-Min-100-Counts
+Wiv_Robin-Vowels-Only-Min-100-Percentages		Wiv_Simple-All-Percentages
+Wiv_Simple-Emphasis-All-Percentages
+
+
+                          Actual "6" Predicted as "3":                          
+
+Wiv_Robin-Emphasis-All-Percentages
+Wiv_Robin-Emphasis-Vowels-Only-Min-100-Percentages		Wiv_Rugby-All-Percentages
+Wiv_Rugby-Emphasis-All-Percentages
+Wiv_Rugby-Emphasis-Vowels-Only-All-Percentages
+Wiv_Rugby-Vowels-Only-All-Percentages
+Wiv_Simple-Emphasis-Vowels-Only-All-Percentages
+Wiv_Simple-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "4":                          
+
+Wiv_Robin-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "5":                          
+
+Wiv_John-All-Percentages		Wiv_John-Emphasis-All-Percentages
+Wiv_Robert-All-Percentages		Wiv_Simple-Emphasis-Min-100-Percentages
+Wiv_Simple-Min-100-Percentages
+
+
+                          Actual "6" Predicted as "6":                          
+
+Wiv_Robert-All-Counts		Wiv_Robert-Emphasis-All-Counts		Wiv_Robin-All-Counts
+Wiv_Robin-All-Percentages		Wiv_Robin-Emphasis-All-Counts
+Wiv_Robin-Emphasis-Min-100-Counts		Wiv_Robin-Min-100-Counts
+Wiv_Robin-Min-100-Percentages		Wiv_Robin-Vowels-Only-All-Counts
+Wiv_Rugby-All-Counts		Wiv_Rugby-Emphasis-All-Counts
+Wiv_Rugby-Emphasis-Vowels-Only-All-Counts		Wiv_Rugby-Vowels-Only-All-Counts
+Wiv_Simple-All-Counts		Wiv_Simple-Emphasis-All-Counts
+Wiv_Simple-Emphasis-Min-100-Counts		Wiv_Simple-Emphasis-Min-250-Counts
+Wiv_Simple-Emphasis-Min-250-Percentages
+Wiv_Simple-Emphasis-Vowels-Only-All-Counts
+Wiv_Simple-Emphasis-Vowels-Only-Min-100-Counts
+Wiv_Simple-Emphasis-Vowels-Only-Min-100-Percentages
+Wiv_Simple-Emphasis-Vowels-Only-Min-250-Counts
+Wiv_Simple-Emphasis-Vowels-Only-Min-250-Percentages		Wiv_Simple-Min-100-Counts
+Wiv_Simple-Min-250-Counts		Wiv_Simple-Min-250-Percentages
+Wiv_Simple-Vowels-Only-All-Counts		Wiv_Simple-Vowels-Only-Min-100-Counts
+Wiv_Simple-Vowels-Only-Min-100-Percentages
+Wiv_Simple-Vowels-Only-Min-250-Counts
+Wiv_Simple-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "6" Predicted as "7":                          
+
+Wiv_John-Vowels-Only-All-Percentages		Wiv_Robert-Vowels-Only-All-Percentages
+
+
+                          Actual "7" Predicted as "2":                          
+
+
+
+
+                          Actual "7" Predicted as "3":                          
+
+
+
+
+                          Actual "7" Predicted as "4":                          
+
+
+
+
+                          Actual "7" Predicted as "5":                          
+
+
+
+
+                          Actual "7" Predicted as "6":                          
+
+
+
+
+                          Actual "7" Predicted as "7":                          
+
+Wiv_BOYS-Emphasis-All-Counts		Wiv_BOYS-Emphasis-Vowels-Only-All-Counts
+Wiv_BOYS-Emphasis-Vowels-Only-All-Percentages
+
+

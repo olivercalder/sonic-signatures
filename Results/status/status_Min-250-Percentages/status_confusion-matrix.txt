@@ -1,0 +1,849 @@
+                          Summary: Min-250-Percentages                          
+
+
+                      Overall accuracy = 23.42%                                 
+                      Average accuracy = 23.36%                                 
+
+                      Average F1 score = 19.29%                                 
+                           Average MCC = 11.62%                                 
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    4     |    5     |    6     |    7     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |    23    |    11    |    6     |    3     |    4     |    2     |    4     |    9     |    6     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |    46    |    51    |    33    |    18    |    23    |    8     |    6     |    26    |    15    |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |    11    |    13    |    25    |    22    |    13    |    9     |    1     |    6     |    11    |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |    1     |    4     |    4     |    7     |    5     |    3     |    5     |    3     |    2     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |    1     |    2     |    2     |    4     |    3     |    5     |    5     |    1     |    1     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |    3     |    1     |    3     |    1     |    8     |    8     |    2     |    0     |    0     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |    1     |    3     |    2     |    6     |    12    |    2     |    6     |    5     |    0     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    7     |    2     |    2     |    0     |    0     |    0     |    0     |    0     |    2     |    1     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |    4     |    1     |    5     |    0     |    0     |    2     |    0     |    5     |    5     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+                         Total samples = 555                                    
+
+                      Total actual "0" = 68                                     
+                   Total predicted "0" = 92                                     
+                      Total actual "1" = 226                                    
+                   Total predicted "1" = 88                                     
+                      Total actual "2" = 111                                    
+                   Total predicted "2" = 80                                     
+                      Total actual "3" = 34                                     
+                   Total predicted "3" = 61                                     
+                      Total actual "4" = 24                                     
+                   Total predicted "4" = 68                                     
+                      Total actual "5" = 26                                     
+                   Total predicted "5" = 39                                     
+                      Total actual "6" = 37                                     
+                   Total predicted "6" = 29                                     
+                      Total actual "7" = 7                                      
+                   Total predicted "7" = 57                                     
+                      Total actual "p" = 22                                     
+                   Total predicted "p" = 41                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    4     |    5     |    6     |    7     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |  4.14%   |  1.98%   |  1.08%   |  0.54%   |  0.72%   |  0.36%   |  0.72%   |  1.62%   |  1.08%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |  8.29%   |  9.19%   |  5.95%   |  3.24%   |  4.14%   |  1.44%   |  1.08%   |  4.68%   |  2.70%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |  1.98%   |  2.34%   |  4.50%   |  3.96%   |  2.34%   |  1.62%   |  0.18%   |  1.08%   |  1.98%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |  0.18%   |  0.72%   |  0.72%   |  1.26%   |  0.90%   |  0.54%   |  0.90%   |  0.54%   |  0.36%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |  0.18%   |  0.36%   |  0.36%   |  0.72%   |  0.54%   |  0.90%   |  0.90%   |  0.18%   |  0.18%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |  0.54%   |  0.18%   |  0.54%   |  0.18%   |  1.44%   |  1.44%   |  0.36%   |  0.00%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |  0.18%   |  0.54%   |  0.36%   |  1.08%   |  2.16%   |  0.36%   |  1.08%   |  0.90%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    7     |  0.36%   |  0.36%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.36%   |  0.18%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |  0.72%   |  0.18%   |  0.90%   |  0.00%   |  0.00%   |  0.36%   |  0.00%   |  0.90%   |  0.90%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+                    Percent actual "0" = 12.25%                                 
+                 Percent predicted "0" = 16.58%                                 
+                    Percent actual "1" = 40.72%                                 
+                 Percent predicted "1" = 15.86%                                 
+                    Percent actual "2" = 20.00%                                 
+                 Percent predicted "2" = 14.41%                                 
+                    Percent actual "3" = 6.13%                                  
+                 Percent predicted "3" = 10.99%                                 
+                    Percent actual "4" = 4.32%                                  
+                 Percent predicted "4" = 12.25%                                 
+                    Percent actual "5" = 4.68%                                  
+                 Percent predicted "5" = 7.03%                                  
+                    Percent actual "6" = 6.67%                                  
+                 Percent predicted "6" = 5.23%                                  
+                    Percent actual "7" = 1.26%                                  
+                 Percent predicted "7" = 10.27%                                 
+                    Percent actual "p" = 3.96%                                  
+                 Percent predicted "p" = 7.39%                                  
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    4     |    5     |    6     |    7     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |  33.82%  |  16.18%  |  8.82%   |  4.41%   |  5.88%   |  2.94%   |  5.88%   |  13.24%  |  8.82%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |  20.35%  |  22.57%  |  14.60%  |  7.96%   |  10.18%  |  3.54%   |  2.65%   |  11.50%  |  6.64%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |  9.91%   |  11.71%  |  22.52%  |  19.82%  |  11.71%  |  8.11%   |  0.90%   |  5.41%   |  9.91%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |  2.94%   |  11.76%  |  11.76%  |  20.59%  |  14.71%  |  8.82%   |  14.71%  |  8.82%   |  5.88%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |  4.17%   |  8.33%   |  8.33%   |  16.67%  |  12.50%  |  20.83%  |  20.83%  |  4.17%   |  4.17%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |  11.54%  |  3.85%   |  11.54%  |  3.85%   |  30.77%  |  30.77%  |  7.69%   |  0.00%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |  2.70%   |  8.11%   |  5.41%   |  16.22%  |  32.43%  |  5.41%   |  16.22%  |  13.51%  |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    7     |  28.57%  |  28.57%  |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  28.57%  |  14.29%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |  18.18%  |  4.55%   |  22.73%  |  0.00%   |  0.00%   |  9.09%   |  0.00%   |  22.73%  |  22.73%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+         Percent correct of actual "0" = 33.82%                                 
+         Percent correct of actual "1" = 22.57%                                 
+         Percent correct of actual "2" = 22.52%                                 
+         Percent correct of actual "3" = 20.59%                                 
+         Percent correct of actual "4" = 12.50%                                 
+         Percent correct of actual "5" = 30.77%                                 
+         Percent correct of actual "6" = 16.22%                                 
+         Percent correct of actual "7" = 28.57%                                 
+         Percent correct of actual "p" = 22.73%                                 
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    4     |    5     |    6     |    7     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |  25.00%  |  12.50%  |  7.50%   |  4.92%   |  5.88%   |  5.13%   |  13.79%  |  15.79%  |  14.63%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |  50.00%  |  57.95%  |  41.25%  |  29.51%  |  33.82%  |  20.51%  |  20.69%  |  45.61%  |  36.59%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |  11.96%  |  14.77%  |  31.25%  |  36.07%  |  19.12%  |  23.08%  |  3.45%   |  10.53%  |  26.83%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |  1.09%   |  4.55%   |  5.00%   |  11.48%  |  7.35%   |  7.69%   |  17.24%  |  5.26%   |  4.88%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |  1.09%   |  2.27%   |  2.50%   |  6.56%   |  4.41%   |  12.82%  |  17.24%  |  1.75%   |  2.44%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |  3.26%   |  1.14%   |  3.75%   |  1.64%   |  11.76%  |  20.51%  |  6.90%   |  0.00%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |  1.09%   |  3.41%   |  2.50%   |  9.84%   |  17.65%  |  5.13%   |  20.69%  |  8.77%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    7     |  2.17%   |  2.27%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  3.51%   |  2.44%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |  4.35%   |  1.14%   |  6.25%   |  0.00%   |  0.00%   |  5.13%   |  0.00%   |  8.77%   |  12.20%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+      Percent correct of predicted "0" = 25.00%                                 
+      Percent correct of predicted "1" = 57.95%                                 
+      Percent correct of predicted "2" = 31.25%                                 
+      Percent correct of predicted "3" = 11.48%                                 
+      Percent correct of predicted "4" = 4.41%                                  
+      Percent correct of predicted "5" = 20.51%                                 
+      Percent correct of predicted "6" = 20.69%                                 
+      Percent correct of predicted "7" = 3.51%                                  
+      Percent correct of predicted "p" = 12.20%                                 
+
+
+                                   F1 Scores:                                   
+                      F1 score for "0" = 28.75%                                 
+                      F1 score for "1" = 32.48%                                 
+                      F1 score for "2" = 26.18%                                 
+                      F1 score for "3" = 14.74%                                 
+                      F1 score for "4" = 6.52%                                  
+                      F1 score for "5" = 24.62%                                 
+                      F1 score for "6" = 18.18%                                 
+                      F1 score for "7" = 6.25%                                  
+                      F1 score for "p" = 15.87%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+                     MCC score for "0" = 17.33%                                 
+                     MCC score for "1" = 15.23%                                 
+                     MCC score for "2" = 11.54%                                 
+                     MCC score for "3" = 7.84%                                  
+                     MCC score for "4" = 0.16%                                  
+                     MCC score for "5" = 20.59%                                 
+                     MCC score for "6" = 13.20%                                 
+                     MCC score for "7" = 6.81%                                  
+                     MCC score for "p" = 11.91%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                          Actual "0" Average Z-Scores:                          
+ AA: -0.07   AE: -0.20   AH: -0.03   AO:  0.05   AW:  0.47   AY: -0.21    B: -0.03  
+ CH:  0.32    D: -0.04   DH:  0.28   EH:  0.12   ER:  0.07   EY: -0.10    F: -0.04  
+  G:  0.02   HH: -0.28   IH: -0.01   IY: -0.03   JH: -0.08    K:  0.10    L: -0.08  
+  M: -0.27    N:  0.06   NG:  0.07   OW: -0.19   OY: -0.00    P:  0.06    R:  0.15  
+  S:  0.29   SH:  0.22    T:  0.00   TH:  0.01   UH: -0.32   UW: -0.18    V:  0.11  
+  W:  0.11    Y: -0.15    Z:  0.07   ZH:  0.21  
+
+
+                          Actual "1" Average Z-Scores:                          
+ AA:  0.11   AE: -0.22   AH: -0.02   AO:  0.06   AW:  0.03   AY:  0.08    B: -0.01  
+ CH:  0.01    D:  0.16   DH:  0.11   EH:  0.03   ER: -0.10   EY: -0.17    F:  0.08  
+  G: -0.08   HH: -0.03   IH:  0.04   IY: -0.09   JH:  0.02    K: -0.03    L:  0.12  
+  M: -0.05    N:  0.04   NG:  0.07   OW:  0.02   OY:  0.02    P:  0.00    R:  0.20  
+  S: -0.06   SH: -0.10    T: -0.09   TH:  0.04   UH:  0.02   UW: -0.13    V:  0.02  
+  W: -0.14    Y: -0.09    Z:  0.03   ZH:  0.05  
+
+
+                          Actual "2" Average Z-Scores:                          
+ AA: -0.18   AE:  0.14   AH:  0.02   AO: -0.01   AW: -0.34   AY:  0.09    B:  0.09  
+ CH:  0.01    D: -0.02   DH: -0.18   EH:  0.11   ER: -0.13   EY:  0.06    F: -0.02  
+  G:  0.03   HH: -0.09   IH:  0.07   IY:  0.07   JH:  0.24    K: -0.04    L:  0.09  
+  M:  0.14    N: -0.09   NG: -0.14   OW:  0.07   OY: -0.02    P: -0.18    R: -0.12  
+  S: -0.02   SH:  0.06    T:  0.19   TH: -0.01   UH:  0.01   UW:  0.11    V:  0.02  
+  W: -0.01    Y:  0.07    Z: -0.18   ZH:  0.01  
+
+
+                          Actual "3" Average Z-Scores:                          
+ AA: -0.03   AE:  0.41   AH:  0.03   AO: -0.24   AW: -0.26   AY:  0.17    B: -0.04  
+ CH:  0.04    D: -0.12   DH: -0.34   EH: -0.22   ER:  0.19   EY: -0.05    F: -0.05  
+  G:  0.20   HH:  0.59   IH: -0.03   IY:  0.23   JH:  0.23    K: -0.08    L: -0.46  
+  M:  0.37    N: -0.14   NG: -0.47   OW: -0.20   OY:  0.14    P:  0.01    R: -0.45  
+  S:  0.34   SH:  0.07    T:  0.01   TH: -0.34   UH:  0.16   UW:  0.19    V: -0.12  
+  W: -0.17    Y:  0.17    Z: -0.00   ZH: -0.17  
+
+
+                          Actual "4" Average Z-Scores:                          
+ AA:  0.30   AE:  0.31   AH: -0.12   AO:  0.20   AW:  0.12   AY: -0.21    B: -0.55  
+ CH: -0.27    D: -0.05   DH: -0.39   EH: -0.29   ER:  0.26   EY:  0.32    F: -0.22  
+  G:  0.20   HH:  0.59   IH: -0.18   IY:  0.28   JH: -0.14    K:  0.06    L: -0.39  
+  M: -0.03    N:  0.16   NG: -0.03   OW:  0.21   OY: -0.36    P:  0.18    R: -0.33  
+  S: -0.76   SH: -0.12    T: -0.16   TH: -0.01   UH:  0.34   UW:  0.43    V: -0.06  
+  W:  0.41    Y:  0.56    Z:  0.06   ZH: -0.38  
+
+
+                          Actual "5" Average Z-Scores:                          
+ AA:  0.21   AE:  0.64   AH: -0.36   AO: -0.17   AW:  0.18   AY: -0.08    B:  0.07  
+ CH: -0.53    D: -0.43   DH: -0.05   EH: -0.44   ER:  0.29   EY:  0.28    F: -0.44  
+  G:  0.26   HH:  0.29   IH:  0.04   IY:  0.49   JH: -0.93    K:  0.22    L:  0.01  
+  M: -0.00    N: -0.77   NG:  0.12   OW:  0.09   OY:  0.00    P: -0.09    R: -0.56  
+  S: -0.29   SH:  0.51    T:  0.36   TH:  0.00   UH:  0.43   UW:  0.36    V: -0.09  
+  W:  0.58    Y:  0.25    Z: -0.08   ZH: -0.39  
+
+
+                          Actual "6" Average Z-Scores:                          
+ AA: -0.08   AE:  0.60   AH: -0.04   AO: -0.02   AW: -0.09   AY: -0.13    B:  0.11  
+ CH: -0.47    D: -0.38   DH: -0.17   EH: -0.12   ER:  0.46   EY:  0.72    F: -0.19  
+  G: -0.01   HH:  0.40   IH: -0.50   IY: -0.19   JH:  0.04    K:  0.40    L: -0.24  
+  M:  0.13    N:  0.00   NG: -0.07   OW:  0.02   OY:  0.06    P:  0.07    R: -0.18  
+  S:  0.19   SH: -0.29    T: -0.23   TH:  0.01   UH: -0.02   UW:  0.17    V: -0.30  
+  W:  0.15    Y:  0.36    Z:  0.05   ZH: -0.22  
+
+
+                          Actual "7" Average Z-Scores:                          
+ AA:  0.38   AE: -0.62   AH:  0.79   AO: -0.39   AW:  0.62   AY: -0.09    B:  0.16  
+ CH:  0.58    D:  0.51   DH:  0.52   EH:  0.20   ER: -0.58   EY: -0.27    F:  0.19  
+  G: -0.54   HH: -0.51   IH: -0.20   IY: -0.33   JH: -0.35    K:  0.14    L:  0.42  
+  M: -0.32    N:  0.89   NG:  0.24   OW: -0.44   OY: -0.13    P:  0.40    R:  1.01  
+  S:  0.15   SH: -0.31    T: -0.48   TH: -0.33   UH: -1.03   UW: -0.71    V: -0.06  
+  W: -0.58    Y: -0.85    Z:  0.21   ZH:  0.99  
+
+
+                          Actual "p" Average Z-Scores:                          
+ AA: -0.56   AE: -0.37   AH:  0.48   AO: -0.19   AW: -0.05   AY: -0.30    B:  0.09  
+ CH:  0.28    D: -0.17   DH:  0.06   EH:  0.07   ER:  0.00   EY:  0.03    F:  0.48  
+  G:  0.02   HH: -0.78   IH:  0.36   IY: -0.13   JH: -0.23    K: -0.70    L: -0.04  
+  M: -0.07    N:  0.51   NG:  0.41   OW:  0.16   OY: -0.00    P:  0.33    R: -0.24  
+  S:  0.06   SH:  0.01    T:  0.22   TH:  0.21   UH: -0.08   UW:  0.06    V:  0.27  
+  W:  0.16    Y: -0.42    Z:  0.26   ZH: -0.05  
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                        Predicted "0" Average Z-Scores:                         
+ AA: -0.07   AE: -0.25   AH:  0.05   AO:  0.16   AW:  0.68   AY: -0.35    B: -0.04  
+ CH:  0.41    D: -0.10   DH:  0.52   EH:  0.01   ER:  0.09   EY: -0.05    F:  0.02  
+  G: -0.01   HH: -0.18   IH:  0.04   IY:  0.01   JH: -0.03    K:  0.25    L:  0.02  
+  M: -0.52    N: -0.11   NG:  0.08   OW: -0.28   OY:  0.02    P:  0.10    R:  0.35  
+  S:  0.24   SH:  0.24    T: -0.01   TH: -0.07   UH: -0.36   UW: -0.40    V: -0.02  
+  W:  0.20    Y: -0.34    Z:  0.05   ZH:  0.23  
+
+
+                        Predicted "1" Average Z-Scores:                         
+ AA:  0.21   AE: -0.40   AH: -0.08   AO:  0.26   AW: -0.04   AY:  0.37    B:  0.16  
+ CH: -0.21    D:  0.53   DH:  0.25   EH:  0.21   ER: -0.26   EY: -0.15    F:  0.03  
+  G: -0.10   HH: -0.07   IH: -0.07   IY: -0.16   JH: -0.11    K:  0.04    L:  0.37  
+  M:  0.15    N: -0.01   NG:  0.16   OW:  0.01   OY:  0.13    P: -0.05    R:  0.36  
+  S: -0.24   SH: -0.28    T: -0.25   TH:  0.04   UH:  0.03   UW: -0.47    V: -0.17  
+  W: -0.25    Y: -0.37    Z:  0.03   ZH: -0.01  
+
+
+                        Predicted "2" Average Z-Scores:                         
+ AA: -0.02   AE:  0.23   AH: -0.09   AO:  0.08   AW: -0.60   AY:  0.49    B:  0.15  
+ CH: -0.05    D: -0.07   DH: -0.43   EH:  0.25   ER: -0.34   EY: -0.08    F:  0.23  
+  G: -0.13   HH: -0.39   IH: -0.10   IY:  0.15   JH:  0.31    K: -0.37    L:  0.26  
+  M:  0.42    N:  0.09   NG: -0.16   OW:  0.24   OY: -0.21    P: -0.26    R: -0.17  
+  S: -0.13   SH:  0.06    T:  0.09   TH:  0.05   UH:  0.20   UW:  0.23    V:  0.32  
+  W: -0.22    Y:  0.25    Z: -0.36   ZH:  0.12  
+
+
+                        Predicted "3" Average Z-Scores:                         
+ AA: -0.05   AE:  0.67   AH: -0.56   AO: -0.27   AW: -0.46   AY:  0.52    B: -0.15  
+ CH: -0.00    D: -0.20   DH: -0.68   EH: -0.25   ER:  0.25   EY: -0.09    F: -0.13  
+  G:  0.03   HH:  0.79   IH:  0.14   IY:  0.22   JH:  0.08    K: -0.31    L: -0.71  
+  M:  0.99    N: -0.10   NG: -0.47   OW: -0.20   OY: -0.05    P: -0.32    R: -0.48  
+  S:  0.35   SH: -0.11    T:  0.42   TH: -0.40   UH:  0.25   UW:  0.36    V: -0.18  
+  W: -0.07    Y:  0.34    Z: -0.16   ZH:  0.09  
+
+
+                        Predicted "4" Average Z-Scores:                         
+ AA:  0.37   AE:  0.04   AH: -0.15   AO:  0.30   AW: -0.30   AY: -0.49    B: -0.25  
+ CH: -0.25    D: -0.04   DH: -0.63   EH: -0.24   ER:  0.06   EY:  0.12    F: -0.29  
+  G:  0.35   HH:  0.37   IH:  0.01   IY:  0.17   JH: -0.11    K:  0.15    L: -0.29  
+  M: -0.19    N: -0.07   NG: -0.11   OW:  0.23   OY: -0.27    P:  0.17    R: -0.06  
+  S: -0.63   SH:  0.06    T: -0.21   TH: -0.07   UH:  0.66   UW:  0.96    V:  0.01  
+  W:  0.08    Y:  1.22    Z:  0.16   ZH: -0.31  
+
+
+                        Predicted "5" Average Z-Scores:                         
+ AA:  0.03   AE:  0.48   AH: -0.52   AO: -0.66   AW:  0.21   AY:  0.19    B:  0.08  
+ CH: -0.73    D: -0.66   DH:  0.25   EH: -0.27   ER:  0.30   EY:  0.23    F: -0.53  
+  G:  0.25   HH:  0.22   IH:  0.10   IY:  0.47   JH: -0.99    K:  0.37    L: -0.03  
+  M:  0.11    N: -0.83   NG:  0.25   OW:  0.32   OY:  0.14    P: -0.28    R: -0.84  
+  S: -0.21   SH:  0.52    T:  0.49   TH: -0.31   UH:  0.44   UW:  0.53    V: -0.22  
+  W:  0.96    Y:  0.28    Z: -0.19   ZH: -0.22  
+
+
+                        Predicted "6" Average Z-Scores:                         
+ AA: -0.23   AE:  0.78   AH:  0.37   AO: -0.01   AW: -0.34   AY: -0.69    B: -0.17  
+ CH: -0.27    D: -0.55   DH: -0.14   EH: -0.43   ER:  0.99   EY:  0.95    F: -0.50  
+  G: -0.04   HH:  0.56   IH: -0.66   IY: -0.34   JH:  0.26    K:  0.43    L: -0.56  
+  M: -0.13    N:  0.00   NG: -0.38   OW:  0.14   OY:  0.00    P: -0.06    R: -0.34  
+  S:  0.59   SH: -0.17    T:  0.13   TH:  0.16   UH: -0.20   UW:  0.43    V: -0.40  
+  W:  0.04    Y:  0.53    Z:  0.34   ZH: -0.48  
+
+
+                        Predicted "7" Average Z-Scores:                         
+ AA: -0.13   AE: -0.52   AH:  0.59   AO: -0.12   AW:  0.77   AY: -0.20    B:  0.07  
+ CH:  0.25    D:  0.58   DH:  0.69   EH:  0.27   ER: -0.21   EY: -0.26    F:  0.45  
+  G: -0.16   HH: -0.36   IH: -0.07   IY: -0.44   JH:  0.31    K:  0.07    L:  0.39  
+  M: -0.59    N:  0.63   NG:  0.22   OW: -0.41   OY:  0.29    P:  0.44    R:  0.69  
+  S:  0.20   SH: -0.31    T: -0.51   TH:  0.27   UH: -0.81   UW: -0.94    V:  0.04  
+  W: -0.41    Y: -1.07    Z:  0.18   ZH:  0.19  
+
+
+                        Predicted "p" Average Z-Scores:                         
+ AA: -0.48   AE: -0.40   AH:  0.75   AO: -0.35   AW: -0.13   AY: -0.34    B:  0.04  
+ CH:  0.59    D: -0.21   DH:  0.09   EH:  0.01   ER: -0.14   EY: -0.00    F:  0.35  
+  G: -0.12   HH: -0.57   IH:  0.49   IY: -0.17   JH:  0.09    K: -0.45    L:  0.07  
+  M: -0.34    N:  0.26   NG:  0.39   OW:  0.21   OY:  0.08    P:  0.28    R: -0.33  
+  S:  0.26   SH:  0.08    T:  0.24   TH:  0.49   UH: -0.26   UW: -0.17    V:  0.48  
+  W:  0.10    Y: -0.61    Z:  0.22   ZH: -0.08  
+
+
+
+
+
+                                  Characters:                                   
+
+
+                          Actual "0" Predicted as "0":                          
+
+1H6_HenryVI		3H6_KingLewis		3H6_QueenMargaret		AWW_King		AYL_DukeFrederick
+AYL_DukeSenior		Cym_Cymbeline		Cym_Queen		Err_Duke		H5_HenryV		Ham_Claudius
+LLL_King		LLL_Princess		Lr_Lear		Mac_LadyMacbeth		Per_Cleon		R3_QueenMargaret
+Rom_PrinceEscalus		TNK_QUEENS.1		TNK_QUEENS.2		TN_Orsino		WT_Leontes
+WT_Polixenes
+
+
+                          Actual "0" Predicted as "1":                          
+
+2H6_HenryVI		2H6_QueenMargaret		3H6_HenryVI		Ant_Antony		Ant_Cleopatra
+Lr_Cordelia		Per_Pericles		R3_QueenElizabeth		TGV_Duke		TNK_QUEENS.3
+Tit_Tamora
+
+
+                          Actual "0" Predicted as "2":                          
+
+Ant_Octavius		H8_Katherine		JC_Caesar		MM_Duke		MV_Morocco		TNK_Hippolyta
+
+
+                          Actual "0" Predicted as "3":                          
+
+Ant_Pompey		H8_HenryVIII		WT_Hermione
+
+
+                          Actual "0" Predicted as "4":                          
+
+1H4_Glendower		Per_Dionyza		Per_Lysimachus		TNK_Theseus
+
+
+                          Actual "0" Predicted as "5":                          
+
+Ado_DonPedro		Ham_Gertrude
+
+
+                          Actual "0" Predicted as "6":                          
+
+Ant_Lepidus		MV_Duke		Mac_Duncan		Per_Simonides
+
+
+                          Actual "0" Predicted as "7":                          
+
+1H4_HenryIV		1H6_Charles		2H4_HenryIV		H5_KingOfFrance		Jn_KingJohn
+Per_Antiochus		R2_RichardII		Tmp_Alonso		Tmp_Prospero
+
+
+                          Actual "0" Predicted as "p":                          
+
+Jn_KingPhilip		MND_Hippolyta		MV_Arragon		Mac_Macbeth		Oth_Duke		R2_Queen
+
+
+                          Actual "1" Predicted as "0":                          
+
+1H4_HenryV		1H4_Mortimer		1H4_Westmoreland		1H4_Worcester		1H6_Burgundy
+1H6_CardinalBeaufort		1H6_Countess		1H6_Exeter		1H6_Gloucester		1H6_Suffolk
+1H6_Warwick		2H4_Warwick		2H6_Buckingham		2H6_CardinalBeaufort		3H6_Clarence
+3H6_EdwardIV		3H6_RichardIII		3H6_Somerset		3H6_York		Cor_Volumnia
+Cym_Belarius		H8_Chamberlain		H8_Norfolk		H8_Surrey		Jn_Blanche		Jn_Dauphin
+Jn_Pembroke		Lr_Albany		Lr_Cornwall		Mac_Banquo		Oth_Brabantio		Oth_Lodovico
+Per_Cerimon		R3_Rivers		Rom_LadyCapulet		Rom_Mercutio		Rom_Tybalt		TNK_Palamon
+Tim_Apemantus		Tit_Chiron		Tit_Demetrius		Tit_Saturninus		Tmp_Antonio
+Tmp_Sebastian		Tro_Hector		Tro_Troilus
+
+
+                          Actual "1" Predicted as "1":                          
+
+1H4_Hotspur		1H6_Somerset		1H6_York		2H4_HenryV		2H6_DuchessOfGloucester
+2H6_Gloucester		2H6_Salisbury		2H6_Suffolk		2H6_York		3H6_Clifford
+3H6_PrinceEdward		Ado_Hero		Cor_Aufidius		Cor_Cominius		H5_Burgundy		H5_Exeter
+H8_Buckingham		H8_Suffolk		JC_Antony		JC_Brutus		Jn_Bastard		LLL_Boyet
+Lr_Edgar		Lr_Edmund		Lr_Gloucester		MND_Demetrius		MND_Lysander		Mac_Macduff
+R2_Aumerle		R2_HenryIV		R2_Hotspur		R2_Northumberland		R2_York		R3_Buckingham
+R3_Clarence		R3_DuchessOfYork		R3_EdwardV		R3_Hastings		R3_LadyAnne
+R3_RichardIII		Rom_Benvolio		Rom_Juliet		Shr_Lord		Tim_FRIENDS.Lucullus
+Tit_Lavinia		Tit_Lucius		Tit_Marcus		Tit_Titus		WT_Antigonus		WT_Florizell
+WT_Perdita
+
+
+                          Actual "1" Predicted as "2":                          
+
+1H4_LadyPercy		2H4_Westmoreland		2H6_Saye		AYL_Jaques		Ado_Benedick
+Ado_Claudio		Ado_DonJohn		Ado_Leonato		Ado_LeonatosBrother		Cor_Coriolanus
+H5_Katherine		H8_Cranmer		H8_Sands		H8_Wolsey		Ham_Hamlet		Ham_Polonius
+JC_Cassius		LLL_Maria		Lr_Kent		MM_Angelo		MV_Portia		Oth_Desdemona
+Oth_Othello		Per_Helicanus		R2_Mowbray		R3_Stanley		Rom_Capulet		TGV_Sylvia
+TNK_Arcite		Tit_Bassianus		Tit_YoungLucius		Tmp_Ferdinand		Tro_Paris
+
+
+                          Actual "1" Predicted as "3":                          
+
+1H6_QueenMargaret		AWW_Bertram		AWW_Countess		AWW_LORDS.DUMAINE.2
+Ant_Dolabella		Cym_ATTENDANTS.1		Cym_Cloten		Cym_Imogen		H8_Surveyor
+JC_Portia		Lr_Goneril		Lr_Regan		MND_Egeus		MND_Hermia		Per_Thaisa
+Tim_FRIENDS.Lucius		WT_ATTENDANTS.0.1		WT_Camillo
+
+
+                          Actual "1" Predicted as "4":                          
+
+2H4_Bedford		2H4_ChiefJustice		2H4_LadyPercy		AWW_LORDS.DUMAINE.1		AYL_Celia
+AYL_Rosalind		Ado_Beatrice		Cor_Menenius		Cor_Valeria		Cym_ATTENDANTS.CLOTEN.2
+H8_Anne		H8_Campeius		H8_Cromwell		Ham_Ophelia		Jn_Arthur		LLL_Katherine
+MM_Escalus		MND_Helena		Mac_LadyMacduff		Per_Marina		R3_EdwardIV		TN_Olivia
+WT_Paulina
+
+
+                          Actual "1" Predicted as "5":                          
+
+AYL_LORDS.SENIOR.Amiens		Ant_Enobarbus		Cym_Arviragus		Cym_Guiderius
+LLL_Rosaline		R3_York		Tmp_Miranda		Tro_Ajax
+
+
+                          Actual "1" Predicted as "6":                          
+
+2H6_Clifford		AWW_Lafew		H8_Gardiner		JC_Octavius		Mac_Lennox		TNK_Pirithous
+
+
+                          Actual "1" Predicted as "7":                          
+
+1H4_Archbishop		1H4_Douglas		1H4_Vernon		1H6_Alanson		1H6_Bedford
+1H6_Mortimer		1H6_Reignier		2H4_Archbishop		2H4_Hastings		2H4_Mowbray
+2H4_Northumberland		2H6_Warwick		2H6_YoungClifford		3H6_Oxford		3H6_Warwick
+H5_BishopOfCanterbury		Jn_Constance		Jn_Pandulph		Jn_QueenEleanor
+R2_BishopOfCarlisle		R2_DuchessOfGloucester		R2_DuchessOfYork		R2_Gaunt
+R3_HenryVII		Tit_Martius		Tro_Cassandra
+
+
+                          Actual "1" Predicted as "p":                          
+
+2H4_LordBardolph		AYL_LORDS.SENIOR.0.1		H5_Dauphin		H5_Orleans		Ham_Laertes
+Jn_Melun		Jn_Salisbury		MND_Theseus		Mac_Malcolm		Mac_Ross		Oth_Montano
+Rom_Montague		Rom_Paris		Rom_Romeo		TNK_Emilia
+
+
+                          Actual "2" Predicted as "0":                          
+
+1H4_Blunt		1H4_Poins		Cor_Lartius		Err_AntipholusOfSyracuse		H5_Constable
+H8_GENTLEMEN.1		H8_Lovell		Tmp_Gonzalo		Tro_Agamemnon		Tro_Nestor		Tro_Ulysses
+
+
+                          Actual "2" Predicted as "1":                          
+
+1H4_Falstaff		1H6_Lucy		AYL_Oliver		Ado_Margaret		Ham_Guildenstern
+Ham_Horatio		Ham_Rosencrantz		Jn_Hubert		MM_Lucio		R2_Scroop		R3_Catesby
+Tim_Alcibiades		Tit_Aaron
+
+
+                          Actual "2" Predicted as "2":                          
+
+1H6_JohnTalbot		2H4_Falstaff		2H4_Silence		3H6_QueenElizabeth		AYL_Orlando
+Ado_FriarFrancis		Cym_Iachimo		Cym_Posthumus		Err_AntipholusOfEphesus
+Err_Luciana		LLL_Dumaine		MM_Isabella		MV_Antonio		MV_Gratiano		MV_Lorenzo
+MV_Solanio		Oth_Cassio		Oth_Iago		Oth_Roderigo		Shr_Hortensio		Shr_Katherine
+TGV_Proteus		TGV_Valentine		TN_Sebastian		TN_TobyBelch
+
+
+                          Actual "2" Predicted as "3":                          
+
+Ant_Charmian		Ant_Maecenas		Cym_Pisanio		Err_Adriana		Ham_Osric		JC_Decius
+MM_Mariana		Oth_Emilia		Shr_Bianca		Shr_Lucentio		Shr_Vincentio		TGV_Julia
+TGV_Thurio		TN_AndrewAguecheek		TN_Viola		Tim_SENATORS.X		Tro_Achilles
+Tro_Aeneas		Wiv_Falstaff		Wiv_Fenton		Wiv_Shallow		Wiv_Slender
+
+
+                          Actual "2" Predicted as "4":                          
+
+2H4_Shallow		AYL_LORDS.FREDERICK.LeBeau		Ado_Borachio		Ado_Ursula		Ant_Agrippa
+Cym_Philario		H8_Griffith		H8_OldLady		MV_Nerissa		Rom_Nurse		Shr_Baptista
+Tro_Diomedes		Tro_Pandarus
+
+
+                          Actual "2" Predicted as "5":                          
+
+2H4_Poins		Cor_SENATORS.ROMAN.0.1		H8_GENTLEMEN.2		LLL_Longaville		Shr_Gremio
+Shr_Petruchio		TGV_Antonio		TN_Malvolio		TN_Maria
+
+
+                          Actual "2" Predicted as "6":                          
+
+Cym_Lucius
+
+
+                          Actual "2" Predicted as "7":                          
+
+1H6_Talbot		Jn_Chatillion		R3_Tyrrel		Rom_FriarLawrence		Tim_SENATORS.1
+Tim_SENATORS.2
+
+
+                          Actual "2" Predicted as "p":                          
+
+2H4_Morton		Err_Egeon		H8_GENTLEMEN.3		Jn_CITIZENS.0.1		LLL_Armado
+LLL_Berowne		MM_Claudio		MV_Bassanio		MV_Salarino		R2_Bushy		WT_ATTENDANTS.3
+
+
+                          Actual "3" Predicted as "0":                          
+
+Cym_Cornelius
+
+
+                          Actual "3" Predicted as "1":                          
+
+2H6_Iden		Lr_Oswald		TNK_Schoolmaster		Tmp_Trinculo
+
+
+                          Actual "3" Predicted as "2":                          
+
+JC_SOLDIERS.BRUTUS.Messala		MV_Jessica		MV_Shylock		TN_Antonio
+
+
+                          Actual "3" Predicted as "3":                          
+
+Err_Merchant2		MM_FriarPeter		Mac_Doctor2		Shr_Merchant		Wiv_MasterFord
+Wiv_MasterPage		Wiv_MistressPage
+
+
+                          Actual "3" Predicted as "4":                          
+
+Err_Angelo		Tim_Flavius		Wiv_DoctorCaius		Wiv_HughEvans		Wiv_MistressFord
+
+
+                          Actual "3" Predicted as "5":                          
+
+Shr_Grumio		Tro_Cressida		Wiv_Host
+
+
+                          Actual "3" Predicted as "6":                          
+
+LLL_Boy		Shr_Tranio		TNK_Doctor		Tro_Patroclus		WT_SERVANTS.SHEPHERD.1
+
+
+                          Actual "3" Predicted as "7":                          
+
+Ant_Scarus		H5_Montjoy		Wiv_Pistol
+
+
+                          Actual "3" Predicted as "p":                          
+
+Err_Abbess		LLL_Holofernes
+
+
+                          Actual "4" Predicted as "0":                          
+
+Ant_Menas
+
+
+                          Actual "4" Predicted as "1":                          
+
+Ham_Marcellus		JC_Casca
+
+
+                          Actual "4" Predicted as "2":                          
+
+AWW_Parolles		MM_Provost
+
+
+                          Actual "4" Predicted as "3":                          
+
+AWW_Diana		AWW_Steward		Cor_TRIBUNES.Sicinius		Err_Courtesan
+
+
+                          Actual "4" Predicted as "4":                          
+
+H5_Fluellen		H5_MistressQuickly		Wiv_MistressQuickly
+
+
+                          Actual "4" Predicted as "5":                          
+
+2H4_MistressQuickly		Cor_TRIBUNES.Brutus		Oth_Bianca		Per_Bawd		Tmp_Boatswain
+
+
+                          Actual "4" Predicted as "6":                          
+
+1H4_MistressQuickly		2H6_Dick		AWW_Widow		Ado_Dogberry		H5_Gower
+
+
+                          Actual "4" Predicted as "7":                          
+
+2H6_Cade
+
+
+                          Actual "4" Predicted as "p":                          
+
+LLL_Nathaniel
+
+
+                          Actual "5" Predicted as "0":                          
+
+R2_Gardener		Tmp_Stephano		Tro_Thersites
+
+
+                          Actual "5" Predicted as "1":                          
+
+TNK_Daughter
+
+
+                          Actual "5" Predicted as "2":                          
+
+AYL_Silvius		MND_Flute		MV_LanceletGobbo
+
+
+                          Actual "5" Predicted as "3":                          
+
+AYL_Phoebe
+
+
+                          Actual "5" Predicted as "4":                          
+
+AYL_Charles		AYL_Corin		Cor_CITIZENS.ROMAN.0.1		Ham_Gravedigger		MM_Elbow
+MND_Quince		Per_FISHERMEN.1		TNK_Jailer
+
+
+                          Actual "5" Predicted as "5":                          
+
+Cor_CITIZENS.ROMAN.0.2		Cor_CITIZENS.ROMAN.3		H5_Nym		MND_Bottom		TGV_Lance
+TGV_Speed		TNK_Wooer		WT_Shepherd
+
+
+                          Actual "5" Predicted as "6":                          
+
+2H4_Bardolph		Per_Bolt
+
+
+                          Actual "5" Predicted as "7":                          
+
+
+
+
+                          Actual "5" Predicted as "p":                          
+
+
+
+
+                          Actual "6" Predicted as "0":                          
+
+TNK_MESSENGERS.X.1
+
+
+                          Actual "6" Predicted as "1":                          
+
+Ant_Eros		Tmp_Caliban		WT_ShepherdsSon
+
+
+                          Actual "6" Predicted as "2":                          
+
+H5_SOLDIERS.ENGLISH.Williams		Shr_Sly
+
+
+                          Actual "6" Predicted as "3":                          
+
+Cor_SERVANTS.2		Err_DromioOfEphesus		Err_DromioOfSyracuse
+H8_SERVANTS.PORTER.1		MV_OldGobbo		R3_MURDERERS.2
+
+
+                          Actual "6" Predicted as "4":                          
+
+2H4_DollTearsheet		AWW_SOLDIERS.Interpreter		AYL_Adam		Cor_WATCHMEN.1
+Cym_JAILERS.1		H5_Boy		H8_Porter		MM_Pompey		Mac_Porter		TGV_Lucetta
+TGV_Pantino		TN_Fabian
+
+
+                          Actual "6" Predicted as "5":                          
+
+R3_MURDERERS.1		Rom_SERVANTS.CAPULET.Sampson
+
+
+                          Actual "6" Predicted as "6":                          
+
+1H4_Gadshill		2H4_Davy		Cor_SERVANTS.3		Shr_Biondello		Tro_Alexander
+Wiv_Simple
+
+
+                          Actual "6" Predicted as "7":                          
+
+1H6_MESSENGERS.ENGLISH.3		2H4_Pistol		2H6_Lieutenant		H5_Pistol		Mac_WITCHES.1
+
+
+                          Actual "6" Predicted as "p":                          
+
+
+
+
+                          Actual "7" Predicted as "0":                          
+
+MND_Oberon		Tmp_SPIRITS.Iris
+
+
+                          Actual "7" Predicted as "1":                          
+
+Mac_Hecate		Tmp_Ariel
+
+
+                          Actual "7" Predicted as "2":                          
+
+
+
+
+                          Actual "7" Predicted as "3":                          
+
+
+
+
+                          Actual "7" Predicted as "4":                          
+
+
+
+
+                          Actual "7" Predicted as "5":                          
+
+
+
+
+                          Actual "7" Predicted as "6":                          
+
+
+
+
+                          Actual "7" Predicted as "7":                          
+
+MND_RobinGoodfellow		MND_Titania
+
+
+                          Actual "7" Predicted as "p":                          
+
+Ham_Ghost
+
+
+                          Actual "p" Predicted as "0":                          
+
+Ham_PLAYERS.King		Lr_Fool		Per_Gower		Tim_Timon
+
+
+                          Actual "p" Predicted as "1":                          
+
+AYL_Touchstone
+
+
+                          Actual "p" Predicted as "2":                          
+
+2H4_Epilogue		AWW_Fool		AWW_Helen		TN_Feste		WT_Autolycus
+
+
+                          Actual "p" Predicted as "3":                          
+
+
+
+
+                          Actual "p" Predicted as "4":                          
+
+
+
+
+                          Actual "p" Predicted as "5":                          
+
+Ant_Countryman		LLL_Costard
+
+
+                          Actual "p" Predicted as "6":                          
+
+
+
+
+                          Actual "p" Predicted as "7":                          
+
+1H6_Pucelle		2H4_Chorus		Cym_Soothsayer		H5_Chorus		Ham_PLAYERS.1
+
+
+                          Actual "p" Predicted as "p":                          
+
+H8_Prologue		TNK_Prologue		Tim_Painter		Tim_Poet		WT_Chorus
+
+

@@ -1,0 +1,1193 @@
+                         Summary: status_All-Combos_Ham                         
+
+
+                      Overall accuracy = 23.32%                                 
+                      Average accuracy = 23.40%                                 
+
+                      Average F1 score = 20.12%                                 
+                           Average MCC = 11.16%                                 
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    4     |    5     |    6     |    7     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |    47    |    30    |    20    |    0     |    6     |    3     |    1     |    0     |    5     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |    4     |    63    |    54    |    19    |    7     |    0     |    18    |    0     |    19    |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |    12    |   102    |    18    |    4     |    24    |    1     |    11    |    4     |    12    |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |    0     |    2     |    0     |    2     |    0     |    0     |    2     |    2     |    0     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |    1     |    23    |    4     |    0     |    1     |    7     |    8     |    2     |    2     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |    8     |    3     |    0     |    0     |    17    |    12    |    6     |    0     |    2     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |    1     |    2     |    1     |    5     |    2     |    2     |    26    |    0     |    1     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    7     |    4     |    15    |    0     |    0     |    0     |    0     |    0     |    1     |    12    |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |    27    |    22    |    0     |    3     |    8     |    0     |    9     |    13    |    4     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+                         Total samples = 746                                    
+
+                      Total actual "0" = 112                                    
+                   Total predicted "0" = 104                                    
+                      Total actual "1" = 184                                    
+                   Total predicted "1" = 262                                    
+                      Total actual "2" = 188                                    
+                   Total predicted "2" = 97                                     
+                      Total actual "3" = 8                                      
+                   Total predicted "3" = 33                                     
+                      Total actual "4" = 48                                     
+                   Total predicted "4" = 65                                     
+                      Total actual "5" = 48                                     
+                   Total predicted "5" = 25                                     
+                      Total actual "6" = 40                                     
+                   Total predicted "6" = 81                                     
+                      Total actual "7" = 32                                     
+                   Total predicted "7" = 22                                     
+                      Total actual "p" = 86                                     
+                   Total predicted "p" = 57                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    4     |    5     |    6     |    7     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |  6.30%   |  4.02%   |  2.68%   |  0.00%   |  0.80%   |  0.40%   |  0.13%   |  0.00%   |  0.67%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |  0.54%   |  8.45%   |  7.24%   |  2.55%   |  0.94%   |  0.00%   |  2.41%   |  0.00%   |  2.55%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |  1.61%   |  13.67%  |  2.41%   |  0.54%   |  3.22%   |  0.13%   |  1.47%   |  0.54%   |  1.61%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |  0.00%   |  0.27%   |  0.00%   |  0.27%   |  0.00%   |  0.00%   |  0.27%   |  0.27%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |  0.13%   |  3.08%   |  0.54%   |  0.00%   |  0.13%   |  0.94%   |  1.07%   |  0.27%   |  0.27%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |  1.07%   |  0.40%   |  0.00%   |  0.00%   |  2.28%   |  1.61%   |  0.80%   |  0.00%   |  0.27%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |  0.13%   |  0.27%   |  0.13%   |  0.67%   |  0.27%   |  0.27%   |  3.49%   |  0.00%   |  0.13%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    7     |  0.54%   |  2.01%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.13%   |  1.61%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |  3.62%   |  2.95%   |  0.00%   |  0.40%   |  1.07%   |  0.00%   |  1.21%   |  1.74%   |  0.54%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+                    Percent actual "0" = 15.01%                                 
+                 Percent predicted "0" = 13.94%                                 
+                    Percent actual "1" = 24.66%                                 
+                 Percent predicted "1" = 35.12%                                 
+                    Percent actual "2" = 25.20%                                 
+                 Percent predicted "2" = 13.00%                                 
+                    Percent actual "3" = 1.07%                                  
+                 Percent predicted "3" = 4.42%                                  
+                    Percent actual "4" = 6.43%                                  
+                 Percent predicted "4" = 8.71%                                  
+                    Percent actual "5" = 6.43%                                  
+                 Percent predicted "5" = 3.35%                                  
+                    Percent actual "6" = 5.36%                                  
+                 Percent predicted "6" = 10.86%                                 
+                    Percent actual "7" = 4.29%                                  
+                 Percent predicted "7" = 2.95%                                  
+                    Percent actual "p" = 11.53%                                 
+                 Percent predicted "p" = 7.64%                                  
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    4     |    5     |    6     |    7     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |  41.96%  |  26.79%  |  17.86%  |  0.00%   |  5.36%   |  2.68%   |  0.89%   |  0.00%   |  4.46%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |  2.17%   |  34.24%  |  29.35%  |  10.33%  |  3.80%   |  0.00%   |  9.78%   |  0.00%   |  10.33%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |  6.38%   |  54.26%  |  9.57%   |  2.13%   |  12.77%  |  0.53%   |  5.85%   |  2.13%   |  6.38%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |  0.00%   |  25.00%  |  0.00%   |  25.00%  |  0.00%   |  0.00%   |  25.00%  |  25.00%  |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |  2.08%   |  47.92%  |  8.33%   |  0.00%   |  2.08%   |  14.58%  |  16.67%  |  4.17%   |  4.17%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |  16.67%  |  6.25%   |  0.00%   |  0.00%   |  35.42%  |  25.00%  |  12.50%  |  0.00%   |  4.17%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |  2.50%   |  5.00%   |  2.50%   |  12.50%  |  5.00%   |  5.00%   |  65.00%  |  0.00%   |  2.50%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    7     |  12.50%  |  46.88%  |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  3.12%   |  37.50%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |  31.40%  |  25.58%  |  0.00%   |  3.49%   |  9.30%   |  0.00%   |  10.47%  |  15.12%  |  4.65%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+         Percent correct of actual "0" = 41.96%                                 
+         Percent correct of actual "1" = 34.24%                                 
+         Percent correct of actual "2" = 9.57%                                  
+         Percent correct of actual "3" = 25.00%                                 
+         Percent correct of actual "4" = 2.08%                                  
+         Percent correct of actual "5" = 25.00%                                 
+         Percent correct of actual "6" = 65.00%                                 
+         Percent correct of actual "7" = 3.12%                                  
+         Percent correct of actual "p" = 4.65%                                  
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    4     |    5     |    6     |    7     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |  45.19%  |  11.45%  |  20.62%  |  0.00%   |  9.23%   |  12.00%  |  1.23%   |  0.00%   |  8.77%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |  3.85%   |  24.05%  |  55.67%  |  57.58%  |  10.77%  |  0.00%   |  22.22%  |  0.00%   |  33.33%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |  11.54%  |  38.93%  |  18.56%  |  12.12%  |  36.92%  |  4.00%   |  13.58%  |  18.18%  |  21.05%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |  0.00%   |  0.76%   |  0.00%   |  6.06%   |  0.00%   |  0.00%   |  2.47%   |  9.09%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |  0.96%   |  8.78%   |  4.12%   |  0.00%   |  1.54%   |  28.00%  |  9.88%   |  9.09%   |  3.51%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |  7.69%   |  1.15%   |  0.00%   |  0.00%   |  26.15%  |  48.00%  |  7.41%   |  0.00%   |  3.51%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |  0.96%   |  0.76%   |  1.03%   |  15.15%  |  3.08%   |  8.00%   |  32.10%  |  0.00%   |  1.75%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    7     |  3.85%   |  5.73%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  4.55%   |  21.05%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |  25.96%  |  8.40%   |  0.00%   |  9.09%   |  12.31%  |  0.00%   |  11.11%  |  59.09%  |  7.02%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+      Percent correct of predicted "0" = 45.19%                                 
+      Percent correct of predicted "1" = 24.05%                                 
+      Percent correct of predicted "2" = 18.56%                                 
+      Percent correct of predicted "3" = 6.06%                                  
+      Percent correct of predicted "4" = 1.54%                                  
+      Percent correct of predicted "5" = 48.00%                                 
+      Percent correct of predicted "6" = 32.10%                                 
+      Percent correct of predicted "7" = 4.55%                                  
+      Percent correct of predicted "p" = 7.02%                                  
+
+
+                                   F1 Scores:                                   
+                      F1 score for "0" = 43.52%                                 
+                      F1 score for "1" = 28.25%                                 
+                      F1 score for "2" = 12.63%                                 
+                      F1 score for "3" = 9.76%                                  
+                      F1 score for "4" = 1.77%                                  
+                      F1 score for "5" = 32.88%                                 
+                      F1 score for "6" = 42.98%                                 
+                      F1 score for "7" = 3.70%                                  
+                      F1 score for "p" = 5.59%                                  
+
+
+                       Matthews Correlation Coefficients:                       
+                     MCC score for "0" = 34.00%                                 
+                     MCC score for "1" = -1.06%                                 
+                     MCC score for "2" = -5.92%                                 
+                     MCC score for "3" = 10.42%                                 
+                     MCC score for "4" = -6.16%                                 
+                     MCC score for "5" = 31.54%                                 
+                     MCC score for "6" = 41.42%                                 
+                     MCC score for "7" = 0.22%                                  
+                     MCC score for "p" = -4.06%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                          Actual "0" Average Z-Scores:                          
+
+
+                          Actual "1" Average Z-Scores:                          
+
+
+                          Actual "2" Average Z-Scores:                          
+
+
+                          Actual "3" Average Z-Scores:                          
+
+
+                          Actual "4" Average Z-Scores:                          
+
+
+                          Actual "5" Average Z-Scores:                          
+
+
+                          Actual "6" Average Z-Scores:                          
+
+
+                          Actual "7" Average Z-Scores:                          
+
+
+                          Actual "p" Average Z-Scores:                          
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                        Predicted "0" Average Z-Scores:                         
+
+
+                        Predicted "1" Average Z-Scores:                         
+
+
+                        Predicted "2" Average Z-Scores:                         
+
+
+                        Predicted "3" Average Z-Scores:                         
+
+
+                        Predicted "4" Average Z-Scores:                         
+
+
+                        Predicted "5" Average Z-Scores:                         
+
+
+                        Predicted "6" Average Z-Scores:                         
+
+
+                        Predicted "7" Average Z-Scores:                         
+
+
+                        Predicted "p" Average Z-Scores:                         
+
+
+
+
+
+                                  Characters:                                   
+
+
+                          Actual "0" Predicted as "0":                          
+
+Ham_Claudius-All-Counts		Ham_Claudius-All-Percentages
+Ham_Claudius-Emphasis-All-Counts		Ham_Claudius-Emphasis-All-Percentages
+Ham_Claudius-Emphasis-Min-100-Counts
+Ham_Claudius-Emphasis-Min-100-Percentages
+Ham_Claudius-Emphasis-Min-1000-Counts
+Ham_Claudius-Emphasis-Min-1000-Percentages
+Ham_Claudius-Emphasis-Min-250-Counts
+Ham_Claudius-Emphasis-Min-250-Percentages
+Ham_Claudius-Emphasis-Min-2500-Percentages
+Ham_Claudius-Emphasis-Min-500-Counts
+Ham_Claudius-Emphasis-Min-500-Percentages
+Ham_Claudius-Emphasis-No-Others-Counts
+Ham_Claudius-Emphasis-No-Others-Percentages
+Ham_Claudius-Emphasis-Vowels-Only-All-Counts
+Ham_Claudius-Emphasis-Vowels-Only-All-Percentages
+Ham_Claudius-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Claudius-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Claudius-Emphasis-Vowels-Only-Min-1000-Counts
+Ham_Claudius-Emphasis-Vowels-Only-Min-1000-Percentages
+Ham_Claudius-Emphasis-Vowels-Only-Min-250-Counts
+Ham_Claudius-Emphasis-Vowels-Only-Min-250-Percentages
+Ham_Claudius-Emphasis-Vowels-Only-Min-2500-Counts
+Ham_Claudius-Emphasis-Vowels-Only-Min-2500-Percentages
+Ham_Claudius-Emphasis-Vowels-Only-Min-500-Counts
+Ham_Claudius-Emphasis-Vowels-Only-Min-500-Percentages
+Ham_Claudius-Emphasis-Vowels-Only-No-Others-Counts
+Ham_Claudius-Emphasis-Vowels-Only-No-Others-Percentages
+Ham_Claudius-Min-100-Counts		Ham_Claudius-Min-100-Percentages
+Ham_Claudius-Min-1000-Counts		Ham_Claudius-Min-1000-Percentages
+Ham_Claudius-Min-250-Counts		Ham_Claudius-Min-250-Percentages
+Ham_Claudius-Min-2500-Counts		Ham_Claudius-Min-2500-Percentages
+Ham_Claudius-Min-500-Counts		Ham_Claudius-Min-500-Percentages
+Ham_Claudius-No-Others-Counts		Ham_Claudius-No-Others-Percentages
+Ham_Claudius-Vowels-Only-All-Percentages
+Ham_Claudius-Vowels-Only-Min-100-Percentages
+Ham_Claudius-Vowels-Only-Min-2500-Counts
+Ham_Claudius-Vowels-Only-Min-2500-Percentages
+Ham_Claudius-Vowels-Only-No-Others-Counts
+Ham_Claudius-Vowels-Only-No-Others-Percentages
+
+
+                          Actual "0" Predicted as "1":                          
+
+Ham_Fortinbras-All-Percentages		Ham_Fortinbras-Emphasis-All-Counts
+Ham_Fortinbras-Emphasis-All-Percentages
+Ham_Fortinbras-Emphasis-Min-100-Counts
+Ham_Fortinbras-Emphasis-Vowels-Only-All-Counts
+Ham_Fortinbras-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Fortinbras-Min-100-Counts		Ham_Fortinbras-Vowels-Only-All-Counts
+Ham_Fortinbras-Vowels-Only-All-Percentages
+Ham_Fortinbras-Vowels-Only-Min-100-Counts		Ham_Gertrude-All-Percentages
+Ham_Gertrude-Emphasis-All-Counts		Ham_Gertrude-Emphasis-All-Percentages
+Ham_Gertrude-Emphasis-Min-100-Counts
+Ham_Gertrude-Emphasis-Min-100-Percentages
+Ham_Gertrude-Emphasis-Min-1000-Counts
+Ham_Gertrude-Emphasis-Min-1000-Percentages
+Ham_Gertrude-Emphasis-Min-250-Counts
+Ham_Gertrude-Emphasis-Min-250-Percentages
+Ham_Gertrude-Emphasis-Min-500-Counts
+Ham_Gertrude-Emphasis-Min-500-Percentages
+Ham_Gertrude-Emphasis-Vowels-Only-All-Percentages		Ham_Gertrude-Min-100-Counts
+Ham_Gertrude-Min-100-Percentages		Ham_Gertrude-Min-1000-Counts
+Ham_Gertrude-Min-1000-Percentages		Ham_Gertrude-Min-250-Counts
+Ham_Gertrude-Min-500-Counts		Ham_Gertrude-Min-500-Percentages
+Ham_Gertrude-Vowels-Only-All-Percentages
+
+
+                          Actual "0" Predicted as "2":                          
+
+Ham_Claudius-Emphasis-Min-2500-Counts		Ham_Fortinbras-All-Counts
+Ham_Fortinbras-Emphasis-Min-100-Percentages
+Ham_Fortinbras-Min-100-Percentages
+Ham_Gertrude-Emphasis-Vowels-Only-All-Counts
+Ham_Gertrude-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Gertrude-Emphasis-Vowels-Only-Min-1000-Counts
+Ham_Gertrude-Emphasis-Vowels-Only-Min-1000-Percentages
+Ham_Gertrude-Emphasis-Vowels-Only-Min-250-Counts
+Ham_Gertrude-Emphasis-Vowels-Only-Min-250-Percentages
+Ham_Gertrude-Emphasis-Vowels-Only-Min-500-Counts
+Ham_Gertrude-Emphasis-Vowels-Only-Min-500-Percentages
+Ham_Gertrude-Vowels-Only-All-Counts		Ham_Gertrude-Vowels-Only-Min-100-Counts
+Ham_Gertrude-Vowels-Only-Min-1000-Counts
+Ham_Gertrude-Vowels-Only-Min-1000-Percentages
+Ham_Gertrude-Vowels-Only-Min-250-Counts
+Ham_Gertrude-Vowels-Only-Min-250-Percentages
+Ham_Gertrude-Vowels-Only-Min-500-Counts
+Ham_Gertrude-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "0" Predicted as "3":                          
+
+
+
+
+                          Actual "0" Predicted as "4":                          
+
+Ham_Claudius-Vowels-Only-All-Counts		Ham_Claudius-Vowels-Only-Min-100-Counts
+Ham_Claudius-Vowels-Only-Min-1000-Counts
+Ham_Claudius-Vowels-Only-Min-250-Counts
+Ham_Claudius-Vowels-Only-Min-500-Counts
+Ham_Claudius-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "0" Predicted as "5":                          
+
+Ham_Gertrude-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Gertrude-Min-250-Percentages		Ham_Gertrude-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "0" Predicted as "6":                          
+
+Ham_Gertrude-All-Counts
+
+
+                          Actual "0" Predicted as "7":                          
+
+
+
+
+                          Actual "0" Predicted as "p":                          
+
+Ham_Claudius-Vowels-Only-Min-1000-Percentages
+Ham_Claudius-Vowels-Only-Min-250-Percentages
+Ham_Fortinbras-Emphasis-Vowels-Only-All-Percentages
+Ham_Fortinbras-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Fortinbras-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "1" Predicted as "0":                          
+
+Ham_Hamlet-All-Percentages		Ham_Hamlet-Emphasis-All-Percentages
+Ham_Hamlet-Emphasis-Vowels-Only-All-Percentages
+Ham_Polonius-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "1" Predicted as "1":                          
+
+Ham_Hamlet-Emphasis-Min-1000-Percentages		Ham_Hamlet-Emphasis-No-Others-Counts
+Ham_Hamlet-Emphasis-No-Others-Percentages
+Ham_Hamlet-Emphasis-Vowels-Only-No-Others-Counts
+Ham_Hamlet-Emphasis-Vowels-Only-No-Others-Percentages
+Ham_Hamlet-No-Others-Counts		Ham_Hamlet-No-Others-Percentages
+Ham_Hamlet-Vowels-Only-All-Percentages
+Ham_Hamlet-Vowels-Only-No-Others-Counts
+Ham_Hamlet-Vowels-Only-No-Others-Percentages		Ham_Laertes-All-Counts
+Ham_Laertes-All-Percentages		Ham_Laertes-Emphasis-All-Counts
+Ham_Laertes-Emphasis-All-Percentages		Ham_Laertes-Emphasis-Min-100-Counts
+Ham_Laertes-Emphasis-Min-100-Percentages		Ham_Laertes-Emphasis-Min-1000-Counts
+Ham_Laertes-Emphasis-Min-1000-Percentages		Ham_Laertes-Emphasis-Min-250-Counts
+Ham_Laertes-Emphasis-Min-250-Percentages		Ham_Laertes-Emphasis-Min-500-Counts
+Ham_Laertes-Emphasis-Min-500-Percentages
+Ham_Laertes-Emphasis-Vowels-Only-All-Counts
+Ham_Laertes-Emphasis-Vowels-Only-All-Percentages
+Ham_Laertes-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Laertes-Emphasis-Vowels-Only-Min-1000-Counts
+Ham_Laertes-Emphasis-Vowels-Only-Min-1000-Percentages
+Ham_Laertes-Emphasis-Vowels-Only-Min-250-Counts
+Ham_Laertes-Emphasis-Vowels-Only-Min-250-Percentages
+Ham_Laertes-Emphasis-Vowels-Only-Min-500-Counts
+Ham_Laertes-Emphasis-Vowels-Only-Min-500-Percentages
+Ham_Laertes-Min-100-Counts		Ham_Laertes-Min-1000-Counts
+Ham_Laertes-Min-1000-Percentages		Ham_Laertes-Min-250-Counts
+Ham_Laertes-Min-500-Counts		Ham_Laertes-Min-500-Percentages
+Ham_Laertes-Vowels-Only-All-Counts		Ham_Laertes-Vowels-Only-All-Percentages
+Ham_Laertes-Vowels-Only-Min-100-Counts
+Ham_Laertes-Vowels-Only-Min-1000-Counts
+Ham_Laertes-Vowels-Only-Min-1000-Percentages
+Ham_Laertes-Vowels-Only-Min-250-Counts		Ham_Laertes-Vowels-Only-Min-500-Counts
+Ham_Laertes-Vowels-Only-Min-500-Percentages
+Ham_Ophelia-Emphasis-Min-1000-Counts		Ham_Ophelia-Emphasis-Min-500-Counts
+Ham_Ophelia-Emphasis-Min-500-Percentages
+Ham_Ophelia-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Ophelia-Emphasis-Vowels-Only-Min-1000-Counts
+Ham_Ophelia-Emphasis-Vowels-Only-Min-1000-Percentages
+Ham_Ophelia-Emphasis-Vowels-Only-Min-250-Counts		Ham_Ophelia-Min-1000-Counts
+Ham_Ophelia-Min-500-Counts		Ham_Ophelia-Min-500-Percentages
+Ham_Ophelia-Vowels-Only-Min-100-Counts
+Ham_Ophelia-Vowels-Only-Min-100-Percentages
+Ham_Ophelia-Vowels-Only-Min-1000-Counts
+Ham_Ophelia-Vowels-Only-Min-250-Counts
+Ham_Ophelia-Vowels-Only-Min-250-Percentages		Ham_Polonius-All-Percentages
+Ham_Polonius-Emphasis-All-Percentages
+Ham_Polonius-Vowels-Only-All-Percentages
+
+
+                          Actual "1" Predicted as "2":                          
+
+Ham_Hamlet-Emphasis-All-Counts		Ham_Hamlet-Emphasis-Min-100-Counts
+Ham_Hamlet-Emphasis-Min-100-Percentages		Ham_Hamlet-Emphasis-Min-1000-Counts
+Ham_Hamlet-Emphasis-Min-250-Counts		Ham_Hamlet-Emphasis-Min-250-Percentages
+Ham_Hamlet-Emphasis-Min-2500-Counts		Ham_Hamlet-Emphasis-Min-2500-Percentages
+Ham_Hamlet-Emphasis-Min-500-Counts		Ham_Hamlet-Emphasis-Min-500-Percentages
+Ham_Hamlet-Emphasis-Vowels-Only-All-Counts
+Ham_Hamlet-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Hamlet-Emphasis-Vowels-Only-Min-1000-Counts
+Ham_Hamlet-Emphasis-Vowels-Only-Min-1000-Percentages
+Ham_Hamlet-Emphasis-Vowels-Only-Min-250-Counts
+Ham_Hamlet-Emphasis-Vowels-Only-Min-250-Percentages
+Ham_Hamlet-Emphasis-Vowels-Only-Min-2500-Counts
+Ham_Hamlet-Emphasis-Vowels-Only-Min-2500-Percentages
+Ham_Hamlet-Emphasis-Vowels-Only-Min-500-Counts
+Ham_Hamlet-Emphasis-Vowels-Only-Min-500-Percentages
+Ham_Hamlet-Min-100-Percentages		Ham_Hamlet-Min-250-Percentages
+Ham_Hamlet-Min-2500-Counts		Ham_Hamlet-Min-2500-Percentages
+Ham_Hamlet-Vowels-Only-Min-100-Percentages
+Ham_Hamlet-Vowels-Only-Min-2500-Counts
+Ham_Hamlet-Vowels-Only-Min-2500-Percentages		Ham_Laertes-Min-250-Percentages
+Ham_Polonius-All-Counts		Ham_Polonius-Emphasis-Min-1000-Counts
+Ham_Polonius-Emphasis-Min-1000-Percentages
+Ham_Polonius-Emphasis-Min-250-Counts
+Ham_Polonius-Emphasis-Min-250-Percentages
+Ham_Polonius-Emphasis-Min-2500-Counts
+Ham_Polonius-Emphasis-Min-2500-Percentages
+Ham_Polonius-Emphasis-Vowels-Only-Min-250-Percentages
+Ham_Polonius-Min-100-Counts		Ham_Polonius-Min-1000-Counts
+Ham_Polonius-Min-1000-Percentages		Ham_Polonius-Min-250-Counts
+Ham_Polonius-Min-250-Percentages		Ham_Polonius-Min-2500-Counts
+Ham_Polonius-Min-2500-Percentages		Ham_Polonius-Min-500-Counts
+Ham_Polonius-Min-500-Percentages		Ham_Polonius-Vowels-Only-All-Counts
+Ham_Polonius-Vowels-Only-Min-100-Counts
+Ham_Polonius-Vowels-Only-Min-1000-Counts
+Ham_Polonius-Vowels-Only-Min-1000-Percentages
+Ham_Polonius-Vowels-Only-Min-250-Counts
+Ham_Polonius-Vowels-Only-Min-250-Percentages
+Ham_Polonius-Vowels-Only-Min-2500-Counts
+Ham_Polonius-Vowels-Only-Min-2500-Percentages
+Ham_Polonius-Vowels-Only-Min-500-Counts
+
+
+                          Actual "1" Predicted as "3":                          
+
+Ham_Hamlet-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Polonius-Emphasis-All-Counts		Ham_Polonius-Emphasis-Min-100-Counts
+Ham_Polonius-Emphasis-Min-100-Percentages
+Ham_Polonius-Emphasis-Min-500-Counts
+Ham_Polonius-Emphasis-Min-500-Percentages
+Ham_Polonius-Emphasis-Vowels-Only-All-Counts
+Ham_Polonius-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Polonius-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Polonius-Emphasis-Vowels-Only-Min-1000-Counts
+Ham_Polonius-Emphasis-Vowels-Only-Min-1000-Percentages
+Ham_Polonius-Emphasis-Vowels-Only-Min-250-Counts
+Ham_Polonius-Emphasis-Vowels-Only-Min-2500-Counts
+Ham_Polonius-Emphasis-Vowels-Only-Min-2500-Percentages
+Ham_Polonius-Emphasis-Vowels-Only-Min-500-Counts
+Ham_Polonius-Emphasis-Vowels-Only-Min-500-Percentages
+Ham_Polonius-Min-100-Percentages		Ham_Polonius-Vowels-Only-Min-100-Percentages
+Ham_Polonius-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "1" Predicted as "4":                          
+
+Ham_Ophelia-Emphasis-Min-1000-Percentages		Ham_Ophelia-Emphasis-Min-250-Counts
+Ham_Ophelia-Emphasis-Min-250-Percentages
+Ham_Ophelia-Emphasis-Vowels-Only-Min-250-Percentages
+Ham_Ophelia-Min-1000-Percentages		Ham_Ophelia-Min-250-Counts
+Ham_Ophelia-Min-250-Percentages
+
+
+                          Actual "1" Predicted as "5":                          
+
+
+
+
+                          Actual "1" Predicted as "6":                          
+
+Ham_Ophelia-All-Counts		Ham_Ophelia-All-Percentages
+Ham_Ophelia-Emphasis-All-Counts		Ham_Ophelia-Emphasis-All-Percentages
+Ham_Ophelia-Emphasis-Min-100-Counts		Ham_Ophelia-Emphasis-Min-100-Percentages
+Ham_Ophelia-Emphasis-Vowels-Only-All-Counts
+Ham_Ophelia-Emphasis-Vowels-Only-All-Percentages
+Ham_Ophelia-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Ophelia-Emphasis-Vowels-Only-Min-500-Counts
+Ham_Ophelia-Emphasis-Vowels-Only-Min-500-Percentages
+Ham_Ophelia-Min-100-Counts		Ham_Ophelia-Min-100-Percentages
+Ham_Ophelia-Vowels-Only-All-Counts		Ham_Ophelia-Vowels-Only-All-Percentages
+Ham_Ophelia-Vowels-Only-Min-1000-Percentages
+Ham_Ophelia-Vowels-Only-Min-500-Counts
+Ham_Ophelia-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "1" Predicted as "7":                          
+
+
+
+
+                          Actual "1" Predicted as "p":                          
+
+Ham_Hamlet-All-Counts		Ham_Hamlet-Min-100-Counts		Ham_Hamlet-Min-1000-Counts
+Ham_Hamlet-Min-1000-Percentages		Ham_Hamlet-Min-250-Counts
+Ham_Hamlet-Min-500-Counts		Ham_Hamlet-Min-500-Percentages
+Ham_Hamlet-Vowels-Only-All-Counts		Ham_Hamlet-Vowels-Only-Min-100-Counts
+Ham_Hamlet-Vowels-Only-Min-1000-Counts
+Ham_Hamlet-Vowels-Only-Min-1000-Percentages
+Ham_Hamlet-Vowels-Only-Min-250-Counts
+Ham_Hamlet-Vowels-Only-Min-250-Percentages
+Ham_Hamlet-Vowels-Only-Min-500-Counts
+Ham_Hamlet-Vowels-Only-Min-500-Percentages
+Ham_Laertes-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Laertes-Min-100-Percentages		Ham_Laertes-Vowels-Only-Min-100-Percentages
+Ham_Laertes-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "2" Predicted as "0":                          
+
+Ham_AMBASSADORS-All-Percentages		Ham_AMBASSADORS-Emphasis-All-Percentages
+Ham_AMBASSADORS-Emphasis-Vowels-Only-All-Percentages
+Ham_AMBASSADORS-Vowels-Only-All-Percentages
+Ham_ATTENDANTS.1-Emphasis-All-Percentages
+Ham_Voltemand-Emphasis-All-Percentages		Ham_Voltemand-Emphasis-Min-100-Counts
+Ham_Voltemand-Emphasis-Min-100-Percentages
+Ham_Voltemand-Emphasis-Vowels-Only-All-Percentages
+Ham_Voltemand-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Voltemand-Min-100-Counts		Ham_Voltemand-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "2" Predicted as "1":                          
+
+Ham_AMBASSADORS-All-Counts		Ham_AMBASSADORS-Emphasis-All-Counts
+Ham_AMBASSADORS-Emphasis-Vowels-Only-All-Counts
+Ham_AMBASSADORS-Vowels-Only-All-Counts		Ham_ATTENDANTS-All-Counts
+Ham_ATTENDANTS-Emphasis-All-Counts
+Ham_ATTENDANTS-Emphasis-Vowels-Only-All-Counts
+Ham_ATTENDANTS-Vowels-Only-All-Counts		Ham_ATTENDANTS.1-All-Counts
+Ham_ATTENDANTS.1-Emphasis-All-Counts
+Ham_ATTENDANTS.2-Emphasis-Vowels-Only-All-Counts		Ham_Cornelius-All-Counts
+Ham_Cornelius-Emphasis-All-Counts
+Ham_Cornelius-Emphasis-Vowels-Only-All-Counts
+Ham_FOLLOWERS.LAERTES-All-Counts		Ham_FOLLOWERS.LAERTES-Emphasis-All-Counts
+Ham_FOLLOWERS.LAERTES-Emphasis-Vowels-Only-All-Counts
+Ham_FOLLOWERS.LAERTES-Vowels-Only-All-Counts		Ham_Guildenstern-All-Counts
+Ham_Guildenstern-Emphasis-All-Counts		Ham_Guildenstern-Emphasis-Min-100-Counts
+Ham_Guildenstern-Emphasis-Min-250-Counts
+Ham_Guildenstern-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Guildenstern-Emphasis-Vowels-Only-Min-250-Counts
+Ham_Guildenstern-Min-100-Counts		Ham_Guildenstern-Min-100-Percentages
+Ham_Guildenstern-Min-250-Counts		Ham_Guildenstern-Min-250-Percentages
+Ham_Guildenstern-Vowels-Only-All-Counts
+Ham_Guildenstern-Vowels-Only-Min-100-Counts
+Ham_Guildenstern-Vowels-Only-Min-100-Percentages
+Ham_Guildenstern-Vowels-Only-Min-250-Counts
+Ham_Guildenstern-Vowels-Only-Min-250-Percentages		Ham_Horatio-All-Counts
+Ham_Horatio-All-Percentages		Ham_Horatio-Emphasis-All-Counts
+Ham_Horatio-Emphasis-All-Percentages		Ham_Horatio-Emphasis-Min-100-Counts
+Ham_Horatio-Emphasis-Min-100-Percentages		Ham_Horatio-Emphasis-Min-1000-Counts
+Ham_Horatio-Emphasis-Min-1000-Percentages		Ham_Horatio-Emphasis-Min-250-Counts
+Ham_Horatio-Emphasis-Min-250-Percentages		Ham_Horatio-Emphasis-Min-500-Counts
+Ham_Horatio-Emphasis-Min-500-Percentages
+Ham_Horatio-Emphasis-Vowels-Only-All-Counts
+Ham_Horatio-Emphasis-Vowels-Only-All-Percentages
+Ham_Horatio-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Horatio-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Horatio-Emphasis-Vowels-Only-Min-250-Counts
+Ham_Horatio-Emphasis-Vowels-Only-Min-250-Percentages
+Ham_Horatio-Emphasis-Vowels-Only-Min-500-Counts
+Ham_Horatio-Emphasis-Vowels-Only-Min-500-Percentages
+Ham_Horatio-Min-100-Counts		Ham_Horatio-Min-100-Percentages
+Ham_Horatio-Min-1000-Counts		Ham_Horatio-Min-1000-Percentages
+Ham_Horatio-Min-250-Counts		Ham_Horatio-Min-250-Percentages
+Ham_Horatio-Min-500-Counts		Ham_Horatio-Min-500-Percentages
+Ham_Horatio-Vowels-Only-All-Counts		Ham_Horatio-Vowels-Only-All-Percentages
+Ham_Horatio-Vowels-Only-Min-100-Counts
+Ham_Horatio-Vowels-Only-Min-100-Percentages
+Ham_Horatio-Vowels-Only-Min-1000-Counts
+Ham_Horatio-Vowels-Only-Min-1000-Percentages
+Ham_Horatio-Vowels-Only-Min-250-Counts
+Ham_Horatio-Vowels-Only-Min-250-Percentages
+Ham_Horatio-Vowels-Only-Min-500-Counts
+Ham_Horatio-Vowels-Only-Min-500-Percentages
+Ham_Reynaldo-Emphasis-Vowels-Only-All-Counts		Ham_Rosencrantz-All-Counts
+Ham_Rosencrantz-Emphasis-All-Counts		Ham_Rosencrantz-Emphasis-Min-100-Counts
+Ham_Rosencrantz-Emphasis-Min-100-Percentages
+Ham_Rosencrantz-Emphasis-Min-250-Counts
+Ham_Rosencrantz-Emphasis-Min-250-Percentages
+Ham_Rosencrantz-Emphasis-Min-500-Counts
+Ham_Rosencrantz-Emphasis-Min-500-Percentages
+Ham_Rosencrantz-Emphasis-Vowels-Only-All-Counts
+Ham_Rosencrantz-Emphasis-Vowels-Only-All-Percentages
+Ham_Rosencrantz-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Rosencrantz-Emphasis-Vowels-Only-Min-250-Counts
+Ham_Rosencrantz-Emphasis-Vowels-Only-Min-500-Counts
+Ham_Rosencrantz-Emphasis-Vowels-Only-Min-500-Percentages
+Ham_Rosencrantz-Min-100-Counts		Ham_Rosencrantz-Min-100-Percentages
+Ham_Rosencrantz-Min-250-Counts		Ham_Rosencrantz-Min-250-Percentages
+Ham_Rosencrantz-Min-500-Counts		Ham_Rosencrantz-Min-500-Percentages
+Ham_Rosencrantz-Vowels-Only-All-Counts
+Ham_Rosencrantz-Vowels-Only-Min-100-Counts
+Ham_Rosencrantz-Vowels-Only-Min-250-Counts
+Ham_Rosencrantz-Vowels-Only-Min-500-Counts
+Ham_Rosencrantz-Vowels-Only-Min-500-Percentages		Ham_Voltemand-All-Counts
+Ham_Voltemand-Emphasis-Vowels-Only-All-Counts
+Ham_Voltemand-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Voltemand-Vowels-Only-All-Counts		Ham_Voltemand-Vowels-Only-Min-100-Counts
+
+
+                          Actual "2" Predicted as "2":                          
+
+Ham_ATTENDANTS.2-Emphasis-All-Percentages		Ham_Guildenstern-All-Percentages
+Ham_Guildenstern-Emphasis-Min-100-Percentages
+Ham_Guildenstern-Emphasis-Min-250-Percentages
+Ham_Horatio-Emphasis-Vowels-Only-Min-1000-Counts
+Ham_Horatio-Emphasis-Vowels-Only-Min-1000-Percentages
+Ham_Osric-Emphasis-All-Percentages		Ham_Osric-Emphasis-Min-100-Percentages
+Ham_Osric-Emphasis-Min-250-Percentages
+Ham_Osric-Emphasis-Vowels-Only-All-Percentages
+Ham_Osric-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Osric-Min-100-Percentages		Ham_Osric-Vowels-Only-All-Percentages
+Ham_Osric-Vowels-Only-Min-100-Percentages		Ham_Rosencrantz-All-Percentages
+Ham_Rosencrantz-Emphasis-All-Percentages
+Ham_Rosencrantz-Emphasis-Vowels-Only-Min-250-Percentages
+Ham_Rosencrantz-Vowels-Only-All-Percentages
+
+
+                          Actual "2" Predicted as "3":                          
+
+Ham_ATTENDANTS.1-Vowels-Only-All-Percentages		Ham_Osric-All-Percentages
+Ham_Osric-Min-250-Percentages		Ham_Osric-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "2" Predicted as "4":                          
+
+Ham_ATTENDANTS-Emphasis-Vowels-Only-All-Percentages
+Ham_ATTENDANTS.1-Emphasis-Vowels-Only-All-Percentages
+Ham_ATTENDANTS.1-Vowels-Only-All-Counts		Ham_ATTENDANTS.2-Emphasis-All-Counts
+Ham_Cornelius-Vowels-Only-All-Percentages
+Ham_Guildenstern-Emphasis-All-Percentages
+Ham_Guildenstern-Emphasis-Vowels-Only-All-Counts
+Ham_Guildenstern-Emphasis-Vowels-Only-All-Percentages
+Ham_Guildenstern-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Guildenstern-Emphasis-Vowels-Only-Min-250-Percentages
+Ham_Guildenstern-Vowels-Only-All-Percentages		Ham_Osric-All-Counts
+Ham_Osric-Emphasis-All-Counts		Ham_Osric-Emphasis-Min-100-Counts
+Ham_Osric-Emphasis-Min-250-Counts		Ham_Osric-Emphasis-Vowels-Only-All-Counts
+Ham_Osric-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Osric-Emphasis-Vowels-Only-Min-250-Counts		Ham_Osric-Min-100-Counts
+Ham_Osric-Min-250-Counts		Ham_Osric-Vowels-Only-All-Counts
+Ham_Osric-Vowels-Only-Min-100-Counts		Ham_Osric-Vowels-Only-Min-250-Counts
+Ham_Voltemand-Emphasis-All-Counts
+
+
+                          Actual "2" Predicted as "5":                          
+
+Ham_ATTENDANTS.1-Emphasis-Vowels-Only-All-Counts
+
+
+                          Actual "2" Predicted as "6":                          
+
+Ham_ATTENDANTS.2-All-Counts		Ham_ATTENDANTS.2-All-Percentages
+Ham_ATTENDANTS.2-Vowels-Only-All-Counts		Ham_ATTENDANTS.GUARDS-All-Counts
+Ham_ATTENDANTS.GUARDS-Emphasis-All-Counts
+Ham_ATTENDANTS.GUARDS-Emphasis-Vowels-Only-All-Counts
+Ham_ATTENDANTS.GUARDS-Emphasis-Vowels-Only-All-Percentages
+Ham_ATTENDANTS.GUARDS-Vowels-Only-All-Counts
+Ham_ATTENDANTS.GUARDS-Vowels-Only-All-Percentages
+Ham_Cornelius-Vowels-Only-All-Counts		Ham_Reynaldo-Emphasis-All-Counts
+
+
+                          Actual "2" Predicted as "7":                          
+
+Ham_ATTENDANTS-Vowels-Only-All-Percentages
+Ham_FOLLOWERS.LAERTES-All-Percentages
+Ham_FOLLOWERS.LAERTES-Emphasis-All-Percentages
+Ham_Rosencrantz-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "2" Predicted as "p":                          
+
+Ham_ATTENDANTS.1-All-Percentages
+Ham_ATTENDANTS.2-Emphasis-Vowels-Only-All-Percentages
+Ham_ATTENDANTS.2-Vowels-Only-All-Percentages		Ham_Cornelius-All-Percentages
+Ham_Cornelius-Emphasis-All-Percentages
+Ham_Cornelius-Emphasis-Vowels-Only-All-Percentages
+Ham_Osric-Emphasis-Vowels-Only-Min-250-Percentages
+Ham_Rosencrantz-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Rosencrantz-Vowels-Only-Min-100-Percentages		Ham_Voltemand-All-Percentages
+Ham_Voltemand-Min-100-Percentages		Ham_Voltemand-Vowels-Only-All-Percentages
+
+
+                          Actual "3" Predicted as "0":                          
+
+
+
+
+                          Actual "3" Predicted as "1":                          
+
+Ham_Doctor-All-Counts		Ham_Doctor-Emphasis-All-Counts
+
+
+                          Actual "3" Predicted as "2":                          
+
+
+
+
+                          Actual "3" Predicted as "3":                          
+
+Ham_Doctor-Emphasis-Vowels-Only-All-Percentages
+Ham_Doctor-Vowels-Only-All-Percentages
+
+
+                          Actual "3" Predicted as "4":                          
+
+
+
+
+                          Actual "3" Predicted as "5":                          
+
+
+
+
+                          Actual "3" Predicted as "6":                          
+
+Ham_Doctor-Emphasis-Vowels-Only-All-Counts		Ham_Doctor-Vowels-Only-All-Counts
+
+
+                          Actual "3" Predicted as "7":                          
+
+Ham_Doctor-All-Percentages		Ham_Doctor-Emphasis-All-Percentages
+
+
+                          Actual "3" Predicted as "p":                          
+
+
+
+
+                          Actual "4" Predicted as "0":                          
+
+Ham_Barnardo-Emphasis-All-Percentages
+
+
+                          Actual "4" Predicted as "1":                          
+
+Ham_Barnardo-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Barnardo-Vowels-Only-Min-100-Counts		Ham_Marcellus-All-Counts
+Ham_Marcellus-All-Percentages		Ham_Marcellus-Emphasis-All-Counts
+Ham_Marcellus-Emphasis-All-Percentages		Ham_Marcellus-Emphasis-Min-100-Counts
+Ham_Marcellus-Emphasis-Min-100-Percentages
+Ham_Marcellus-Emphasis-Min-250-Counts
+Ham_Marcellus-Emphasis-Min-250-Percentages
+Ham_Marcellus-Emphasis-Vowels-Only-All-Percentages
+Ham_Marcellus-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Marcellus-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Marcellus-Emphasis-Vowels-Only-Min-250-Counts
+Ham_Marcellus-Min-100-Counts		Ham_Marcellus-Min-100-Percentages
+Ham_Marcellus-Min-250-Counts		Ham_Marcellus-Min-250-Percentages
+Ham_Marcellus-Vowels-Only-Min-100-Counts
+Ham_Marcellus-Vowels-Only-Min-100-Percentages
+Ham_Marcellus-Vowels-Only-Min-250-Counts
+Ham_Marcellus-Vowels-Only-Min-250-Percentages
+Ham_SOLDIERS.FORTINBRAS.Captain-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "4" Predicted as "2":                          
+
+Ham_Barnardo-Emphasis-Vowels-Only-All-Percentages
+Ham_SOLDIERS.FORTINBRAS.Captain-All-Percentages
+Ham_SOLDIERS.FORTINBRAS.Captain-Emphasis-All-Counts
+Ham_SOLDIERS.FORTINBRAS.Captain-Emphasis-Vowels-Only-All-Counts
+
+
+                          Actual "4" Predicted as "3":                          
+
+
+
+
+                          Actual "4" Predicted as "4":                          
+
+Ham_SOLDIERS.FORTINBRAS.Captain-Emphasis-All-Percentages
+
+
+                          Actual "4" Predicted as "5":                          
+
+Ham_Barnardo-All-Counts		Ham_Barnardo-Emphasis-All-Counts
+Ham_Barnardo-Emphasis-Min-100-Counts
+Ham_Barnardo-Emphasis-Min-100-Percentages		Ham_Barnardo-Min-100-Counts
+Ham_Barnardo-Min-100-Percentages
+Ham_SOLDIERS.FORTINBRAS.Captain-Vowels-Only-All-Percentages
+
+
+                          Actual "4" Predicted as "6":                          
+
+Ham_Barnardo-Emphasis-Vowels-Only-All-Counts
+Ham_Barnardo-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Barnardo-Vowels-Only-All-Counts
+Ham_Marcellus-Emphasis-Vowels-Only-All-Counts
+Ham_Marcellus-Vowels-Only-All-Counts
+Ham_Marcellus-Vowels-Only-All-Percentages
+Ham_SOLDIERS.FORTINBRAS.Captain-All-Counts
+Ham_SOLDIERS.FORTINBRAS.Captain-Vowels-Only-All-Counts
+
+
+                          Actual "4" Predicted as "7":                          
+
+Ham_Barnardo-Vowels-Only-Min-100-Percentages
+Ham_Marcellus-Emphasis-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "4" Predicted as "p":                          
+
+Ham_Barnardo-All-Percentages		Ham_Barnardo-Vowels-Only-All-Percentages
+
+
+                          Actual "5" Predicted as "0":                          
+
+Ham_Gravedigger-All-Percentages		Ham_Gravedigger-Emphasis-All-Percentages
+Ham_Gravedigger-Emphasis-Min-500-Percentages		Ham_Gravedigger-Min-500-Counts
+Ham_Gravedigger-Vowels-Only-Min-500-Counts
+Ham_Gravedigger-Vowels-Only-Min-500-Percentages
+Ham_GravediggersCompanion-All-Percentages
+Ham_GravediggersCompanion-Vowels-Only-All-Percentages
+
+
+                          Actual "5" Predicted as "1":                          
+
+Ham_GravediggersCompanion-All-Counts
+Ham_GravediggersCompanion-Emphasis-All-Percentages
+Ham_GravediggersCompanion-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "5" Predicted as "2":                          
+
+
+
+
+                          Actual "5" Predicted as "3":                          
+
+
+
+
+                          Actual "5" Predicted as "4":                          
+
+Ham_Gravedigger-All-Counts		Ham_Gravedigger-Emphasis-No-Others-Counts
+Ham_Gravedigger-Emphasis-No-Others-Percentages
+Ham_Gravedigger-Emphasis-Vowels-Only-No-Others-Counts
+Ham_Gravedigger-Emphasis-Vowels-Only-No-Others-Percentages
+Ham_Gravedigger-Min-100-Counts		Ham_Gravedigger-Min-100-Percentages
+Ham_Gravedigger-Min-250-Counts		Ham_Gravedigger-Min-500-Percentages
+Ham_Gravedigger-No-Others-Counts		Ham_Gravedigger-No-Others-Percentages
+Ham_Gravedigger-Vowels-Only-All-Counts
+Ham_Gravedigger-Vowels-Only-Min-100-Counts
+Ham_Gravedigger-Vowels-Only-Min-100-Percentages
+Ham_Gravedigger-Vowels-Only-Min-250-Counts
+Ham_Gravedigger-Vowels-Only-No-Others-Counts
+Ham_Gravedigger-Vowels-Only-No-Others-Percentages
+
+
+                          Actual "5" Predicted as "5":                          
+
+Ham_Gravedigger-Emphasis-All-Counts		Ham_Gravedigger-Emphasis-Min-100-Counts
+Ham_Gravedigger-Emphasis-Min-100-Percentages
+Ham_Gravedigger-Emphasis-Min-250-Counts
+Ham_Gravedigger-Emphasis-Min-250-Percentages
+Ham_Gravedigger-Emphasis-Min-500-Counts
+Ham_Gravedigger-Emphasis-Vowels-Only-All-Counts
+Ham_Gravedigger-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Gravedigger-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Gravedigger-Emphasis-Vowels-Only-Min-250-Percentages
+Ham_Gravedigger-Min-250-Percentages
+Ham_Gravedigger-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "5" Predicted as "6":                          
+
+Ham_Gravedigger-Emphasis-Vowels-Only-Min-250-Counts
+Ham_Gravedigger-Emphasis-Vowels-Only-Min-500-Counts
+Ham_Gravedigger-Emphasis-Vowels-Only-Min-500-Percentages
+Ham_GravediggersCompanion-Emphasis-All-Counts
+Ham_GravediggersCompanion-Emphasis-Vowels-Only-All-Counts
+Ham_GravediggersCompanion-Vowels-Only-All-Counts
+
+
+                          Actual "5" Predicted as "7":                          
+
+
+
+
+                          Actual "5" Predicted as "p":                          
+
+Ham_Gravedigger-Emphasis-Vowels-Only-All-Percentages
+Ham_Gravedigger-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "0":                          
+
+Ham_MESSENGERS.1-All-Percentages
+
+
+                          Actual "6" Predicted as "1":                          
+
+Ham_Francisco-Emphasis-Vowels-Only-All-Percentages
+Ham_Francisco-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "2":                          
+
+Ham_MESSENGERS.2-All-Percentages
+
+
+                          Actual "6" Predicted as "3":                          
+
+Ham_ATTENDANTS.0.1-Emphasis-All-Percentages
+Ham_ATTENDANTS.0.1-Emphasis-Vowels-Only-All-Percentages
+Ham_Francisco-All-Percentages		Ham_Francisco-Emphasis-All-Percentages
+Ham_SAILORS.0.1-All-Percentages
+
+
+                          Actual "6" Predicted as "4":                          
+
+Ham_MESSENGERS.1-Emphasis-All-Percentages
+Ham_MESSENGERS.1-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "5":                          
+
+Ham_ATTENDANTS.0.1-All-Percentages
+Ham_ATTENDANTS.0.1-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "6":                          
+
+Ham_ATTENDANTS.0.1-All-Counts		Ham_ATTENDANTS.0.1-Emphasis-All-Counts
+Ham_ATTENDANTS.0.1-Emphasis-Vowels-Only-All-Counts
+Ham_ATTENDANTS.0.1-Vowels-Only-All-Counts		Ham_Francisco-All-Counts
+Ham_Francisco-Emphasis-All-Counts
+Ham_Francisco-Emphasis-Vowels-Only-All-Counts
+Ham_Francisco-Vowels-Only-All-Counts		Ham_MESSENGERS.1-All-Counts
+Ham_MESSENGERS.1-Emphasis-All-Counts
+Ham_MESSENGERS.1-Emphasis-Vowels-Only-All-Counts
+Ham_MESSENGERS.1-Emphasis-Vowels-Only-All-Percentages
+Ham_MESSENGERS.1-Vowels-Only-All-Counts		Ham_MESSENGERS.2-All-Counts
+Ham_MESSENGERS.2-Emphasis-All-Counts
+Ham_MESSENGERS.2-Emphasis-All-Percentages
+Ham_MESSENGERS.2-Emphasis-Vowels-Only-All-Counts
+Ham_MESSENGERS.2-Emphasis-Vowels-Only-All-Percentages
+Ham_MESSENGERS.2-Vowels-Only-All-Counts
+Ham_MESSENGERS.2-Vowels-Only-All-Percentages		Ham_SAILORS.0.1-All-Counts
+Ham_SAILORS.0.1-Emphasis-All-Counts		Ham_SAILORS.0.1-Emphasis-All-Percentages
+Ham_SAILORS.0.1-Emphasis-Vowels-Only-All-Counts
+Ham_SAILORS.0.1-Emphasis-Vowels-Only-All-Percentages
+Ham_SAILORS.0.1-Vowels-Only-All-Counts
+
+
+                          Actual "6" Predicted as "7":                          
+
+
+
+
+                          Actual "6" Predicted as "p":                          
+
+Ham_SAILORS.0.1-Vowels-Only-All-Percentages
+
+
+                          Actual "7" Predicted as "0":                          
+
+Ham_Ghost-All-Percentages		Ham_Ghost-Emphasis-All-Percentages
+Ham_Ghost-Emphasis-Min-100-Percentages		Ham_Ghost-Min-100-Percentages
+
+
+                          Actual "7" Predicted as "1":                          
+
+Ham_Ghost-Emphasis-All-Counts		Ham_Ghost-Emphasis-Min-500-Counts
+Ham_Ghost-Emphasis-Vowels-Only-All-Counts
+Ham_Ghost-Emphasis-Vowels-Only-All-Percentages
+Ham_Ghost-Emphasis-Vowels-Only-Min-100-Counts
+Ham_Ghost-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_Ghost-Emphasis-Vowels-Only-Min-250-Counts
+Ham_Ghost-Emphasis-Vowels-Only-Min-250-Percentages
+Ham_Ghost-Emphasis-Vowels-Only-Min-500-Counts
+Ham_Ghost-Emphasis-Vowels-Only-Min-500-Percentages
+Ham_Ghost-Vowels-Only-All-Counts		Ham_Ghost-Vowels-Only-All-Percentages
+Ham_Ghost-Vowels-Only-Min-100-Counts		Ham_Ghost-Vowels-Only-Min-250-Counts
+Ham_Ghost-Vowels-Only-Min-500-Counts
+
+
+                          Actual "7" Predicted as "2":                          
+
+
+
+
+                          Actual "7" Predicted as "3":                          
+
+
+
+
+                          Actual "7" Predicted as "4":                          
+
+
+
+
+                          Actual "7" Predicted as "5":                          
+
+
+
+
+                          Actual "7" Predicted as "6":                          
+
+
+
+
+                          Actual "7" Predicted as "7":                          
+
+Ham_Ghost-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "7" Predicted as "p":                          
+
+Ham_Ghost-All-Counts		Ham_Ghost-Emphasis-Min-100-Counts
+Ham_Ghost-Emphasis-Min-250-Counts		Ham_Ghost-Emphasis-Min-250-Percentages
+Ham_Ghost-Emphasis-Min-500-Percentages		Ham_Ghost-Min-100-Counts
+Ham_Ghost-Min-250-Counts		Ham_Ghost-Min-250-Percentages
+Ham_Ghost-Min-500-Counts		Ham_Ghost-Min-500-Percentages
+Ham_Ghost-Vowels-Only-Min-250-Percentages
+Ham_Ghost-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "p" Predicted as "0":                          
+
+Ham_PLAYERS.1-Emphasis-Vowels-Only-All-Percentages
+Ham_PLAYERS.1-Vowels-Only-Min-100-Percentages
+Ham_PLAYERS.King-All-Percentages		Ham_PLAYERS.King-Emphasis-All-Counts
+Ham_PLAYERS.King-Emphasis-All-Percentages
+Ham_PLAYERS.King-Emphasis-Min-100-Counts
+Ham_PLAYERS.King-Emphasis-Min-100-Percentages
+Ham_PLAYERS.King-Emphasis-Min-250-Counts
+Ham_PLAYERS.King-Emphasis-Min-250-Percentages
+Ham_PLAYERS.King-Emphasis-Vowels-Only-All-Counts
+Ham_PLAYERS.King-Emphasis-Vowels-Only-All-Percentages
+Ham_PLAYERS.King-Emphasis-Vowels-Only-Min-100-Counts
+Ham_PLAYERS.King-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_PLAYERS.King-Emphasis-Vowels-Only-Min-250-Counts
+Ham_PLAYERS.King-Emphasis-Vowels-Only-Min-250-Percentages
+Ham_PLAYERS.King-Min-100-Counts		Ham_PLAYERS.King-Min-100-Percentages
+Ham_PLAYERS.King-Min-250-Counts		Ham_PLAYERS.King-Min-250-Percentages
+Ham_PLAYERS.King-Vowels-Only-All-Percentages
+Ham_PLAYERS.King-Vowels-Only-Min-100-Counts
+Ham_PLAYERS.King-Vowels-Only-Min-250-Counts
+Ham_PLAYERS.King-Vowels-Only-Min-250-Percentages
+Ham_PLAYERS.Lucianus-All-Percentages		Ham_PLAYERS.Queen-All-Percentages
+Ham_PLAYERS.Queen-Emphasis-All-Percentages
+Ham_PLAYERS.Queen-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "p" Predicted as "1":                          
+
+Ham_PLAYERS.1-Emphasis-All-Counts		Ham_PLAYERS.1-Emphasis-All-Percentages
+Ham_PLAYERS.1-Emphasis-Min-100-Counts
+Ham_PLAYERS.1-Emphasis-Min-100-Percentages
+Ham_PLAYERS.1-Emphasis-Vowels-Only-Min-100-Counts
+Ham_PLAYERS.1-Emphasis-Vowels-Only-Min-250-Counts
+Ham_PLAYERS.1-Min-100-Percentages		Ham_PLAYERS.1-Vowels-Only-Min-100-Counts
+Ham_PLAYERS.1-Vowels-Only-Min-250-Counts		Ham_PLAYERS.Lucianus-All-Counts
+Ham_PLAYERS.Lucianus-Emphasis-All-Counts
+Ham_PLAYERS.Lucianus-Emphasis-Vowels-Only-All-Counts
+Ham_PLAYERS.Lucianus-Vowels-Only-All-Counts
+Ham_PLAYERS.Prologue-Emphasis-Vowels-Only-All-Counts
+Ham_PLAYERS.Queen-All-Counts		Ham_PLAYERS.Queen-Emphasis-All-Counts
+Ham_PLAYERS.Queen-Emphasis-Min-100-Counts
+Ham_PLAYERS.Queen-Emphasis-Vowels-Only-All-Counts
+Ham_PLAYERS.Queen-Emphasis-Vowels-Only-Min-100-Counts
+Ham_PLAYERS.Queen-Min-100-Counts		Ham_PLAYERS.Queen-Vowels-Only-All-Counts
+Ham_PLAYERS.Queen-Vowels-Only-Min-100-Counts
+
+
+                          Actual "p" Predicted as "2":                          
+
+
+
+
+                          Actual "p" Predicted as "3":                          
+
+Ham_PLAYERS.1-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_PLAYERS.1-Emphasis-Vowels-Only-Min-250-Percentages
+Ham_PLAYERS.Lucianus-Vowels-Only-All-Percentages
+
+
+                          Actual "p" Predicted as "4":                          
+
+Ham_PLAYERS.1-All-Percentages		Ham_PLAYERS.1-Emphasis-Vowels-Only-All-Counts
+Ham_PLAYERS.1-Vowels-Only-All-Counts
+Ham_PLAYERS.1-Vowels-Only-All-Percentages
+Ham_PLAYERS.Prologue-All-Percentages
+Ham_PLAYERS.Prologue-Emphasis-All-Percentages
+Ham_PLAYERS.Prologue-Emphasis-Vowels-Only-All-Percentages
+Ham_PLAYERS.Prologue-Vowels-Only-All-Percentages
+
+
+                          Actual "p" Predicted as "5":                          
+
+
+
+
+                          Actual "p" Predicted as "6":                          
+
+Ham_PLAYERS.0.1-All-Counts		Ham_PLAYERS.0.1-All-Percentages
+Ham_PLAYERS.0.1-Emphasis-All-Counts		Ham_PLAYERS.0.1-Emphasis-All-Percentages
+Ham_PLAYERS.0.1-Emphasis-Vowels-Only-All-Counts
+Ham_PLAYERS.0.1-Vowels-Only-All-Counts		Ham_PLAYERS.Prologue-All-Counts
+Ham_PLAYERS.Prologue-Emphasis-All-Counts
+Ham_PLAYERS.Prologue-Vowels-Only-All-Counts
+
+
+                          Actual "p" Predicted as "7":                          
+
+Ham_PLAYERS.1-All-Counts		Ham_PLAYERS.1-Emphasis-Min-250-Counts
+Ham_PLAYERS.1-Emphasis-Min-250-Percentages		Ham_PLAYERS.1-Min-100-Counts
+Ham_PLAYERS.1-Min-250-Counts		Ham_PLAYERS.1-Min-250-Percentages
+Ham_PLAYERS.1-Vowels-Only-Min-250-Percentages		Ham_PLAYERS.King-All-Counts
+Ham_PLAYERS.King-Vowels-Only-All-Counts
+Ham_PLAYERS.King-Vowels-Only-Min-100-Percentages
+Ham_PLAYERS.Lucianus-Emphasis-All-Percentages
+Ham_PLAYERS.Lucianus-Emphasis-Vowels-Only-All-Percentages
+Ham_PLAYERS.Queen-Vowels-Only-All-Percentages
+
+
+                          Actual "p" Predicted as "p":                          
+
+Ham_PLAYERS.Queen-Emphasis-Min-100-Percentages
+Ham_PLAYERS.Queen-Emphasis-Vowels-Only-Min-100-Percentages
+Ham_PLAYERS.Queen-Min-100-Percentages
+Ham_PLAYERS.Queen-Vowels-Only-Min-100-Percentages
+
+

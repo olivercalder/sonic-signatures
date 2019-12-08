@@ -1,0 +1,992 @@
+                         Summary: status_All-Combos_AYL                         
+
+
+                      Overall accuracy = 25.65%                                 
+                      Average accuracy = 26.10%                                 
+
+                      Average F1 score = 23.56%                                 
+                           Average MCC = 14.48%                                 
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    4     |    5     |    6     |    7     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |    52    |    2     |    1     |    8     |    4     |    1     |    2     |    1     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |    29    |    36    |    41    |    46    |    15    |    8     |    1     |    17    |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |    11    |    56    |    19    |    17    |    3     |    2     |    0     |    3     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |    2     |    4     |    0     |    2     |    0     |    0     |    0     |    0     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |    6     |    23    |    20    |    26    |    14    |    14    |    0     |    3     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |    0     |    14    |    4     |    11    |    4     |    24    |    14    |    5     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    7     |    2     |    3     |    1     |    7     |    1     |    0     |    0     |    1     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |    3     |    13    |    7     |    5     |    0     |    0     |    0     |    12    |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+                         Total samples = 620                                    
+
+                      Total actual "0" = 71                                     
+                   Total predicted "0" = 105                                    
+                      Total actual "1" = 193                                    
+                   Total predicted "1" = 151                                    
+                      Total actual "2" = 111                                    
+                   Total predicted "2" = 93                                     
+                      Total actual "4" = 8                                      
+                   Total predicted "4" = 122                                    
+                      Total actual "5" = 106                                    
+                   Total predicted "5" = 41                                     
+                      Total actual "6" = 76                                     
+                   Total predicted "6" = 49                                     
+                      Total actual "7" = 15                                     
+                   Total predicted "7" = 17                                     
+                      Total actual "p" = 40                                     
+                   Total predicted "p" = 42                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    4     |    5     |    6     |    7     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |  8.39%   |  0.32%   |  0.16%   |  1.29%   |  0.65%   |  0.16%   |  0.32%   |  0.16%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |  4.68%   |  5.81%   |  6.61%   |  7.42%   |  2.42%   |  1.29%   |  0.16%   |  2.74%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |  1.77%   |  9.03%   |  3.06%   |  2.74%   |  0.48%   |  0.32%   |  0.00%   |  0.48%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |  0.32%   |  0.65%   |  0.00%   |  0.32%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |  0.97%   |  3.71%   |  3.23%   |  4.19%   |  2.26%   |  2.26%   |  0.00%   |  0.48%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |  0.00%   |  2.26%   |  0.65%   |  1.77%   |  0.65%   |  3.87%   |  2.26%   |  0.81%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    7     |  0.32%   |  0.48%   |  0.16%   |  1.13%   |  0.16%   |  0.00%   |  0.00%   |  0.16%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |  0.48%   |  2.10%   |  1.13%   |  0.81%   |  0.00%   |  0.00%   |  0.00%   |  1.94%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+                    Percent actual "0" = 11.45%                                 
+                 Percent predicted "0" = 16.94%                                 
+                    Percent actual "1" = 31.13%                                 
+                 Percent predicted "1" = 24.35%                                 
+                    Percent actual "2" = 17.90%                                 
+                 Percent predicted "2" = 15.00%                                 
+                    Percent actual "4" = 1.29%                                  
+                 Percent predicted "4" = 19.68%                                 
+                    Percent actual "5" = 17.10%                                 
+                 Percent predicted "5" = 6.61%                                  
+                    Percent actual "6" = 12.26%                                 
+                 Percent predicted "6" = 7.90%                                  
+                    Percent actual "7" = 2.42%                                  
+                 Percent predicted "7" = 2.74%                                  
+                    Percent actual "p" = 6.45%                                  
+                 Percent predicted "p" = 6.77%                                  
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    4     |    5     |    6     |    7     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |  73.24%  |  2.82%   |  1.41%   |  11.27%  |  5.63%   |  1.41%   |  2.82%   |  1.41%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |  15.03%  |  18.65%  |  21.24%  |  23.83%  |  7.77%   |  4.15%   |  0.52%   |  8.81%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |  9.91%   |  50.45%  |  17.12%  |  15.32%  |  2.70%   |  1.80%   |  0.00%   |  2.70%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |  25.00%  |  50.00%  |  0.00%   |  25.00%  |  0.00%   |  0.00%   |  0.00%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |  5.66%   |  21.70%  |  18.87%  |  24.53%  |  13.21%  |  13.21%  |  0.00%   |  2.83%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |  0.00%   |  18.42%  |  5.26%   |  14.47%  |  5.26%   |  31.58%  |  18.42%  |  6.58%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    7     |  13.33%  |  20.00%  |  6.67%   |  46.67%  |  6.67%   |  0.00%   |  0.00%   |  6.67%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |  7.50%   |  32.50%  |  17.50%  |  12.50%  |  0.00%   |  0.00%   |  0.00%   |  30.00%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+         Percent correct of actual "0" = 73.24%                                 
+         Percent correct of actual "1" = 18.65%                                 
+         Percent correct of actual "2" = 17.12%                                 
+         Percent correct of actual "4" = 25.00%                                 
+         Percent correct of actual "5" = 13.21%                                 
+         Percent correct of actual "6" = 31.58%                                 
+         Percent correct of actual "7" = 0.00%                                  
+         Percent correct of actual "p" = 30.00%                                 
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    4     |    5     |    6     |    7     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |  49.52%  |  1.32%   |  1.08%   |  6.56%   |  9.76%   |  2.04%   |  11.76%  |  2.38%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |  27.62%  |  23.84%  |  44.09%  |  37.70%  |  36.59%  |  16.33%  |  5.88%   |  40.48%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |  10.48%  |  37.09%  |  20.43%  |  13.93%  |  7.32%   |  4.08%   |  0.00%   |  7.14%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |  1.90%   |  2.65%   |  0.00%   |  1.64%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |  5.71%   |  15.23%  |  21.51%  |  21.31%  |  34.15%  |  28.57%  |  0.00%   |  7.14%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |  0.00%   |  9.27%   |  4.30%   |  9.02%   |  9.76%   |  48.98%  |  82.35%  |  11.90%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    7     |  1.90%   |  1.99%   |  1.08%   |  5.74%   |  2.44%   |  0.00%   |  0.00%   |  2.38%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |  2.86%   |  8.61%   |  7.53%   |  4.10%   |  0.00%   |  0.00%   |  0.00%   |  28.57%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+      Percent correct of predicted "0" = 49.52%                                 
+      Percent correct of predicted "1" = 23.84%                                 
+      Percent correct of predicted "2" = 20.43%                                 
+      Percent correct of predicted "4" = 1.64%                                  
+      Percent correct of predicted "5" = 34.15%                                 
+      Percent correct of predicted "6" = 48.98%                                 
+      Percent correct of predicted "7" = 0.00%                                  
+      Percent correct of predicted "p" = 28.57%                                 
+
+
+                                   F1 Scores:                                   
+                      F1 score for "0" = 59.09%                                 
+                      F1 score for "1" = 20.93%                                 
+                      F1 score for "2" = 18.63%                                 
+                      F1 score for "4" = 3.08%                                  
+                      F1 score for "5" = 19.05%                                 
+                      F1 score for "6" = 38.40%                                 
+                      F1 score for "7" = 0.00%                                  
+                      F1 score for "p" = 29.27%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+                     MCC score for "0" = 53.99%                                 
+                     MCC score for "1" = -8.93%                                 
+                     MCC score for "2" = 2.77%                                  
+                     MCC score for "4" = 1.53%                                  
+                     MCC score for "5" = 12.05%                                 
+                     MCC score for "6" = 32.80%                                 
+                     MCC score for "7" = -2.64%                                 
+                     MCC score for "p" = 24.27%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                          Actual "0" Average Z-Scores:                          
+
+
+                          Actual "1" Average Z-Scores:                          
+
+
+                          Actual "2" Average Z-Scores:                          
+
+
+                          Actual "4" Average Z-Scores:                          
+
+
+                          Actual "5" Average Z-Scores:                          
+
+
+                          Actual "6" Average Z-Scores:                          
+
+
+                          Actual "7" Average Z-Scores:                          
+
+
+                          Actual "p" Average Z-Scores:                          
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                        Predicted "0" Average Z-Scores:                         
+
+
+                        Predicted "1" Average Z-Scores:                         
+
+
+                        Predicted "2" Average Z-Scores:                         
+
+
+                        Predicted "4" Average Z-Scores:                         
+
+
+                        Predicted "5" Average Z-Scores:                         
+
+
+                        Predicted "6" Average Z-Scores:                         
+
+
+                        Predicted "7" Average Z-Scores:                         
+
+
+                        Predicted "p" Average Z-Scores:                         
+
+
+
+
+
+                                  Characters:                                   
+
+
+                          Actual "0" Predicted as "0":                          
+
+AYL_DukeFrederick-All-Counts		AYL_DukeFrederick-All-Percentages
+AYL_DukeFrederick-Emphasis-All-Counts
+AYL_DukeFrederick-Emphasis-All-Percentages
+AYL_DukeFrederick-Emphasis-Min-100-Counts
+AYL_DukeFrederick-Emphasis-Min-100-Percentages
+AYL_DukeFrederick-Emphasis-Min-250-Counts
+AYL_DukeFrederick-Emphasis-Min-250-Percentages
+AYL_DukeFrederick-Emphasis-Min-500-Counts
+AYL_DukeFrederick-Emphasis-No-Others-Counts
+AYL_DukeFrederick-Emphasis-Vowels-Only-All-Counts
+AYL_DukeFrederick-Emphasis-Vowels-Only-All-Percentages
+AYL_DukeFrederick-Emphasis-Vowels-Only-Min-100-Counts
+AYL_DukeFrederick-Emphasis-Vowels-Only-Min-250-Counts
+AYL_DukeFrederick-Emphasis-Vowels-Only-Min-500-Counts
+AYL_DukeFrederick-Emphasis-Vowels-Only-No-Others-Counts
+AYL_DukeFrederick-Min-100-Counts		AYL_DukeFrederick-Min-100-Percentages
+AYL_DukeFrederick-Min-250-Counts		AYL_DukeFrederick-Min-250-Percentages
+AYL_DukeFrederick-Min-500-Counts		AYL_DukeFrederick-Min-500-Percentages
+AYL_DukeFrederick-No-Others-Counts		AYL_DukeFrederick-No-Others-Percentages
+AYL_DukeFrederick-Vowels-Only-All-Counts
+AYL_DukeFrederick-Vowels-Only-All-Percentages
+AYL_DukeFrederick-Vowels-Only-Min-100-Counts
+AYL_DukeFrederick-Vowels-Only-Min-250-Counts
+AYL_DukeFrederick-Vowels-Only-Min-250-Percentages
+AYL_DukeFrederick-Vowels-Only-Min-500-Counts
+AYL_DukeFrederick-Vowels-Only-No-Others-Counts
+AYL_DukeFrederick-Vowels-Only-No-Others-Percentages
+AYL_DukeSenior-All-Percentages		AYL_DukeSenior-Emphasis-All-Counts
+AYL_DukeSenior-Emphasis-All-Percentages
+AYL_DukeSenior-Emphasis-Min-100-Counts
+AYL_DukeSenior-Emphasis-Min-100-Percentages
+AYL_DukeSenior-Emphasis-Min-250-Counts
+AYL_DukeSenior-Emphasis-Min-250-Percentages
+AYL_DukeSenior-Emphasis-Min-500-Counts
+AYL_DukeSenior-Emphasis-Min-500-Percentages
+AYL_DukeSenior-Emphasis-Vowels-Only-All-Percentages
+AYL_DukeSenior-Emphasis-Vowels-Only-Min-100-Counts
+AYL_DukeSenior-Emphasis-Vowels-Only-Min-100-Percentages
+AYL_DukeSenior-Emphasis-Vowels-Only-Min-250-Counts
+AYL_DukeSenior-Emphasis-Vowels-Only-Min-250-Percentages
+AYL_DukeSenior-Min-100-Percentages		AYL_DukeSenior-Min-250-Percentages
+AYL_DukeSenior-Min-500-Counts		AYL_DukeSenior-Min-500-Percentages
+AYL_DukeSenior-Vowels-Only-All-Percentages
+AYL_DukeSenior-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "0" Predicted as "1":                          
+
+AYL_DukeSenior-Min-100-Counts		AYL_DukeSenior-Min-250-Counts
+
+
+                          Actual "0" Predicted as "2":                          
+
+AYL_DukeSenior-All-Counts
+
+
+                          Actual "0" Predicted as "4":                          
+
+AYL_DukeSenior-Emphasis-Vowels-Only-All-Counts
+AYL_DukeSenior-Emphasis-Vowels-Only-Min-500-Counts
+AYL_DukeSenior-Emphasis-Vowels-Only-Min-500-Percentages
+AYL_DukeSenior-Vowels-Only-All-Counts
+AYL_DukeSenior-Vowels-Only-Min-100-Counts
+AYL_DukeSenior-Vowels-Only-Min-250-Counts
+AYL_DukeSenior-Vowels-Only-Min-500-Counts
+AYL_DukeSenior-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "0" Predicted as "5":                          
+
+AYL_DukeFrederick-Emphasis-Min-500-Percentages
+AYL_DukeFrederick-Emphasis-No-Others-Percentages
+AYL_DukeFrederick-Emphasis-Vowels-Only-Min-250-Percentages
+AYL_DukeFrederick-Emphasis-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "0" Predicted as "6":                          
+
+AYL_DukeFrederick-Emphasis-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "0" Predicted as "7":                          
+
+AYL_DukeFrederick-Vowels-Only-Min-100-Percentages
+AYL_DukeFrederick-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "0" Predicted as "p":                          
+
+AYL_DukeSenior-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "1" Predicted as "0":                          
+
+AYL_Celia-All-Percentages		AYL_Celia-Emphasis-All-Counts
+AYL_Celia-Emphasis-All-Percentages		AYL_Celia-Emphasis-Min-100-Counts
+AYL_Celia-Emphasis-Min-1000-Counts		AYL_Celia-Emphasis-Min-250-Counts
+AYL_Celia-Emphasis-Min-500-Counts		AYL_Celia-Emphasis-Min-500-Percentages
+AYL_Celia-Emphasis-Vowels-Only-All-Percentages
+AYL_Celia-Emphasis-Vowels-Only-Min-100-Counts
+AYL_Celia-Emphasis-Vowels-Only-Min-1000-Counts
+AYL_Celia-Emphasis-Vowels-Only-Min-250-Counts
+AYL_Celia-Emphasis-Vowels-Only-Min-500-Counts
+AYL_Celia-Emphasis-Vowels-Only-Min-500-Percentages		AYL_Jaques-All-Percentages
+AYL_Jaques-Emphasis-All-Percentages
+AYL_Jaques-Emphasis-Vowels-Only-All-Percentages
+AYL_Jaques-Vowels-Only-All-Percentages
+AYL_LORDS.FREDERICK.0.1-Emphasis-All-Percentages
+AYL_LORDS.FREDERICK.0.2-Emphasis-All-Percentages
+AYL_LORDS.SENIOR-Emphasis-All-Percentages
+AYL_LORDS.SENIOR.0.1-Emphasis-All-Percentages
+AYL_LORDS.SENIOR.0.1-Emphasis-Min-100-Percentages
+AYL_LORDS.SENIOR.0.1-Emphasis-Min-250-Percentages
+AYL_LORDS.SENIOR.0.1-Emphasis-Vowels-Only-All-Percentages
+AYL_LORDS.SENIOR.Amiens-Emphasis-All-Percentages
+AYL_LORDS.SENIOR.Amiens-Emphasis-Vowels-Only-All-Percentages
+AYL_Rosalind-Emphasis-All-Percentages
+AYL_Rosalind-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "1" Predicted as "1":                          
+
+AYL_Celia-All-Counts		AYL_Celia-Emphasis-Min-1000-Percentages
+AYL_Celia-Emphasis-Vowels-Only-Min-1000-Percentages		AYL_Celia-Min-1000-Counts
+AYL_Celia-Min-1000-Percentages		AYL_Celia-Min-250-Counts
+AYL_Celia-Min-500-Counts		AYL_Celia-Min-500-Percentages
+AYL_Celia-Vowels-Only-All-Percentages		AYL_Celia-Vowels-Only-Min-1000-Counts
+AYL_Celia-Vowels-Only-Min-250-Counts		AYL_Celia-Vowels-Only-Min-500-Counts
+AYL_LORDS.FREDERICK.0.1-Emphasis-All-Counts
+AYL_LORDS.FREDERICK.0.2-All-Counts
+AYL_LORDS.FREDERICK.0.2-Emphasis-All-Counts
+AYL_LORDS.FREDERICK.0.2-Emphasis-Vowels-Only-All-Counts
+AYL_LORDS.SENIOR-Emphasis-All-Counts
+AYL_LORDS.SENIOR-Emphasis-Vowels-Only-All-Counts
+AYL_LORDS.SENIOR-Vowels-Only-All-Counts		AYL_LORDS.SENIOR.0.1-All-Counts
+AYL_LORDS.SENIOR.0.1-Emphasis-All-Counts
+AYL_LORDS.SENIOR.0.1-Emphasis-Min-100-Counts
+AYL_LORDS.SENIOR.0.1-Emphasis-Min-250-Counts
+AYL_LORDS.SENIOR.0.1-Min-100-Counts		AYL_LORDS.SENIOR.0.1-Min-250-Counts
+AYL_LORDS.SENIOR.0.2-Emphasis-Vowels-Only-All-Counts
+AYL_LORDS.SENIOR.0.2-Vowels-Only-All-Counts
+AYL_LORDS.SENIOR.Amiens-All-Percentages
+AYL_LORDS.SENIOR.Amiens-Emphasis-Min-250-Counts
+AYL_LORDS.SENIOR.Amiens-Emphasis-Min-250-Percentages
+AYL_LORDS.SENIOR.Amiens-Emphasis-Vowels-Only-Min-250-Counts
+AYL_LORDS.SENIOR.Amiens-Min-250-Counts
+AYL_LORDS.SENIOR.Amiens-Vowels-Only-Min-100-Counts
+AYL_LORDS.SENIOR.Amiens-Vowels-Only-Min-250-Counts
+AYL_Rosalind-All-Percentages		AYL_Rosalind-Vowels-Only-All-Percentages
+
+
+                          Actual "1" Predicted as "2":                          
+
+AYL_Jaques-All-Counts		AYL_Jaques-Emphasis-Min-100-Percentages
+AYL_Jaques-Emphasis-Min-250-Percentages
+AYL_Jaques-Emphasis-Vowels-Only-All-Counts
+AYL_Jaques-Emphasis-Vowels-Only-Min-100-Counts
+AYL_Jaques-Emphasis-Vowels-Only-Min-250-Percentages		AYL_Jaques-Min-100-Counts
+AYL_Jaques-Min-100-Percentages		AYL_Jaques-Min-1000-Counts
+AYL_Jaques-Min-250-Counts		AYL_Jaques-Min-250-Percentages
+AYL_Jaques-Min-500-Counts		AYL_Jaques-Vowels-Only-Min-1000-Counts
+AYL_Jaques-Vowels-Only-Min-1000-Percentages
+AYL_LORDS.FREDERICK.0.1-Emphasis-Vowels-Only-All-Percentages
+AYL_LORDS.FREDERICK.0.2-All-Percentages
+AYL_LORDS.SENIOR.0.1-Emphasis-Vowels-Only-Min-100-Percentages
+AYL_LORDS.SENIOR.0.1-Min-100-Percentages
+AYL_LORDS.SENIOR.0.1-Vowels-Only-Min-100-Percentages
+AYL_LORDS.SENIOR.Amiens-Emphasis-Vowels-Only-All-Counts
+AYL_LORDS.SENIOR.Amiens-Emphasis-Vowels-Only-Min-100-Counts
+AYL_LORDS.SENIOR.Amiens-Emphasis-Vowels-Only-Min-250-Percentages
+AYL_Rosalind-Emphasis-Min-1000-Counts		AYL_Rosalind-Emphasis-Min-2500-Counts
+AYL_Rosalind-Emphasis-Min-2500-Percentages
+AYL_Rosalind-Emphasis-No-Others-Counts
+AYL_Rosalind-Emphasis-No-Others-Percentages
+AYL_Rosalind-Emphasis-Vowels-Only-All-Counts
+AYL_Rosalind-Emphasis-Vowels-Only-Min-100-Counts
+AYL_Rosalind-Emphasis-Vowels-Only-Min-1000-Counts
+AYL_Rosalind-Emphasis-Vowels-Only-Min-1000-Percentages
+AYL_Rosalind-Emphasis-Vowels-Only-Min-250-Counts
+AYL_Rosalind-Emphasis-Vowels-Only-Min-2500-Counts
+AYL_Rosalind-Emphasis-Vowels-Only-Min-2500-Percentages
+AYL_Rosalind-Emphasis-Vowels-Only-Min-500-Counts
+AYL_Rosalind-Emphasis-Vowels-Only-Min-500-Percentages
+AYL_Rosalind-Emphasis-Vowels-Only-No-Others-Counts
+AYL_Rosalind-Emphasis-Vowels-Only-No-Others-Percentages
+AYL_Rosalind-Min-2500-Counts		AYL_Rosalind-No-Others-Counts
+AYL_Rosalind-No-Others-Percentages
+
+
+                          Actual "1" Predicted as "4":                          
+
+AYL_Celia-Emphasis-Min-100-Percentages		AYL_Celia-Emphasis-Min-250-Percentages
+AYL_Celia-Emphasis-Vowels-Only-Min-100-Percentages
+AYL_Celia-Emphasis-Vowels-Only-Min-250-Percentages		AYL_Celia-Min-100-Counts
+AYL_Celia-Min-100-Percentages		AYL_Celia-Min-250-Percentages
+AYL_Celia-Vowels-Only-Min-250-Percentages
+AYL_Jaques-Emphasis-Vowels-Only-Min-1000-Counts
+AYL_Jaques-Emphasis-Vowels-Only-Min-500-Counts
+AYL_LORDS.FREDERICK.0.2-Vowels-Only-All-Percentages
+AYL_LORDS.SENIOR-All-Percentages
+AYL_LORDS.SENIOR-Emphasis-Vowels-Only-All-Percentages
+AYL_LORDS.SENIOR-Vowels-Only-All-Percentages
+AYL_LORDS.SENIOR.0.1-All-Percentages
+AYL_LORDS.SENIOR.0.1-Emphasis-Vowels-Only-All-Counts
+AYL_LORDS.SENIOR.0.1-Emphasis-Vowels-Only-Min-100-Counts
+AYL_LORDS.SENIOR.0.1-Emphasis-Vowels-Only-Min-250-Counts
+AYL_LORDS.SENIOR.0.1-Vowels-Only-All-Counts
+AYL_LORDS.SENIOR.0.1-Vowels-Only-All-Percentages
+AYL_LORDS.SENIOR.0.1-Vowels-Only-Min-100-Counts
+AYL_LORDS.SENIOR.0.1-Vowels-Only-Min-250-Counts
+AYL_LORDS.SENIOR.0.2-All-Percentages
+AYL_LORDS.SENIOR.0.2-Emphasis-All-Percentages
+AYL_LORDS.SENIOR.0.2-Emphasis-Vowels-Only-All-Percentages
+AYL_LORDS.SENIOR.0.2-Vowels-Only-All-Percentages
+AYL_LORDS.SENIOR.Amiens-Vowels-Only-Min-250-Percentages
+AYL_Rosalind-All-Counts		AYL_Rosalind-Emphasis-All-Counts
+AYL_Rosalind-Emphasis-Min-100-Counts
+AYL_Rosalind-Emphasis-Min-100-Percentages
+AYL_Rosalind-Emphasis-Min-1000-Percentages
+AYL_Rosalind-Emphasis-Min-250-Counts
+AYL_Rosalind-Emphasis-Min-250-Percentages
+AYL_Rosalind-Emphasis-Min-500-Counts
+AYL_Rosalind-Emphasis-Min-500-Percentages
+AYL_Rosalind-Emphasis-Vowels-Only-Min-100-Percentages
+AYL_Rosalind-Emphasis-Vowels-Only-Min-250-Percentages
+AYL_Rosalind-Min-100-Counts		AYL_Rosalind-Min-100-Percentages
+AYL_Rosalind-Min-1000-Percentages		AYL_Rosalind-Min-250-Counts
+AYL_Rosalind-Min-250-Percentages		AYL_Rosalind-Min-500-Counts
+AYL_Rosalind-Min-500-Percentages		AYL_Rosalind-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "1" Predicted as "5":                          
+
+AYL_LORDS.SENIOR-All-Counts		AYL_LORDS.SENIOR.0.2-All-Counts
+AYL_LORDS.SENIOR.0.2-Emphasis-All-Counts		AYL_LORDS.SENIOR.Amiens-All-Counts
+AYL_LORDS.SENIOR.Amiens-Emphasis-All-Counts
+AYL_LORDS.SENIOR.Amiens-Emphasis-Min-100-Counts
+AYL_LORDS.SENIOR.Amiens-Emphasis-Min-100-Percentages
+AYL_LORDS.SENIOR.Amiens-Emphasis-Vowels-Only-Min-100-Percentages
+AYL_LORDS.SENIOR.Amiens-Min-100-Counts
+AYL_LORDS.SENIOR.Amiens-Min-100-Percentages
+AYL_LORDS.SENIOR.Amiens-Min-250-Percentages
+AYL_LORDS.SENIOR.Amiens-Vowels-Only-All-Counts
+AYL_LORDS.SENIOR.Amiens-Vowels-Only-Min-100-Percentages
+AYL_Rosalind-Vowels-Only-No-Others-Counts
+AYL_Rosalind-Vowels-Only-No-Others-Percentages
+
+
+                          Actual "1" Predicted as "6":                          
+
+AYL_Celia-Emphasis-Vowels-Only-All-Counts		AYL_Celia-Vowels-Only-All-Counts
+AYL_Celia-Vowels-Only-Min-100-Counts
+AYL_Celia-Vowels-Only-Min-100-Percentages		AYL_LORDS.FREDERICK.0.1-All-Counts
+AYL_LORDS.FREDERICK.0.1-Emphasis-Vowels-Only-All-Counts
+AYL_LORDS.FREDERICK.0.1-Vowels-Only-All-Counts
+AYL_LORDS.FREDERICK.0.2-Vowels-Only-All-Counts
+
+
+                          Actual "1" Predicted as "7":                          
+
+AYL_LORDS.FREDERICK.0.1-Vowels-Only-All-Percentages
+
+
+                          Actual "1" Predicted as "p":                          
+
+AYL_Celia-Vowels-Only-Min-500-Percentages		AYL_Jaques-Emphasis-All-Counts
+AYL_Jaques-Emphasis-Min-100-Counts		AYL_Jaques-Emphasis-Min-1000-Counts
+AYL_Jaques-Emphasis-Min-1000-Percentages		AYL_Jaques-Emphasis-Min-250-Counts
+AYL_Jaques-Emphasis-Min-500-Counts		AYL_Jaques-Emphasis-Min-500-Percentages
+AYL_Jaques-Emphasis-Vowels-Only-Min-1000-Percentages
+AYL_Jaques-Emphasis-Vowels-Only-Min-250-Counts
+AYL_Jaques-Emphasis-Vowels-Only-Min-500-Percentages
+AYL_Jaques-Min-1000-Percentages		AYL_Jaques-Min-500-Percentages
+AYL_LORDS.FREDERICK.0.2-Emphasis-Vowels-Only-All-Percentages
+AYL_LORDS.SENIOR.0.1-Emphasis-Vowels-Only-Min-250-Percentages
+AYL_LORDS.SENIOR.0.1-Min-250-Percentages
+AYL_LORDS.SENIOR.0.1-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "2" Predicted as "0":                          
+
+AYL_LORDS.FREDERICK.LeBeau-Emphasis-Vowels-Only-All-Percentages
+AYL_Oliver-All-Percentages		AYL_Oliver-Emphasis-All-Percentages
+AYL_Oliver-Emphasis-Vowels-Only-All-Percentages
+AYL_Oliver-Vowels-Only-All-Percentages		AYL_Orlando-Emphasis-All-Percentages
+AYL_Orlando-Emphasis-Vowels-Only-All-Percentages
+AYL_SecondBrother-All-Percentages		AYL_SecondBrother-Emphasis-All-Percentages
+AYL_SecondBrother-Emphasis-Vowels-Only-All-Percentages
+AYL_SecondBrother-Vowels-Only-All-Percentages
+
+
+                          Actual "2" Predicted as "1":                          
+
+AYL_Oliver-All-Counts		AYL_Oliver-Emphasis-All-Counts
+AYL_Oliver-Emphasis-Min-100-Counts		AYL_Oliver-Emphasis-Min-100-Percentages
+AYL_Oliver-Emphasis-Min-1000-Counts		AYL_Oliver-Emphasis-Min-1000-Percentages
+AYL_Oliver-Emphasis-Min-250-Counts		AYL_Oliver-Emphasis-Min-250-Percentages
+AYL_Oliver-Emphasis-Min-500-Counts		AYL_Oliver-Emphasis-Min-500-Percentages
+AYL_Oliver-Emphasis-Vowels-Only-All-Counts
+AYL_Oliver-Emphasis-Vowels-Only-Min-100-Counts
+AYL_Oliver-Emphasis-Vowels-Only-Min-100-Percentages
+AYL_Oliver-Emphasis-Vowels-Only-Min-1000-Counts
+AYL_Oliver-Emphasis-Vowels-Only-Min-1000-Percentages
+AYL_Oliver-Emphasis-Vowels-Only-Min-250-Counts
+AYL_Oliver-Emphasis-Vowels-Only-Min-250-Percentages
+AYL_Oliver-Emphasis-Vowels-Only-Min-500-Counts
+AYL_Oliver-Emphasis-Vowels-Only-Min-500-Percentages		AYL_Oliver-Min-100-Counts
+AYL_Oliver-Min-100-Percentages		AYL_Oliver-Min-1000-Counts
+AYL_Oliver-Min-1000-Percentages		AYL_Oliver-Min-250-Counts
+AYL_Oliver-Min-250-Percentages		AYL_Oliver-Min-500-Counts
+AYL_Oliver-Min-500-Percentages		AYL_Oliver-Vowels-Only-All-Counts
+AYL_Oliver-Vowels-Only-Min-100-Counts		AYL_Oliver-Vowels-Only-Min-1000-Counts
+AYL_Oliver-Vowels-Only-Min-250-Counts		AYL_Oliver-Vowels-Only-Min-500-Counts
+AYL_Oliver-Vowels-Only-Min-500-Percentages		AYL_Orlando-All-Percentages
+AYL_Orlando-Emphasis-All-Counts		AYL_Orlando-Emphasis-Min-100-Counts
+AYL_Orlando-Emphasis-Min-100-Percentages		AYL_Orlando-Emphasis-Min-250-Counts
+AYL_Orlando-Emphasis-Min-250-Percentages		AYL_Orlando-Emphasis-Min-500-Counts
+AYL_Orlando-Emphasis-Vowels-Only-All-Counts
+AYL_Orlando-Emphasis-Vowels-Only-Min-100-Counts
+AYL_Orlando-Emphasis-Vowels-Only-Min-100-Percentages
+AYL_Orlando-Emphasis-Vowels-Only-Min-250-Counts
+AYL_Orlando-Emphasis-Vowels-Only-Min-250-Percentages
+AYL_Orlando-Min-100-Percentages		AYL_Orlando-Vowels-Only-All-Percentages
+AYL_Orlando-Vowels-Only-Min-100-Percentages		AYL_SecondBrother-All-Counts
+AYL_SecondBrother-Emphasis-All-Counts
+AYL_SecondBrother-Emphasis-Min-100-Counts
+AYL_SecondBrother-Emphasis-Vowels-Only-All-Counts
+AYL_SecondBrother-Emphasis-Vowels-Only-Min-100-Counts
+AYL_SecondBrother-Min-100-Counts		AYL_SecondBrother-Min-100-Percentages
+AYL_SecondBrother-Vowels-Only-Min-100-Counts
+
+
+                          Actual "2" Predicted as "2":                          
+
+AYL_LORDS.FREDERICK.LeBeau-Emphasis-Vowels-Only-Min-100-Percentages
+AYL_Orlando-All-Counts		AYL_Orlando-Emphasis-Min-1000-Counts
+AYL_Orlando-Emphasis-Min-1000-Percentages
+AYL_Orlando-Emphasis-Min-500-Percentages
+AYL_Orlando-Emphasis-Vowels-Only-Min-1000-Counts
+AYL_Orlando-Emphasis-Vowels-Only-Min-1000-Percentages
+AYL_Orlando-Emphasis-Vowels-Only-Min-500-Counts
+AYL_Orlando-Emphasis-Vowels-Only-Min-500-Percentages
+AYL_Orlando-Min-100-Counts		AYL_Orlando-Min-1000-Counts
+AYL_Orlando-Min-1000-Percentages		AYL_Orlando-Min-250-Counts
+AYL_Orlando-Min-250-Percentages		AYL_Orlando-Min-500-Counts
+AYL_Orlando-Min-500-Percentages		AYL_Orlando-Vowels-Only-All-Counts
+AYL_Orlando-Vowels-Only-Min-1000-Counts
+AYL_SecondBrother-Vowels-Only-All-Counts
+
+
+                          Actual "2" Predicted as "4":                          
+
+AYL_LORDS.FREDERICK.LeBeau-All-Counts
+AYL_LORDS.FREDERICK.LeBeau-All-Percentages
+AYL_LORDS.FREDERICK.LeBeau-Emphasis-All-Counts
+AYL_LORDS.FREDERICK.LeBeau-Emphasis-All-Percentages
+AYL_LORDS.FREDERICK.LeBeau-Emphasis-Min-100-Counts
+AYL_LORDS.FREDERICK.LeBeau-Emphasis-Min-250-Counts
+AYL_LORDS.FREDERICK.LeBeau-Emphasis-Vowels-Only-All-Counts
+AYL_LORDS.FREDERICK.LeBeau-Emphasis-Vowels-Only-Min-100-Counts
+AYL_LORDS.FREDERICK.LeBeau-Emphasis-Vowels-Only-Min-250-Counts
+AYL_LORDS.FREDERICK.LeBeau-Min-100-Counts
+AYL_LORDS.FREDERICK.LeBeau-Min-100-Percentages
+AYL_LORDS.FREDERICK.LeBeau-Min-250-Counts
+AYL_LORDS.FREDERICK.LeBeau-Min-250-Percentages
+AYL_LORDS.FREDERICK.LeBeau-Vowels-Only-All-Counts
+AYL_LORDS.FREDERICK.LeBeau-Vowels-Only-All-Percentages
+AYL_LORDS.FREDERICK.LeBeau-Vowels-Only-Min-100-Counts
+AYL_LORDS.FREDERICK.LeBeau-Vowels-Only-Min-250-Counts
+
+
+                          Actual "2" Predicted as "5":                          
+
+AYL_Orlando-Vowels-Only-Min-1000-Percentages
+AYL_SecondBrother-Emphasis-Min-100-Percentages
+AYL_SecondBrother-Emphasis-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "2" Predicted as "6":                          
+
+AYL_LORDS.FREDERICK.LeBeau-Emphasis-Min-250-Percentages
+AYL_LORDS.FREDERICK.LeBeau-Emphasis-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "2" Predicted as "7":                          
+
+
+
+
+                          Actual "2" Predicted as "p":                          
+
+AYL_LORDS.FREDERICK.LeBeau-Vowels-Only-Min-250-Percentages
+AYL_Oliver-Vowels-Only-Min-250-Percentages
+AYL_SecondBrother-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "4" Predicted as "0":                          
+
+AYL_OliverMartext-All-Percentages		AYL_OliverMartext-Emphasis-All-Percentages
+
+
+                          Actual "4" Predicted as "1":                          
+
+AYL_OliverMartext-All-Counts		AYL_OliverMartext-Emphasis-All-Counts
+AYL_OliverMartext-Emphasis-Vowels-Only-All-Counts
+AYL_OliverMartext-Vowels-Only-All-Counts
+
+
+                          Actual "4" Predicted as "2":                          
+
+
+
+
+                          Actual "4" Predicted as "4":                          
+
+AYL_OliverMartext-Emphasis-Vowels-Only-All-Percentages
+AYL_OliverMartext-Vowels-Only-All-Percentages
+
+
+                          Actual "4" Predicted as "5":                          
+
+
+
+
+                          Actual "4" Predicted as "6":                          
+
+
+
+
+                          Actual "4" Predicted as "7":                          
+
+
+
+
+                          Actual "4" Predicted as "p":                          
+
+
+
+
+                          Actual "5" Predicted as "0":                          
+
+AYL_Corin-All-Percentages		AYL_Corin-Emphasis-All-Percentages
+AYL_Phoebe-Emphasis-Vowels-Only-All-Percentages
+AYL_Phoebe-Vowels-Only-All-Percentages		AYL_Silvius-All-Percentages
+AYL_Silvius-Emphasis-All-Percentages
+
+
+                          Actual "5" Predicted as "1":                          
+
+AYL_Charles-All-Percentages		AYL_Charles-Emphasis-Min-250-Counts
+AYL_Phoebe-All-Counts		AYL_Phoebe-All-Percentages
+AYL_Phoebe-Emphasis-All-Percentages		AYL_Phoebe-Emphasis-Min-100-Percentages
+AYL_Phoebe-Emphasis-Vowels-Only-All-Counts
+AYL_Phoebe-Emphasis-Vowels-Only-Min-100-Counts
+AYL_Phoebe-Emphasis-Vowels-Only-Min-100-Percentages		AYL_Phoebe-Min-100-Counts
+AYL_Phoebe-Min-100-Percentages		AYL_Phoebe-Vowels-Only-All-Counts
+AYL_Phoebe-Vowels-Only-Min-100-Counts
+AYL_Phoebe-Vowels-Only-Min-100-Percentages
+AYL_Phoebe-Vowels-Only-Min-250-Counts
+AYL_Phoebe-Vowels-Only-Min-250-Percentages
+AYL_Phoebe-Vowels-Only-Min-500-Counts
+AYL_Silvius-Emphasis-Vowels-Only-All-Counts
+AYL_Silvius-Emphasis-Vowels-Only-Min-100-Counts
+AYL_Silvius-Emphasis-Vowels-Only-Min-250-Counts
+AYL_Silvius-Emphasis-Vowels-Only-Min-500-Counts
+AYL_Silvius-Vowels-Only-Min-250-Counts		AYL_Silvius-Vowels-Only-Min-500-Counts
+
+
+                          Actual "5" Predicted as "2":                          
+
+AYL_Charles-Emphasis-Vowels-Only-All-Counts
+AYL_Charles-Emphasis-Vowels-Only-Min-100-Counts
+AYL_Charles-Emphasis-Vowels-Only-Min-100-Percentages
+AYL_Charles-Emphasis-Vowels-Only-Min-250-Counts
+AYL_Charles-Emphasis-Vowels-Only-Min-250-Percentages
+AYL_Charles-Vowels-Only-All-Counts		AYL_Charles-Vowels-Only-All-Percentages
+AYL_Charles-Vowels-Only-Min-100-Counts		AYL_Charles-Vowels-Only-Min-250-Counts
+AYL_Corin-Emphasis-Vowels-Only-Min-100-Counts		AYL_Silvius-All-Counts
+AYL_Silvius-Emphasis-All-Counts		AYL_Silvius-Emphasis-Min-100-Counts
+AYL_Silvius-Emphasis-Min-250-Counts		AYL_Silvius-Emphasis-Min-250-Percentages
+AYL_Silvius-Emphasis-Min-500-Counts		AYL_Silvius-Emphasis-Min-500-Percentages
+AYL_Silvius-Min-100-Counts		AYL_Silvius-Min-250-Counts
+AYL_Silvius-Min-250-Percentages
+
+
+                          Actual "5" Predicted as "4":                          
+
+AYL_Charles-Emphasis-All-Counts		AYL_Charles-Emphasis-Min-100-Counts
+AYL_Charles-Emphasis-Min-100-Percentages
+AYL_Charles-Emphasis-Min-250-Percentages		AYL_Charles-Min-100-Counts
+AYL_Charles-Min-100-Percentages		AYL_Charles-Min-250-Counts
+AYL_Charles-Min-250-Percentages		AYL_Corin-All-Counts
+AYL_Corin-Emphasis-All-Counts		AYL_Corin-Emphasis-Min-100-Counts
+AYL_Corin-Emphasis-Min-100-Percentages		AYL_Corin-Emphasis-Min-250-Counts
+AYL_Corin-Emphasis-Min-250-Percentages		AYL_Corin-Emphasis-Min-500-Counts
+AYL_Corin-Emphasis-Min-500-Percentages
+AYL_Corin-Emphasis-Vowels-Only-Min-250-Counts
+AYL_Corin-Emphasis-Vowels-Only-Min-250-Percentages
+AYL_Corin-Emphasis-Vowels-Only-Min-500-Percentages		AYL_Corin-Min-100-Counts
+AYL_Corin-Min-100-Percentages		AYL_Corin-Min-250-Counts
+AYL_Corin-Min-250-Percentages		AYL_Corin-Min-500-Counts
+AYL_Corin-Min-500-Percentages		AYL_Silvius-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "5" Predicted as "5":                          
+
+AYL_Corin-Vowels-Only-Min-500-Percentages		AYL_Phoebe-Emphasis-All-Counts
+AYL_Phoebe-Emphasis-Min-100-Counts		AYL_Phoebe-Emphasis-Min-250-Counts
+AYL_Phoebe-Emphasis-Min-500-Counts		AYL_Phoebe-Emphasis-Min-500-Percentages
+AYL_Phoebe-Emphasis-Vowels-Only-Min-500-Counts		AYL_Phoebe-Min-250-Counts
+AYL_Phoebe-Min-500-Counts		AYL_Phoebe-Min-500-Percentages
+AYL_Phoebe-Vowels-Only-Min-500-Percentages		AYL_Silvius-Vowels-Only-All-Counts
+AYL_Silvius-Vowels-Only-Min-100-Counts
+AYL_Silvius-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "5" Predicted as "6":                          
+
+AYL_Charles-All-Counts		AYL_Charles-Emphasis-All-Percentages
+AYL_Charles-Emphasis-Vowels-Only-All-Percentages
+AYL_Corin-Emphasis-Vowels-Only-All-Counts
+AYL_Corin-Emphasis-Vowels-Only-All-Percentages
+AYL_Corin-Emphasis-Vowels-Only-Min-100-Percentages
+AYL_Corin-Vowels-Only-All-Counts		AYL_Corin-Vowels-Only-Min-100-Counts
+AYL_Corin-Vowels-Only-Min-100-Percentages
+AYL_Corin-Vowels-Only-Min-250-Counts
+AYL_Corin-Vowels-Only-Min-250-Percentages		AYL_Silvius-Min-500-Counts
+AYL_Silvius-Min-500-Percentages		AYL_Silvius-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "5" Predicted as "7":                          
+
+
+
+
+                          Actual "5" Predicted as "p":                          
+
+AYL_Charles-Vowels-Only-Min-100-Percentages
+AYL_Charles-Vowels-Only-Min-250-Percentages
+AYL_Silvius-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "0":                          
+
+
+
+
+                          Actual "6" Predicted as "1":                          
+
+AYL_Adam-Emphasis-Vowels-Only-Min-100-Counts
+AYL_Adam-Emphasis-Vowels-Only-Min-250-Counts
+AYL_Adam-Emphasis-Vowels-Only-Min-500-Counts
+AYL_Adam-Vowels-Only-Min-250-Counts		AYL_Adam-Vowels-Only-Min-500-Counts
+AYL_Audrey-All-Percentages		AYL_Audrey-Emphasis-All-Percentages
+AYL_Audrey-Emphasis-Vowels-Only-All-Percentages		AYL_Audrey-Min-100-Counts
+AYL_Audrey-Vowels-Only-All-Counts		AYL_Audrey-Vowels-Only-All-Percentages
+AYL_Audrey-Vowels-Only-Min-100-Counts		AYL_SERVANTS.1-Vowels-Only-All-Counts
+AYL_SERVANTS.1-Vowels-Only-Min-100-Counts
+
+
+                          Actual "6" Predicted as "2":                          
+
+AYL_Adam-Emphasis-Vowels-Only-Min-100-Percentages
+AYL_SERVANTS.2-Emphasis-Vowels-Only-Min-100-Counts
+AYL_SERVANTS.2-Vowels-Only-All-Counts
+AYL_SERVANTS.2-Vowels-Only-Min-100-Counts
+
+
+                          Actual "6" Predicted as "4":                          
+
+AYL_Adam-Emphasis-Min-250-Percentages
+AYL_Adam-Emphasis-Vowels-Only-Min-250-Percentages
+AYL_Adam-Min-250-Percentages		AYL_Adam-Vowels-Only-Min-250-Percentages
+AYL_Dennis-All-Percentages		AYL_Dennis-Emphasis-All-Percentages
+AYL_Dennis-Emphasis-Vowels-Only-All-Percentages
+AYL_SERVANTS.1-Emphasis-All-Percentages
+AYL_SERVANTS.1-Emphasis-Vowels-Only-All-Percentages
+AYL_SERVANTS.2-Emphasis-All-Percentages
+AYL_SERVANTS.2-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "5":                          
+
+AYL_SERVANTS.1-Emphasis-Vowels-Only-Min-100-Percentages
+AYL_SERVANTS.1-Vowels-Only-All-Percentages
+AYL_SERVANTS.2-Emphasis-Vowels-Only-Min-100-Percentages
+AYL_SERVANTS.2-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "6":                          
+
+AYL_Adam-All-Percentages		AYL_Adam-Emphasis-All-Percentages
+AYL_Adam-Emphasis-Vowels-Only-All-Counts
+AYL_Adam-Emphasis-Vowels-Only-All-Percentages		AYL_Adam-Vowels-Only-All-Counts
+AYL_Adam-Vowels-Only-All-Percentages		AYL_Adam-Vowels-Only-Min-100-Counts
+AYL_Adam-Vowels-Only-Min-100-Percentages		AYL_Audrey-Emphasis-All-Counts
+AYL_Audrey-Emphasis-Min-100-Counts		AYL_Audrey-Emphasis-Min-100-Percentages
+AYL_Audrey-Emphasis-Vowels-Only-All-Counts
+AYL_Audrey-Emphasis-Vowels-Only-Min-100-Counts
+AYL_Audrey-Emphasis-Vowels-Only-Min-100-Percentages
+AYL_Audrey-Min-100-Percentages		AYL_Audrey-Vowels-Only-Min-100-Percentages
+AYL_Dennis-All-Counts		AYL_Dennis-Emphasis-All-Counts
+AYL_Dennis-Emphasis-Vowels-Only-All-Counts		AYL_Dennis-Vowels-Only-All-Counts
+AYL_William-All-Counts		AYL_William-Emphasis-All-Counts
+AYL_William-Emphasis-Vowels-Only-All-Counts
+AYL_William-Vowels-Only-All-Counts
+
+
+                          Actual "6" Predicted as "7":                          
+
+AYL_SERVANTS.1-All-Counts		AYL_SERVANTS.1-Emphasis-All-Counts
+AYL_SERVANTS.1-Emphasis-Min-100-Counts
+AYL_SERVANTS.1-Emphasis-Min-100-Percentages
+AYL_SERVANTS.1-Emphasis-Vowels-Only-All-Counts
+AYL_SERVANTS.1-Emphasis-Vowels-Only-Min-100-Counts
+AYL_SERVANTS.1-Min-100-Counts		AYL_SERVANTS.1-Min-100-Percentages
+AYL_SERVANTS.2-All-Counts		AYL_SERVANTS.2-Emphasis-All-Counts
+AYL_SERVANTS.2-Emphasis-Min-100-Counts
+AYL_SERVANTS.2-Emphasis-Min-100-Percentages
+AYL_SERVANTS.2-Emphasis-Vowels-Only-All-Counts		AYL_SERVANTS.2-Min-100-Counts
+
+
+                          Actual "6" Predicted as "p":                          
+
+AYL_SERVANTS.1-All-Percentages		AYL_SERVANTS.1-Vowels-Only-Min-100-Percentages
+AYL_SERVANTS.2-All-Percentages		AYL_SERVANTS.2-Min-100-Percentages
+AYL_SERVANTS.2-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "7" Predicted as "0":                          
+
+AYL_Hymen-Emphasis-All-Percentages
+AYL_Hymen-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "7" Predicted as "1":                          
+
+AYL_Hymen-Emphasis-Vowels-Only-Min-100-Counts
+AYL_Hymen-Vowels-Only-All-Counts		AYL_Hymen-Vowels-Only-Min-100-Counts
+
+
+                          Actual "7" Predicted as "2":                          
+
+AYL_Hymen-All-Percentages
+
+
+                          Actual "7" Predicted as "4":                          
+
+AYL_Hymen-All-Counts		AYL_Hymen-Emphasis-All-Counts
+AYL_Hymen-Emphasis-Min-100-Counts		AYL_Hymen-Emphasis-Min-100-Percentages
+AYL_Hymen-Emphasis-Vowels-Only-All-Counts		AYL_Hymen-Min-100-Counts
+AYL_Hymen-Min-100-Percentages
+
+
+                          Actual "7" Predicted as "5":                          
+
+AYL_Hymen-Vowels-Only-All-Percentages
+
+
+                          Actual "7" Predicted as "6":                          
+
+
+
+
+                          Actual "7" Predicted as "7":                          
+
+
+
+
+                          Actual "7" Predicted as "p":                          
+
+AYL_Hymen-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "p" Predicted as "0":                          
+
+AYL_Touchstone-All-Percentages		AYL_Touchstone-Emphasis-All-Percentages
+AYL_Touchstone-Vowels-Only-All-Percentages
+
+
+                          Actual "p" Predicted as "1":                          
+
+AYL_Touchstone-All-Counts		AYL_Touchstone-Emphasis-Vowels-Only-All-Percentages
+AYL_Touchstone-Min-100-Counts		AYL_Touchstone-Min-1000-Counts
+AYL_Touchstone-Min-250-Counts		AYL_Touchstone-Min-250-Percentages
+AYL_Touchstone-Min-500-Counts		AYL_Touchstone-Min-500-Percentages
+AYL_Touchstone-Vowels-Only-All-Counts
+AYL_Touchstone-Vowels-Only-Min-100-Counts
+AYL_Touchstone-Vowels-Only-Min-250-Counts
+AYL_Touchstone-Vowels-Only-Min-250-Percentages
+AYL_Touchstone-Vowels-Only-Min-500-Counts
+
+
+                          Actual "p" Predicted as "2":                          
+
+AYL_Touchstone-Emphasis-Min-100-Percentages
+AYL_Touchstone-Emphasis-Min-250-Percentages
+AYL_Touchstone-Emphasis-Vowels-Only-All-Counts
+AYL_Touchstone-Emphasis-Vowels-Only-Min-100-Counts
+AYL_Touchstone-Emphasis-Vowels-Only-Min-100-Percentages
+AYL_Touchstone-Min-100-Percentages
+AYL_Touchstone-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "p" Predicted as "4":                          
+
+AYL_Touchstone-Emphasis-Vowels-Only-Min-1000-Counts
+AYL_Touchstone-Emphasis-Vowels-Only-Min-500-Counts
+AYL_Touchstone-Vowels-Only-Min-1000-Counts
+AYL_Touchstone-Vowels-Only-Min-1000-Percentages
+AYL_Touchstone-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "p" Predicted as "5":                          
+
+
+
+
+                          Actual "p" Predicted as "6":                          
+
+
+
+
+                          Actual "p" Predicted as "7":                          
+
+
+
+
+                          Actual "p" Predicted as "p":                          
+
+AYL_Touchstone-Emphasis-All-Counts		AYL_Touchstone-Emphasis-Min-100-Counts
+AYL_Touchstone-Emphasis-Min-1000-Counts
+AYL_Touchstone-Emphasis-Min-1000-Percentages
+AYL_Touchstone-Emphasis-Min-250-Counts		AYL_Touchstone-Emphasis-Min-500-Counts
+AYL_Touchstone-Emphasis-Min-500-Percentages
+AYL_Touchstone-Emphasis-Vowels-Only-Min-1000-Percentages
+AYL_Touchstone-Emphasis-Vowels-Only-Min-250-Counts
+AYL_Touchstone-Emphasis-Vowels-Only-Min-250-Percentages
+AYL_Touchstone-Emphasis-Vowels-Only-Min-500-Percentages
+AYL_Touchstone-Min-1000-Percentages
+
+

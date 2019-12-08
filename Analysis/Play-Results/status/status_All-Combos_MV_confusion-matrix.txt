@@ -1,0 +1,987 @@
+                         Summary: status_All-Combos_MV                          
+
+
+                      Overall accuracy = 32.39%                                 
+                      Average accuracy = 19.26%                                 
+
+                      Average F1 score = 18.67%                                 
+                           Average MCC = 9.11%                                  
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    4     |    5     |    6     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |    13    |    13    |    28    |    7     |    0     |    0     |    2     |    25    |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |    4     |    21    |    20    |    0     |    2     |    0     |    0     |    9     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |    29    |    40    |   141    |    12    |    23    |    0     |    5     |    30    |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |    1     |    21    |    63    |    2     |    0     |    0     |    0     |    1     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |    0     |    1     |    3     |    2     |    0     |    0     |    2     |    0     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |    0     |    3     |    7     |    22    |    0     |    0     |    20    |    4     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |    0     |    6     |    6     |    8     |    3     |    4     |    30    |    4     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |    0     |    2     |    0     |    0     |    0     |    0     |    0     |    0     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+                         Total samples = 639                                    
+
+                      Total actual "0" = 88                                     
+                   Total predicted "0" = 47                                     
+                      Total actual "1" = 56                                     
+                   Total predicted "1" = 107                                    
+                      Total actual "2" = 280                                    
+                   Total predicted "2" = 268                                    
+                      Total actual "3" = 88                                     
+                   Total predicted "3" = 53                                     
+                      Total actual "4" = 8                                      
+                   Total predicted "4" = 28                                     
+                      Total actual "5" = 56                                     
+                   Total predicted "5" = 4                                      
+                      Total actual "6" = 61                                     
+                   Total predicted "6" = 59                                     
+                      Total actual "p" = 2                                      
+                   Total predicted "p" = 73                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    4     |    5     |    6     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |  2.03%   |  2.03%   |  4.38%   |  1.10%   |  0.00%   |  0.00%   |  0.31%   |  3.91%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |  0.63%   |  3.29%   |  3.13%   |  0.00%   |  0.31%   |  0.00%   |  0.00%   |  1.41%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |  4.54%   |  6.26%   |  22.07%  |  1.88%   |  3.60%   |  0.00%   |  0.78%   |  4.69%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |  0.16%   |  3.29%   |  9.86%   |  0.31%   |  0.00%   |  0.00%   |  0.00%   |  0.16%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |  0.00%   |  0.16%   |  0.47%   |  0.31%   |  0.00%   |  0.00%   |  0.31%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |  0.00%   |  0.47%   |  1.10%   |  3.44%   |  0.00%   |  0.00%   |  3.13%   |  0.63%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |  0.00%   |  0.94%   |  0.94%   |  1.25%   |  0.47%   |  0.63%   |  4.69%   |  0.63%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |  0.00%   |  0.31%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+                    Percent actual "0" = 13.77%                                 
+                 Percent predicted "0" = 7.36%                                  
+                    Percent actual "1" = 8.76%                                  
+                 Percent predicted "1" = 16.74%                                 
+                    Percent actual "2" = 43.82%                                 
+                 Percent predicted "2" = 41.94%                                 
+                    Percent actual "3" = 13.77%                                 
+                 Percent predicted "3" = 8.29%                                  
+                    Percent actual "4" = 1.25%                                  
+                 Percent predicted "4" = 4.38%                                  
+                    Percent actual "5" = 8.76%                                  
+                 Percent predicted "5" = 0.63%                                  
+                    Percent actual "6" = 9.55%                                  
+                 Percent predicted "6" = 9.23%                                  
+                    Percent actual "p" = 0.31%                                  
+                 Percent predicted "p" = 11.42%                                 
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    4     |    5     |    6     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |  14.77%  |  14.77%  |  31.82%  |  7.95%   |  0.00%   |  0.00%   |  2.27%   |  28.41%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |  7.14%   |  37.50%  |  35.71%  |  0.00%   |  3.57%   |  0.00%   |  0.00%   |  16.07%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |  10.36%  |  14.29%  |  50.36%  |  4.29%   |  8.21%   |  0.00%   |  1.79%   |  10.71%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |  1.14%   |  23.86%  |  71.59%  |  2.27%   |  0.00%   |  0.00%   |  0.00%   |  1.14%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |  0.00%   |  12.50%  |  37.50%  |  25.00%  |  0.00%   |  0.00%   |  25.00%  |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |  0.00%   |  5.36%   |  12.50%  |  39.29%  |  0.00%   |  0.00%   |  35.71%  |  7.14%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |  0.00%   |  9.84%   |  9.84%   |  13.11%  |  4.92%   |  6.56%   |  49.18%  |  6.56%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |  0.00%   | 100.00%  |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+         Percent correct of actual "0" = 14.77%                                 
+         Percent correct of actual "1" = 37.50%                                 
+         Percent correct of actual "2" = 50.36%                                 
+         Percent correct of actual "3" = 2.27%                                  
+         Percent correct of actual "4" = 0.00%                                  
+         Percent correct of actual "5" = 0.00%                                  
+         Percent correct of actual "6" = 49.18%                                 
+         Percent correct of actual "p" = 0.00%                                  
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+          |    0     |    1     |    2     |    3     |    4     |    5     |    6     |    p     |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    0     |  27.66%  |  12.15%  |  10.45%  |  13.21%  |  0.00%   |  0.00%   |  3.39%   |  34.25%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    1     |  8.51%   |  19.63%  |  7.46%   |  0.00%   |  7.14%   |  0.00%   |  0.00%   |  12.33%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    2     |  61.70%  |  37.38%  |  52.61%  |  22.64%  |  82.14%  |  0.00%   |  8.47%   |  41.10%  |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    3     |  2.13%   |  19.63%  |  23.51%  |  3.77%   |  0.00%   |  0.00%   |  0.00%   |  1.37%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    4     |  0.00%   |  0.93%   |  1.12%   |  3.77%   |  0.00%   |  0.00%   |  3.39%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    5     |  0.00%   |  2.80%   |  2.61%   |  41.51%  |  0.00%   |  0.00%   |  33.90%  |  5.48%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    6     |  0.00%   |  5.61%   |  2.24%   |  15.09%  |  10.71%  | 100.00%  |  50.85%  |  5.48%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+    p     |  0.00%   |  1.87%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |  0.00%   |
+——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|——————————|
+
+
+      Percent correct of predicted "0" = 27.66%                                 
+      Percent correct of predicted "1" = 19.63%                                 
+      Percent correct of predicted "2" = 52.61%                                 
+      Percent correct of predicted "3" = 3.77%                                  
+      Percent correct of predicted "4" = 0.00%                                  
+      Percent correct of predicted "5" = 0.00%                                  
+      Percent correct of predicted "6" = 50.85%                                 
+      Percent correct of predicted "p" = 0.00%                                  
+
+
+                                   F1 Scores:                                   
+                      F1 score for "0" = 19.26%                                 
+                      F1 score for "1" = 25.77%                                 
+                      F1 score for "2" = 51.46%                                 
+                      F1 score for "3" = 2.84%                                  
+                      F1 score for "4" = 0.00%                                  
+                      F1 score for "5" = 0.00%                                  
+                      F1 score for "6" = 50.00%                                 
+                      F1 score for "p" = 0.00%                                  
+
+
+                       Matthews Correlation Coefficients:                       
+                     MCC score for "0" = 11.36%                                 
+                     MCC score for "1" = 17.23%                                 
+                     MCC score for "2" = 15.06%                                 
+                     MCC score for "3" = -8.73%                                 
+                     MCC score for "4" = -2.41%                                 
+                     MCC score for "5" = -2.46%                                 
+                     MCC score for "6" = 44.83%                                 
+                     MCC score for "p" = -2.01%                                 
+
+
+
+                         Actual Class Average Z-Scores                          
+
+
+                          Actual "0" Average Z-Scores:                          
+
+
+                          Actual "1" Average Z-Scores:                          
+
+
+                          Actual "2" Average Z-Scores:                          
+
+
+                          Actual "3" Average Z-Scores:                          
+
+
+                          Actual "4" Average Z-Scores:                          
+
+
+                          Actual "5" Average Z-Scores:                          
+
+
+                          Actual "6" Average Z-Scores:                          
+
+
+                          Actual "p" Average Z-Scores:                          
+
+
+
+                        Predicted Class Average Z-Scores                        
+
+
+                        Predicted "0" Average Z-Scores:                         
+
+
+                        Predicted "1" Average Z-Scores:                         
+
+
+                        Predicted "2" Average Z-Scores:                         
+
+
+                        Predicted "3" Average Z-Scores:                         
+
+
+                        Predicted "4" Average Z-Scores:                         
+
+
+                        Predicted "5" Average Z-Scores:                         
+
+
+                        Predicted "6" Average Z-Scores:                         
+
+
+                        Predicted "p" Average Z-Scores:                         
+
+
+
+
+
+                                  Characters:                                   
+
+
+                          Actual "0" Predicted as "0":                          
+
+MV_Arragon-All-Percentages		MV_Arragon-Emphasis-All-Percentages
+MV_Arragon-Emphasis-Vowels-Only-All-Percentages
+MV_Arragon-Vowels-Only-All-Percentages		MV_Duke-All-Percentages
+MV_Duke-Emphasis-All-Percentages		MV_Duke-Emphasis-Vowels-Only-All-Percentages
+MV_Duke-Min-100-Counts		MV_Duke-Min-250-Counts		MV_Duke-Min-500-Counts
+MV_Duke-Vowels-Only-All-Percentages		MV_Duke-Vowels-Only-Min-100-Percentages
+MV_Morocco-Emphasis-All-Percentages
+
+
+                          Actual "0" Predicted as "1":                          
+
+MV_Arragon-Emphasis-Min-100-Counts		MV_Arragon-Emphasis-Min-250-Counts
+MV_Arragon-Emphasis-Vowels-Only-All-Counts
+MV_Arragon-Emphasis-Vowels-Only-Min-100-Counts
+MV_Arragon-Emphasis-Vowels-Only-Min-250-Counts
+MV_Arragon-Vowels-Only-All-Counts		MV_Arragon-Vowels-Only-Min-100-Counts
+MV_Arragon-Vowels-Only-Min-250-Counts		MV_Duke-Vowels-Only-Min-100-Counts
+MV_Duke-Vowels-Only-Min-250-Counts		MV_Duke-Vowels-Only-Min-500-Counts
+MV_Morocco-Min-250-Counts		MV_Morocco-Min-500-Counts
+
+
+                          Actual "0" Predicted as "2":                          
+
+MV_Arragon-All-Counts		MV_Arragon-Emphasis-All-Counts
+MV_Arragon-Emphasis-Vowels-Only-Min-250-Percentages		MV_Arragon-Min-100-Counts
+MV_Arragon-Min-100-Percentages		MV_Arragon-Min-250-Counts
+MV_Duke-Emphasis-Min-100-Counts		MV_Duke-Emphasis-Min-250-Counts
+MV_Duke-Emphasis-Min-250-Percentages		MV_Duke-Emphasis-Min-500-Counts
+MV_Duke-Emphasis-Vowels-Only-Min-100-Percentages		MV_Morocco-All-Counts
+MV_Morocco-All-Percentages		MV_Morocco-Emphasis-Min-100-Percentages
+MV_Morocco-Emphasis-Min-250-Percentages
+MV_Morocco-Emphasis-Vowels-Only-All-Percentages
+MV_Morocco-Emphasis-Vowels-Only-Min-100-Percentages
+MV_Morocco-Emphasis-Vowels-Only-Min-250-Percentages		MV_Morocco-Min-100-Counts
+MV_Morocco-Min-100-Percentages		MV_Morocco-Min-250-Percentages
+MV_Morocco-Vowels-Only-All-Counts		MV_Morocco-Vowels-Only-All-Percentages
+MV_Morocco-Vowels-Only-Min-100-Counts
+MV_Morocco-Vowels-Only-Min-100-Percentages
+MV_Morocco-Vowels-Only-Min-250-Counts
+MV_Morocco-Vowels-Only-Min-250-Percentages
+MV_Morocco-Vowels-Only-Min-500-Counts
+
+
+                          Actual "0" Predicted as "3":                          
+
+MV_Arragon-Vowels-Only-Min-100-Percentages
+MV_Arragon-Vowels-Only-Min-250-Percentages		MV_Duke-All-Counts
+MV_Duke-Emphasis-All-Counts		MV_Duke-Emphasis-Min-100-Percentages
+MV_Duke-Min-100-Percentages		MV_Duke-Min-500-Percentages
+
+
+                          Actual "0" Predicted as "4":                          
+
+
+
+
+                          Actual "0" Predicted as "5":                          
+
+
+
+
+                          Actual "0" Predicted as "6":                          
+
+MV_Duke-Min-250-Percentages		MV_Duke-Vowels-Only-All-Counts
+
+
+                          Actual "0" Predicted as "p":                          
+
+MV_Arragon-Emphasis-Min-100-Percentages
+MV_Arragon-Emphasis-Min-250-Percentages
+MV_Arragon-Emphasis-Vowels-Only-Min-100-Percentages
+MV_Arragon-Min-250-Percentages		MV_Duke-Emphasis-Min-500-Percentages
+MV_Duke-Emphasis-Vowels-Only-All-Counts
+MV_Duke-Emphasis-Vowels-Only-Min-100-Counts
+MV_Duke-Emphasis-Vowels-Only-Min-250-Counts
+MV_Duke-Emphasis-Vowels-Only-Min-250-Percentages
+MV_Duke-Emphasis-Vowels-Only-Min-500-Counts
+MV_Duke-Emphasis-Vowels-Only-Min-500-Percentages
+MV_Duke-Vowels-Only-Min-250-Percentages
+MV_Duke-Vowels-Only-Min-500-Percentages		MV_Morocco-Emphasis-All-Counts
+MV_Morocco-Emphasis-Min-100-Counts		MV_Morocco-Emphasis-Min-250-Counts
+MV_Morocco-Emphasis-Min-500-Counts		MV_Morocco-Emphasis-Min-500-Percentages
+MV_Morocco-Emphasis-Vowels-Only-All-Counts
+MV_Morocco-Emphasis-Vowels-Only-Min-100-Counts
+MV_Morocco-Emphasis-Vowels-Only-Min-250-Counts
+MV_Morocco-Emphasis-Vowels-Only-Min-500-Counts
+MV_Morocco-Emphasis-Vowels-Only-Min-500-Percentages
+MV_Morocco-Min-500-Percentages		MV_Morocco-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "1" Predicted as "0":                          
+
+MV_Portia-All-Percentages		MV_Portia-Emphasis-All-Percentages
+MV_Portia-Emphasis-Vowels-Only-All-Percentages
+MV_Portia-Vowels-Only-All-Percentages
+
+
+                          Actual "1" Predicted as "1":                          
+
+MV_Portia-All-Counts		MV_Portia-Emphasis-Min-100-Counts
+MV_Portia-Emphasis-Min-1000-Counts		MV_Portia-Emphasis-Min-1000-Percentages
+MV_Portia-Emphasis-Min-250-Counts		MV_Portia-Emphasis-Min-250-Percentages
+MV_Portia-Emphasis-Min-500-Counts		MV_Portia-Emphasis-Min-500-Percentages
+MV_Portia-Emphasis-No-Others-Percentages
+MV_Portia-Emphasis-Vowels-Only-No-Others-Percentages		MV_Portia-Min-100-Counts
+MV_Portia-Min-1000-Counts		MV_Portia-Min-1000-Percentages
+MV_Portia-Min-250-Counts		MV_Portia-Min-2500-Counts		MV_Portia-Min-500-Counts
+MV_Portia-Min-500-Percentages		MV_Portia-No-Others-Counts
+MV_Portia-No-Others-Percentages		MV_Portia-Vowels-Only-No-Others-Counts
+MV_Portia-Vowels-Only-No-Others-Percentages
+
+
+                          Actual "1" Predicted as "2":                          
+
+MV_Portia-Emphasis-All-Counts		MV_Portia-Emphasis-Min-100-Percentages
+MV_Portia-Emphasis-Min-2500-Counts		MV_Portia-Emphasis-Min-2500-Percentages
+MV_Portia-Emphasis-No-Others-Counts
+MV_Portia-Emphasis-Vowels-Only-Min-100-Percentages
+MV_Portia-Emphasis-Vowels-Only-Min-250-Percentages
+MV_Portia-Emphasis-Vowels-Only-Min-2500-Counts
+MV_Portia-Emphasis-Vowels-Only-Min-2500-Percentages
+MV_Portia-Emphasis-Vowels-Only-Min-500-Percentages
+MV_Portia-Emphasis-Vowels-Only-No-Others-Counts		MV_Portia-Min-100-Percentages
+MV_Portia-Min-250-Percentages		MV_Portia-Min-2500-Percentages
+MV_Portia-Vowels-Only-Min-100-Percentages
+MV_Portia-Vowels-Only-Min-250-Counts
+MV_Portia-Vowels-Only-Min-250-Percentages
+MV_Portia-Vowels-Only-Min-2500-Counts		MV_Portia-Vowels-Only-Min-500-Counts
+MV_Portia-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "1" Predicted as "3":                          
+
+
+
+
+                          Actual "1" Predicted as "4":                          
+
+MV_Portia-Vowels-Only-Min-1000-Counts
+MV_Portia-Vowels-Only-Min-1000-Percentages
+
+
+                          Actual "1" Predicted as "5":                          
+
+
+
+
+                          Actual "1" Predicted as "6":                          
+
+
+
+
+                          Actual "1" Predicted as "p":                          
+
+MV_Portia-Emphasis-Vowels-Only-All-Counts
+MV_Portia-Emphasis-Vowels-Only-Min-100-Counts
+MV_Portia-Emphasis-Vowels-Only-Min-1000-Counts
+MV_Portia-Emphasis-Vowels-Only-Min-1000-Percentages
+MV_Portia-Emphasis-Vowels-Only-Min-250-Counts
+MV_Portia-Emphasis-Vowels-Only-Min-500-Counts
+MV_Portia-Vowels-Only-All-Counts		MV_Portia-Vowels-Only-Min-100-Counts
+MV_Portia-Vowels-Only-Min-2500-Percentages
+
+
+                          Actual "2" Predicted as "0":                          
+
+MV_Bassanio-All-Percentages		MV_Bassanio-Emphasis-All-Percentages
+MV_Lorenzo-All-Percentages		MV_Lorenzo-Emphasis-All-Percentages
+MV_Lorenzo-Emphasis-Min-100-Counts		MV_Lorenzo-Emphasis-Min-100-Percentages
+MV_Lorenzo-Emphasis-Min-1000-Counts		MV_Lorenzo-Emphasis-Min-1000-Percentages
+MV_Lorenzo-Emphasis-Min-250-Counts		MV_Lorenzo-Emphasis-Min-250-Percentages
+MV_Lorenzo-Emphasis-Min-500-Counts		MV_Lorenzo-Emphasis-Min-500-Percentages
+MV_Lorenzo-Emphasis-Vowels-Only-All-Counts
+MV_Lorenzo-Emphasis-Vowels-Only-All-Percentages
+MV_Lorenzo-Emphasis-Vowels-Only-Min-100-Counts
+MV_Lorenzo-Emphasis-Vowels-Only-Min-100-Percentages
+MV_Lorenzo-Emphasis-Vowels-Only-Min-1000-Counts
+MV_Lorenzo-Emphasis-Vowels-Only-Min-1000-Percentages
+MV_Lorenzo-Emphasis-Vowels-Only-Min-250-Counts
+MV_Lorenzo-Emphasis-Vowels-Only-Min-250-Percentages
+MV_Lorenzo-Emphasis-Vowels-Only-Min-500-Counts
+MV_Lorenzo-Emphasis-Vowels-Only-Min-500-Percentages
+MV_Lorenzo-Min-1000-Counts		MV_Lorenzo-Min-1000-Percentages
+MV_Lorenzo-Vowels-Only-All-Percentages		MV_Lorenzo-Vowels-Only-Min-1000-Counts
+MV_Nerissa-Emphasis-All-Percentages
+MV_Nerissa-Emphasis-Vowels-Only-All-Percentages		MV_Salarino-All-Percentages
+
+
+                          Actual "2" Predicted as "1":                          
+
+MV_Bassanio-Emphasis-Vowels-Only-All-Percentages		MV_Bassanio-Min-2500-Counts
+MV_Bassanio-Vowels-Only-All-Percentages		MV_Gratiano-All-Percentages
+MV_Gratiano-Emphasis-All-Percentages		MV_Gratiano-Emphasis-Min-100-Percentages
+MV_Gratiano-Emphasis-Vowels-Only-All-Percentages
+MV_Gratiano-Emphasis-Vowels-Only-Min-100-Counts
+MV_Gratiano-Emphasis-Vowels-Only-Min-1000-Counts
+MV_Gratiano-Emphasis-Vowels-Only-Min-500-Counts
+MV_Gratiano-Min-100-Percentages		MV_Gratiano-Vowels-Only-All-Percentages
+MV_Lorenzo-All-Counts		MV_Lorenzo-Emphasis-All-Counts
+MV_Lorenzo-Min-100-Counts		MV_Lorenzo-Min-250-Counts
+MV_Lorenzo-Min-500-Counts		MV_Lorenzo-Min-500-Percentages
+MV_Lorenzo-Vowels-Only-Min-500-Counts		MV_Salarino-Emphasis-All-Percentages
+MV_Salarino-Emphasis-Min-250-Counts		MV_Salarino-Min-250-Counts
+MV_Salerio-All-Percentages		MV_Salerio-Emphasis-Min-100-Counts
+MV_Salerio-Emphasis-Vowels-Only-Min-100-Counts		MV_Salerio-Min-100-Counts
+MV_Solanio-All-Percentages		MV_Solanio-Emphasis-All-Percentages
+MV_Solanio-Emphasis-Min-500-Counts		MV_Solanio-Emphasis-Min-500-Percentages
+MV_Solanio-Emphasis-Vowels-Only-All-Percentages
+MV_Solanio-Emphasis-Vowels-Only-Min-250-Counts
+MV_Solanio-Emphasis-Vowels-Only-Min-500-Counts		MV_Solanio-Min-250-Counts
+MV_Solanio-Min-500-Counts		MV_Solanio-Vowels-Only-All-Counts
+MV_Solanio-Vowels-Only-All-Percentages		MV_Solanio-Vowels-Only-Min-100-Counts
+MV_Solanio-Vowels-Only-Min-250-Counts		MV_Solanio-Vowels-Only-Min-500-Counts
+
+
+                          Actual "2" Predicted as "2":                          
+
+MV_Antonio-All-Counts		MV_Antonio-All-Percentages
+MV_Antonio-Emphasis-All-Counts		MV_Antonio-Emphasis-All-Percentages
+MV_Antonio-Emphasis-Min-100-Counts		MV_Antonio-Emphasis-Min-1000-Counts
+MV_Antonio-Emphasis-Min-1000-Percentages		MV_Antonio-Emphasis-Min-250-Counts
+MV_Antonio-Emphasis-Min-250-Percentages		MV_Antonio-Emphasis-Min-500-Counts
+MV_Antonio-Emphasis-Min-500-Percentages
+MV_Antonio-Emphasis-Vowels-Only-All-Counts
+MV_Antonio-Emphasis-Vowels-Only-Min-100-Counts
+MV_Antonio-Emphasis-Vowels-Only-Min-1000-Counts
+MV_Antonio-Emphasis-Vowels-Only-Min-1000-Percentages
+MV_Antonio-Emphasis-Vowels-Only-Min-250-Counts
+MV_Antonio-Emphasis-Vowels-Only-Min-250-Percentages
+MV_Antonio-Emphasis-Vowels-Only-Min-500-Counts
+MV_Antonio-Emphasis-Vowels-Only-Min-500-Percentages		MV_Antonio-Min-100-Counts
+MV_Antonio-Min-1000-Counts		MV_Antonio-Min-1000-Percentages
+MV_Antonio-Min-250-Counts		MV_Antonio-Min-250-Percentages
+MV_Antonio-Min-500-Counts		MV_Antonio-Min-500-Percentages
+MV_Antonio-Vowels-Only-All-Counts		MV_Antonio-Vowels-Only-All-Percentages
+MV_Antonio-Vowels-Only-Min-100-Counts		MV_Antonio-Vowels-Only-Min-1000-Counts
+MV_Antonio-Vowels-Only-Min-1000-Percentages
+MV_Antonio-Vowels-Only-Min-250-Counts
+MV_Antonio-Vowels-Only-Min-250-Percentages
+MV_Antonio-Vowels-Only-Min-500-Counts
+MV_Antonio-Vowels-Only-Min-500-Percentages
+MV_Bassanio-Emphasis-Min-100-Percentages		MV_Bassanio-Emphasis-Min-1000-Counts
+MV_Bassanio-Emphasis-Min-1000-Percentages
+MV_Bassanio-Emphasis-Min-2500-Counts
+MV_Bassanio-Emphasis-Min-2500-Percentages		MV_Bassanio-Emphasis-Min-500-Counts
+MV_Bassanio-Emphasis-Min-500-Percentages
+MV_Bassanio-Emphasis-Vowels-Only-All-Counts
+MV_Bassanio-Emphasis-Vowels-Only-Min-100-Counts
+MV_Bassanio-Emphasis-Vowels-Only-Min-1000-Counts
+MV_Bassanio-Emphasis-Vowels-Only-Min-1000-Percentages
+MV_Bassanio-Emphasis-Vowels-Only-Min-250-Counts
+MV_Bassanio-Emphasis-Vowels-Only-Min-250-Percentages
+MV_Bassanio-Emphasis-Vowels-Only-Min-2500-Counts
+MV_Bassanio-Emphasis-Vowels-Only-Min-2500-Percentages
+MV_Bassanio-Emphasis-Vowels-Only-Min-500-Counts
+MV_Bassanio-Emphasis-Vowels-Only-Min-500-Percentages
+MV_Bassanio-Min-1000-Counts		MV_Bassanio-Min-1000-Percentages
+MV_Bassanio-Min-500-Counts		MV_Bassanio-Min-500-Percentages
+MV_Bassanio-Vowels-Only-All-Counts		MV_Bassanio-Vowels-Only-Min-100-Counts
+MV_Bassanio-Vowels-Only-Min-1000-Counts
+MV_Bassanio-Vowels-Only-Min-1000-Percentages
+MV_Bassanio-Vowels-Only-Min-250-Counts
+MV_Bassanio-Vowels-Only-Min-250-Percentages
+MV_Bassanio-Vowels-Only-Min-2500-Counts
+MV_Bassanio-Vowels-Only-Min-500-Counts
+MV_Bassanio-Vowels-Only-Min-500-Percentages		MV_Gratiano-All-Counts
+MV_Gratiano-Emphasis-All-Counts		MV_Gratiano-Emphasis-Min-100-Counts
+MV_Gratiano-Emphasis-Min-1000-Counts
+MV_Gratiano-Emphasis-Min-1000-Percentages		MV_Gratiano-Emphasis-Min-250-Counts
+MV_Gratiano-Emphasis-Min-250-Percentages		MV_Gratiano-Emphasis-Min-500-Counts
+MV_Gratiano-Emphasis-Min-500-Percentages
+MV_Gratiano-Emphasis-Vowels-Only-All-Counts
+MV_Gratiano-Emphasis-Vowels-Only-Min-1000-Percentages
+MV_Gratiano-Emphasis-Vowels-Only-Min-250-Counts
+MV_Gratiano-Emphasis-Vowels-Only-Min-500-Percentages
+MV_Gratiano-Min-100-Counts		MV_Gratiano-Min-1000-Counts
+MV_Gratiano-Min-1000-Percentages		MV_Gratiano-Min-250-Counts
+MV_Gratiano-Min-250-Percentages		MV_Gratiano-Min-500-Counts
+MV_Gratiano-Vowels-Only-All-Counts		MV_Gratiano-Vowels-Only-Min-100-Counts
+MV_Gratiano-Vowels-Only-Min-1000-Counts
+MV_Gratiano-Vowels-Only-Min-1000-Percentages
+MV_Gratiano-Vowels-Only-Min-250-Counts		MV_Gratiano-Vowels-Only-Min-500-Counts
+MV_Lorenzo-Min-100-Percentages		MV_Lorenzo-Min-250-Percentages
+MV_Nerissa-All-Percentages		MV_Nerissa-Emphasis-Min-100-Percentages
+MV_Nerissa-Emphasis-Vowels-Only-Min-100-Percentages
+MV_Nerissa-Vowels-Only-All-Percentages		MV_Salarino-All-Counts
+MV_Salarino-Emphasis-All-Counts		MV_Salarino-Emphasis-Min-100-Counts
+MV_Salarino-Emphasis-Min-100-Percentages		MV_Salarino-Emphasis-Min-500-Counts
+MV_Salarino-Emphasis-Vowels-Only-All-Counts
+MV_Salarino-Emphasis-Vowels-Only-All-Percentages
+MV_Salarino-Emphasis-Vowels-Only-Min-100-Counts
+MV_Salarino-Emphasis-Vowels-Only-Min-100-Percentages
+MV_Salarino-Emphasis-Vowels-Only-Min-250-Counts
+MV_Salarino-Emphasis-Vowels-Only-Min-250-Percentages
+MV_Salarino-Emphasis-Vowels-Only-Min-500-Counts
+MV_Salarino-Emphasis-Vowels-Only-Min-500-Percentages
+MV_Salarino-Min-100-Counts		MV_Salarino-Min-100-Percentages
+MV_Salarino-Min-500-Counts		MV_Salarino-Vowels-Only-All-Counts
+MV_Salarino-Vowels-Only-All-Percentages
+MV_Salarino-Vowels-Only-Min-100-Counts
+MV_Salarino-Vowels-Only-Min-100-Percentages
+MV_Salarino-Vowels-Only-Min-250-Counts
+MV_Salarino-Vowels-Only-Min-250-Percentages
+MV_Salarino-Vowels-Only-Min-500-Counts		MV_Salerio-All-Counts
+MV_Salerio-Emphasis-All-Counts		MV_Salerio-Emphasis-All-Percentages
+MV_Salerio-Emphasis-Min-100-Percentages
+MV_Salerio-Emphasis-Vowels-Only-All-Counts
+MV_Salerio-Emphasis-Vowels-Only-All-Percentages
+MV_Salerio-Emphasis-Vowels-Only-Min-100-Percentages
+MV_Salerio-Min-100-Percentages		MV_Salerio-Vowels-Only-All-Counts
+MV_Salerio-Vowels-Only-Min-100-Counts
+MV_Salerio-Vowels-Only-Min-100-Percentages		MV_Solanio-All-Counts
+MV_Solanio-Emphasis-All-Counts		MV_Solanio-Emphasis-Min-100-Counts
+MV_Solanio-Emphasis-Min-100-Percentages		MV_Solanio-Emphasis-Min-250-Counts
+MV_Solanio-Emphasis-Min-250-Percentages
+MV_Solanio-Emphasis-Vowels-Only-Min-100-Percentages		MV_Solanio-Min-100-Counts
+MV_Solanio-Min-100-Percentages		MV_Solanio-Min-250-Percentages
+MV_Solanio-Min-500-Percentages
+
+
+                          Actual "2" Predicted as "3":                          
+
+MV_Antonio-Emphasis-Min-100-Percentages		MV_Antonio-Min-100-Percentages
+MV_Bassanio-Emphasis-Vowels-Only-Min-100-Percentages
+MV_Gratiano-Emphasis-Vowels-Only-Min-100-Percentages
+MV_Gratiano-Emphasis-Vowels-Only-Min-250-Percentages
+MV_Gratiano-Vowels-Only-Min-100-Percentages
+MV_Gratiano-Vowels-Only-Min-250-Percentages
+MV_Nerissa-Emphasis-Vowels-Only-Min-500-Percentages
+MV_Nerissa-Vowels-Only-Min-100-Percentages
+MV_Nerissa-Vowels-Only-Min-250-Percentages
+MV_Solanio-Emphasis-Vowels-Only-All-Counts
+MV_Solanio-Emphasis-Vowels-Only-Min-100-Counts
+
+
+                          Actual "2" Predicted as "4":                          
+
+MV_Nerissa-All-Counts		MV_Nerissa-Emphasis-All-Counts
+MV_Nerissa-Emphasis-Min-100-Counts		MV_Nerissa-Emphasis-Min-250-Counts
+MV_Nerissa-Emphasis-Min-250-Percentages		MV_Nerissa-Emphasis-Min-500-Counts
+MV_Nerissa-Emphasis-Min-500-Percentages
+MV_Nerissa-Emphasis-Vowels-Only-All-Counts
+MV_Nerissa-Emphasis-Vowels-Only-Min-100-Counts
+MV_Nerissa-Emphasis-Vowels-Only-Min-250-Counts
+MV_Nerissa-Emphasis-Vowels-Only-Min-500-Counts		MV_Nerissa-Min-100-Counts
+MV_Nerissa-Min-100-Percentages		MV_Nerissa-Min-250-Counts
+MV_Nerissa-Min-250-Percentages		MV_Nerissa-Min-500-Counts
+MV_Nerissa-Min-500-Percentages		MV_Nerissa-Vowels-Only-All-Counts
+MV_Nerissa-Vowels-Only-Min-100-Counts		MV_Nerissa-Vowels-Only-Min-250-Counts
+MV_Nerissa-Vowels-Only-Min-500-Counts
+MV_Nerissa-Vowels-Only-Min-500-Percentages
+MV_Salerio-Vowels-Only-All-Percentages
+
+
+                          Actual "2" Predicted as "5":                          
+
+
+
+
+                          Actual "2" Predicted as "6":                          
+
+MV_Antonio-Emphasis-Vowels-Only-All-Percentages
+MV_Antonio-Emphasis-Vowels-Only-Min-100-Percentages
+MV_Gratiano-Min-500-Percentages		MV_Gratiano-Vowels-Only-Min-500-Percentages
+MV_Salarino-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "2" Predicted as "p":                          
+
+MV_Antonio-Vowels-Only-Min-100-Percentages		MV_Bassanio-All-Counts
+MV_Bassanio-Emphasis-All-Counts		MV_Bassanio-Emphasis-Min-100-Counts
+MV_Bassanio-Emphasis-Min-250-Counts		MV_Bassanio-Emphasis-Min-250-Percentages
+MV_Bassanio-Min-100-Counts		MV_Bassanio-Min-100-Percentages
+MV_Bassanio-Min-250-Counts		MV_Bassanio-Min-250-Percentages
+MV_Bassanio-Min-2500-Percentages		MV_Bassanio-Vowels-Only-Min-100-Percentages
+MV_Bassanio-Vowels-Only-Min-2500-Percentages
+MV_Lorenzo-Vowels-Only-All-Counts		MV_Lorenzo-Vowels-Only-Min-100-Counts
+MV_Lorenzo-Vowels-Only-Min-100-Percentages
+MV_Lorenzo-Vowels-Only-Min-1000-Percentages
+MV_Lorenzo-Vowels-Only-Min-250-Counts
+MV_Lorenzo-Vowels-Only-Min-250-Percentages
+MV_Lorenzo-Vowels-Only-Min-500-Percentages
+MV_Nerissa-Emphasis-Vowels-Only-Min-250-Percentages
+MV_Salarino-Emphasis-Min-250-Percentages
+MV_Salarino-Emphasis-Min-500-Percentages		MV_Salarino-Min-250-Percentages
+MV_Salarino-Min-500-Percentages
+MV_Solanio-Emphasis-Vowels-Only-Min-250-Percentages
+MV_Solanio-Emphasis-Vowels-Only-Min-500-Percentages
+MV_Solanio-Vowels-Only-Min-100-Percentages
+MV_Solanio-Vowels-Only-Min-250-Percentages
+MV_Solanio-Vowels-Only-Min-500-Percentages
+
+
+                          Actual "3" Predicted as "0":                          
+
+MV_Jessica-Emphasis-Vowels-Only-All-Percentages
+
+
+                          Actual "3" Predicted as "1":                          
+
+MV_Jessica-All-Percentages		MV_Jessica-Emphasis-All-Percentages
+MV_Jessica-Emphasis-Vowels-Only-Min-250-Counts
+MV_Jessica-Emphasis-Vowels-Only-Min-500-Counts
+MV_Jessica-Vowels-Only-All-Percentages		MV_Shylock-All-Percentages
+MV_Shylock-Emphasis-All-Percentages		MV_Shylock-Emphasis-Min-100-Percentages
+MV_Shylock-Emphasis-Vowels-Only-All-Counts
+MV_Shylock-Emphasis-Vowels-Only-All-Percentages
+MV_Shylock-Emphasis-Vowels-Only-Min-100-Counts
+MV_Shylock-Emphasis-Vowels-Only-Min-100-Percentages
+MV_Shylock-Emphasis-Vowels-Only-Min-250-Percentages
+MV_Shylock-Emphasis-Vowels-Only-Min-500-Percentages
+MV_Shylock-Min-100-Percentages		MV_Shylock-Vowels-Only-All-Counts
+MV_Shylock-Vowels-Only-All-Percentages		MV_Shylock-Vowels-Only-Min-100-Counts
+MV_Shylock-Vowels-Only-Min-100-Percentages
+MV_Shylock-Vowels-Only-Min-250-Counts
+MV_Shylock-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "3" Predicted as "2":                          
+
+MV_Jessica-All-Counts		MV_Jessica-Emphasis-All-Counts
+MV_Jessica-Emphasis-Min-100-Counts		MV_Jessica-Emphasis-Min-100-Percentages
+MV_Jessica-Emphasis-Min-250-Counts		MV_Jessica-Emphasis-Min-250-Percentages
+MV_Jessica-Emphasis-Min-500-Counts		MV_Jessica-Emphasis-Min-500-Percentages
+MV_Jessica-Emphasis-Vowels-Only-All-Counts
+MV_Jessica-Emphasis-Vowels-Only-Min-100-Counts
+MV_Jessica-Emphasis-Vowels-Only-Min-100-Percentages
+MV_Jessica-Emphasis-Vowels-Only-Min-500-Percentages		MV_Jessica-Min-100-Counts
+MV_Jessica-Min-100-Percentages		MV_Jessica-Min-250-Counts
+MV_Jessica-Min-250-Percentages		MV_Jessica-Min-500-Counts
+MV_Jessica-Min-500-Percentages		MV_Jessica-Vowels-Only-All-Counts
+MV_Jessica-Vowels-Only-Min-100-Counts		MV_Jessica-Vowels-Only-Min-250-Counts
+MV_Jessica-Vowels-Only-Min-250-Percentages
+MV_Jessica-Vowels-Only-Min-500-Counts
+MV_Jessica-Vowels-Only-Min-500-Percentages		MV_Shylock-All-Counts
+MV_Shylock-Emphasis-All-Counts		MV_Shylock-Emphasis-Min-100-Counts
+MV_Shylock-Emphasis-Min-1000-Counts		MV_Shylock-Emphasis-Min-1000-Percentages
+MV_Shylock-Emphasis-Min-250-Counts		MV_Shylock-Emphasis-Min-250-Percentages
+MV_Shylock-Emphasis-Min-2500-Counts		MV_Shylock-Emphasis-Min-2500-Percentages
+MV_Shylock-Emphasis-Min-500-Counts		MV_Shylock-Emphasis-Min-500-Percentages
+MV_Shylock-Emphasis-No-Others-Counts
+MV_Shylock-Emphasis-No-Others-Percentages
+MV_Shylock-Emphasis-Vowels-Only-Min-1000-Counts
+MV_Shylock-Emphasis-Vowels-Only-Min-1000-Percentages
+MV_Shylock-Emphasis-Vowels-Only-Min-250-Counts
+MV_Shylock-Emphasis-Vowels-Only-Min-2500-Counts
+MV_Shylock-Emphasis-Vowels-Only-Min-2500-Percentages
+MV_Shylock-Emphasis-Vowels-Only-Min-500-Counts
+MV_Shylock-Emphasis-Vowels-Only-No-Others-Counts
+MV_Shylock-Emphasis-Vowels-Only-No-Others-Percentages
+MV_Shylock-Min-100-Counts		MV_Shylock-Min-1000-Counts
+MV_Shylock-Min-1000-Percentages		MV_Shylock-Min-250-Counts
+MV_Shylock-Min-250-Percentages		MV_Shylock-Min-2500-Counts
+MV_Shylock-Min-2500-Percentages		MV_Shylock-Min-500-Counts
+MV_Shylock-Min-500-Percentages		MV_Shylock-No-Others-Counts
+MV_Shylock-No-Others-Percentages		MV_Shylock-Vowels-Only-Min-1000-Counts
+MV_Shylock-Vowels-Only-Min-1000-Percentages
+MV_Shylock-Vowels-Only-Min-2500-Counts		MV_Shylock-Vowels-Only-Min-500-Counts
+MV_Shylock-Vowels-Only-Min-500-Percentages
+MV_Shylock-Vowels-Only-No-Others-Counts
+MV_Shylock-Vowels-Only-No-Others-Percentages
+
+
+                          Actual "3" Predicted as "3":                          
+
+MV_Jessica-Emphasis-Vowels-Only-Min-250-Percentages
+MV_Jessica-Vowels-Only-Min-100-Percentages
+
+
+                          Actual "3" Predicted as "4":                          
+
+
+
+
+                          Actual "3" Predicted as "5":                          
+
+
+
+
+                          Actual "3" Predicted as "6":                          
+
+
+
+
+                          Actual "3" Predicted as "p":                          
+
+MV_Shylock-Vowels-Only-Min-2500-Percentages
+
+
+                          Actual "4" Predicted as "0":                          
+
+
+
+
+                          Actual "4" Predicted as "1":                          
+
+MV_Tubal-All-Percentages
+
+
+                          Actual "4" Predicted as "2":                          
+
+MV_Tubal-Emphasis-All-Counts		MV_Tubal-Emphasis-All-Percentages
+MV_Tubal-Emphasis-Vowels-Only-All-Counts
+
+
+                          Actual "4" Predicted as "3":                          
+
+MV_Tubal-Emphasis-Vowels-Only-All-Percentages
+MV_Tubal-Vowels-Only-All-Percentages
+
+
+                          Actual "4" Predicted as "4":                          
+
+
+
+
+                          Actual "4" Predicted as "5":                          
+
+
+
+
+                          Actual "4" Predicted as "6":                          
+
+MV_Tubal-All-Counts		MV_Tubal-Vowels-Only-All-Counts
+
+
+                          Actual "4" Predicted as "p":                          
+
+
+
+
+                          Actual "5" Predicted as "0":                          
+
+
+
+
+                          Actual "5" Predicted as "1":                          
+
+MV_ATTENDANTS.BASSANIO.Leonardo-Emphasis-Vowels-Only-All-Counts
+MV_LanceletGobbo-All-Percentages		MV_LanceletGobbo-Emphasis-All-Percentages
+
+
+                          Actual "5" Predicted as "2":                          
+
+MV_LanceletGobbo-Emphasis-Min-250-Percentages
+MV_LanceletGobbo-Emphasis-No-Others-Counts
+MV_LanceletGobbo-Emphasis-Vowels-Only-All-Percentages
+MV_LanceletGobbo-Min-100-Counts		MV_LanceletGobbo-Min-250-Counts
+MV_LanceletGobbo-Min-250-Percentages		MV_LanceletGobbo-No-Others-Counts
+
+
+                          Actual "5" Predicted as "3":                          
+
+MV_ATTENDANTS.BASSANIO.Leonardo-All-Percentages
+MV_ATTENDANTS.BASSANIO.Leonardo-Emphasis-All-Percentages
+MV_ATTENDANTS.BASSANIO.Leonardo-Emphasis-Vowels-Only-All-Percentages
+MV_ATTENDANTS.BASSANIO.Leonardo-Vowels-Only-All-Percentages
+MV_LanceletGobbo-All-Counts		MV_LanceletGobbo-Emphasis-All-Counts
+MV_LanceletGobbo-Emphasis-Min-100-Counts
+MV_LanceletGobbo-Emphasis-Min-100-Percentages
+MV_LanceletGobbo-Emphasis-Min-1000-Counts
+MV_LanceletGobbo-Emphasis-Min-1000-Percentages
+MV_LanceletGobbo-Emphasis-Vowels-Only-Min-1000-Counts
+MV_LanceletGobbo-Emphasis-Vowels-Only-Min-1000-Percentages
+MV_LanceletGobbo-Min-100-Percentages		MV_LanceletGobbo-Min-1000-Counts
+MV_LanceletGobbo-Min-1000-Percentages		MV_LanceletGobbo-Vowels-Only-All-Counts
+MV_LanceletGobbo-Vowels-Only-Min-100-Counts
+MV_LanceletGobbo-Vowels-Only-Min-1000-Counts
+MV_LanceletGobbo-Vowels-Only-Min-1000-Percentages
+MV_LanceletGobbo-Vowels-Only-Min-250-Counts
+MV_LanceletGobbo-Vowels-Only-Min-250-Percentages
+MV_LanceletGobbo-Vowels-Only-Min-500-Counts
+
+
+                          Actual "5" Predicted as "4":                          
+
+
+
+
+                          Actual "5" Predicted as "5":                          
+
+
+
+
+                          Actual "5" Predicted as "6":                          
+
+MV_ATTENDANTS.BASSANIO.Leonardo-All-Counts
+MV_ATTENDANTS.BASSANIO.Leonardo-Emphasis-All-Counts
+MV_ATTENDANTS.BASSANIO.Leonardo-Vowels-Only-All-Counts
+MV_LanceletGobbo-Emphasis-Min-250-Counts
+MV_LanceletGobbo-Emphasis-Min-500-Counts
+MV_LanceletGobbo-Emphasis-Min-500-Percentages
+MV_LanceletGobbo-Emphasis-Vowels-Only-All-Counts
+MV_LanceletGobbo-Emphasis-Vowels-Only-Min-100-Counts
+MV_LanceletGobbo-Emphasis-Vowels-Only-Min-100-Percentages
+MV_LanceletGobbo-Emphasis-Vowels-Only-Min-250-Counts
+MV_LanceletGobbo-Emphasis-Vowels-Only-Min-250-Percentages
+MV_LanceletGobbo-Emphasis-Vowels-Only-Min-500-Counts
+MV_LanceletGobbo-Emphasis-Vowels-Only-Min-500-Percentages
+MV_LanceletGobbo-Emphasis-Vowels-Only-No-Others-Counts
+MV_LanceletGobbo-Min-500-Counts		MV_LanceletGobbo-Min-500-Percentages
+MV_LanceletGobbo-Vowels-Only-All-Percentages
+MV_LanceletGobbo-Vowels-Only-Min-100-Percentages
+MV_LanceletGobbo-Vowels-Only-Min-500-Percentages
+MV_LanceletGobbo-Vowels-Only-No-Others-Counts
+
+
+                          Actual "5" Predicted as "p":                          
+
+MV_LanceletGobbo-Emphasis-No-Others-Percentages
+MV_LanceletGobbo-Emphasis-Vowels-Only-No-Others-Percentages
+MV_LanceletGobbo-No-Others-Percentages
+MV_LanceletGobbo-Vowels-Only-No-Others-Percentages
+
+
+                          Actual "6" Predicted as "0":                          
+
+
+
+
+                          Actual "6" Predicted as "1":                          
+
+MV_ATTENDANTS.PORTIA.Balthazar-Vowels-Only-All-Counts
+MV_SERVANTS.1-Emphasis-All-Percentages
+MV_SERVANTS.1-Emphasis-Vowels-Only-All-Percentages
+MV_SERVANTS.2-Emphasis-All-Counts
+MV_SERVANTS.2-Emphasis-Vowels-Only-All-Counts
+MV_SERVANTS.2-Vowels-Only-All-Counts
+
+
+                          Actual "6" Predicted as "2":                          
+
+MV_Messenger-All-Percentages		MV_Messenger-Emphasis-All-Counts
+MV_Messenger-Emphasis-All-Percentages
+MV_Messenger-Emphasis-Vowels-Only-All-Counts
+MV_Messenger-Emphasis-Vowels-Only-All-Percentages
+MV_Messenger-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "3":                          
+
+MV_OldGobbo-All-Counts		MV_OldGobbo-All-Percentages
+MV_OldGobbo-Emphasis-All-Percentages		MV_OldGobbo-Min-100-Counts
+MV_OldGobbo-Min-100-Percentages		MV_OldGobbo-Min-250-Counts
+MV_OldGobbo-Min-250-Percentages		MV_SERVANTS.1-All-Percentages
+
+
+                          Actual "6" Predicted as "4":                          
+
+MV_ATTENDANTS.PORTIA.Balthazar-All-Percentages
+MV_ATTENDANTS.PORTIA.Balthazar-Emphasis-All-Percentages
+MV_SERVANTS.1-Vowels-Only-All-Percentages
+
+
+                          Actual "6" Predicted as "5":                          
+
+MV_ATTENDANTS.PORTIA.Stephano-Vowels-Only-All-Percentages
+MV_OldGobbo-Emphasis-Vowels-Only-Min-250-Percentages
+MV_OldGobbo-Vowels-Only-Min-250-Counts
+MV_OldGobbo-Vowels-Only-Min-250-Percentages
+
+
+                          Actual "6" Predicted as "6":                          
+
+MV_ATTENDANTS.PORTIA.Balthazar-All-Counts
+MV_ATTENDANTS.PORTIA.Balthazar-Emphasis-All-Counts
+MV_ATTENDANTS.PORTIA.Balthazar-Emphasis-Vowels-Only-All-Counts
+MV_ATTENDANTS.PORTIA.Stephano-All-Counts
+MV_ATTENDANTS.PORTIA.Stephano-Emphasis-All-Counts
+MV_ATTENDANTS.PORTIA.Stephano-Emphasis-All-Percentages
+MV_ATTENDANTS.PORTIA.Stephano-Emphasis-Vowels-Only-All-Counts
+MV_ATTENDANTS.PORTIA.Stephano-Emphasis-Vowels-Only-All-Percentages
+MV_ATTENDANTS.PORTIA.Stephano-Vowels-Only-All-Counts		MV_Messenger-All-Counts
+MV_Messenger-Vowels-Only-All-Counts		MV_OldGobbo-Emphasis-All-Counts
+MV_OldGobbo-Emphasis-Min-100-Counts		MV_OldGobbo-Emphasis-Min-100-Percentages
+MV_OldGobbo-Emphasis-Min-250-Counts		MV_OldGobbo-Emphasis-Min-250-Percentages
+MV_OldGobbo-Emphasis-Vowels-Only-All-Counts
+MV_OldGobbo-Emphasis-Vowels-Only-All-Percentages
+MV_OldGobbo-Emphasis-Vowels-Only-Min-100-Counts
+MV_OldGobbo-Emphasis-Vowels-Only-Min-100-Percentages
+MV_OldGobbo-Emphasis-Vowels-Only-Min-250-Counts
+MV_OldGobbo-Vowels-Only-All-Counts		MV_OldGobbo-Vowels-Only-All-Percentages
+MV_OldGobbo-Vowels-Only-Min-100-Counts
+MV_OldGobbo-Vowels-Only-Min-100-Percentages		MV_SERVANTS.1-All-Counts
+MV_SERVANTS.1-Emphasis-All-Counts
+MV_SERVANTS.1-Emphasis-Vowels-Only-All-Counts
+MV_SERVANTS.1-Vowels-Only-All-Counts		MV_SERVANTS.2-All-Counts
+
+
+                          Actual "6" Predicted as "p":                          
+
+MV_SERVANTS.2-All-Percentages		MV_SERVANTS.2-Emphasis-All-Percentages
+MV_SERVANTS.2-Emphasis-Vowels-Only-All-Percentages
+MV_SERVANTS.2-Vowels-Only-All-Percentages
+
+
+                          Actual "p" Predicted as "0":                          
+
+
+
+
+                          Actual "p" Predicted as "1":                          
+
+MV_MUSICIANS-Emphasis-Vowels-Only-All-Counts
+MV_MUSICIANS-Vowels-Only-All-Counts
+
+
+                          Actual "p" Predicted as "2":                          
+
+
+
+
+                          Actual "p" Predicted as "3":                          
+
+
+
+
+                          Actual "p" Predicted as "4":                          
+
+
+
+
+                          Actual "p" Predicted as "5":                          
+
+
+
+
+                          Actual "p" Predicted as "6":                          
+
+
+
+
+                          Actual "p" Predicted as "p":                          
+
+
+
+
