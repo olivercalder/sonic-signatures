@@ -637,7 +637,7 @@ class ConfusionMatrix:
         classes = list(matrix.keys())
         lines.append(','.join(['R:A::C:P'] + classes))
         for actual in classes:
-            values = [matrix[actual][predicted] for predicted in classes]
+            values = [str(matrix[actual][predicted]) for predicted in classes]
             lines.append(','.join([actual] + values))
         return '\n'.join(lines)
 
