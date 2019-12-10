@@ -16,7 +16,8 @@ Arguments:
     -lc filename.csv    Loads classifications from specified csv file
     -lj filename.json   Loads classifications from specified json file
     -s                  Silent: Do not print output
-    -wt                 Writes output to csv file
+    -wt                 Writes output to text file
+    -wc                 Writes output to csv files
     -wj                 Writes output to json file
     -v                  Verbose: Include more detail in printed and written reports
     -n name             Name of matrix, used in printing but not in filenames
@@ -76,15 +77,46 @@ def get_confusion_matrix(char_dict, name=None):
     matrix.build(char_dict, name)
     return matrix
 
-def get_counts_matrix(char_dict, name=None):
+def get_counts_matrix(char_dict):
     matrix = ConfusionMatrix()
-    matrix.build(char_dict, name)
+    matrix.build(char_dict)
     return matrix.get_matrix()
 
-def get_percents_matrix(char_dict, name=None):
+def get_percents_matrix(char_dict):
     matrix = ConfusionMatrix()
-    matrix.build(char_dict, name)
+    matrix.build(char_dict)
     return matrix.get_percent_matrix()
+
+def get_percents_matrix_given_actual(char_dict):
+    matrix = ConfusionMatrix()
+    matrix.build(char_dict)
+    return matrix.get_percent_matrix_given_actual()
+
+def get_percents_matrix_given_predicted(char_dict):
+    matrix = ConfusionMatrix()
+    matrix.build(char_dict)
+    return matrix.get_percent_matrix_given_predicted()
+
+
+def get_csv(char_dict):
+    matrix = ConfusionMatrix()
+    matrix.build(char_dict)
+    return matrix.get_csv()
+
+def get_percents_csv(char_dict):
+    matrix = ConfusionMatrix()
+    matrix.build(char_dict)
+    return matrix.get_csv(matrix.get_percent_matrix())
+
+def get_percents_csv_given_actual(char_dict):
+    matrix = ConfusionMatrix()
+    matrix.build(char_dict)
+    return matrix.get_csv(matrix.get_percent_matrix_given_actual())
+
+def get_percents_csv_given_predicted(char_dict):
+    matrix = ConfusionMatrix()
+    matrix.build(char_dict)
+    return matrix.get_csv(matrix.get_percent_matrix_given_predicted())
 
 
 def pretty_matrix(matrix, name='Confusion Matrix', percents=False):
@@ -598,6 +630,17 @@ class ConfusionMatrix:
 
         return '\n'.join(lines)
 
+    def get_csv(self, matrix=None):
+        if not matrix:
+            matrix = self.matrix
+        lines = []
+        classes = list(matrix.keys())
+        lines.append(','.join(['R:A::C:P'] + classes))
+        for actual in classes:
+            values = [matrix[actual][predicted] for predicted in classes]
+            lines.append(','.join([actual] + values))
+        return '\n'.join(lines)
+
     def get_json(self):
         out_dict = {}
         out_dict['name'] = self.name
@@ -655,6 +698,25 @@ class ConfusionMatrix:
         with open(filename, 'w') as outfile:
             print(self.get_summary(verbose), file=outfile)
 
+    def write_csv(self, title='', directory=''):
+        if directory != '':
+            directory = directory.rstrip('/') + '/'
+            self.create_directory(directory)
+        if title:
+            title += '_'
+        counts_filename = directory + title + 'confusion-matrix-counts.csv'
+        with open(counts_filename, 'w') as outfile:
+            print(self.get_csv(), file=outfile)
+        percents_filename = directory + title + 'confusion-matrix-percents.csv'
+        with open(percents_filename, 'w') as outfile:
+            print(self.get_csv(self.get_percent_matrix()), file=outfile)
+        percents_given_actual_filename = directory + title + 'confusion-matrix-percents-given-actual.csv'
+        with open(percents_given_actual_filename, 'w') as outfile:
+            print(self.get_csv(self.get_percent_matrix_given_actual()), file=outfile)
+        percents_given_predicted_filename = directory + title + 'confusion-matrix-percents-given-predicted.csv'
+        with open(percents_given_predicted_filename, 'w') as outfile:
+            print(self.get_csv(self.get_percent_matrix_given_predicted()), file=outfile)
+
     def write_json(self, title='', directory=''):
         out_dict = self.get_json()
         if directory != '':
@@ -667,7 +729,7 @@ class ConfusionMatrix:
             json.dump(out_dict, outfile)
 
 
-def main(in_csv='', in_json='', silent=False, wt=False, wj=False, verbose=False, name='', title='', directory='', z_csv='', z_json=''):
+def main(in_csv='', in_json='', silent=False, wt=False, wc=False, wj=False, verbose=False, name='', title='', directory='', z_csv='', z_json=''):
     if in_csv and in_json:
         print('ERROR: Conflicting input files')
         print_help_string()
@@ -694,6 +756,8 @@ def main(in_csv='', in_json='', silent=False, wt=False, wj=False, verbose=False,
         matrix.print_summary(verbose)
     if wt:
         matrix.write_text(title, directory, verbose)
+    if wc:
+        matrix.write_csv(title, directory)
     if wj:
         matrix.write_json(title, directory)
     overall_accuracy = matrix.get_overall_accuracy()
@@ -706,6 +770,7 @@ if __name__ == '__main__':
     lj = ''
     silent = False
     wt = False
+    wc = False
     wj = False
     verbose = False
     name = ''
@@ -736,6 +801,8 @@ if __name__ == '__main__':
             silent = True
         elif sys.argv[i] == '-wt':
             wt = True
+        elif sys.argv[i] == '-wc':
+            wc = True
         elif sys.argv[i] == '-wj':
             wj = True
         elif sys.argv[i] == '-v':
@@ -790,4 +857,4 @@ if __name__ == '__main__':
         print_help_string()
 
     else:
-        main(lc, lj, silent, wt, wj, verbose, name, title, directory, zc, zj)
+        main(lc, lj, silent, wt, wc, wj, verbose, name, title, directory, zc, zj)

@@ -21,6 +21,7 @@ class_defaults = [
 eval_defaults = [
 #       [{'silent':True},  '-s' ],
         [{'wt':True},      '-wt'],
+        [{'wc':True},      '-wc'],
         [{'wj':True},      '-wj'],
         [{'verbose':True}, '-v' ]]
 
