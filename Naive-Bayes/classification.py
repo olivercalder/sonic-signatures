@@ -16,6 +16,9 @@ Arguments:
     -lc filename.csv    Loads phoneme vectors from specified csv file
     -lj filename.json   Loads phoneme vectors from specified json file
     -c class_id         Specifies the class (role, gender, genre, status) to predict
+    -e class            Exclude the given class
+    -ec char_code       Exclude the given character
+    -ep play_code       Exclude the given play
     -s                  Silent: Do not print output
     -wc                 Writes output to csv file
     -wj                 Writes output to json file
@@ -46,44 +49,52 @@ def convert_dict_to_list(char_dict):
     return dict_list
 
 
-def load_class_list(char_list, class_id):
+def load_class_dict():
     class_dict = {}
     with open('../Reference/characteristics.csv', newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             class_dict[row['character']] = row
+    return class_dict
+
+
+def load_char_list():
+    return sorted(load_class_dict())
+
+
+def load_class_list(char_list, class_id):
+    class_dict = load_class_dict()
     class_list = []
     for char in char_list:
         class_list.append(class_dict[char][class_id])
     return class_list
 
 
-def load_csv(filename):
+def load_vector_list_csv(filename, filtered_list):
+    char_set = set(filtered_list)
     char_list = []
     vector_list = []
     with open(filename, newline='') as csv_in:
         reader = csv.reader(csv_in)
         for line in reader:
-            char_list.append(line[0])  # Saves ordering of characters for later reference
-            vector_list.append(line[1:])  # Strips name from vector
-    char_list = char_list[1:]  # Strips "character" from list of character codes
-    vector_list = vector_list[1:]  # Strips header from vector list
-    return char_list, vector_list
+            char = line[0]
+            if char in char_set:
+                vector_list.append(line[1:])  # Strips name from vector
+    return vector_list
 
 
-def load_json(filename):
+def load_vector_list_json(filename, filtered_list):
     with open(filename) as json_in:
         char_dict = json.load(json_in)
-    char_list = sorted(char_dict)
     phoneme_list = sorted(char_dict[char_list[0]])
     vector_list = []
-    for char in char_list:
+    for char in filtered_list:
         dict_vector = char_dict[char]
         vector = []
         for phoneme in phoneme_list:
             vector.append(dict_vector[phoneme])
         vector_list.append(vector)
-    return char_list, vector_list
+    return vector_list
 
 
 def create_directory(directory):
@@ -336,17 +347,38 @@ def generate_play_dict(char_list, vector_list, class_list, twofold=''):
     return play_dict
 
 
-def build_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', silent=False, wc=False, wj=False, title='', directory=''):
+def filter_char_list(char_list, excluded_classes=set(), excluded_chars=set(), excluded_plays=set(), min_words=set()):
+    class_dict = load_class_dict()
+    filtered_list = []
+    for char in char_list:
+        if set([class_dict[char][key] for key in class_dict[char].keys() if key not in ['character', 'word_count']]) & excluded_classes == set():
+            if char not in excluded_chars:
+                if char.split('_')[0] not in excluded_plays:
+                    if int(class_dict[char]['word_count']) >= min_words:
+                        filtered_list.append(char)
+    return filtered_list
+
+
+def build_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', excluded_classes=set(), excluded_chars=set(), excluded_plays=set(), min_words=set(), silent=False, wc=False, wj=False, title='', directory=''):
     if in_csv and in_json:
         print('ERROR: Conflicting input files')
         print('    csv:', in_csv)
         print('    JSON:', in_json)
         print_help_string()
         quit()
+
+    all_chars = load_char_list()
+    char_list = filter_char_list(all_chars, excluded_classes, excluded_chars, excluded_plays, min_words)
+
     if in_csv:
-        char_list, vector_list = load_csv(in_csv)
+        vector_list = load_vector_list_csv(in_csv, char_list)
     elif in_json:
-        char_list, vector_list = load_json(in_json)
+        vector_list = load_vector_list_json(in_json, char_list)
+    else:
+        print('ERROR: Missing input file')
+        print_help_string()
+        quit()
+
     class_list = load_class_list(char_list, class_id)
 
     dict_list = generate_dict_list(char_list, vector_list, class_list, twofold)
@@ -361,7 +393,7 @@ def build_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', s
     return char_dict
 
 
-def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', silent=False, wc=False, wj=False, title='', directory=''):
+def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', excluded_classes=set(), excluded_chars=set(), excluded_plays=set(), min_words=set(), silent=False, wc=False, wj=False, title='', directory=''):
     if not class_id:
         print('ERROR: Missing class id')
         print_help_string()
@@ -372,10 +404,14 @@ def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold=
         print('    JSON:', in_json)
         print_help_string()
         quit()
+
+    all_chars = load_char_list()
+    char_list = filter_char_list(all_chars, excluded_classes, excluded_chars, excluded_plays, min_words)
+
     if in_csv:
-        char_list, vector_list = load_csv(in_csv)
+        vector_list = load_vector_list_csv(in_csv, char_list)
     elif in_json:
-        char_list, vector_list = load_json(in_json)
+        vector_list = load_vector_list_json(in_json, char_list)
     else:
         print('ERROR: Missing input file')
         print_help_string()
@@ -397,11 +433,11 @@ def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold=
     return new_play_dict
 
 
-def main(in_csv='', in_json='', class_id='', twofold='', plays=False, silent=False, wc=False, wj=False, title='', directory=''):
+def main(in_csv='', in_json='', class_id='', twofold='', excluded_classes=set(), excluded_chars=set(), excluded_plays=set(), min_words=set(), plays=False, silent=False, wc=False, wj=False, title='', directory=''):
     if plays:
-        dictionary = build_play_confusion_dictionary(in_csv, in_json, class_id, twofold, silent, wj, title, directory)
+        dictionary = build_play_confusion_dictionary(in_csv, in_json, class_id, twofold, excluded_classes, excluded_chars, excluded_plays, min_words, silent, wj, title, directory)
     else:
-        dictionary = build_confusion_dictionary(in_csv, in_json, class_id, twofold, silent, wc, wj, title, directory)
+        dictionary = build_confusion_dictionary(in_csv, in_json, class_id, twofold, excluded_classes, excluded_chars, excluded_plays, min_words, silent, wc, wj, title, directory)
     return dictionary
 
 
@@ -410,6 +446,10 @@ if __name__ == '__main__':
     lj = ''
     class_id = ''
     twofold = ''
+    excluded_classes = set()
+    excluded_chars = set()
+    excluded_plays = set()
+    min_words = 0
     plays = False
     silent = False
     wc = False
@@ -451,6 +491,30 @@ if __name__ == '__main__':
                 twofold = sys.argv[i]
             else:
                 unrecognized.append('-2: Missing Specifier')
+        elif sys.argv[i] == '-e':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                excluded_classes.add(sys.argv[i])
+            else:
+                unrecognized.append('-e: Missing Specifier')
+        elif sys.argv[i] == '-ec':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                excluded_chars.add(sys.argv[i])
+            else:
+                unrecognized.append('-ec: Missing Specifier')
+        elif sys.argv[i] == '-ep':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                excluded_plays.add(sys.argv[i])
+            else:
+                unrecognized.append('-ep: Missing Specifier')
+        elif sys.argv[i] == '-mw':
+            if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
+                i += 1
+                min_words = int(sys.argv[i])
+            else:
+                unrecognized.append('-mw: Missing Specifier')
         elif sys.argv[i] == '-p':
             plays = True
         elif sys.argv[i] == '-s':
@@ -491,4 +555,4 @@ if __name__ == '__main__':
         print_help_string()
 
     else:
-        main(lc, lj, class_id, twofold, plays, silent, wc, wj, title, directory)
+        main(lc, lj, class_id, twofold, excluded_classes, excluded_chars, excluded_plays, min_words, plays, silent, wc, wj, title, directory)
