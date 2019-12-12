@@ -16,9 +16,18 @@ Arguments:
     -lc filename.csv    Loads phoneme vectors from specified csv file
     -lj filename.json   Loads phoneme vectors from specified json file
     -c class_id         Specifies the class (role, gender, genre, status) to predict
-    -e class            Exclude the given class
+    -e class            Exclude characters of the given class
     -ec char_code       Exclude the given character
-    -ep play_code       Exclude the given play
+    -ep play_code       Exclude characters from the given play
+    -mw wordcount       Exclude characters with a word count less than wordcount
+    -cd                 Class Dictionary: Hold out one class at a time
+                            Classify characters from each class after training
+                            the model on characters from all other classes.
+                            Thus, model predicts to which of the other classes the
+                            given character most corresponds.
+    -pd                 Play Dictionary: Hold out one play at a time
+                            Classify characters from each play after training
+                            the model on characters from all other plays.
     -s                  Silent: Do not print output
     -wc                 Writes output to csv file
     -wj                 Writes output to json file
@@ -70,6 +79,18 @@ def load_class_list(char_list, class_id):
     return class_list
 
 
+def filter_char_list(char_list, excluded_classes=set(), excluded_chars=set(), excluded_plays=set(), min_words=0):
+    class_dict = load_class_dict()
+    filtered_list = []
+    for char in char_list:
+        if set([class_dict[char][key] for key in class_dict[char].keys() if key not in ['character', 'word_count']]) & excluded_classes == set():
+            if char not in excluded_chars:
+                if char.split('_')[0] not in excluded_plays:
+                    if int(class_dict[char]['word_count']) >= min_words:
+                        filtered_list.append(char)
+    return filtered_list
+
+
 def load_vector_list_csv(filename, filtered_list):
     char_set = set(filtered_list)
     char_list = []
@@ -111,6 +132,14 @@ def print_results(dict_list):
         print(entry)
 
 
+def print_class_results(class_dict):
+    for c in sorted(class_dict):
+        print(c)
+        for entry in class_dict[c]:
+            print(entry)
+        print()
+
+
 def print_play_results(play_dict):
     for play in play_dict:
         print(play)
@@ -132,6 +161,23 @@ def write_csv(dict_list, title='', directory=''):
     writer.writeheader()
     for entry in dict_list:
         writer.writerow(entry)
+    csv_out.close()
+
+
+def write_class_csv(class_dict, title='', directory=''):
+    if directory != '':
+        directory = directory.rstrip('/') + '/'
+        create_directory(directory)
+    if title != '':
+        title = title + '_'
+    filename = directory + title + 'class-results-dictionary.csv'
+    csv_out = open(filename, 'w', newline='')
+    fieldnames = ['character', 'actual', 'predicted']
+    writer = csv.DictWriter(csv_out, fieldnames=fieldnames)
+    writer.writeheader()
+    for c in sorted(class_dict):
+        for entry in class_dict[c]:
+            writer.writerow(entry)
     csv_out.close()
 
 
@@ -164,6 +210,20 @@ def write_json(dict_list, title='', directory=''):
         json.dump(char_dict, out_json)
 
 
+def write_class_json(class_dict, title='', directory=''):
+    if directory != '':
+        directory = directory.rstrip('/') + '/'
+        create_directory(directory)
+    if title != '':
+        title = title + '_'
+    filename = directory + title + 'class-results-dictionary.json'
+    new_class_dict = {}
+    for c in class_dict:
+        new_class_dict[c] = convert_list_to_dict(class_dict[c])
+    with open(filename, 'w') as out_json:
+        json.dump(new_class_dict, out_json)
+
+
 def write_play_json(play_dict, title='', directory=''):
     if directory != '':
         directory = directory.rstrip('/') + '/'
@@ -178,6 +238,25 @@ def write_play_json(play_dict, title='', directory=''):
         json.dump(new_play_dict, out_json)
 
 
+def get_classifier(vector_list, class_list, percentages=False):
+    new_vector_list = []
+    for vector in vector_list:
+        new_vector = []
+        for count in vector:
+            count = float(count)
+            if percentages:
+                new_vector.append(int(count * 100000))
+            else:
+                new_vector.append(int(count))
+        new_vector_list.append(new_vector)
+
+    vector_array = np.array(new_vector_list, dtype=np.float64)
+    class_array = np.array(class_list)
+    classifier = MultinomialNB()
+    classifier.fit(vector_array, class_array)
+    return classifier
+
+
 def classify(vector_list, class_list, test_vectors):
     any_percent = False
     for vector in vector_list:
@@ -186,16 +265,7 @@ def classify(vector_list, class_list, test_vectors):
             if count != int(count) and count <= 1.0 and count >= 0.0:
                 any_percent = True
 
-    new_vector_list = []
-    for vector in vector_list:
-        new_vector = []
-        for count in vector:
-            count = float(count)
-            if any_percent:
-                new_vector.append(int(count * 100000))
-            else:
-                new_vector.append(int(count))
-        new_vector_list.append(new_vector)
+    classifier = get_classifier(vector_list, class_list, any_percent)
 
     new_test_vectors = []
     for vector in test_vectors:
@@ -207,11 +277,6 @@ def classify(vector_list, class_list, test_vectors):
             else:
                 new_vector.append(int(count))
         new_test_vectors.append(new_vector)        
-
-    vector_array = np.array(new_vector_list, dtype=np.float64)
-    class_array = np.array(class_list)
-    classifier = MultinomialNB()
-    classifier.fit(vector_array, class_array)
 
     test_array = np.array(new_test_vectors, dtype=np.float64)
     predictions = classifier.predict(test_array)
@@ -225,17 +290,6 @@ def twofold_classify(vector_list, class_list, test_vectors, twofold_class):
             count = float(count)
             if count != int(count) and count <= 1.0 and count >= 0.0:
                 any_percent = True
-
-    new_vector_list = []
-    for vector in vector_list:
-        new_vector = []
-        for count in vector:
-            count = float(count)
-            if any_percent:
-                new_vector.append(int(count * 100000))
-            else:
-                new_vector.append(int(count))
-        new_vector_list.append(new_vector)
 
     new_test_vectors = []
     for vector in test_vectors:
@@ -260,15 +314,8 @@ def twofold_classify(vector_list, class_list, test_vectors, twofold_class):
             final_vector_list.append(new_vector_list[i])
             final_class_list.append(class_list[i])
 
-    initial_vector_array = np.array(initial_vector_list, dtype=np.float64)
-    initial_class_array = np.array(initial_class_list)
-    initial_classifier = MultinomialNB()
-    initial_classifier.fit(initial_vector_array, initial_class_array)
-
-    final_vector_array = np.array(final_vector_list, dtype=np.float64)
-    final_class_array = np.array(final_class_list)
-    final_classifier = MultinomialNB()
-    final_classifier.fit(final_vector_array, final_class_array)
+    initial_classifier = get_classifier(initial_vector_list, initial_class_list, any_percent)
+    final_classifier = get_classifier(final_vector_list, final_class_list, any_percent)
 
     predictions = []
     for vector in new_test_vectors:
@@ -302,30 +349,62 @@ def hold_one_out(char_list, vector_list, class_list, char_code, twofold=''):
     return char_code, actual, prediction
 
 
-def hold_one_play_out(char_list, vector_list, class_list, play_code, twofold=''):
-    new_char_list = copy.deepcopy(char_list)
-    new_vector_list = copy.deepcopy(vector_list)
-    new_class_list = copy.deepcopy(class_list)
+def hold_one_class_out(char_list, vector_list, class_list, class_id, twofold=''):
+    new_char_list = []
+    new_vector_list = []
+    new_class_list = []
 
-    char_codes = []
+    test_char_list = []
     test_vectors = []
     actuals = []
     predictions = []
 
-    i = 0
-    while i < len(new_char_list):
-        if new_char_list[i].split('_')[0] == play_code:
-            char_codes.append(new_char_list.pop(i))
-            actuals.append(new_class_list.pop(i))
-            test_vectors.append(new_vector_list.pop(i))
+    char_set = set(filter_char_list(char_list, excluded_classes=set([class_id])))
+
+    for i in range(len(char_list)):
+        char = char_list[i]
+        if char in char_set:
+            new_char_list.append(char_list[i])
+            new_vector_list.append(vector_list[i])
+            new_class_list.append(class_list[i])
         else:
-            i += 1
+            test_char_list.append(char_list[i])
+            actuals.append(class_list[i])
+            test_vectors.append(vector_list[i])
 
     if twofold:
         predictions = twofold_classify(new_vector_list, new_class_list, test_vectors, twofold)
     else:
         predictions = classify(new_vector_list, new_class_list, test_vectors)
-    return char_codes, actuals, predictions
+    return test_char_list, actuals, predictions
+
+
+def hold_one_play_out(char_list, vector_list, class_list, play_code, twofold=''):
+    new_char_list = []
+    new_vector_list = []
+    new_class_list = []
+
+    test_char_list = []
+    test_vectors = []
+    actuals = []
+    predictions = []
+
+    for i in range(len(char_list)):
+        char = char_list[i]
+        if char.split('_')[0] != play_code:
+            new_char_list.append(char_list[i])
+            new_vector_list.append(vector_list[i])
+            new_class_list.append(class_list[i])
+        else:
+            test_char_list.append(char_list[i])
+            actuals.append(class_list[i])
+            test_vectors.append(vector_list[i])
+
+    if twofold:
+        predictions = twofold_classify(new_vector_list, new_class_list, test_vectors, twofold)
+    else:
+        predictions = classify(new_vector_list, new_class_list, test_vectors)
+    return test_char_list, actuals, predictions
 
 
 def generate_dict_list(char_list, vector_list, class_list, twofold=''):
@@ -334,6 +413,15 @@ def generate_dict_list(char_list, vector_list, class_list, twofold=''):
         char_code, actual, prediction = hold_one_out(char_list, vector_list, class_list, char, twofold)
         dict_list.append({'character':char_code, 'actual':actual, 'predicted':prediction})
     return dict_list
+
+
+def generate_class_dict(char_list, vector_list, class_list, twofold=''):
+    class_dict = {}
+    classes = set(class_list)
+    for c in sorted(classes):
+        char_codes, actuals, predictions = hold_one_class_out(char_list, vector_list, class_list, c, twofold)
+        class_dict[c] = [{'character':char_codes[i], 'actual':actuals[i], 'predicted':predictions[i]} for i in range(len(char_codes))]
+    return class_dict
 
 
 def generate_play_dict(char_list, vector_list, class_list, twofold=''):
@@ -347,19 +435,11 @@ def generate_play_dict(char_list, vector_list, class_list, twofold=''):
     return play_dict
 
 
-def filter_char_list(char_list, excluded_classes=set(), excluded_chars=set(), excluded_plays=set(), min_words=set()):
-    class_dict = load_class_dict()
-    filtered_list = []
-    for char in char_list:
-        if set([class_dict[char][key] for key in class_dict[char].keys() if key not in ['character', 'word_count']]) & excluded_classes == set():
-            if char not in excluded_chars:
-                if char.split('_')[0] not in excluded_plays:
-                    if int(class_dict[char]['word_count']) >= min_words:
-                        filtered_list.append(char)
-    return filtered_list
-
-
-def build_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', excluded_classes=set(), excluded_chars=set(), excluded_plays=set(), min_words=set(), silent=False, wc=False, wj=False, title='', directory=''):
+def build_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', excluded_classes=set(), excluded_chars=set(), excluded_plays=set(), min_words=0, silent=False, wc=False, wj=False, title='', directory=''):
+    if not class_id:
+        print('ERROR: Missing class id')
+        print_help_string()
+        quit()
     if in_csv and in_json:
         print('ERROR: Conflicting input files')
         print('    csv:', in_csv)
@@ -393,7 +473,47 @@ def build_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', e
     return char_dict
 
 
-def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', excluded_classes=set(), excluded_chars=set(), excluded_plays=set(), min_words=set(), silent=False, wc=False, wj=False, title='', directory=''):
+def build_class_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', excluded_classes=set(), excluded_chars=set(), excluded_plays=set(), min_words=0, silent=False, wc=False, wj=False, title='', directory=''):
+    if not class_id:
+        print('ERROR: Missing class id')
+        print_help_string()
+        quit()
+    if in_csv and in_json:
+        print('ERROR: Conflicting input files')
+        print('    csv:', in_csv)
+        print('    JSON:', in_json)
+        print_help_string()
+        quit()
+
+    all_chars = load_char_list()
+    char_list = filter_char_list(all_chars, excluded_classes, excluded_chars, excluded_plays, min_words)
+    
+    if in_csv:
+        vector_list = load_vector_list_csv(in_csv, char_list)
+    elif in_json:
+        vector_list = load_vector_list_json(in_json, char_list)
+    else:
+        print('ERROR: Missing input file')
+        print_help_string()
+        quit()
+
+    class_list = load_class_list(char_list, class_id)
+    
+    class_dict = generate_class_dict(char_list, vector_list, class_list, twofold='')
+
+    if not silent:
+        print_class_results(class_dict)
+    if wc:
+        write_class_csv(class_dict, title, directory)
+    if wj:
+        write_class_json(class_dict, title, directory)
+    new_class_dict = {}
+    for c in class_dict:
+        new_class_dict[c] = convert_list_to_dict(class_dict[c])
+    return new_class_dict
+
+
+def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', excluded_classes=set(), excluded_chars=set(), excluded_plays=set(), min_words=0, silent=False, wc=False, wj=False, title='', directory=''):
     if not class_id:
         print('ERROR: Missing class id')
         print_help_string()
@@ -433,9 +553,15 @@ def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold=
     return new_play_dict
 
 
-def main(in_csv='', in_json='', class_id='', twofold='', excluded_classes=set(), excluded_chars=set(), excluded_plays=set(), min_words=set(), plays=False, silent=False, wc=False, wj=False, title='', directory=''):
-    if plays:
-        dictionary = build_play_confusion_dictionary(in_csv, in_json, class_id, twofold, excluded_classes, excluded_chars, excluded_plays, min_words, silent, wj, title, directory)
+def main(in_csv='', in_json='', class_id='', twofold='', excluded_classes=set(), excluded_chars=set(), excluded_plays=set(), min_words=0, classes=False, plays=True, silent=False, wc=False, wj=False, title='', directory=''):
+    if classes and plays:
+        print('ERROR: Cannot build class dictionary and play dictionary at the same time')
+        print_help_string()
+        quit()
+    if classes:
+        dictionary = build_class_confusion_dictionary(in_csv, in_json, class_id, twofold, excluded_classes, excluded_chars, excluded_plays, min_words, silent, wc, wj, title, directory)
+    elif plays:
+        dictionary = build_play_confusion_dictionary(in_csv, in_json, class_id, twofold, excluded_classes, excluded_chars, excluded_plays, min_words, silent, wc, wj, title, directory)
     else:
         dictionary = build_confusion_dictionary(in_csv, in_json, class_id, twofold, excluded_classes, excluded_chars, excluded_plays, min_words, silent, wc, wj, title, directory)
     return dictionary
@@ -451,6 +577,7 @@ if __name__ == '__main__':
     excluded_plays = set()
     min_words = 0
     plays = False
+    classes = True
     silent = False
     wc = False
     wj = False
@@ -515,7 +642,9 @@ if __name__ == '__main__':
                 min_words = int(sys.argv[i])
             else:
                 unrecognized.append('-mw: Missing Specifier')
-        elif sys.argv[i] == '-p':
+        elif sys.argv[i] == '-cd':
+            classes = True
+        elif sys.argv[i] == '-pd':
             plays = True
         elif sys.argv[i] == '-s':
             silent = True
@@ -548,6 +677,9 @@ if __name__ == '__main__':
     elif lc != '' and lj != '':
         unrecognized.append('Conflicting input files: Please include only one of -lc or -lj')
 
+    if plays and classes:
+        unrecognized.append('Conflicting classification formats: Please include at most one of -pd and -cd')
+
     if len(unrecognized) > 0:
         print('\nERROR: Unrecognized Arguments:')
         for arg in unrecognized:
@@ -555,4 +687,4 @@ if __name__ == '__main__':
         print_help_string()
 
     else:
-        main(lc, lj, class_id, twofold, excluded_classes, excluded_chars, excluded_plays, min_words, plays, silent, wc, wj, title, directory)
+        main(lc, lj, class_id, twofold, excluded_classes, excluded_chars, excluded_plays, min_words, classes, plays, silent, wc, wj, title, directory)

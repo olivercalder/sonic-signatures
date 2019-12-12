@@ -171,8 +171,6 @@ class ConfusionMatrix:
                 count = 0
                 self.char_matrix[actual][predicted] = []
                 for char in self.get_characters():
-                    if char not in self.z_scores:
-                        self.z_scores[char] = OrderedDict()
                     if char_dict[char]['actual'] == actual:
                         if char_dict[char]['predicted'] == predicted:
                             count += 1
@@ -207,11 +205,12 @@ class ConfusionMatrix:
             reader = csv.DictReader(in_csv)
             for row in reader:
                 char = row.pop('character')
-                z_scores[char] = OrderedDict()
-                for phoneme in row:
-                    z_scores[char][phoneme] = float(row[phoneme])
-                    if int(z_scores[char][phoneme]) == z_scores[char][phoneme]:
-                        z_scores[char][phoneme] = int(z_scores[char][phoneme])
+                if char in self.data:
+                    z_scores[char] = OrderedDict()
+                    for phoneme in row:
+                        z_scores[char][phoneme] = float(row[phoneme])
+                        if int(z_scores[char][phoneme]) == z_scores[char][phoneme]:
+                            z_scores[char][phoneme] = int(z_scores[char][phoneme])
         self.z_scores = z_scores
         return self
 
@@ -223,11 +222,12 @@ class ConfusionMatrix:
             if is_nested(string_z_scores):
                 string_z_scores = unnest_dict(string_z_scores)
             for char in string_z_scores:
-                z_scores[char] = OrderedDict()
-                for phoneme in string_z_scores[char]:
-                    z_scores[char][phoneme] = float(string_z_scores[char][phoneme])
-                    if int(z_scores[char][phoneme]) == z_scores[char][phoneme]:
-                        z_scores[char][phoneme] = int(z_scores[char][phoneme])
+                if char in self.data:
+                    z_scores[char] = OrderedDict()
+                    for phoneme in string_z_scores[char]:
+                        z_scores[char][phoneme] = float(string_z_scores[char][phoneme])
+                        if int(z_scores[char][phoneme]) == z_scores[char][phoneme]:
+                            z_scores[char][phoneme] = int(z_scores[char][phoneme])
         self.z_scores = z_scores
         return z_scores
 
