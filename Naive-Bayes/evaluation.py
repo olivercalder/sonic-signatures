@@ -246,7 +246,7 @@ class ConfusionMatrix:
             new_data[char] = OrderedDict()
             actual = self.data[char]['actual']
             predicted = self.data[char]['predicted']
-            for group in gps:
+            for group in groups:
                 if actual in group:
                     actual = group
                 if predicted in group:
