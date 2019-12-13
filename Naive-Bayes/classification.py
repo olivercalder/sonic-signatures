@@ -553,7 +553,7 @@ def build_play_confusion_dictionary(in_csv='', in_json='', class_id='', twofold=
     return new_play_dict
 
 
-def main(in_csv='', in_json='', class_id='', twofold='', excluded_classes=set(), excluded_chars=set(), excluded_plays=set(), min_words=0, classes=False, plays=True, silent=False, wc=False, wj=False, title='', directory=''):
+def main(in_csv='', in_json='', class_id='', twofold='', excluded_classes=set(), excluded_chars=set(), excluded_plays=set(), min_words=0, classes=False, plays=False, silent=False, wc=False, wj=False, title='', directory=''):
     if classes and plays:
         print('ERROR: Cannot build class dictionary and play dictionary at the same time')
         print_help_string()
@@ -577,7 +577,7 @@ if __name__ == '__main__':
     excluded_plays = set()
     min_words = 0
     plays = False
-    classes = True
+    classes = False
     silent = False
     wc = False
     wj = False

@@ -214,7 +214,6 @@ class ConfusionMatrix:
         self.z_scores = z_scores
         return self
 
-
     def load_z_scores_json(self, filename):
         z_scores = OrderedDict()
         with open(filename) as in_json:
@@ -230,6 +229,31 @@ class ConfusionMatrix:
                             z_scores[char][phoneme] = int(z_scores[char][phoneme])
         self.z_scores = z_scores
         return z_scores
+
+
+    def get_grouped_by(self, orig_groupings):
+        # Assume groupings is a list of disjoint iterables, which will be
+        #     considered a set of equivalence classes, though they need not
+        #     be a complete set of representatives for the set of all classes.
+        groups = []
+        for group in orig_groupings:
+            if type(group) == type(()) or type(group) == type(set()):
+                group = list(group)
+            if type(group) == type([]):
+                groups.append(' '.join(group))
+        new_data = OrderedDict()
+        for char in self.data:
+            new_data[char] = OrderedDict()
+            actual = self.data[char]['actual']
+            predicted = self.data[char]['predicted']
+            for group in gps:
+                if actual in group:
+                    actual = group
+                if predicted in group:
+                    predicted = group
+            new_data[char]['actual'] = actual
+            new_data[char]['predicted'] = predicted
+        return new_data
 
 
     def pretty_matrix(self, matrix=None, name='', percents=False):
@@ -317,11 +341,11 @@ class ConfusionMatrix:
     def get_characters(self):
         return sorted(self.data)
 
-    def get_classes(self):
+    def get_classes(self, actual_or_predicted='actual'):
         characters = self.get_characters()
         classes = set()
         for char in characters:
-            classes.add(self.data[char]['actual'])
+            classes.add(self.data[char][actual_or_predicted])
         return sorted(classes)
 
     def get(self, key1, key2=None):
