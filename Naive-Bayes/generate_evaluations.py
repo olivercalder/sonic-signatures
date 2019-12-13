@@ -287,7 +287,7 @@ if __name__ == '__main__':
                 i += 1
                 thread_count = int(sys.argv[i])
             else:
-                unrecognized.append('-t: Missing Specifier')
+                unrecognized.append('-n: Missing Specifier')
         elif sys.argv[i] == '-c':
             if i+1 < len(sys.argv) and sys.argv[i+1][0] != '-':
                 i += 1
