@@ -1,0 +1,126 @@
+                                   Summary:                                     
+
+
+                      Overall accuracy = 53.75%                                 
+                      Average accuracy = 52.26%                                 
+
+                      Average F1 score = 50.99%                                 
+                           Average MCC = 4.92%                                  
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+                                 | 0 2 3 4  |   1 5    |                        
+                       ——————————|——————————|——————————|                        
+                        0 2 3 4  |    31    |    12    |                        
+                       ——————————|——————————|——————————|                        
+                          1 5    |    25    |    12    |                        
+                       ——————————|——————————|——————————|                        
+
+
+                         Total samples = 80                                     
+
+                Total actual "0 2 3 4" = 43                                     
+             Total predicted "0 2 3 4" = 56                                     
+                    Total actual "1 5" = 37                                     
+                 Total predicted "1 5" = 24                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+                                 | 0 2 3 4  |   1 5    |                        
+                       ——————————|——————————|——————————|                        
+                        0 2 3 4  |  38.75%  |  15.00%  |                        
+                       ——————————|——————————|——————————|                        
+                          1 5    |  31.25%  |  15.00%  |                        
+                       ——————————|——————————|——————————|                        
+
+
+              Percent actual "0 2 3 4" = 53.75%                                 
+           Percent predicted "0 2 3 4" = 70.00%                                 
+                  Percent actual "1 5" = 46.25%                                 
+               Percent predicted "1 5" = 30.00%                                 
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+                                 | 0 2 3 4  |   1 5    |                        
+                       ——————————|——————————|——————————|                        
+                        0 2 3 4  |  72.09%  |  27.91%  |                        
+                       ——————————|——————————|——————————|                        
+                          1 5    |  67.57%  |  32.43%  |                        
+                       ——————————|——————————|——————————|                        
+
+
+   Percent correct of actual "0 2 3 4" = 72.09%                                 
+       Percent correct of actual "1 5" = 32.43%                                 
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+                                 | 0 2 3 4  |   1 5    |                        
+                       ——————————|——————————|——————————|                        
+                        0 2 3 4  |  55.36%  |  50.00%  |                        
+                       ——————————|——————————|——————————|                        
+                          1 5    |  44.64%  |  50.00%  |                        
+                       ——————————|——————————|——————————|                        
+
+
+Percent correct of predicted "0 2 3 4" = 55.36%                                 
+    Percent correct of predicted "1 5" = 50.00%                                 
+
+
+                                   F1 Scores:                                   
+                F1 score for "0 2 3 4" = 62.63%                                 
+                    F1 score for "1 5" = 39.34%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+               MCC score for "0 2 3 4" = 4.92%                                  
+                   MCC score for "1 5" = 4.92%                                  
+
+
+
+                                  Characters:                                   
+
+
+                    Actual "0 2 3 4" Predicted as "0 2 3 4":                    
+
+1H4_HenryIV		1H6_Talbot		2H4_Falstaff		AWW_King		AWW_Parolles		Ant_Cleopatra
+Cym_Iachimo		Cym_Posthumus		H5_Fluellen		H5_HenryV		H8_HenryVIII		Ham_Claudius
+Jn_KingJohn		LLL_Berowne		MM_Isabella		MV_Bassanio		MV_Shylock		Mac_Macbeth
+Oth_Iago		R2_RichardII		Rom_FriarLawrence		Shr_Petruchio		TGV_Proteus
+TN_TobyBelch		TN_Viola		Tmp_Prospero		Tro_Pandarus		Tro_Ulysses		Wiv_Falstaff
+Wiv_MasterFord		Wiv_MistressPage
+
+
+                      Actual "0 2 3 4" Predicted as "1 5":                      
+
+1H4_Falstaff		2H6_QueenMargaret		3H6_HenryVI		Ant_Antony		Ant_Octavius
+H8_Katherine		Lr_Lear		MM_Duke		Per_Pericles		TGV_Valentine		Tit_Aaron
+WT_Leontes
+
+
+                      Actual "1 5" Predicted as "0 2 3 4":                      
+
+1H4_HenryV		1H4_Hotspur		2H6_York		3H6_EdwardIV		3H6_RichardIII		3H6_Warwick
+AYL_Rosalind		Ado_Benedick		Ado_Leonato		Cor_Menenius		Cym_Belarius
+Cym_Imogen		H8_Wolsey		Ham_Hamlet		Ham_Polonius		Jn_Bastard		Lr_Gloucester
+Lr_Kent		MV_Portia		Oth_Desdemona		R3_Buckingham		Rom_Romeo		TNK_Arcite
+TNK_Emilia		Tro_Troilus
+
+
+                        Actual "1 5" Predicted as "1 5":                        
+
+Cor_Coriolanus		JC_Antony		JC_Brutus		JC_Cassius		Lr_Edgar		Oth_Othello
+R2_HenryIV		R3_RichardIII		Rom_Juliet		TNK_Daughter		TNK_Palamon		Tit_Titus
+
+

@@ -1,0 +1,125 @@
+                                   Summary:                                     
+
+
+                      Overall accuracy = 67.50%                                 
+                      Average accuracy = 62.07%                                 
+
+                      Average F1 score = 61.31%                                 
+                           Average MCC = 23.01%                                 
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+                                 |  0 4 5   |  1 2 3   |                        
+                       ——————————|——————————|——————————|                        
+                         0 4 5   |    11    |    11    |                        
+                       ——————————|——————————|——————————|                        
+                         1 2 3   |    15    |    43    |                        
+                       ——————————|——————————|——————————|                        
+
+
+                         Total samples = 80                                     
+
+                  Total actual "0 4 5" = 22                                     
+               Total predicted "0 4 5" = 26                                     
+                  Total actual "1 2 3" = 58                                     
+               Total predicted "1 2 3" = 54                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+                                 |  0 4 5   |  1 2 3   |                        
+                       ——————————|——————————|——————————|                        
+                         0 4 5   |  13.75%  |  13.75%  |                        
+                       ——————————|——————————|——————————|                        
+                         1 2 3   |  18.75%  |  53.75%  |                        
+                       ——————————|——————————|——————————|                        
+
+
+                Percent actual "0 4 5" = 27.50%                                 
+             Percent predicted "0 4 5" = 32.50%                                 
+                Percent actual "1 2 3" = 72.50%                                 
+             Percent predicted "1 2 3" = 67.50%                                 
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+                                 |  0 4 5   |  1 2 3   |                        
+                       ——————————|——————————|——————————|                        
+                         0 4 5   |  50.00%  |  50.00%  |                        
+                       ——————————|——————————|——————————|                        
+                         1 2 3   |  25.86%  |  74.14%  |                        
+                       ——————————|——————————|——————————|                        
+
+
+     Percent correct of actual "0 4 5" = 50.00%                                 
+     Percent correct of actual "1 2 3" = 74.14%                                 
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+                                 |  0 4 5   |  1 2 3   |                        
+                       ——————————|——————————|——————————|                        
+                         0 4 5   |  42.31%  |  20.37%  |                        
+                       ——————————|——————————|——————————|                        
+                         1 2 3   |  57.69%  |  79.63%  |                        
+                       ——————————|——————————|——————————|                        
+
+
+  Percent correct of predicted "0 4 5" = 42.31%                                 
+  Percent correct of predicted "1 2 3" = 79.63%                                 
+
+
+                                   F1 Scores:                                   
+                  F1 score for "0 4 5" = 45.83%                                 
+                  F1 score for "1 2 3" = 76.79%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+                 MCC score for "0 4 5" = 23.01%                                 
+                 MCC score for "1 2 3" = 23.01%                                 
+
+
+
+                                  Characters:                                   
+
+
+                      Actual "0 4 5" Predicted as "0 4 5":                      
+
+1H4_HenryIV		2H6_QueenMargaret		3H6_HenryVI		AWW_King		H5_Fluellen		H5_HenryV
+Ham_Claudius		Jn_KingJohn		Mac_Macbeth		R2_RichardII		Tmp_Prospero
+
+
+                      Actual "0 4 5" Predicted as "1 2 3":                      
+
+AWW_Parolles		Ant_Antony		Ant_Cleopatra		Ant_Octavius		H8_HenryVIII
+H8_Katherine		Lr_Lear		MM_Duke		Per_Pericles		TNK_Daughter		WT_Leontes
+
+
+                      Actual "1 2 3" Predicted as "0 4 5":                      
+
+1H4_HenryV		1H4_Hotspur		1H6_Talbot		3H6_EdwardIV		3H6_RichardIII		3H6_Warwick
+Cym_Belarius		Jn_Bastard		R3_Buckingham		Rom_FriarLawrence		Rom_Juliet
+Rom_Romeo		TN_TobyBelch		Tro_Troilus		Tro_Ulysses
+
+
+                      Actual "1 2 3" Predicted as "1 2 3":                      
+
+1H4_Falstaff		2H4_Falstaff		2H6_York		AYL_Rosalind		Ado_Benedick		Ado_Leonato
+Cor_Coriolanus		Cor_Menenius		Cym_Iachimo		Cym_Imogen		Cym_Posthumus
+H8_Wolsey		Ham_Hamlet		Ham_Polonius		JC_Antony		JC_Brutus		JC_Cassius
+LLL_Berowne		Lr_Edgar		Lr_Gloucester		Lr_Kent		MM_Isabella		MV_Bassanio
+MV_Portia		MV_Shylock		Oth_Desdemona		Oth_Iago		Oth_Othello		R2_HenryIV
+R3_RichardIII		Shr_Petruchio		TGV_Proteus		TGV_Valentine		TNK_Arcite
+TNK_Emilia		TNK_Palamon		TN_Viola		Tit_Aaron		Tit_Titus		Tro_Pandarus
+Wiv_Falstaff		Wiv_MasterFord		Wiv_MistressPage
+
+

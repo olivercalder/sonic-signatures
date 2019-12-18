@@ -1,0 +1,126 @@
+                                   Summary:                                     
+
+
+                      Overall accuracy = 76.25%                                 
+                      Average accuracy = 48.87%                                 
+
+                      Average F1 score = 47.93%                                 
+                           Average MCC = -1.52%                                 
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+                                 |  0 1 2   |  3 4 5   |                        
+                       ——————————|——————————|——————————|                        
+                         0 1 2   |    60    |    14    |                        
+                       ——————————|——————————|——————————|                        
+                         3 4 5   |    5     |    1     |                        
+                       ——————————|——————————|——————————|                        
+
+
+                         Total samples = 80                                     
+
+                  Total actual "0 1 2" = 74                                     
+               Total predicted "0 1 2" = 65                                     
+                  Total actual "3 4 5" = 6                                      
+               Total predicted "3 4 5" = 15                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+                                 |  0 1 2   |  3 4 5   |                        
+                       ——————————|——————————|——————————|                        
+                         0 1 2   |  75.00%  |  17.50%  |                        
+                       ——————————|——————————|——————————|                        
+                         3 4 5   |  6.25%   |  1.25%   |                        
+                       ——————————|——————————|——————————|                        
+
+
+                Percent actual "0 1 2" = 92.50%                                 
+             Percent predicted "0 1 2" = 81.25%                                 
+                Percent actual "3 4 5" = 7.50%                                  
+             Percent predicted "3 4 5" = 18.75%                                 
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+                                 |  0 1 2   |  3 4 5   |                        
+                       ——————————|——————————|——————————|                        
+                         0 1 2   |  81.08%  |  18.92%  |                        
+                       ——————————|——————————|——————————|                        
+                         3 4 5   |  83.33%  |  16.67%  |                        
+                       ——————————|——————————|——————————|                        
+
+
+     Percent correct of actual "0 1 2" = 81.08%                                 
+     Percent correct of actual "3 4 5" = 16.67%                                 
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+                                 |  0 1 2   |  3 4 5   |                        
+                       ——————————|——————————|——————————|                        
+                         0 1 2   |  92.31%  |  93.33%  |                        
+                       ——————————|——————————|——————————|                        
+                         3 4 5   |  7.69%   |  6.67%   |                        
+                       ——————————|——————————|——————————|                        
+
+
+  Percent correct of predicted "0 1 2" = 92.31%                                 
+  Percent correct of predicted "3 4 5" = 6.67%                                  
+
+
+                                   F1 Scores:                                   
+                  F1 score for "0 1 2" = 86.33%                                 
+                  F1 score for "3 4 5" = 9.52%                                  
+
+
+                       Matthews Correlation Coefficients:                       
+                 MCC score for "0 1 2" = -1.52%                                 
+                 MCC score for "3 4 5" = -1.52%                                 
+
+
+
+                                  Characters:                                   
+
+
+                      Actual "0 1 2" Predicted as "0 1 2":                      
+
+1H4_Falstaff		1H4_HenryIV		1H4_HenryV		1H4_Hotspur		1H6_Talbot		2H4_Falstaff
+2H6_York		3H6_EdwardIV		3H6_RichardIII		3H6_Warwick		AWW_King		Ado_Leonato
+Ant_Antony		Ant_Cleopatra		Ant_Octavius		Cor_Coriolanus		Cym_Belarius
+Cym_Iachimo		Cym_Imogen		Cym_Posthumus		H5_HenryV		H8_Katherine		H8_Wolsey
+Ham_Claudius		Ham_Hamlet		Ham_Polonius		JC_Antony		JC_Brutus		JC_Cassius
+Jn_Bastard		Jn_KingJohn		LLL_Berowne		Lr_Edgar		Lr_Gloucester		Lr_Kent
+Lr_Lear		MM_Duke		MM_Isabella		MV_Portia		Mac_Macbeth		Oth_Desdemona
+Oth_Othello		Per_Pericles		R2_HenryIV		R2_RichardII		R3_Buckingham
+R3_RichardIII		Rom_FriarLawrence		Rom_Romeo		TGV_Proteus		TGV_Valentine
+TNK_Emilia		TNK_Palamon		TN_TobyBelch		Tit_Aaron		Tit_Titus		Tmp_Prospero
+Tro_Troilus		Tro_Ulysses		WT_Leontes
+
+
+                      Actual "0 1 2" Predicted as "3 4 5":                      
+
+2H6_QueenMargaret		3H6_HenryVI		AYL_Rosalind		Ado_Benedick		Cor_Menenius
+H8_HenryVIII		MV_Bassanio		Oth_Iago		Rom_Juliet		Shr_Petruchio		TNK_Arcite
+TN_Viola		Tro_Pandarus		Wiv_Falstaff
+
+
+                      Actual "3 4 5" Predicted as "0 1 2":                      
+
+AWW_Parolles		MV_Shylock		TNK_Daughter		Wiv_MasterFord		Wiv_MistressPage
+
+
+                      Actual "3 4 5" Predicted as "3 4 5":                      
+
+H5_Fluellen
+
+

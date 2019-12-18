@@ -1,0 +1,353 @@
+                                   Summary:                                     
+
+
+                      Overall accuracy = 38.41%                                 
+                      Average accuracy = 29.37%                                 
+
+                      Average F1 score = 28.43%                                 
+                           Average MCC = 6.70%                                  
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+                      |  0 1 5   |    2     |   3 4    |    6     |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              0 1 5   |   227    |    46    |    87    |    50    |             
+            ——————————|——————————|——————————|——————————|——————————|             
+                2     |    80    |    30    |    49    |    13    |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               3 4    |    36    |    18    |    26    |    9     |             
+            ——————————|——————————|——————————|——————————|——————————|             
+                6     |    42    |    12    |    39    |    17    |             
+            ——————————|——————————|——————————|——————————|——————————|             
+
+
+                         Total samples = 781                                    
+
+                  Total actual "0 1 5" = 410                                    
+               Total predicted "0 1 5" = 385                                    
+                      Total actual "2" = 172                                    
+                   Total predicted "2" = 106                                    
+                    Total actual "3 4" = 89                                     
+                 Total predicted "3 4" = 201                                    
+                      Total actual "6" = 110                                    
+                   Total predicted "6" = 89                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+                      |  0 1 5   |    2     |   3 4    |    6     |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              0 1 5   |  29.07%  |  5.89%   |  11.14%  |  6.40%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+                2     |  10.24%  |  3.84%   |  6.27%   |  1.66%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               3 4    |  4.61%   |  2.30%   |  3.33%   |  1.15%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+                6     |  5.38%   |  1.54%   |  4.99%   |  2.18%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+
+
+                Percent actual "0 1 5" = 52.50%                                 
+             Percent predicted "0 1 5" = 49.30%                                 
+                    Percent actual "2" = 22.02%                                 
+                 Percent predicted "2" = 13.57%                                 
+                  Percent actual "3 4" = 11.40%                                 
+               Percent predicted "3 4" = 25.74%                                 
+                    Percent actual "6" = 14.08%                                 
+                 Percent predicted "6" = 11.40%                                 
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+                      |  0 1 5   |    2     |   3 4    |    6     |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              0 1 5   |  55.37%  |  11.22%  |  21.22%  |  12.20%  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+                2     |  46.51%  |  17.44%  |  28.49%  |  7.56%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               3 4    |  40.45%  |  20.22%  |  29.21%  |  10.11%  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+                6     |  38.18%  |  10.91%  |  35.45%  |  15.45%  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+
+
+     Percent correct of actual "0 1 5" = 55.37%                                 
+         Percent correct of actual "2" = 17.44%                                 
+       Percent correct of actual "3 4" = 29.21%                                 
+         Percent correct of actual "6" = 15.45%                                 
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+                      |  0 1 5   |    2     |   3 4    |    6     |             
+            ——————————|——————————|——————————|——————————|——————————|             
+              0 1 5   |  58.96%  |  43.40%  |  43.28%  |  56.18%  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+                2     |  20.78%  |  28.30%  |  24.38%  |  14.61%  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               3 4    |  9.35%   |  16.98%  |  12.94%  |  10.11%  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+                6     |  10.91%  |  11.32%  |  19.40%  |  19.10%  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+
+
+  Percent correct of predicted "0 1 5" = 58.96%                                 
+      Percent correct of predicted "2" = 28.30%                                 
+    Percent correct of predicted "3 4" = 12.94%                                 
+      Percent correct of predicted "6" = 19.10%                                 
+
+
+                                   F1 Scores:                                   
+                  F1 score for "0 1 5" = 57.11%                                 
+                      F1 score for "2" = 21.58%                                 
+                    F1 score for "3 4" = 17.93%                                 
+                      F1 score for "6" = 17.09%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+                 MCC score for "0 1 5" = 12.76%                                 
+                     MCC score for "2" = 6.00%                                  
+                   MCC score for "3 4" = 2.85%                                  
+                     MCC score for "6" = 5.17%                                  
+
+
+
+                                  Characters:                                   
+
+
+                      Actual "0 1 5" Predicted as "0 1 5":                      
+
+1H4_Archbishop		1H4_Bardolph		1H4_Douglas		1H4_HenryIV		1H4_HenryV
+1H4_Hotspur		1H4_LadyPercy		1H4_Northumberland		1H4_Worcester		1H6_Bastard
+1H6_Bedford		1H6_CardinalBeaufort		1H6_Charles		1H6_Countess		1H6_Exeter
+1H6_Gloucester		1H6_HenryVI		1H6_Salisbury		1H6_Shepherd		1H6_Somerset
+1H6_Warwick		1H6_York		2H4_Archbishop		2H4_Bedford		2H4_Clarence
+2H4_Gloucester		2H4_Hastings		2H4_HenryIV		2H4_HenryV		2H4_LordBardolph
+2H4_Mowbray		2H4_Northumberland		2H6_Buckingham		2H6_CardinalBeaufort
+2H6_DuchessOfGloucester		2H6_Gloucester		2H6_HenryVI		2H6_QueenMargaret
+2H6_Suffolk		2H6_YoungClifford		3H6_Clarence		3H6_Clifford		3H6_EdwardIV
+3H6_GAMEKEEPERS.1		3H6_GAMEKEEPERS.2		3H6_HenryVI		3H6_KingLewis
+3H6_Northumberland		3H6_Oxford		3H6_PrinceEdward		3H6_QueenMargaret
+3H6_RichardIII		3H6_Rutland		3H6_Somerset		3H6_Warwick		3H6_York		AWW_Duke
+AWW_King		AWW_LORDS.DUMAINE.1		AYL_DukeFrederick		AYL_LORDS.SENIOR.Amiens
+AYL_Phoebe		AYL_Silvius		Ado_Claudio		Ado_DonPedro		Ant_Antony		Ant_Cleopatra
+Ant_Dolabella		Ant_Enobarbus		Ant_Octavius		Ant_Pompey		Cor_Aufidius
+Cor_CITIZENS.ROMAN		Cor_CITIZENS.ROMAN.0.1		Cor_CITIZENS.ROMAN.0.3
+Cor_CITIZENS.ROMAN.3		Cor_LORDS.VOLSCIAN.0.1		Cor_Valeria		Cor_Virgilia
+Cor_Volumnia		Cym_ATTENDANTS.0.2		Cym_ATTENDANTS.1		Cym_Cymbeline
+Cym_Guiderius		H5_Cambridge		H5_Dauphin		H5_Grandpre		H5_HenryV
+H5_KingOfFrance		H5_MacMorris		H5_Orleans		H5_Westmoreland		H8_Cromwell
+H8_Katherine		H8_Surrey		H8_Wolsey		Ham_Claudius		Ham_Fortinbras		Ham_Gertrude
+Ham_Laertes		Ham_Ophelia		JC_Antony		JC_Brutus		JC_Caesar		JC_Calphurnia
+JC_Cassius		JC_PLEBEIANS.0.1		JC_PLEBEIANS.0.2		JC_PLEBEIANS.0.3
+JC_PLEBEIANS.0.4		JC_Portia		Jn_Austria		Jn_Bastard		Jn_Constance		Jn_Dauphin
+Jn_KingJohn		Jn_KingPhilip		Jn_Melun		Jn_Pembroke		Jn_QueenEleanor
+Jn_Salisbury		LLL_King		LLL_Maria		Lr_Albany		Lr_Cornwall		Lr_Edgar		MM_Elbow
+MND_Demetrius		MND_Flute		MND_Helena		MND_Hermia		MND_Hippolyta		MND_Lysander
+MV_Duke		Mac_Angus		Mac_Duncan		Mac_LadyMacduff		Mac_Macbeth		Mac_Macduff
+Mac_Malcolm		Oth_Desdemona		Oth_Gratiano		Oth_Montano		Oth_Othello
+Per_Antiochus		Per_LORDS.TYRE.0.1		Per_Pericles		Per_Thaliard
+R2_DuchessOfGloucester		R2_DuchessOfYork		R2_Gardener		R2_Gaunt		R2_HenryIV
+R2_Hotspur		R2_LordMarshal		R2_Mowbray		R2_Queen		R2_RichardII		R2_Salisbury
+R2_Willoughby		R2_York		R3_Buckingham		R3_CITIZENS.2		R3_Clarence
+R3_ClarencesBoy		R3_DuchessOfYork		R3_HenryVII		R3_LadyAnne		R3_QueenMargaret
+R3_RichardIII		R3_Rivers		R3_Stanley		R3_York		Rom_Benvolio		Rom_Capulet
+Rom_Juliet		Rom_LadyCapulet		Rom_Mercutio		Rom_Montague		Rom_Paris
+Rom_PrinceEscalus		Rom_Romeo		Rom_Tybalt		Shr_Curtis		Shr_Lord		TNK_Daughter
+TNK_Emilia		TNK_Hippolyta		TNK_QUEENS.2		TN_OFFICERS.1		TN_Olivia		TN_Orsino
+Tim_Apemantus		Tim_FRIENDS.0.1		Tim_FRIENDS.0.2		Tim_FRIENDS.Lucius
+Tim_FRIENDS.Lucullus		Tim_LORDS.0.1		Tim_LORDS.0.2		Tit_Aemilius		Tit_Chiron
+Tit_Lucius		Tit_Marcus		Tit_Martius		Tit_Quintus		Tit_Saturninus		Tit_Tamora
+Tit_Titus		Tmp_Alonso		Tmp_Antonio		Tmp_Ferdinand		Tmp_Prospero		Tmp_Sebastian
+Tmp_Stephano		Tro_Ajax		Tro_Cassandra		Tro_Hector		Tro_Thersites
+WT_ATTENDANTS.0.1		WT_ATTENDANTS.X		WT_Antigonus		WT_Archidamus		WT_Florizell
+WT_Leontes		WT_OFFICERS.0.1		WT_Polixenes		WT_Shepherd
+
+
+                        Actual "0 1 5" Predicted as "2":                        
+
+1H4_Vernon		1H6_Mortimer		1H6_Suffolk		2H4_LadyPercy		2H4_Warwick
+2H6_RichardIII		2H6_Salisbury		2H6_Saye		2H6_Somerset		2H6_York
+AWW_LORDS.DUMAINE.2		AYL_Charles		AYL_DukeSenior		AYL_LORDS.SENIOR.0.1
+Ado_Beatrice		Ado_LeonatosBrother		Ado_Verges		Cor_Cominius		Cym_Frenchman
+H5_BishopOfCanterbury		H5_Exeter		H5_QueenOfFrance		H8_Buckingham		H8_Norfolk
+H8_Suffolk		Ham_Hamlet		LLL_Boyet		Lr_ATTENDANTS.LEAR.0.3		Lr_France		MM_Duke
+MM_Escalus		MND_Snug		MND_Theseus		MV_Morocco		MV_Portia		Mac_Siward
+Per_Helicanus		R2_BishopOfCarlisle		R2_Northumberland		R3_Dorset		Tit_Nurse
+Tit_Publius		Tro_Paris		Tro_Priam		WT_Camillo		WT_Dion
+
+
+                       Actual "0 1 5" Predicted as "3 4":                       
+
+1H4_Glendower		1H4_Mortimer		1H4_Westmoreland		1H6_Alanson		1H6_Reignier
+2H4_ChiefJustice		2H4_Westmoreland		2H6_Clifford		2H6_Warwick		3H6_Exeter
+3H6_Hastings		AWW_Bertram		AWW_Countess		AYL_Jaques		AYL_Rosalind
+Ado_Benedick		Ado_DonJohn		Ado_Hero		Ado_Leonato		Ado_Sexton		Ant_Lepidus
+Cor_CITIZENS.ROMAN.0.2		Cor_Menenius		Cym_ATTENDANTS.CLOTEN.1		Cym_Cloten
+Cym_Imogen		Err_Duke		H5_Bardolph		H5_Katherine		H8_Campeius		H8_Chamberlain
+H8_Gardiner		H8_HenryVIII		H8_Surveyor		Ham_Gravedigger		Ham_Polonius
+JC_COMMONERS.Cobbler		JC_Octavius		Jn_Arthur		Jn_Blanche		Jn_Pandulph
+Jn_PrinceHenry		LLL_Dull		LLL_Katherine		LLL_Princess		LLL_Rosaline		Lr_Edmund
+Lr_Gloucester		MND_Egeus		MND_Quince		MV_Arragon		MV_LanceletGobbo
+Mac_LadyMacbeth		Mac_Lennox		Mac_Lord		Oth_Brabantio		Oth_Duke		Oth_Lodovico
+Per_Cerimon		Per_Cleon		Per_FISHERMEN.1		Per_FISHERMEN.2		Per_FISHERMEN.3
+Per_Lysimachus		Per_Simonides		Per_Thaisa		R2_Fitzwater		R2_Ross
+R3_CITIZENS.3		R3_EdwardIV		R3_Grey		R3_QueenElizabeth		TGV_Duke		TGV_Speed
+TGV_Sylvia		TNK_Arcite		TNK_QUEENS.1		TNK_QUEENS.3		TNK_Theseus		TNK_Wooer
+Tim_FRIENDS.Sempronius		Tit_Bassianus		Tro_Andromache		Tro_Helen		Tro_Troilus
+Wiv_Bardolph		Wiv_Nym
+
+
+                        Actual "0 1 5" Predicted as "6":                        
+
+1H6_Burgundy		1H6_QueenMargaret		2H4_Bardolph		2H6_Thump		3H6_Montague
+AWW_Lafew		AYL_Celia		AYL_Corin		Ant_Octavia		Cor_CITIZENS.ROMAN.2
+Cor_Coriolanus		Cym_ATTENDANTS.CLOTEN.2		Cym_Arviragus		Cym_Belarius
+Cym_Queen		H5_Burgundy		H5_Nym		H8_Anne		H8_Cranmer		H8_Sands		Lr_Cordelia
+Lr_Goneril		Lr_Kent		Lr_Lear		Lr_Regan		MM_Angelo		MND_Bottom		MND_Snout
+Mac_Banquo		Mac_MacduffsSon		Mac_Ross		Per_Bolt		Per_Dionyza		Per_Marina
+R2_Aumerle		R3_EdwardV		R3_Hastings		TGV_Lance		TNK_Jailer		TNK_Palamon
+TNK_Pirithous		Tit_Demetrius		Tit_Lavinia		Tit_YoungLucius		Tmp_Miranda
+WT_Cleomenes		WT_Hermione		WT_Mamillius		WT_Paulina		WT_Perdita
+
+
+                        Actual "2" Predicted as "0 1 5":                        
+
+1H4_Poins		1H6_General		1H6_Talbot		2H4_Poins		2H4_Silence		AYL_Orlando
+Ado_Balthasar		Ado_Borachio		Ado_Margaret		Ant_Canidius		Ant_Charmian
+Ant_Iras		Ant_Maecenas		Ant_Proculeius		Ant_Thidias		Cor_Lartius
+Cym_SENATORS.1		Err_Adriana		Err_AntipholusOfEphesus		Err_AntipholusOfSyracuse
+Err_Egeon		H5_BishopOfEly		H8_Chancellor		H8_GENTLEMEN.2		H8_GENTLEMEN.3
+H8_Griffith		H8_OldLady		Ham_Guildenstern		Ham_Horatio		Ham_Rosencrantz
+Ham_Voltemand		JC_Metellus		Jn_CITIZENS.0.1		Jn_Hubert		LLL_Armado
+LLL_Berowne		LLL_Longaville		Lr_ATTENDANTS.CORDELIA.1		Lr_Doctor		MM_Claudio
+MM_GENTLEMEN.1		MM_Lucio		MM_Mariana		MND_Philostrate		MV_Lorenzo
+Mac_Gentlewoman		Oth_Cassio		Oth_Emilia		Oth_Roderigo		Per_Leonine		R2_Exton
+R2_Green		R2_Scroop		R3_Brakenbury		R3_Catesby		R3_Ratcliffe
+Rom_FriarLawrence		Rom_Nurse		Shr_Baptista		Shr_Hortensio		Shr_Vincentio
+TGV_Antonio		TN_ATTENDANTS.ORSINO.Valentine		TN_Malvolio		TN_Maria
+TN_Sebastian		TN_TobyBelch		Tim_Alcibiades		Tim_OldMan		Tim_SENATORS.1
+Tim_SENATORS.2		Tim_SENATORS.X		Tit_Aaron		Tmp_Gonzalo		Tro_Achilles
+Tro_Diomedes		Tro_Nestor		Tro_Ulysses		WT_ATTENDANTS.1		WT_ATTENDANTS.2
+
+
+                          Actual "2" Predicted as "2":                          
+
+1H6_Basset		2H4_Falstaff		2H4_Morton		AYL_SecondBrother		Ado_FriarFrancis
+Ado_MESSENGERS.LEONATO.1		Ant_Mardian		Cym_Philario		Err_Luciana
+H8_Abergavenny		Ham_Osric		JC_Decius		Jn_Chatillion		Lr_ATTENDANTS.X.3
+Lr_MESSENGERS.X.1		MM_Isabella		MV_Antonio		MV_Salarino		MV_Salerio
+MV_Solanio		R2_Bagot		R2_Bushy		R3_Tyrrel		TGV_Eglamour		Tim_STRANGERS.1
+Tro_Aeneas		Tro_Agamemnon		WT_ATTENDANTS.3		WT_LADIES.Emilia		WT_SERVANTS.X.3
+
+
+                         Actual "2" Predicted as "3 4":                         
+
+1H4_Blunt		1H6_Lucy		2H4_Shallow		2H6_Stafford		3H6_Montgomery
+3H6_QueenElizabeth		AYL_LORDS.FREDERICK.LeBeau		AYL_Oliver		Ado_Conrade
+Ado_Ursula		Ant_Agrippa		Ant_Alexas		Ant_Ambassador		Ant_Diomedes		Ant_Philo
+Ant_Ventidius		Cor_SENATORS.ROMAN.0.1		Cor_SENATORS.VOLSCIAN.0.1		Cym_Iachimo
+Cym_Pisanio		H5_AMBASSADORS.0.1		H5_Alice		H5_Constable		H8_GENTLEMEN.1
+H8_Lovell		Jn_RobertFaulconbridge		MV_Bassanio		MV_Gratiano		MV_Nerissa
+Oth_GENTLEMEN.3		Oth_Iago		Oth_SENATORS.0.1		R3_MayorOfLondon		Shr_Bianca
+Shr_Gremio		Shr_Katherine		Shr_Lucentio		Shr_SERVANTS.LORD.0.2
+Shr_SERVANTS.LORD.0.3		TGV_Julia		TGV_Proteus		TGV_Thurio		TGV_Valentine
+TN_AndrewAguecheek		TN_Viola		Tim_SENATORS.0.1		Tro_Pandarus		Wiv_Falstaff
+Wiv_Fenton
+
+
+                          Actual "2" Predicted as "6":                          
+
+1H4_Falstaff		1H6_JohnTalbot		1H6_Vernon		Cym_GHOSTS.Father		Cym_Lucius
+Cym_Posthumus		JC_Ligarius		Jn_LadyFaulconbridge		LLL_Dumaine
+Lr_ATTENDANTS.X.4		Shr_Petruchio		Wiv_Shallow		Wiv_Slender
+
+
+                       Actual "3 4" Predicted as "0 1 5":                       
+
+2H6_Cade		2H6_Iden		2H6_Smith		AWW_Diana		AWW_Widow		Cor_TRIBUNES.Sicinius
+Err_Angelo		Err_Courtesan		Err_Pinch		H5_Gower		H5_MistressQuickly		H5_Montjoy
+Ham_Marcellus		JC_Artemidorus		JC_Cinna		JC_CinnaPoet		JC_Flavius
+JC_SOLDIERS.BRUTUS.Lucilius		JC_SOLDIERS.BRUTUS.Titinius		Lr_Oswald		MM_Bawd
+MV_Shylock		Oth_Herald		Per_Bawd		R2_WelshCaptain		Shr_Merchant		Shr_Tailor
+TGV_Host		Tim_Flavius		Tmp_Boatswain		Tmp_Trinculo		Tro_Cressida		Wiv_Host
+Wiv_MasterPage		Wiv_MistressFord		Wiv_Pistol
+
+
+                         Actual "3 4" Predicted as "2":                         
+
+2H6_Horner		AWW_Mariana		Ant_Scarus		Cor_OFFICERS.2		Cym_Cornelius		Err_Abbess
+H5_Fluellen		JC_Casca		Jn_HERALDS.ENGLISH		LLL_Holofernes		MM_FriarPeter
+MM_Provost		Mac_SOLDIERS.Captain		R3_Scrivener		TN_Captain		Tro_Calchas
+Wiv_HughEvans		Wiv_MistressQuickly
+
+
+                        Actual "3 4" Predicted as "3 4":                        
+
+1H6_Mayor		2H6_Dick		AWW_Parolles		AWW_Steward		Ado_Dogberry		Cor_OFFICERS.1
+Cor_TRIBUNES.Brutus		Err_Balthasar		Err_Merchant1		Err_Merchant2		Ham_Barnardo
+JC_Marullus		LLL_Nathaniel		MV_Jessica		Mac_Doctor2		Oth_Bianca		Per_Pander
+Shr_SERVANTS.LORD.0.1		Shr_Tranio		TNK_Doctor		TNK_Schoolmaster		TN_Antonio
+Tro_Patroclus		WT_SERVANTS.SHEPHERD.1		Wiv_MasterFord		Wiv_MistressPage
+
+
+                         Actual "3 4" Predicted as "6":                         
+
+1H4_MistressQuickly		2H4_MistressQuickly		2H6_Hume		Ant_Menas
+JC_SOLDIERS.BRUTUS.Messala		LLL_Boy		Shr_Grumio		Wiv_AnnePage		Wiv_DoctorCaius
+
+
+                        Actual "6" Predicted as "0 1 5":                        
+
+1H4_TRAVELERS.CARRIERS.2		1H6_MasterGunner		2H4_Bullcalf		2H4_Pistol
+2H6_Lieutenant		2H6_Whitmore		3H6_Father		3H6_Son		AYL_SERVANTS.1
+AYL_SERVANTS.2		Ant_MESSENGERS.X.2		Cor_Adrian		Cor_MESSENGERS.TRIBUNES.1
+Err_DromioOfEphesus		H5_Pistol		H5_SOLDIERS.ENGLISH.Bates		JC_Lucius
+JC_Pindarus		JC_SERVANTS.ANTONY.1		Jn_MESSENGERS.ENGLISH.1		MM_Abhorson
+Mac_MURDERERS.1		Mac_MURDERERS.2		Mac_WITCHES.1		Mac_WITCHES.2		Mac_WITCHES.3
+R3_MURDERERS.1		Rom_WATCHMEN.0.1		Shr_Sly		TGV_OUTLAWS.1		TGV_OUTLAWS.3
+TNK_COUNTRYMEN.0.4		TNK_FRIENDS.1		TNK_MESSENGERS.X.1		TN_Fabian
+Tim_BANDITS.1		Tim_SERVANTS.LUCIUS.1		Tim_SERVANTS.TIMON.Servilius
+Tim_SERVANTS.TIMON.X.2		Tim_SERVANTS.VARRO.1		Tmp_Caliban		WT_ShepherdsSon
+
+
+                          Actual "6" Predicted as "2":                          
+
+2H4_Travers		3H6_MESSENGERS.Post		Ado_WATCHMEN.1		Ant_Eros		Cor_Nicanor
+R3_MESSENGERS.X.2		Rom_SERVANTS.MONTAGUE.Balthasar		Shr_Biondello
+TNK_COUNTRYMEN.0.1		TNK_COUNTRYMEN.0.2		Tim_SOLDIERS.1		Wiv_Robin
+
+
+                         Actual "6" Predicted as "3 4":                         
+
+1H4_Gadshill		1H6_MESSENGERS.ENGLISH.1		1H6_MESSENGERS.ENGLISH.3		2H4_Davy
+2H6_Bevis		2H6_Holland		3H6_MESSENGERS.X.2		AWW_SOLDIERS.Interpreter
+Ado_WATCHMEN.Seacoal		Ant_GUARDS.Dercetus		Cor_MESSENGERS.TRIBUNES.2
+Cor_SERVANTS.2		Cor_SERVANTS.3		Cor_WATCHMEN.1		Cym_JAILERS.1		Err_Messenger
+H5_Boy		H5_SOLDIERS.ENGLISH.Williams		H8_Porter		LLL_Jaquenetta		MM_Pompey
+Mac_Porter		R3_MURDERERS.2		Rom_SERVANTS.CAPULET.0.1
+Rom_SERVANTS.CAPULET.Gregory		Rom_SERVANTS.CAPULET.Peter
+Rom_SERVANTS.CAPULET.Sampson		Rom_SERVANTS.CAPULET.X.1		TGV_OUTLAWS.2
+TGV_Pantino		TNK_COUNTRYMEN.0.3		TNK_FRIENDS.2		Tim_Fool
+Tim_SERVANTS.TIMON.Flaminius		Tit_CountryFellow		Tit_GOTHS.0.2		Tro_Alexander
+Tro_SERVANTS.PARIS.1		WT_Mopsa
+
+
+                          Actual "6" Predicted as "6":                          
+
+1H4_Chamberlain		1H4_TRAVELERS.CARRIERS.1		1H6_MESSENGERS.FRENCH.1
+2H4_DollTearsheet		2H4_SERVANTS.FALSTAFF.1		2H6_Bolingbroke		2H6_Simpcox
+AYL_Adam		AYL_Audrey		Cor_SERVANTS.1		Err_DromioOfSyracuse
+H8_SERVANTS.PORTER.1		MM_Barnardine		MV_OldGobbo		TGV_Lucetta
+Tim_SERVANTS.Caphis		Wiv_Simple
+
+

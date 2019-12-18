@@ -1,0 +1,126 @@
+                                   Summary:                                     
+
+
+                      Overall accuracy = 65.00%                                 
+                      Average accuracy = 56.34%                                 
+
+                      Average F1 score = 56.11%                                 
+                           Average MCC = 12.32%                                 
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+                                 | 0 1 3 5  |   2 4    |                        
+                       ——————————|——————————|——————————|                        
+                        0 1 3 5  |    44    |    15    |                        
+                       ——————————|——————————|——————————|                        
+                          2 4    |    13    |    8     |                        
+                       ——————————|——————————|——————————|                        
+
+
+                         Total samples = 80                                     
+
+                Total actual "0 1 3 5" = 59                                     
+             Total predicted "0 1 3 5" = 57                                     
+                    Total actual "2 4" = 21                                     
+                 Total predicted "2 4" = 23                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+                                 | 0 1 3 5  |   2 4    |                        
+                       ——————————|——————————|——————————|                        
+                        0 1 3 5  |  55.00%  |  18.75%  |                        
+                       ——————————|——————————|——————————|                        
+                          2 4    |  16.25%  |  10.00%  |                        
+                       ——————————|——————————|——————————|                        
+
+
+              Percent actual "0 1 3 5" = 73.75%                                 
+           Percent predicted "0 1 3 5" = 71.25%                                 
+                  Percent actual "2 4" = 26.25%                                 
+               Percent predicted "2 4" = 28.75%                                 
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+                                 | 0 1 3 5  |   2 4    |                        
+                       ——————————|——————————|——————————|                        
+                        0 1 3 5  |  74.58%  |  25.42%  |                        
+                       ——————————|——————————|——————————|                        
+                          2 4    |  61.90%  |  38.10%  |                        
+                       ——————————|——————————|——————————|                        
+
+
+   Percent correct of actual "0 1 3 5" = 74.58%                                 
+       Percent correct of actual "2 4" = 38.10%                                 
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+                                 | 0 1 3 5  |   2 4    |                        
+                       ——————————|——————————|——————————|                        
+                        0 1 3 5  |  77.19%  |  65.22%  |                        
+                       ——————————|——————————|——————————|                        
+                          2 4    |  22.81%  |  34.78%  |                        
+                       ——————————|——————————|——————————|                        
+
+
+Percent correct of predicted "0 1 3 5" = 77.19%                                 
+    Percent correct of predicted "2 4" = 34.78%                                 
+
+
+                                   F1 Scores:                                   
+                F1 score for "0 1 3 5" = 75.86%                                 
+                    F1 score for "2 4" = 36.36%                                 
+
+
+                       Matthews Correlation Coefficients:                       
+               MCC score for "0 1 3 5" = 12.32%                                 
+                   MCC score for "2 4" = 12.32%                                 
+
+
+
+                                  Characters:                                   
+
+
+                    Actual "0 1 3 5" Predicted as "0 1 3 5":                    
+
+1H4_HenryIV		1H4_HenryV		1H4_Hotspur		2H6_QueenMargaret		3H6_EdwardIV
+3H6_HenryVI		3H6_RichardIII		3H6_Warwick		AWW_King		AYL_Rosalind		Ado_Benedick
+Ant_Antony		Ant_Octavius		Cor_Coriolanus		Cor_Menenius		Cym_Belarius
+H5_HenryV		H8_HenryVIII		H8_Katherine		Ham_Claudius		JC_Antony		JC_Brutus
+JC_Cassius		Jn_Bastard		Jn_KingJohn		Lr_Edgar		Lr_Lear		MM_Duke		Mac_Macbeth
+Oth_Othello		Per_Pericles		R2_HenryIV		R2_RichardII		R3_Buckingham
+R3_RichardIII		Rom_Juliet		Rom_Romeo		TNK_Arcite		TNK_Daughter		TNK_Palamon
+Tit_Titus		Tmp_Prospero		Tro_Troilus		WT_Leontes
+
+
+                      Actual "0 1 3 5" Predicted as "2 4":                      
+
+2H6_York		Ado_Leonato		Ant_Cleopatra		Cym_Imogen		H8_Wolsey		Ham_Hamlet
+Ham_Polonius		Lr_Gloucester		Lr_Kent		MV_Portia		MV_Shylock		Oth_Desdemona
+TNK_Emilia		Wiv_MasterFord		Wiv_MistressPage
+
+
+                      Actual "2 4" Predicted as "0 1 3 5":                      
+
+1H4_Falstaff		1H6_Talbot		MV_Bassanio		Oth_Iago		Rom_FriarLawrence
+Shr_Petruchio		TGV_Valentine		TN_TobyBelch		TN_Viola		Tit_Aaron		Tro_Pandarus
+Tro_Ulysses		Wiv_Falstaff
+
+
+                        Actual "2 4" Predicted as "2 4":                        
+
+2H4_Falstaff		AWW_Parolles		Cym_Iachimo		Cym_Posthumus		H5_Fluellen
+LLL_Berowne		MM_Isabella		TGV_Proteus
+
+

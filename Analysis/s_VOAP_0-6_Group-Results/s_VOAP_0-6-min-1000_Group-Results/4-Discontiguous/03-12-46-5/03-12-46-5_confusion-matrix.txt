@@ -1,0 +1,243 @@
+                                   Summary:                                     
+
+
+                      Overall accuracy = 35.63%                                 
+                      Average accuracy = 29.82%                                 
+
+                      Average F1 score = 24.29%                                 
+                           Average MCC = 5.82%                                  
+
+
+                                Confusion Matrix                                
+
+                      rows : actual :: columns : predicted                      
+
+                      |   0 3    |   1 2    |   4 6    |    5     |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               0 3    |    28    |    13    |    10    |    3     |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               1 2    |    61    |    54    |    41    |    12    |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               4 6    |    7     |    3     |    6     |    1     |             
+            ——————————|——————————|——————————|——————————|——————————|             
+                5     |    4     |    3     |    1     |    0     |             
+            ——————————|——————————|——————————|——————————|——————————|             
+
+
+                         Total samples = 247                                    
+
+                    Total actual "0 3" = 54                                     
+                 Total predicted "0 3" = 100                                    
+                    Total actual "1 2" = 168                                    
+                 Total predicted "1 2" = 73                                     
+                    Total actual "4 6" = 17                                     
+                 Total predicted "4 6" = 58                                     
+                      Total actual "5" = 8                                      
+                   Total predicted "5" = 16                                     
+
+
+                                 Percent Matrix                                 
+
+                      rows : actual :: columns : predicted                      
+
+                      |   0 3    |   1 2    |   4 6    |    5     |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               0 3    |  11.34%  |  5.26%   |  4.05%   |  1.21%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               1 2    |  24.70%  |  21.86%  |  16.60%  |  4.86%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               4 6    |  2.83%   |  1.21%   |  2.43%   |  0.40%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+                5     |  1.62%   |  1.21%   |  0.40%   |  0.00%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+
+
+                  Percent actual "0 3" = 21.86%                                 
+               Percent predicted "0 3" = 40.49%                                 
+                  Percent actual "1 2" = 68.02%                                 
+               Percent predicted "1 2" = 29.55%                                 
+                  Percent actual "4 6" = 6.88%                                  
+               Percent predicted "4 6" = 23.48%                                 
+                    Percent actual "5" = 3.24%                                  
+                 Percent predicted "5" = 6.48%                                  
+
+
+             Percent Matrix with Total of Each Actual Class = 100%              
+
+                      rows : actual :: columns : predicted                      
+
+                      |   0 3    |   1 2    |   4 6    |    5     |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               0 3    |  51.85%  |  24.07%  |  18.52%  |  5.56%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               1 2    |  36.31%  |  32.14%  |  24.40%  |  7.14%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               4 6    |  41.18%  |  17.65%  |  35.29%  |  5.88%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+                5     |  50.00%  |  37.50%  |  12.50%  |  0.00%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+
+
+       Percent correct of actual "0 3" = 51.85%                                 
+       Percent correct of actual "1 2" = 32.14%                                 
+       Percent correct of actual "4 6" = 35.29%                                 
+         Percent correct of actual "5" = 0.00%                                  
+
+
+            Percent Matrix with Total of Each Predicted Class = 100%            
+
+                      rows : actual :: columns : predicted                      
+
+                      |   0 3    |   1 2    |   4 6    |    5     |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               0 3    |  28.00%  |  17.81%  |  17.24%  |  18.75%  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               1 2    |  61.00%  |  73.97%  |  70.69%  |  75.00%  |             
+            ——————————|——————————|——————————|——————————|——————————|             
+               4 6    |  7.00%   |  4.11%   |  10.34%  |  6.25%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+                5     |  4.00%   |  4.11%   |  1.72%   |  0.00%   |             
+            ——————————|——————————|——————————|——————————|——————————|             
+
+
+    Percent correct of predicted "0 3" = 28.00%                                 
+    Percent correct of predicted "1 2" = 73.97%                                 
+    Percent correct of predicted "4 6" = 10.34%                                 
+      Percent correct of predicted "5" = 0.00%                                  
+
+
+                                   F1 Scores:                                   
+                    F1 score for "0 3" = 36.36%                                 
+                    F1 score for "1 2" = 44.81%                                 
+                    F1 score for "4 6" = 16.00%                                 
+                      F1 score for "5" = 0.00%                                  
+
+
+                       Matthews Correlation Coefficients:                       
+                   MCC score for "0 3" = 12.25%                                 
+                   MCC score for "1 2" = 8.27%                                  
+                   MCC score for "4 6" = 7.58%                                  
+                     MCC score for "5" = -4.82%                                 
+
+
+
+                                  Characters:                                   
+
+
+                        Actual "0 3" Predicted as "0 3":                        
+
+1H4_HenryIV		1H6_Charles		1H6_HenryVI		2H4_HenryIV		2H6_HenryVI		3H6_HenryVI
+3H6_QueenMargaret		AWW_King		Cym_Cymbeline		Cym_Queen		H5_HenryV		H8_HenryVIII
+Jn_KingJohn		Jn_KingPhilip		LLL_Boy		LLL_King		LLL_Princess		Mac_LadyMacbeth
+Mac_Macbeth		Per_Simonides		R2_RichardII		R3_QueenMargaret		Shr_Tranio
+TNK_Theseus		Tmp_Prospero		WT_Polixenes		Wiv_HughEvans		Wiv_MistressPage
+
+
+                        Actual "0 3" Predicted as "1 2":                        
+
+2H6_QueenMargaret		Ant_Cleopatra		H8_Katherine		Ham_Gertrude		LLL_Holofernes
+MV_Shylock		Per_Pericles		R3_QueenElizabeth		TN_Orsino		Tit_Tamora
+Tro_Cressida		WT_Hermione		Wiv_MistressFord
+
+
+                        Actual "0 3" Predicted as "4 6":                        
+
+Ado_DonPedro		Ant_Antony		Ant_Octavius		Ham_Claudius		JC_Caesar		Lr_Lear
+MM_Duke		Shr_Grumio		TGV_Duke		Tim_Flavius
+
+
+                         Actual "0 3" Predicted as "5":                         
+
+WT_Leontes		Wiv_MasterFord		Wiv_MasterPage
+
+
+                        Actual "1 2" Predicted as "0 3":                        
+
+1H4_HenryV		1H4_Worcester		1H6_Gloucester		1H6_Suffolk		1H6_Talbot		1H6_York
+2H4_Archbishop		2H6_Warwick		3H6_EdwardIV		3H6_RichardIII		3H6_Warwick
+3H6_York		AWW_Countess		AWW_Lafew		AYL_Celia		AYL_Oliver		AYL_Rosalind
+Cym_Belarius		Cym_Cloten		Cym_Pisanio		Cym_Posthumus		H8_Chamberlain
+JC_Cassius		Jn_Bastard		Jn_Constance		Jn_Dauphin		Jn_Pandulph		Jn_Salisbury
+LLL_Armado		LLL_Rosaline		Lr_Albany		Lr_Edmund		Lr_Goneril		Lr_Kent		Lr_Regan
+MM_Isabella		MV_Lorenzo		Mac_Macduff		Oth_Brabantio		Oth_Iago		R2_Gaunt
+R2_Northumberland		R3_Buckingham		R3_HenryVII		Rom_Capulet		Rom_Mercutio
+Shr_Gremio		Shr_Hortensio		Shr_Lord		TGV_Julia		TGV_Sylvia		TNK_Arcite
+TN_TobyBelch		Tit_Lucius		Tit_Saturninus		Tit_Titus		Tmp_Gonzalo		Tro_Hector
+Tro_Nestor		Tro_Troilus		Tro_Ulysses
+
+
+                        Actual "1 2" Predicted as "1 2":                        
+
+1H4_Hotspur		2H4_HenryV		2H6_Gloucester		2H6_Suffolk		2H6_York		AWW_Bertram
+AYL_Jaques		Ado_Claudio		Ado_Leonato		Cor_Coriolanus		Cym_Iachimo		Err_Adriana
+Err_Egeon		H8_Buckingham		H8_Cranmer		H8_Wolsey		Ham_Hamlet		Ham_Horatio
+Ham_Laertes		Ham_Polonius		LLL_Berowne		LLL_Boyet		Lr_Edgar		Lr_Gloucester
+MM_Angelo		MND_Helena		MND_Lysander		MV_Antonio		MV_Bassanio		Mac_Malcolm
+Oth_Cassio		Oth_Desdemona		Oth_Othello		R2_HenryIV		R2_Mowbray		R2_York
+R3_Clarence		R3_RichardIII		Rom_Benvolio		Rom_FriarLawrence		Rom_Romeo
+Shr_Baptista		Shr_Katherine		Shr_Petruchio		TGV_Proteus		TGV_Valentine
+TNK_Emilia		TN_Malvolio		TN_Maria		TN_Olivia		Tit_Aaron		Tit_Marcus
+Tro_Achilles		WT_Camillo
+
+
+                        Actual "1 2" Predicted as "4 6":                        
+
+2H4_ChiefJustice		2H4_Falstaff		2H4_Shallow		3H6_Clifford		AWW_LORDS.DUMAINE.1
+Ado_Beatrice		Ant_Enobarbus		Cor_Aufidius		Cor_Cominius		Cor_Menenius
+Err_AntipholusOfEphesus		Err_AntipholusOfSyracuse		H5_BishopOfCanterbury
+H8_Norfolk		Ham_Ophelia		JC_Antony		MM_Escalus		MM_Lucio		MND_Demetrius
+MND_Hermia		MND_Theseus		MV_Portia		Oth_Emilia		R3_DuchessOfYork		R3_Hastings
+R3_LadyAnne		Rom_Juliet		Rom_Nurse		Shr_Lucentio		TNK_Palamon
+TN_AndrewAguecheek		TN_Sebastian		TN_Viola		Tim_Alcibiades		Tim_Apemantus
+Tmp_Miranda		Tro_Aeneas		Tro_Agamemnon		Tro_Pandarus		WT_Paulina		Wiv_Falstaff
+
+
+                         Actual "1 2" Predicted as "5":                         
+
+1H4_Falstaff		AYL_Orlando		Ado_Benedick		Cor_Volumnia		Cym_Guiderius
+Cym_Imogen		JC_Brutus		Jn_Hubert		MV_Gratiano		Per_Marina		WT_Florizell
+Wiv_Slender
+
+
+                        Actual "4 6" Predicted as "0 3":                        
+
+2H6_Cade		Err_DromioOfEphesus		Err_DromioOfSyracuse		H5_Fluellen		MM_Pompey
+WT_ShepherdsSon		Wiv_MistressQuickly
+
+
+                        Actual "4 6" Predicted as "1 2":                        
+
+AWW_Diana		AWW_Parolles		H5_Pistol
+
+
+                        Actual "4 6" Predicted as "4 6":                        
+
+2H4_MistressQuickly		Ado_Dogberry		Cor_TRIBUNES.Brutus		Cor_TRIBUNES.Sicinius
+JC_Casca		MM_Provost
+
+
+                         Actual "4 6" Predicted as "5":                         
+
+Tmp_Caliban
+
+
+                         Actual "5" Predicted as "0 3":                         
+
+MV_LanceletGobbo		TGV_Speed		Tmp_Stephano		Tro_Thersites
+
+
+                         Actual "5" Predicted as "1 2":                         
+
+MND_Bottom		TNK_Daughter		WT_Shepherd
+
+
+                         Actual "5" Predicted as "4 6":                         
+
+TGV_Lance
+
+
+                          Actual "5" Predicted as "5":                          
+
+
+
+
