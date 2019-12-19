@@ -164,7 +164,7 @@ def greedy_optimize(results_csv, min_size, min_words, ovl_avg_f1_mcc='f1', conti
     groupings = tuple([(c,) for c in sorted(classes)])
     stages.append(groupings)
     while len(groupings) > min_size:
-        possibilities = generate_next_merges(groupings)
+        possibilities = generate_next_merges(groupings, contiguous)
         groupings = choose_best_grouping(master, possibilities, ovl_avg_f1_mcc, directory='s_VOAP_0-6_Group-Results/s_VOAP_0-6{0}_Group-Results/Greedy-{1}{2}/{3}-Groups{2}'.format(('' if min_words == 0 else '-min-{}'.format(min_words)), ovl_avg_f1_mcc, ('' if contiguous else '-Discontiguous'), len(groupings)))
         stages.append(groupings)
 
