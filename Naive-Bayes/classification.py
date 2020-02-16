@@ -67,8 +67,21 @@ def load_class_dict():
     return class_dict
 
 
-def load_char_list():
-    return sorted(load_class_dict())
+def load_char_list(filename=None, csv_or_json=None):
+    if filename:
+        if csv_or_json == 'csv' or filename[-4:] == '.csv':
+            char_set = set()
+            with open(filename, newline='') as csv_in:
+                reader = csv.DictReader(csv_in)
+                for row in reader:
+                    char_set.add(row['character'])
+            return sorted(char_set)
+        else:
+            with open(filename) as json_in:
+                char_dict = json.load(json_in)
+            return sorted(char_dict)
+    else:
+        return sorted(load_class_dict())
 
 
 def load_class_list(char_list, class_id):
@@ -447,7 +460,10 @@ def build_confusion_dictionary(in_csv='', in_json='', class_id='', twofold='', e
         print_help_string()
         quit()
 
-    all_chars = load_char_list()
+    if in_csv:
+        all_chars = load_char_list(in_csv, 'csv')
+    else:
+        all_chars = load_char_list(in_json, 'json')
     char_list = filter_char_list(all_chars, excluded_classes, excluded_chars, excluded_plays, min_words)
 
     if in_csv:
